@@ -1,0 +1,2 @@
+import type { Meta, StoryObj } from '@storybook/react-vite'; import { Button } from '../Button'; import { Tooltip } from './Tooltip';
+const meta = { title: 'Data Display/Tooltip', component: Tooltip, tags: ['autodocs'], args: { title: 'Helpful contextual information', children: <Button variant="secondary">Focus or hover</Button>, delay: 0 } } satisfies Meta<typeof Tooltip>; export default meta; type Story = StoryObj<typeof meta>; export const Default: Story = {};

@@ -1,0 +1,2 @@
+import type { Meta, StoryObj } from '@storybook/react-vite'; import { Tag } from './Tag';
+const meta = { title: 'Data Display/Tag', component: Tag, tags: ['autodocs'], args: { children: 'Featured', color: 'primary' } } satisfies Meta<typeof Tag>; export default meta; type Story = StoryObj<typeof meta>; export const Default: Story = {}; export const Closable: Story = { args: { closable: true } }; export const Success: Story = { args: { children: 'Published', color: 'success' } };

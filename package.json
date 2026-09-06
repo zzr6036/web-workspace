@@ -1,0 +1,9 @@
+{
+  "name": "moment-booth-workspace",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "packageManager": "pnpm@11.19.0"
+}

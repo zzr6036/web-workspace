@@ -1,0 +1,3 @@
+import type { HTMLAttributes, ReactNode } from 'react'; import { useUI } from '../../provider';
+export interface TagProps extends Omit<HTMLAttributes<HTMLSpanElement>, 'color'> { children: ReactNode; color?: 'default' | 'primary' | 'success' | 'warning' | 'danger'; closable?: boolean; onClose?: () => void; closeLabel?: string }
+export function Tag({ children, color = 'default', closable, onClose, closeLabel, className = '', ...props }: TagProps) { const { t } = useUI(); return <span className={`ui-tag ui-tag--${color}${className ? ` ${className}` : ''}`} {...props}>{children}{closable && <button type="button" aria-label={closeLabel ?? t('close')} onClick={onClose}>×</button>}</span>; }

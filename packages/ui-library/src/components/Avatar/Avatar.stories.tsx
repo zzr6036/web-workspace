@@ -1,0 +1,2 @@
+import type { Meta, StoryObj } from '@storybook/react-vite'; import { Avatar } from './Avatar';
+const meta = { title: 'Data Display/Avatar', component: Avatar, tags: ['autodocs'], args: { children: 'EJ' } } satisfies Meta<typeof Avatar>; export default meta; type Story = StoryObj<typeof meta>; export const Initials: Story = {}; export const Square: Story = { args: { shape: 'square', size: 'large' } };

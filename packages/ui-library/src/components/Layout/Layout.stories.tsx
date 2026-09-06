@@ -1,0 +1,2 @@
+import type { Meta, StoryObj } from '@storybook/react-vite'; import { Content, Footer, Header, Layout, Sider } from './Layout';
+const meta = { title: 'Layout/PageLayout', component: Layout, tags: ['autodocs'] } satisfies Meta<typeof Layout>; export default meta; type Story = StoryObj<typeof meta>; export const WithSider: Story = { args: { children: <><Header>Header</Header><Layout><Sider>Navigation</Sider><Content>Content</Content></Layout><Footer>Footer</Footer></> }, decorators: [(Story) => <div style={{ width: 720, height: 360 }}><Story /></div>] };

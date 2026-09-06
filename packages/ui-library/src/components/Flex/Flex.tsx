@@ -1,0 +1,3 @@
+import type { CSSProperties, HTMLAttributes, ReactNode } from 'react';
+export interface FlexProps extends HTMLAttributes<HTMLDivElement> { children: ReactNode; vertical?: boolean; gap?: number | string; align?: CSSProperties['alignItems']; justify?: CSSProperties['justifyContent']; wrap?: CSSProperties['flexWrap']; flex?: CSSProperties['flex'] }
+export function Flex({ children, vertical = false, gap, align, justify, wrap, flex, className = '', style, ...props }: FlexProps) { return <div className={`ui-flex${className ? ` ${className}` : ''}`} style={{ flexDirection: vertical ? 'column' : 'row', gap, alignItems: align, justifyContent: justify, flexWrap: wrap, flex, ...style }} {...props}>{children}</div>; }

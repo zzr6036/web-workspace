@@ -1,0 +1,2 @@
+import type { Meta, StoryObj } from '@storybook/react-vite'; import { Flex } from './Flex';
+const box = (text: string) => <div style={{ padding: 16, background: 'var(--ui-color-subtle)' }}>{text}</div>; const meta = { title: 'Layout/Flex', component: Flex, tags: ['autodocs'], args: { children: <>{box('One')}{box('Two')}{box('Three')}</>, gap: 12, justify: 'space-between' } } satisfies Meta<typeof Flex>; export default meta; type Story = StoryObj<typeof meta>; export const Default: Story = {};

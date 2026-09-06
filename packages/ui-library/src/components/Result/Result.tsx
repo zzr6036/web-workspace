@@ -1,0 +1,3 @@
+import type { ReactNode } from 'react';
+export interface ResultProps { status?: 'success' | 'info' | 'warning' | 'error'; title: ReactNode; description?: ReactNode; icon?: ReactNode; actions?: ReactNode; className?: string }
+export function Result({ status = 'info', title, description, icon, actions, className = '' }: ResultProps) { const symbols = { success: '✓', info: 'i', warning: '!', error: '×' }; return <section className={`ui-result ui-result--${status}${className ? ` ${className}` : ''}`}><div className="ui-result__icon" aria-hidden="true">{icon ?? symbols[status]}</div><h2>{title}</h2>{description && <p>{description}</p>}{actions && <div className="ui-result__actions">{actions}</div>}</section>; }

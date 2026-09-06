@@ -1,0 +1,3 @@
+import type { CSSProperties, HTMLAttributes, ReactNode } from 'react';
+export interface SpaceProps extends HTMLAttributes<HTMLDivElement> { children: ReactNode; direction?: 'horizontal' | 'vertical'; size?: 'small' | 'medium' | 'large' | number; wrap?: boolean; align?: CSSProperties['alignItems'] }
+export function Space({ children, direction = 'horizontal', size = 'medium', wrap = false, align = 'center', className = '', style, ...props }: SpaceProps) { const gap = typeof size === 'number' ? size : { small: 8, medium: 16, large: 24 }[size]; return <div className={`ui-space ui-space--${direction}${className ? ` ${className}` : ''}`} style={{ gap, flexWrap: wrap ? 'wrap' : 'nowrap', alignItems: align, ...style }} {...props}>{children}</div>; }

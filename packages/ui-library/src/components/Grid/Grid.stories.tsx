@@ -1,0 +1,2 @@
+import type { Meta, StoryObj } from '@storybook/react-vite'; import { Col, Row } from './Grid';
+const meta = { title: 'Layout/Grid', component: Row, tags: ['autodocs'] } satisfies Meta<typeof Row>; export default meta; type Story = StoryObj<typeof meta>; export const TwentyFourColumns: Story = { args: { children: <><Col span={8}><div className="demo-box">8</div></Col><Col span={8}><div className="demo-box">8</div></Col><Col span={8}><div className="demo-box">8</div></Col></>, gutter: 16 }, decorators: [(Story) => <div style={{ width: 700 }}><Story /></div>] };

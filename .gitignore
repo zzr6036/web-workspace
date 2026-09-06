@@ -1,0 +1,8 @@
+node_modules/
+.pnpm-store/
+dist/
+.next/
+.wrangler/
+.vinext/
+storybook-static/
+*.tsbuildinfo

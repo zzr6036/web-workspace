@@ -1,0 +1,2 @@
+import type { Meta, StoryObj } from '@storybook/react-vite'; import { Button } from '../Button'; import { Space } from './Space';
+const meta = { title: 'Layout/Space', component: Space, tags: ['autodocs'], args: { children: <><Button>Save</Button><Button variant="secondary">Cancel</Button></> } } satisfies Meta<typeof Space>; export default meta; type Story = StoryObj<typeof meta>; export const Horizontal: Story = {}; export const Vertical: Story = { args: { direction: 'vertical', align: 'stretch' } };

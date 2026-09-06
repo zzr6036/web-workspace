@@ -1,0 +1,2 @@
+import type { Meta, StoryObj } from '@storybook/react-vite'; import { Button } from '../Button'; import { Dropdown } from './Dropdown';
+const meta = { title: 'Navigation/Dropdown', component: Dropdown, tags: ['autodocs'], args: { trigger: <Button variant="secondary">Actions ▾</Button>, items: [{ key: 'edit', label: 'Edit' }, { key: 'duplicate', label: 'Duplicate' }, { key: 'delete', label: 'Delete', danger: true }] } } satisfies Meta<typeof Dropdown>; export default meta; type Story = StoryObj<typeof meta>; export const Default: Story = {};

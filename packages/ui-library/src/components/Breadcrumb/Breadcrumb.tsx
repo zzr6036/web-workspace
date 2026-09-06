@@ -1,0 +1,4 @@
+import type { ReactNode } from 'react'; import { useUI } from '../../provider';
+export interface BreadcrumbItem { label: ReactNode; href?: string }
+export interface BreadcrumbProps { items: BreadcrumbItem[]; separator?: ReactNode; ariaLabel?: string; className?: string }
+export function Breadcrumb({ items, separator = '/', ariaLabel, className = '' }: BreadcrumbProps) { const { t } = useUI(); return <nav aria-label={ariaLabel ?? t('breadcrumb')} className={`ui-breadcrumb${className ? ` ${className}` : ''}`}><ol>{items.map((item, index) => <li key={index}>{index > 0 && <span className="ui-breadcrumb__separator" aria-hidden="true">{separator}</span>}{index === items.length - 1 ? <span aria-current="page">{item.label}</span> : item.href ? <a href={item.href}>{item.label}</a> : <span>{item.label}</span>}</li>)}</ol></nav>; }

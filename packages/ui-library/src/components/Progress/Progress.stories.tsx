@@ -1,0 +1,2 @@
+import type { Meta, StoryObj } from '@storybook/react-vite'; import { Progress } from './Progress';
+const meta = { title: 'Feedback/Progress', component: Progress, tags: ['autodocs'], args: { percent: 68, label: 'Upload progress' } } satisfies Meta<typeof Progress>; export default meta; type Story = StoryObj<typeof meta>; export const Line: Story = { decorators: [(Story) => <div style={{ width: 360 }}><Story /></div>] }; export const Circle: Story = { args: { type: 'circle' } }; export const Success: Story = { args: { percent: 100, status: 'success' } };

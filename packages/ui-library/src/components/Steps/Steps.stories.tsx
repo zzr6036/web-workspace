@@ -1,0 +1,2 @@
+import type { Meta, StoryObj } from '@storybook/react-vite'; import { Steps } from './Steps';
+const items = [{ title: 'Details', description: 'Basic information' }, { title: 'Review', description: 'Confirm settings' }, { title: 'Complete', description: 'Finish setup' }]; const meta = { title: 'Navigation/Steps', component: Steps, tags: ['autodocs'], args: { items, current: 1 } } satisfies Meta<typeof Steps>; export default meta; type Story = StoryObj<typeof meta>; export const Horizontal: Story = {}; export const Vertical: Story = { args: { direction: 'vertical' } };
