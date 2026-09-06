@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "vinext dev",
     "dev:local": "vite --config vite.local.config.ts",
+    "prebuild": "pnpm --filter elij-ui-library build",
     "build": "vinext build",
     "start": "vinext start",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
