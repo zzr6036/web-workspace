@@ -1,9 +1,12 @@
+import { createRequire } from 'node:module';
 import { sites } from '@openai/sites-vite-plugin';
 import tailwindcss from '@tailwindcss/postcss';
 import { nitro } from 'nitro/vite';
 import vinext from 'vinext';
 import { defineConfig } from 'vite';
 import hostingConfig from './.openai/hosting.json';
+
+const require = createRequire(import.meta.url);
 
 const SITE_CREATOR_PLACEHOLDER_DATABASE_ID =
   '00000000-0000-4000-8000-000000000000';
@@ -48,7 +51,14 @@ export default defineConfig(async () => {
 
   return {
     css: { postcss: { plugins: [tailwindcss()] } },
-    resolve: { dedupe: ['react', 'react-dom'] },
+    resolve: {
+      dedupe: ['react', 'react-dom'],
+      // Nitro's build resolver needs absolute paths for these CSS package imports.
+      alias: [
+        { find: /^tailwindcss$/, replacement: require.resolve('tailwindcss/index.css') },
+        { find: /^elij-ui-library\/styles\.css$/, replacement: require.resolve('elij-ui-library/styles.css') },
+      ],
+    },
     server: isCodexSeatbeltSandbox
       ? { watch: { useFsEvents: false, usePolling: true } }
       : undefined,

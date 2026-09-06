@@ -49,3 +49,18 @@ The original `vinext start` command is available as
 build output and is separate from local development.
 
 Use the root `yarn.lock` for dependency installation; this workspace no longer uses pnpm.
+
+## Vercel deployment
+
+Set the Vercel project's Root Directory to `apps/moment-booth-fe` and enable
+including source files outside that directory so the shared workspace is available.
+The app's `vercel.json` overrides stale dashboard install/build commands with
+Corepack/Yarn, selects the Other framework preset, and uses Nitro's Build Output API
+artifacts in `.vercel/output`. Node is restricted to the 22.x line.
+
+Run `yarn test:vercel` from the repository root to build with `VERCEL=1`, verify
+the generated function responds with HTTP 200, and check compiled CSS.
+A plain `yarn build` does not exercise the Vercel-specific Nitro plugin branch.
+
+After pushing the fix, deploy the new commit; redeploying an older commit will
+continue using its old configuration.
