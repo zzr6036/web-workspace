@@ -1,5 +1,5 @@
-@import "tailwindcss";
-@import "elij-ui-library/styles.css";
+@import "../node_modules/tailwindcss/index.css";
+@import "../node_modules/elij-ui-library/dist/ui-library.css";
 
 :root {
   --bg: #f7f8fb;
