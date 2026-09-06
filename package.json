@@ -5,5 +5,16 @@
     "apps/*",
     "packages/*"
   ],
-  "packageManager": "pnpm@11.19.0"
+  "packageManager": "yarn@4.9.2",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "dev": "yarn workspace moment-booth-fe dev",
+    "start": "yarn workspace moment-booth-fe start",
+    "build": "yarn workspace moment-booth-fe build",
+    "lint": "yarn workspace moment-booth-fe lint",
+    "test": "yarn workspace moment-booth-fe test",
+    "test:startup": "node --test tests/startup.test.mjs"
+  }
 }

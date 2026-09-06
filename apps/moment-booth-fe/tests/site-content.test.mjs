@@ -100,11 +100,11 @@ test('shows real Moment Booth event cases in the gallery', () => {
   assert.match(gallerySection, /media:/);
   assert.match(gallerySection, /type: "video"/);
   assert.doesNotMatch(gallerySection, /event\.day|padStart/);
-  for (const day of ['day5', 'day6', 'day7', 'day8', 'day9', 'day10', 'day11']) assert.match(gallerySection, new RegExp(day));
+  for (const day of ['day5', 'day6', 'day7', 'day8', 'day9', 'day11']) assert.match(gallerySection, new RegExp(day));
   assert.match(gallerySection, /video3\.mp4/);
-  for (const title of ['Wedding keepsakes', 'Celebration details', 'Instant memories', 'Wedding day moments', 'Personalised guestbook', 'Playful guest portraits']) assert.match(gallerySection, new RegExp(title));
+  for (const title of ['Wedding keepsakes', 'Celebration details', 'Instant memories', 'Wedding day moments', 'Personalised guestbook', 'Family Day Celebration']) assert.match(gallerySection, new RegExp(title));
   assert.doesNotMatch(gallerySection, /cover|modern-scene|scene-one|scene-two|scene-three/);
-  assert.equal((gallerySection.match(/day\d+/g) ?? []).filter((day, index, all) => all.indexOf(day) === index).length, 7);
+  assert.equal((gallerySection.match(/day\d+/g) ?? []).filter((day, index, all) => all.indexOf(day) === index).length, 6);
   assert.match(styles, /\.gallery-section[\s\S]*width:\s*100%/);
   assert.match(styles, /\.gallery-cases[\s\S]*grid-template-columns:\s*repeat\(3/);
   assert.match(styles, /\.event-carousel-track[\s\S]*transition:\s*transform/);

@@ -6,13 +6,14 @@
     "node": ">=22.13.0"
   },
   "scripts": {
-    "dev": "vinext dev",
+    "dev": "yarn workspace elij-ui-library build && yarn dev:local",
     "dev:local": "vite --config vite.local.config.ts",
-    "prebuild": "pnpm --filter elij-ui-library build",
-    "build": "NITRO_PRESET=vercel vinext build",
-    "start": "vinext start",
-    "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
-    "test": "node --test tests/*.test.mjs"
+    "build": "yarn workspace elij-ui-library build && NITRO_PRESET=vercel vinext build",
+    "start": "yarn dev",
+    "lint": "eslint . --ignore-pattern dist --ignore-pattern .next --ignore-pattern .vercel --ignore-pattern .vinext --ignore-pattern .wrangler",
+    "test": "node --test tests/*.test.mjs",
+    "dev:cloudflare": "vinext dev",
+    "start:production": "vinext start"
   },
   "dependencies": {
     "elij-ui-library": "workspace:*",
@@ -39,6 +40,7 @@
     "typescript": "5.9.3",
     "vinext": "1.0.0-beta.3",
     "vite": "8.0.13",
+    "webpack": "^5.0.0",
     "wrangler": "4.92.0"
   },
   "type": "module"

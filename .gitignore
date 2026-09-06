@@ -6,3 +6,5 @@ dist/
 .vinext/
 storybook-static/
 *.tsbuildinfo
+
+.yarn/
