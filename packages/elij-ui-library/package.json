@@ -13,7 +13,8 @@
     "access": "public"
   },
   "files": [
-    "dist"
+    "dist",
+    "registry"
   ],
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -24,7 +25,9 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
-    "./styles.css": "./dist/ui-library.css"
+    "./styles.css": "./dist/ui-library.css",
+    "./registry": "./registry/components.json",
+    "./registry/schema": "./registry/schema.json"
   },
   "scripts": {
     "dev": "storybook dev -p 6006",

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://elij-ui-library.dev/registry/components.schema.json",
+  "title": "Elij UI component registry",
+  "type": "object",
+  "required": ["schemaVersion", "package", "version", "components"],
+  "properties": {
+    "schemaVersion": { "type": "integer", "const": 1 },
+    "package": { "type": "string" },
+    "version": { "type": "string" },
+    "description": { "type": "string" },
+    "components": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "kind", "category", "description", "import", "story", "props"],
+        "properties": {
+          "name": { "type": "string" },
+          "kind": { "enum": ["component", "icon", "provider"] },
+          "category": { "type": "string" },
+          "description": { "type": "string" },
+          "import": { "type": "string" },
+          "story": { "type": "string" },
+          "props": { "type": "array", "items": { "type": "string" } }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
+
