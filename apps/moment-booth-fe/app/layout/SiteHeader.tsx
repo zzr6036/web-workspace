@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { MessageCircle } from "lucide-react";
 import { whatsappHref } from "../lib/contact";
+import { TrackedWhatsAppLink } from "../component/TrackedWhatsApp";
 
 export default function SiteHeader() {
   return (
@@ -20,7 +21,8 @@ export default function SiteHeader() {
         <a href="#packages">Packages</a>
         <a href="#faq">FAQ</a>
       </nav>
-      <a
+      <TrackedWhatsAppLink
+        location="header"
         className="header-cta"
         href={whatsappHref}
         target="_blank"
@@ -28,7 +30,7 @@ export default function SiteHeader() {
       >
         <MessageCircle size={15} aria-hidden="true" /> Get a quote
         <span>↗</span>
-      </a>
+      </TrackedWhatsAppLink>
     </header>
   );
 }

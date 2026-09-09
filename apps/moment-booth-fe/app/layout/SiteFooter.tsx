@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { whatsappHref } from '../lib/contact';
+import { TrackedWhatsAppLink } from '../component/TrackedWhatsApp';
 
 export default function SiteFooter() {
   return (
@@ -12,7 +13,7 @@ export default function SiteFooter() {
       <div>
         <a href="#gallery">Gallery</a>
         <a href="#packages">Packages</a>
-        <a href={whatsappHref} target="_blank" rel="noreferrer"><span className="whatsapp-icon" aria-hidden="true">◉</span> WhatsApp</a>
+        <TrackedWhatsAppLink location="footer" href={whatsappHref} target="_blank" rel="noreferrer"><span className="whatsapp-icon" aria-hidden="true">◉</span> WhatsApp</TrackedWhatsAppLink>
       </div>
       <small>© {new Date().getFullYear()} Moment Booth · Singapore</small>
     </footer>

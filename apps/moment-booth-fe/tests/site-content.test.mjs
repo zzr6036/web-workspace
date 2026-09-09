@@ -51,9 +51,9 @@ test('organises reusable non-Elij components in the common layer', () => {
   assert.match(librarySection, /SectionHeading.*from ["']elij-ui-library["']/s);
   assert.match(librarySection, /<FilterTabs/g);
   assert.match(gallerySection, /EventCarousel/);
-  assert.match(heroSection, /<WhatsAppButton/);
-  assert.match(heroSection, /WhatsAppButton.*from ["']elij-ui-library["']/s);
-  assert.match(contactSection, /WhatsAppButton.*from ["']elij-ui-library["']/s);
+  assert.match(heroSection, /<TrackedWhatsAppButton/);
+  assert.match(componentSource, /WhatsAppButton.*from ["']elij-ui-library["']/s);
+  assert.match(contactSection, /TrackedWhatsAppButton/);
   assert.match(contactSource, /wa\.me/);
   assert.match(componentSource, /<WhatsAppButton/);
   assert.match(siteSource, /<SectionHeading/);
@@ -247,4 +247,14 @@ test('routes enquiries to WhatsApp with consistent icons', () => {
   assert.match(heroSection, /WhatsAppButton/);
   assert.match(styles, /\.whatsapp-enquire-button\.ui-button--primary[\s\S]*background:\s*var\(--purple\)/);
   assert.match(styles, /\.contact-section \.ui-button--primary:hover:not\(:disabled\)[\s\S]*background:\s*#d9dee7/);
+});
+
+test('tracks production WhatsApp conversion locations', () => {
+  const trackingSource = [componentSource, layoutSource].join('\n');
+  assert.match(layoutEntry, /Analytics.*from ['"]@vercel\/analytics\/next['"]/);
+  assert.match(layoutEntry, /<Analytics \/>/);
+  assert.match(componentSource, /track\("whatsapp_click"/);
+  for (const location of ['header', 'hero', 'contact', 'floating', 'footer']) {
+    assert.ok(trackingSource.includes('location="' + location + '"'));
+  }
 });

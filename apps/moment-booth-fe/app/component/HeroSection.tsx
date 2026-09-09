@@ -1,6 +1,7 @@
 import Image from "next/image";
-import { Button, WhatsAppButton } from "elij-ui-library";
+import { Button } from "elij-ui-library";
 import { whatsappHref } from "../lib/contact";
+import { TrackedWhatsAppButton } from "./TrackedWhatsApp";
 import {
   Camera,
   HandHeart,
@@ -80,7 +81,8 @@ export default function HeroSection() {
           </span>
         </div>
         <div className="hero-actions">
-          <WhatsAppButton
+          <TrackedWhatsAppButton
+            location="hero"
             href={whatsappHref}
             className="whatsapp-enquire-button"
             size="large"
@@ -95,7 +97,7 @@ export default function HeroSection() {
             }
           >
             Enquire
-          </WhatsAppButton>
+          </TrackedWhatsAppButton>
           <a href="#gallery">
             <Button variant="secondary" size="large">
               Explore moments

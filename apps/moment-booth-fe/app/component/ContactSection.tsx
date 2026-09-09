@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { WhatsAppButton } from "elij-ui-library";
 import { whatsappHref } from "../lib/contact";
+import { TrackedWhatsAppButton } from "./TrackedWhatsApp";
 
 export default function ContactSection() {
   return (
@@ -15,7 +15,7 @@ export default function ContactSection() {
         Weekend and peak-season slots fill up quickly. Contact us for
         availability, customised packages, and an instant quotation.
       </p>
-      <WhatsAppButton href={whatsappHref} icon={<Image src="/icons/whatsapp.png" alt="" width={20} height={20} aria-hidden="true" />}>WhatsApp enquire</WhatsAppButton>
+      <TrackedWhatsAppButton location="contact" href={whatsappHref} icon={<Image src="/icons/whatsapp.png" alt="" width={20} height={20} aria-hidden="true" />}>WhatsApp enquire</TrackedWhatsAppButton>
     </section>
   );
 }

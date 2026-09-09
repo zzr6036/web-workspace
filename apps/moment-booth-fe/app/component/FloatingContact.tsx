@@ -1,9 +1,11 @@
 import Image from "next/image";
 import { whatsappHref } from "../lib/contact";
+import { TrackedWhatsAppLink } from "./TrackedWhatsApp";
 
 export default function FloatingContact() {
   return (
-    <a
+    <TrackedWhatsAppLink
+      location="floating"
       className="floating-contact-image"
       href={whatsappHref}
       target="_blank"
@@ -11,6 +13,6 @@ export default function FloatingContact() {
       aria-label="Contact Moment Booth on WhatsApp"
     >
       <Image src="/icons/whatsapp.png" alt="" width={72} height={72} aria-hidden="true" />
-    </a>
+    </TrackedWhatsAppLink>
   );
 }
