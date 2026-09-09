@@ -6,6 +6,8 @@ const readAppFile = (path) => readFile(new URL(`../app/${path}`, import.meta.url
 const pageEntry = await readAppFile('page.tsx');
 const homePage = await readAppFile('page/HomePage.tsx');
 const layoutEntry = await readAppFile('layout.tsx');
+const robotsEntry = await readAppFile('robots.ts');
+const sitemapEntry = await readAppFile('sitemap.ts');
 const styles = await readAppFile('globals.css');
 const packagesSection = await readAppFile('component/PackagesSection.tsx');
 const heroSection = await readAppFile('component/HeroSection.tsx');
@@ -217,8 +219,15 @@ test('continues to use Elij UI and the supplied logo', () => {
 test('provides site-specific metadata', () => {
   assert.match(layoutEntry, /Moment Booth \| Capture Every Smile\. Print Every Memory/);
   assert.match(layoutEntry, /photobooth experiences/i);
+  assert.match(layoutEntry, /metadataBase: new URL\('https:\/\/momentboothsg\.com'\)/);
   assert.match(layoutEntry, /icons:[\s\S]*\/moment-booth-logo\.png/);
   assert.match(layoutEntry, /\/og\.png/);
+});
+
+test('publishes production SEO routes', () => {
+  assert.match(robotsEntry, /allow: ['"]\/['"]/);
+  assert.match(robotsEntry, /https:\/\/momentboothsg\.com\/sitemap\.xml/);
+  assert.match(sitemapEntry, /https:\/\/momentboothsg\.com\//);
 });
 
 test('routes enquiries to WhatsApp with consistent icons', () => {

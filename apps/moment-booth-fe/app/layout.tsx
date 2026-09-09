@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://moment-booth.snowy-dog-2665.chatgpt.site'),
+  metadataBase: new URL('https://momentboothsg.com'),
   title: 'Moment Booth | Capture Every Smile. Print Every Memory',
   description: 'Relaxed, beautifully designed photobooth experiences for weddings, birthdays, and celebrations across Singapore.',
   icons: {
