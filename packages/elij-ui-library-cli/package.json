@@ -12,11 +12,11 @@
   ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "test": "node --test",
+    "test": "yarn build && node --test test/cli.test.mjs",
     "lint": "eslint ."
   },
   "dependencies": {
-    "elij-ui-library": "^0.2.0"
+    "elij-ui-library": "^0.2.1"
   },
   "devDependencies": {
     "@types/node": "^22.18.0",

@@ -4842,7 +4842,7 @@ __metadata:
   resolution: "elij-ui-library-cli@workspace:packages/elij-ui-library-cli"
   dependencies:
     "@types/node": "npm:^22.18.0"
-    elij-ui-library: "npm:^0.2.0"
+    elij-ui-library: "npm:^0.2.1"
     typescript: "npm:^5.8.3"
   bin:
     elij-ui: ./dist/index.js
@@ -4862,16 +4862,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"elij-ui-library@npm:^0.2.0":
-  version: 0.2.0
-  resolution: "elij-ui-library@npm:0.2.0"
+"elij-ui-library@npm:^0.2.1":
+  version: 0.2.1
+  resolution: "elij-ui-library@npm:0.2.1"
   dependencies:
     react-is: "npm:^19.2.6"
     recharts: "npm:^3.10.1"
   peerDependencies:
     react: ">=18 <20"
     react-dom: ">=18 <20"
-  checksum: 10c0/d1dbf613f1d14f90edfaa01b0f8170cb43dc661f2e5d37cd9bf1a8bc9a2d2e630bcc6e248a41c5177200c9d4dc9f5b0672d86c8df976e4effd0ebd22f10699ac
+  checksum: 10c0/482acf98a3672fce9a706ddde077cc3551faab363f8ceb58e4868055d3f8717879c1d8e49b1e608317adc10d7cb220bfa1fb35a5a8e0589dfd3ac59f6197f19c
   languageName: node
   linkType: hard
 
