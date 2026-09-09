@@ -4837,6 +4837,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"elij-ui-library-cli@workspace:packages/elij-ui-library-cli":
+  version: 0.0.0-use.local
+  resolution: "elij-ui-library-cli@workspace:packages/elij-ui-library-cli"
+  dependencies:
+    "@types/node": "npm:^22.18.0"
+    elij-ui-library: "npm:^0.2.0"
+    typescript: "npm:^5.8.3"
+  bin:
+    elij-ui: ./dist/index.js
+  languageName: unknown
+  linkType: soft
+
 "elij-ui-library@npm:^0.1.0":
   version: 0.1.0
   resolution: "elij-ui-library@npm:0.1.0"
@@ -4847,6 +4859,19 @@ __metadata:
     react: ">=18 <20"
     react-dom: ">=18 <20"
   checksum: 10c0/910999cf03739407fc831d24627f97bb4583d1ba6ad3467c5ab16bc37f2a922d698613ab6795b7371e37b7df7cb124df2e4981a1a14ca09fa7fe013a2cdf52e2
+  languageName: node
+  linkType: hard
+
+"elij-ui-library@npm:^0.2.0":
+  version: 0.2.0
+  resolution: "elij-ui-library@npm:0.2.0"
+  dependencies:
+    react-is: "npm:^19.2.6"
+    recharts: "npm:^3.10.1"
+  peerDependencies:
+    react: ">=18 <20"
+    react-dom: ">=18 <20"
+  checksum: 10c0/d1dbf613f1d14f90edfaa01b0f8170cb43dc661f2e5d37cd9bf1a8bc9a2d2e630bcc6e248a41c5177200c9d4dc9f5b0672d86c8df976e4effd0ebd22f10699ac
   languageName: node
   linkType: hard
 
@@ -9628,7 +9653,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:5.9.3":
+"typescript@npm:5.9.3, typescript@npm:^5.8.3":
   version: 5.9.3
   resolution: "typescript@npm:5.9.3"
   bin:
@@ -9648,7 +9673,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.8.3#optional!builtin<compat/typescript>":
   version: 5.9.3
   resolution: "typescript@patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"
   bin:

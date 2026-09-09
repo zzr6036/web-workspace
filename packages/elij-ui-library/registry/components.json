@@ -1,63 +1,494 @@
 {
   "schemaVersion": 1,
   "package": "elij-ui-library",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Public component metadata for Elij UI tooling, Storybook, CLI, and MCP.",
   "components": [
-    { "name": "ActionLinkButton", "kind": "component", "category": "actions", "description": "A styled action link that combines navigation with button treatments.", "import": "ActionLinkButton", "story": "ActionLinkButton/Default", "props": ["href", "children", "icon", "size", "variant"] },
-    { "name": "Alert", "kind": "component", "category": "feedback", "description": "Dismissible status message with semantic alert or status roles.", "import": "Alert", "story": "Alert/Info", "props": ["children", "title", "variant", "onDismiss"] },
-    { "name": "AreaChart", "kind": "component", "category": "charts", "description": "Responsive area chart with shared chart controls.", "import": "AreaChart", "story": "Charts/Area", "props": ["data", "series", "xKey", "height", "loading"] },
-    { "name": "Avatar", "kind": "component", "category": "data-display", "description": "Image or fallback avatar with configurable size and shape.", "import": "Avatar", "story": "Avatar/Default", "props": ["src", "alt", "children", "size", "shape"] },
-    { "name": "Badge", "kind": "component", "category": "data-display", "description": "Compact status or label badge.", "import": "Badge", "story": "Badge/Default", "props": ["children", "variant"] },
-    { "name": "BarChart", "kind": "component", "category": "charts", "description": "Responsive vertical bar chart.", "import": "BarChart", "story": "Charts/Bar", "props": ["data", "series", "xKey", "height", "loading"] },
-    { "name": "Breadcrumb", "kind": "component", "category": "navigation", "description": "Accessible breadcrumb navigation.", "import": "Breadcrumb", "story": "Breadcrumb/Default", "props": ["items", "separator", "ariaLabel"] },
-    { "name": "Button", "kind": "component", "category": "actions", "description": "Accessible button with primary, secondary, and ghost variants.", "import": "Button", "story": "Button/Default", "props": ["children", "variant", "size", "fullWidth", "disabled"] },
-    { "name": "Card", "kind": "component", "category": "data-display", "description": "Surface container for grouped content.", "import": "Card", "story": "Card/Default", "props": ["children", "interactive", "className"] },
-    { "name": "CardHeader", "kind": "component", "category": "data-display", "description": "Header region for a Card.", "import": "CardHeader", "story": "Card/Composition", "props": ["children"] },
-    { "name": "CardBody", "kind": "component", "category": "data-display", "description": "Body region for a Card.", "import": "CardBody", "story": "Card/Composition", "props": ["children"] },
-    { "name": "CardFooter", "kind": "component", "category": "data-display", "description": "Footer region for a Card.", "import": "CardFooter", "story": "Card/Composition", "props": ["children"] },
-    { "name": "Checkbox", "kind": "component", "category": "forms", "description": "Native checkbox with an optional visible label.", "import": "Checkbox", "story": "Checkbox/Default", "props": ["label", "indeterminate", "disabled"] },
-    { "name": "Dialog", "kind": "component", "category": "overlay", "description": "Modal dialog with focus management and escape handling.", "import": "Dialog", "story": "Dialog/Default", "props": ["open", "onOpenChange", "title", "description", "children"] },
-    { "name": "Divider", "kind": "component", "category": "layout", "description": "Horizontal or vertical content divider.", "import": "Divider", "story": "Divider/Default", "props": ["orientation", "label"] },
-    { "name": "DonutChart", "kind": "component", "category": "charts", "description": "Responsive donut chart.", "import": "DonutChart", "story": "Charts/Donut", "props": ["data", "nameKey", "valueKey", "height"] },
-    { "name": "Drawer", "kind": "component", "category": "overlay", "description": "Focus-managed sliding panel.", "import": "Drawer", "story": "Drawer/Default", "props": ["open", "onOpenChange", "title", "placement", "width"] },
-    { "name": "Dropdown", "kind": "component", "category": "navigation", "description": "Dismissible menu anchored to a trigger.", "import": "Dropdown", "story": "Dropdown/Default", "props": ["trigger", "items", "open", "onOpenChange", "onSelect"] },
-    { "name": "DualAxisChart", "kind": "component", "category": "charts", "description": "Combination chart with optional second value axis.", "import": "DualAxisChart", "story": "Charts/Dual Axis", "props": ["data", "barSeries", "lineSeries", "xKey", "dualAxis"] },
-    { "name": "Empty", "kind": "component", "category": "feedback", "description": "Empty state with optional image and action content.", "import": "Empty", "story": "Empty/Default", "props": ["description", "image", "children", "compact"] },
-    { "name": "EventCarousel", "kind": "component", "category": "content", "description": "Responsive image and video carousel for event media.", "import": "EventCarousel", "story": "EventCarousel/Default", "props": ["title", "description", "media", "className"] },
-    { "name": "FilterTabs", "kind": "component", "category": "navigation", "description": "Compact filter controls for switching a visible dataset.", "import": "FilterTabs", "story": "FilterTabs/Default", "props": ["items", "activeKey", "onChange", "ariaLabel"] },
-    { "name": "Flex", "kind": "component", "category": "layout", "description": "Token-friendly flex layout primitive.", "import": "Flex", "story": "Flex/Default", "props": ["children", "vertical", "gap", "align", "justify", "wrap"] },
-    { "name": "GroupedBarChart", "kind": "component", "category": "charts", "description": "Grouped responsive bar chart.", "import": "GroupedBarChart", "story": "Charts/Grouped Bar", "props": ["data", "series", "xKey", "height"] },
-    { "name": "HorizontalBarChart", "kind": "component", "category": "charts", "description": "Responsive horizontal bar chart.", "import": "HorizontalBarChart", "story": "Charts/Horizontal Bar", "props": ["data", "series", "xKey", "height"] },
-    { "name": "Input", "kind": "component", "category": "forms", "description": "Labeled text input with helper and error semantics.", "import": "Input", "story": "Input/Default", "props": ["label", "helperText", "error", "errorMessage", "fullWidth"] },
-    { "name": "LineChart", "kind": "component", "category": "charts", "description": "Responsive line chart.", "import": "LineChart", "story": "Charts/Line", "props": ["data", "series", "xKey", "height", "loading"] },
-    { "name": "Link", "kind": "component", "category": "typography", "description": "Styled inline or standalone link.", "import": "Link", "story": "Typography/Link", "props": ["children", "href"] },
-    { "name": "Menu", "kind": "component", "category": "navigation", "description": "Keyboard-navigable menu items.", "import": "Menu", "story": "Menu/Default", "props": ["items", "orientation", "onSelect"] },
-    { "name": "Pagination", "kind": "component", "category": "navigation", "description": "Accessible page navigation control.", "import": "Pagination", "story": "Pagination/Default", "props": ["current", "total", "pageSize", "onChange"] },
-    { "name": "Paragraph", "kind": "component", "category": "typography", "description": "Styled paragraph text primitive.", "import": "Paragraph", "story": "Typography/Paragraph", "props": ["children"] },
-    { "name": "PieChart", "kind": "component", "category": "charts", "description": "Responsive pie chart.", "import": "PieChart", "story": "Charts/Pie", "props": ["data", "nameKey", "valueKey", "height"] },
-    { "name": "Progress", "kind": "component", "category": "feedback", "description": "Line or circular progress indicator.", "import": "Progress", "story": "Progress/Default", "props": ["percent", "type", "status", "showInfo", "label"] },
-    { "name": "RadioGroup", "kind": "component", "category": "forms", "description": "Accessible radio option group.", "import": "RadioGroup", "story": "RadioGroup/Default", "props": ["name", "label", "options", "value", "onValueChange"] },
-    { "name": "Result", "kind": "component", "category": "feedback", "description": "Outcome or status panel with optional actions.", "import": "Result", "story": "Result/Success", "props": ["status", "title", "description", "actions"] },
-    { "name": "SectionHeading", "kind": "component", "category": "content", "description": "Consistent eyebrow, heading, and description block.", "import": "SectionHeading", "story": "SectionHeading/Default", "props": ["eyebrow", "title", "description"] },
-    { "name": "Select", "kind": "component", "category": "forms", "description": "Labeled native select with helper and error semantics.", "import": "Select", "story": "Select/Default", "props": ["label", "options", "placeholder", "error", "fullWidth"] },
-    { "name": "Skeleton", "kind": "component", "category": "feedback", "description": "Loading placeholder for content surfaces.", "import": "Skeleton", "story": "Skeleton/Default", "props": ["variant", "width", "height", "animated"] },
-    { "name": "Space", "kind": "component", "category": "layout", "description": "Consistent spacing primitive for inline or stacked content.", "import": "Space", "story": "Space/Default", "props": ["children", "direction", "size", "wrap", "align"] },
-    { "name": "Spinner", "kind": "component", "category": "feedback", "description": "Loading status indicator.", "import": "Spinner", "story": "Spinner/Default", "props": ["size", "label"] },
-    { "name": "StackedBarChart", "kind": "component", "category": "charts", "description": "Stacked responsive bar chart.", "import": "StackedBarChart", "story": "Charts/Stacked Bar", "props": ["data", "series", "xKey", "height"] },
-    { "name": "StackedBarLineChart", "kind": "component", "category": "charts", "description": "Combined stacked bar and line chart.", "import": "StackedBarLineChart", "story": "Charts/Stacked Bar Line", "props": ["data", "barSeries", "lineSeries", "xKey"] },
-    { "name": "Steps", "kind": "component", "category": "navigation", "description": "Progressive step navigation with statuses.", "import": "Steps", "story": "Steps/Default", "props": ["items", "current", "onChange", "direction"] },
-    { "name": "Switch", "kind": "component", "category": "forms", "description": "Accessible on/off switch control.", "import": "Switch", "story": "Switch/Default", "props": ["checked", "defaultChecked", "onCheckedChange", "label"] },
-    { "name": "Table", "kind": "component", "category": "data-display", "description": "Typed data table with empty state support.", "import": "Table", "story": "Table/Default", "props": ["columns", "data", "rowKey", "caption"] },
-    { "name": "Tabs", "kind": "component", "category": "navigation", "description": "Keyboard-navigable content tabs.", "import": "Tabs", "story": "Tabs/Default", "props": ["items", "activeKey", "onChange", "orientation"] },
-    { "name": "Tag", "kind": "component", "category": "data-display", "description": "Compact label that can optionally be dismissed.", "import": "Tag", "story": "Tag/Default", "props": ["children", "color", "closable", "onClose"] },
-    { "name": "Text", "kind": "component", "category": "typography", "description": "Styled inline text primitive.", "import": "Text", "story": "Typography/Text", "props": ["children", "tone", "strong", "code"] },
-    { "name": "Textarea", "kind": "component", "category": "forms", "description": "Labeled multiline input with helper and error semantics.", "import": "Textarea", "story": "Textarea/Default", "props": ["label", "helperText", "error", "errorMessage", "fullWidth"] },
-    { "name": "Title", "kind": "component", "category": "typography", "description": "Semantic heading primitive.", "import": "Title", "story": "Typography/Title", "props": ["level", "children"] },
-    { "name": "Tooltip", "kind": "component", "category": "feedback", "description": "Accessible hover and focus tooltip.", "import": "Tooltip", "story": "Tooltip/Default", "props": ["title", "children", "placement", "delay"] },
-    { "name": "UIProvider", "kind": "provider", "category": "foundation", "description": "Locale, message, theme, and color-scheme provider.", "import": "UIProvider", "story": "UIProvider/Themes", "props": ["children", "locale", "messages", "theme"] },
-    { "name": "WhatsAppButton", "kind": "component", "category": "actions", "description": "Link-styled CTA with WhatsApp-friendly defaults.", "import": "WhatsAppButton", "story": "WhatsAppButton/Default", "props": ["href", "children", "icon", "size", "variant"] },
-    { "name": "WhatsAppIcon", "kind": "icon", "category": "icons", "description": "Brand-safe inline WhatsApp SVG icon.", "import": "WhatsAppIcon", "story": "WhatsAppIcon/Default", "props": ["size", "title"] }
+    {
+      "name": "ActionLinkButton",
+      "kind": "component",
+      "category": "actions",
+      "description": "A styled action link that combines navigation with button treatments.",
+      "import": "ActionLinkButton",
+      "story": "ActionLinkButton/Default",
+      "props": ["href", "children", "icon", "size", "variant"]
+    },
+    {
+      "name": "Alert",
+      "kind": "component",
+      "category": "feedback",
+      "description": "Dismissible status message with semantic alert or status roles.",
+      "import": "Alert",
+      "story": "Alert/Info",
+      "props": ["children", "title", "variant", "onDismiss"]
+    },
+    {
+      "name": "AreaChart",
+      "kind": "component",
+      "category": "charts",
+      "description": "Responsive area chart with shared chart controls.",
+      "import": "AreaChart",
+      "story": "Charts/Area",
+      "props": ["data", "series", "xKey", "height", "loading"]
+    },
+    {
+      "name": "Avatar",
+      "kind": "component",
+      "category": "data-display",
+      "description": "Image or fallback avatar with configurable size and shape.",
+      "import": "Avatar",
+      "story": "Avatar/Default",
+      "props": ["src", "alt", "children", "size", "shape"]
+    },
+    {
+      "name": "Badge",
+      "kind": "component",
+      "category": "data-display",
+      "description": "Compact status or label badge.",
+      "import": "Badge",
+      "story": "Badge/Default",
+      "props": ["children", "variant"]
+    },
+    {
+      "name": "BarChart",
+      "kind": "component",
+      "category": "charts",
+      "description": "Responsive vertical bar chart.",
+      "import": "BarChart",
+      "story": "Charts/Bar",
+      "props": ["data", "series", "xKey", "height", "loading"]
+    },
+    {
+      "name": "Breadcrumb",
+      "kind": "component",
+      "category": "navigation",
+      "description": "Accessible breadcrumb navigation.",
+      "import": "Breadcrumb",
+      "story": "Breadcrumb/Default",
+      "props": ["items", "separator", "ariaLabel"]
+    },
+    {
+      "name": "Button",
+      "kind": "component",
+      "category": "actions",
+      "description": "Accessible button with primary, secondary, and ghost variants.",
+      "import": "Button",
+      "story": "Button/Default",
+      "props": ["children", "variant", "size", "fullWidth", "disabled"]
+    },
+    {
+      "name": "Card",
+      "kind": "component",
+      "category": "data-display",
+      "description": "Surface container for grouped content.",
+      "import": "Card",
+      "story": "Card/Default",
+      "props": ["children", "interactive", "className"]
+    },
+    {
+      "name": "CardHeader",
+      "kind": "component",
+      "category": "data-display",
+      "description": "Header region for a Card.",
+      "import": "CardHeader",
+      "story": "Card/Composition",
+      "props": ["children"]
+    },
+    {
+      "name": "CardBody",
+      "kind": "component",
+      "category": "data-display",
+      "description": "Body region for a Card.",
+      "import": "CardBody",
+      "story": "Card/Composition",
+      "props": ["children"]
+    },
+    {
+      "name": "CardFooter",
+      "kind": "component",
+      "category": "data-display",
+      "description": "Footer region for a Card.",
+      "import": "CardFooter",
+      "story": "Card/Composition",
+      "props": ["children"]
+    },
+    {
+      "name": "Checkbox",
+      "kind": "component",
+      "category": "forms",
+      "description": "Native checkbox with an optional visible label.",
+      "import": "Checkbox",
+      "story": "Checkbox/Default",
+      "props": ["label", "indeterminate", "disabled"]
+    },
+    {
+      "name": "Dialog",
+      "kind": "component",
+      "category": "overlay",
+      "description": "Modal dialog with focus management and escape handling.",
+      "import": "Dialog",
+      "story": "Dialog/Default",
+      "props": ["open", "onOpenChange", "title", "description", "children"]
+    },
+    {
+      "name": "Divider",
+      "kind": "component",
+      "category": "layout",
+      "description": "Horizontal or vertical content divider.",
+      "import": "Divider",
+      "story": "Divider/Default",
+      "props": ["orientation", "label"]
+    },
+    {
+      "name": "DonutChart",
+      "kind": "component",
+      "category": "charts",
+      "description": "Responsive donut chart.",
+      "import": "DonutChart",
+      "story": "Charts/Donut",
+      "props": ["data", "nameKey", "valueKey", "height"]
+    },
+    {
+      "name": "Drawer",
+      "kind": "component",
+      "category": "overlay",
+      "description": "Focus-managed sliding panel.",
+      "import": "Drawer",
+      "story": "Drawer/Default",
+      "props": ["open", "onOpenChange", "title", "placement", "width"]
+    },
+    {
+      "name": "Dropdown",
+      "kind": "component",
+      "category": "navigation",
+      "description": "Dismissible menu anchored to a trigger.",
+      "import": "Dropdown",
+      "story": "Dropdown/Default",
+      "props": ["trigger", "items", "open", "onOpenChange", "onSelect"]
+    },
+    {
+      "name": "DualAxisChart",
+      "kind": "component",
+      "category": "charts",
+      "description": "Combination chart with optional second value axis.",
+      "import": "DualAxisChart",
+      "story": "Charts/Dual Axis",
+      "props": ["data", "barSeries", "lineSeries", "xKey", "dualAxis"]
+    },
+    {
+      "name": "Empty",
+      "kind": "component",
+      "category": "feedback",
+      "description": "Empty state with optional image and action content.",
+      "import": "Empty",
+      "story": "Empty/Default",
+      "props": ["description", "image", "children", "compact"]
+    },
+    {
+      "name": "EventCarousel",
+      "kind": "component",
+      "category": "content",
+      "description": "Responsive image and video carousel for event media.",
+      "import": "EventCarousel",
+      "story": "EventCarousel/Default",
+      "props": ["title", "description", "media", "className"]
+    },
+    {
+      "name": "FilterTabs",
+      "kind": "component",
+      "category": "navigation",
+      "description": "Compact filter controls for switching a visible dataset.",
+      "import": "FilterTabs",
+      "story": "FilterTabs/Default",
+      "props": ["items", "activeKey", "onChange", "ariaLabel"]
+    },
+    {
+      "name": "Flex",
+      "kind": "component",
+      "category": "layout",
+      "description": "Token-friendly flex layout primitive.",
+      "import": "Flex",
+      "story": "Flex/Default",
+      "props": ["children", "vertical", "gap", "align", "justify", "wrap"]
+    },
+    {
+      "name": "GroupedBarChart",
+      "kind": "component",
+      "category": "charts",
+      "description": "Grouped responsive bar chart.",
+      "import": "GroupedBarChart",
+      "story": "Charts/Grouped Bar",
+      "props": ["data", "series", "xKey", "height"]
+    },
+    {
+      "name": "HorizontalBarChart",
+      "kind": "component",
+      "category": "charts",
+      "description": "Responsive horizontal bar chart.",
+      "import": "HorizontalBarChart",
+      "story": "Charts/Horizontal Bar",
+      "props": ["data", "series", "xKey", "height"]
+    },
+    {
+      "name": "Input",
+      "kind": "component",
+      "category": "forms",
+      "description": "Labeled text input with helper and error semantics.",
+      "import": "Input",
+      "story": "Input/Default",
+      "props": ["label", "helperText", "error", "errorMessage", "fullWidth"]
+    },
+    {
+      "name": "LineChart",
+      "kind": "component",
+      "category": "charts",
+      "description": "Responsive line chart.",
+      "import": "LineChart",
+      "story": "Charts/Line",
+      "props": ["data", "series", "xKey", "height", "loading"]
+    },
+    {
+      "name": "Link",
+      "kind": "component",
+      "category": "typography",
+      "description": "Styled inline or standalone link.",
+      "import": "Link",
+      "story": "Typography/Link",
+      "props": ["children", "href"]
+    },
+    {
+      "name": "Menu",
+      "kind": "component",
+      "category": "navigation",
+      "description": "Keyboard-navigable menu items.",
+      "import": "Menu",
+      "story": "Menu/Default",
+      "props": ["items", "orientation", "onSelect"]
+    },
+    {
+      "name": "Pagination",
+      "kind": "component",
+      "category": "navigation",
+      "description": "Accessible page navigation control.",
+      "import": "Pagination",
+      "story": "Pagination/Default",
+      "props": ["current", "total", "pageSize", "onChange"]
+    },
+    {
+      "name": "Paragraph",
+      "kind": "component",
+      "category": "typography",
+      "description": "Styled paragraph text primitive.",
+      "import": "Paragraph",
+      "story": "Typography/Paragraph",
+      "props": ["children"]
+    },
+    {
+      "name": "PieChart",
+      "kind": "component",
+      "category": "charts",
+      "description": "Responsive pie chart.",
+      "import": "PieChart",
+      "story": "Charts/Pie",
+      "props": ["data", "nameKey", "valueKey", "height"]
+    },
+    {
+      "name": "Progress",
+      "kind": "component",
+      "category": "feedback",
+      "description": "Line or circular progress indicator.",
+      "import": "Progress",
+      "story": "Progress/Default",
+      "props": ["percent", "type", "status", "showInfo", "label"]
+    },
+    {
+      "name": "RadioGroup",
+      "kind": "component",
+      "category": "forms",
+      "description": "Accessible radio option group.",
+      "import": "RadioGroup",
+      "story": "RadioGroup/Default",
+      "props": ["name", "label", "options", "value", "onValueChange"]
+    },
+    {
+      "name": "Result",
+      "kind": "component",
+      "category": "feedback",
+      "description": "Outcome or status panel with optional actions.",
+      "import": "Result",
+      "story": "Result/Success",
+      "props": ["status", "title", "description", "actions"]
+    },
+    {
+      "name": "SectionHeading",
+      "kind": "component",
+      "category": "content",
+      "description": "Consistent eyebrow, heading, and description block.",
+      "import": "SectionHeading",
+      "story": "SectionHeading/Default",
+      "props": ["eyebrow", "title", "description"]
+    },
+    {
+      "name": "Select",
+      "kind": "component",
+      "category": "forms",
+      "description": "Labeled native select with helper and error semantics.",
+      "import": "Select",
+      "story": "Select/Default",
+      "props": ["label", "options", "placeholder", "error", "fullWidth"]
+    },
+    {
+      "name": "Skeleton",
+      "kind": "component",
+      "category": "feedback",
+      "description": "Loading placeholder for content surfaces.",
+      "import": "Skeleton",
+      "story": "Skeleton/Default",
+      "props": ["variant", "width", "height", "animated"]
+    },
+    {
+      "name": "Space",
+      "kind": "component",
+      "category": "layout",
+      "description": "Consistent spacing primitive for inline or stacked content.",
+      "import": "Space",
+      "story": "Space/Default",
+      "props": ["children", "direction", "size", "wrap", "align"]
+    },
+    {
+      "name": "Spinner",
+      "kind": "component",
+      "category": "feedback",
+      "description": "Loading status indicator.",
+      "import": "Spinner",
+      "story": "Spinner/Default",
+      "props": ["size", "label"]
+    },
+    {
+      "name": "StackedBarChart",
+      "kind": "component",
+      "category": "charts",
+      "description": "Stacked responsive bar chart.",
+      "import": "StackedBarChart",
+      "story": "Charts/Stacked Bar",
+      "props": ["data", "series", "xKey", "height"]
+    },
+    {
+      "name": "StackedBarLineChart",
+      "kind": "component",
+      "category": "charts",
+      "description": "Combined stacked bar and line chart.",
+      "import": "StackedBarLineChart",
+      "story": "Charts/Stacked Bar Line",
+      "props": ["data", "barSeries", "lineSeries", "xKey"]
+    },
+    {
+      "name": "Steps",
+      "kind": "component",
+      "category": "navigation",
+      "description": "Progressive step navigation with statuses.",
+      "import": "Steps",
+      "story": "Steps/Default",
+      "props": ["items", "current", "onChange", "direction"]
+    },
+    {
+      "name": "Switch",
+      "kind": "component",
+      "category": "forms",
+      "description": "Accessible on/off switch control.",
+      "import": "Switch",
+      "story": "Switch/Default",
+      "props": ["checked", "defaultChecked", "onCheckedChange", "label"]
+    },
+    {
+      "name": "Table",
+      "kind": "component",
+      "category": "data-display",
+      "description": "Typed data table with empty state support.",
+      "import": "Table",
+      "story": "Table/Default",
+      "props": ["columns", "data", "rowKey", "caption"]
+    },
+    {
+      "name": "Tabs",
+      "kind": "component",
+      "category": "navigation",
+      "description": "Keyboard-navigable content tabs.",
+      "import": "Tabs",
+      "story": "Tabs/Default",
+      "props": ["items", "activeKey", "onChange", "orientation"]
+    },
+    {
+      "name": "Tag",
+      "kind": "component",
+      "category": "data-display",
+      "description": "Compact label that can optionally be dismissed.",
+      "import": "Tag",
+      "story": "Tag/Default",
+      "props": ["children", "color", "closable", "onClose"]
+    },
+    {
+      "name": "Text",
+      "kind": "component",
+      "category": "typography",
+      "description": "Styled inline text primitive.",
+      "import": "Text",
+      "story": "Typography/Text",
+      "props": ["children", "tone", "strong", "code"]
+    },
+    {
+      "name": "Textarea",
+      "kind": "component",
+      "category": "forms",
+      "description": "Labeled multiline input with helper and error semantics.",
+      "import": "Textarea",
+      "story": "Textarea/Default",
+      "props": ["label", "helperText", "error", "errorMessage", "fullWidth"]
+    },
+    {
+      "name": "Title",
+      "kind": "component",
+      "category": "typography",
+      "description": "Semantic heading primitive.",
+      "import": "Title",
+      "story": "Typography/Title",
+      "props": ["level", "children"]
+    },
+    {
+      "name": "Tooltip",
+      "kind": "component",
+      "category": "feedback",
+      "description": "Accessible hover and focus tooltip.",
+      "import": "Tooltip",
+      "story": "Tooltip/Default",
+      "props": ["title", "children", "placement", "delay"]
+    },
+    {
+      "name": "UIProvider",
+      "kind": "provider",
+      "category": "foundation",
+      "description": "Locale, message, theme, and color-scheme provider.",
+      "import": "UIProvider",
+      "story": "UIProvider/Themes",
+      "props": ["children", "locale", "messages", "theme"]
+    },
+    {
+      "name": "WhatsAppButton",
+      "kind": "component",
+      "category": "actions",
+      "description": "Link-styled CTA with WhatsApp-friendly defaults.",
+      "import": "WhatsAppButton",
+      "story": "WhatsAppButton/Default",
+      "props": ["href", "children", "icon", "size", "variant"]
+    },
+    {
+      "name": "WhatsAppIcon",
+      "kind": "icon",
+      "category": "icons",
+      "description": "Brand-safe inline WhatsApp SVG icon.",
+      "import": "WhatsAppIcon",
+      "story": "WhatsAppIcon/Default",
+      "props": ["size", "title"]
+    }
   ]
 }
-
