@@ -27,7 +27,11 @@ describe('Elij UI components', () => {
   it('renders the reusable WhatsApp icon with accessible semantics', () => {
     const { container } = render(<WhatsAppIcon title="WhatsApp" size={32} />);
     expect(screen.getByRole('img', { name: 'WhatsApp' })).toHaveAttribute('width', '32');
-    expect(container.querySelector('svg path')).toBeInTheDocument();
+    const paths = container.querySelectorAll('svg path');
+    expect(paths).toHaveLength(2);
+    expect(paths[0]).toHaveAttribute('fill', '#67C15E');
+    expect(paths[1]).toHaveAttribute('fill', '#FFFFFF');
+    expect(paths[1].getAttribute('d')).toMatch(/^M717\.29285,372\.190836/);
   });
 
   it('forwards a ref from Button', () => {
