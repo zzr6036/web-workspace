@@ -58,6 +58,7 @@ export { SectionHeading } from './components/SectionHeading'; export type { Sect
 export { ActionLinkButton } from './components/ActionLinkButton'; export type { ActionLinkButtonProps } from './components/ActionLinkButton';
 export { WhatsAppButton } from './components/WhatsAppButton'; export type { WhatsAppButtonProps } from './components/WhatsAppButton';
 export { EventCarousel } from './components/EventCarousel'; export type { CarouselMedia, EventCarouselProps } from './components/EventCarousel';
+export { WhatsAppIcon } from './icons'; export type { WhatsAppIconProps } from './icons';
 export { Tag } from './components/Tag'; export type { TagProps } from './components/Tag';
 export { Tooltip } from './components/Tooltip'; export type { TooltipProps } from './components/Tooltip';
 export { Link, Paragraph, Text, Title } from './components/Typography'; export type { TextProps, TitleProps } from './components/Typography';

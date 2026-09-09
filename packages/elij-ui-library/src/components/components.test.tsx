@@ -2,7 +2,7 @@ import { createRef, useState } from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
-import { ActionLinkButton, Alert, AreaChart, Avatar, Badge, BarChart, Breadcrumb, Button, Card, CardBody, Checkbox, Col, Content, Dialog, Divider, DonutChart, Drawer, Dropdown, DualAxisChart, Empty, EventCarousel, FilterTabs, Flex, GroupedBarChart, Header, HorizontalBarChart, Input, Layout, LineChart, Link, Menu, Pagination, Paragraph, PieChart, Progress, RadioGroup, Result, Row, SectionHeading, Select, Sider, Skeleton, Space, Spinner, StackedBarChart, StackedBarLineChart, Steps, Switch, Table, Tabs, Tag, Text, Textarea, Title, Tooltip, UIProvider, VerticalBarChart, WhatsAppButton } from '../index';
+import { ActionLinkButton, Alert, AreaChart, Avatar, Badge, BarChart, Breadcrumb, Button, Card, CardBody, Checkbox, Col, Content, Dialog, Divider, DonutChart, Drawer, Dropdown, DualAxisChart, Empty, EventCarousel, FilterTabs, Flex, GroupedBarChart, Header, HorizontalBarChart, Input, Layout, LineChart, Link, Menu, Pagination, Paragraph, PieChart, Progress, RadioGroup, Result, Row, SectionHeading, Select, Sider, Skeleton, Space, Spinner, StackedBarChart, StackedBarLineChart, Steps, Switch, Table, Tabs, Tag, Text, Textarea, Title, Tooltip, UIProvider, VerticalBarChart, WhatsAppButton, WhatsAppIcon } from '../index';
 import { localizeStoryArgs } from '../../.storybook/localizeStory';
 
 describe('Elij UI components', () => {
@@ -22,6 +22,12 @@ describe('Elij UI components', () => {
     expect(screen.getByAltText('Photo')).toBeInTheDocument();
     expect(screen.getByLabelText('Clip')).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Next photo' })).toBeInTheDocument();
+  });
+
+  it('renders the reusable WhatsApp icon with accessible semantics', () => {
+    const { container } = render(<WhatsAppIcon title="WhatsApp" size={32} />);
+    expect(screen.getByRole('img', { name: 'WhatsApp' })).toHaveAttribute('width', '32');
+    expect(container.querySelector('svg path')).toBeInTheDocument();
   });
 
   it('forwards a ref from Button', () => {
