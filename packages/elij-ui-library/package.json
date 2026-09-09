@@ -1,8 +1,17 @@
 {
   "name": "elij-ui-library",
   "version": "0.1.0",
-  "private": true,
   "type": "module",
+  "description": "Reusable React UI Components Storybook",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zzr6036/web-workspace.git",
+    "directory": "packages/elij-ui-library"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
     "dist"
   ],
@@ -26,7 +35,8 @@
     "test:watch": "vitest",
     "typecheck": "tsc -p tsconfig.app.json --noEmit && tsc -p tsconfig.node.json --noEmit",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepack": "yarn build"
   },
   "peerDependencies": {
     "react": ">=18 <20",
