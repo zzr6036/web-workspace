@@ -17,5 +17,8 @@
     "test": "yarn workspace moment-booth-fe test",
     "test:startup": "node --test tests/startup.test.mjs",
     "test:vercel": "node --test tests/vercel-build.test.mjs"
+  },
+  "devDependencies": {
+    "elij-ui-library-cli": "^0.1.1"
   }
 }
