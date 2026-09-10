@@ -19,6 +19,6 @@
     "test:vercel": "node --test tests/vercel-build.test.mjs"
   },
   "devDependencies": {
-    "elij-ui-library-cli": "^0.1.1"
+    "elij-ui-library-cli": "^0.1.2"
   }
 }

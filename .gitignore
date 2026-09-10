@@ -8,3 +8,5 @@ storybook-static/
 *.tsbuildinfo
 
 .yarn/
+
+package-lock.json

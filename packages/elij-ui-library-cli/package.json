@@ -1,6 +1,6 @@
 {
   "name": "elij-ui-library-cli",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "CLI for discovering Elij UI components",
   "type": "module",
   "bin": {
