@@ -87,9 +87,9 @@ switch (command) {
 Elij UI LIBRARY CLI
 
 Commands:
-    elij-ui-library list
-    elij-ui-library search <keyword>
-    elij-ui-library info <component>
-    elij-ui-library doctor
+    elij-ui list                         (also: elij-ui-library, elij-ui-library-cli)
+    elij-ui search <keyword>
+    elij-ui info <component>
+    elij-ui doctor
 `);
 }

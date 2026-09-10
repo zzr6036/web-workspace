@@ -4,7 +4,9 @@
   "description": "CLI for discovering Elij UI components",
   "type": "module",
   "bin": {
-    "elij-ui": "./dist/index.js"
+    "elij-ui": "./dist/index.js",
+    "elij-ui-library": "./dist/index.js",
+    "elij-ui-library-cli": "./dist/index.js"
   },
   "files": [
     "dist",
