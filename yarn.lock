@@ -4856,16 +4856,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"elij-ui-library-cli@npm:^0.1.2":
-  version: 0.1.2
-  resolution: "elij-ui-library-cli@npm:0.1.2"
+"elij-ui-library-cli@npm:^0.3.1":
+  version: 0.3.1
+  resolution: "elij-ui-library-cli@npm:0.3.1"
   dependencies:
-    elij-ui-library: "npm:^0.2.1"
+    elij-ui-library: "npm:^0.3.1"
   bin:
     elij-ui: dist/index.js
     elij-ui-library: dist/index.js
     elij-ui-library-cli: dist/index.js
-  checksum: 10c0/5a464b9f47a26452cffb794e6f6337b7f8eab7726934bc964f2c06e720e868a51ec5e1ea9d3c26b4fce39419d350b375facb0517b640df36edb6b88e34184fd8
+  checksum: 10c0/9d73a592ad19c3748ee95805530b435421fa6530dc9ae06a143efbbf96ceae352a69816884e4147af67b6a010c5b015ebab36d7ac5a7598a4c369ac3012ede76
   languageName: node
   linkType: hard
 
@@ -4874,7 +4874,7 @@ __metadata:
   resolution: "elij-ui-library-cli@workspace:packages/elij-ui-library-cli"
   dependencies:
     "@types/node": "npm:^22.18.0"
-    elij-ui-library: "npm:^0.3.0"
+    elij-ui-library: "npm:^0.3.1"
     typescript: "npm:^5.8.3"
   bin:
     elij-ui: ./dist/index.js
@@ -4889,7 +4889,7 @@ __metadata:
   dependencies:
     "@modelcontextprotocol/server": "npm:^2.0.0"
     "@types/node": "npm:^22.18.0"
-    elij-ui-library: "npm:^0.3.0"
+    elij-ui-library: "npm:^0.3.1"
     typescript: "npm:^5.8.3"
     zod: "npm:^4.2.0"
   bin:
@@ -4897,29 +4897,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"elij-ui-library@npm:^0.2.1":
-  version: 0.2.1
-  resolution: "elij-ui-library@npm:0.2.1"
+"elij-ui-library@npm:^0.3.1":
+  version: 0.3.1
+  resolution: "elij-ui-library@npm:0.3.1"
   dependencies:
     react-is: "npm:^19.2.6"
     recharts: "npm:^3.10.1"
   peerDependencies:
     react: ">=18 <20"
     react-dom: ">=18 <20"
-  checksum: 10c0/482acf98a3672fce9a706ddde077cc3551faab363f8ceb58e4868055d3f8717879c1d8e49b1e608317adc10d7cb220bfa1fb35a5a8e0589dfd3ac59f6197f19c
-  languageName: node
-  linkType: hard
-
-"elij-ui-library@npm:^0.3.0":
-  version: 0.3.0
-  resolution: "elij-ui-library@npm:0.3.0"
-  dependencies:
-    react-is: "npm:^19.2.6"
-    recharts: "npm:^3.10.1"
-  peerDependencies:
-    react: ">=18 <20"
-    react-dom: ">=18 <20"
-  checksum: 10c0/8796428749da60b6e30316db1e8379def94da6512fdf85c68f43532a923c50ab921ac2a7ff9b975b134aadbde49674d23cf17a87bfff94fa939c62d122633b42
+  checksum: 10c0/74ac24f7e406a627b9420c71444bdc754ee2725d782b1a3d6ddb6304c6b5c23bccc364f22f747d14dbff6a5ac3d7dc9f6b01fd2f2ffa134e0525cec0c32e1b1f
   languageName: node
   linkType: hard
 
@@ -7616,7 +7603,7 @@ __metadata:
     "@vercel/analytics": "npm:^2.0.1"
     "@vitejs/plugin-react": "npm:6.0.2"
     "@vitejs/plugin-rsc": "npm:0.5.26"
-    elij-ui-library: "npm:^0.3.0"
+    elij-ui-library: "npm:^0.3.1"
     eslint: "npm:9.39.4"
     eslint-config-next: "npm:16.2.6"
     lucide-react: "npm:^0.468.0"
@@ -7638,7 +7625,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "moment-booth-workspace@workspace:."
   dependencies:
-    elij-ui-library-cli: "npm:^0.1.2"
+    elij-ui-library-cli: "npm:^0.3.1"
   languageName: unknown
   linkType: soft
 
