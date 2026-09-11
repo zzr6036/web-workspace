@@ -1,120 +1,175 @@
-# Elij UI
+# Elij UI Library
 
-A reusable React + TypeScript component library with Storybook documentation.
+A reusable React + TypeScript component library with accessible primitives, layout components, charts, themes, and Storybook documentation.
 
-The package is the runtime layer of Elij UI. Component metadata is also published
-in registry/components.json for future CLI and MCP tooling.
+## Installation
 
-## Development
-
-```bash
-npm install
-npm run dev
-```
-
-Storybook will be available at `http://localhost:6006`.
-
-## Build
+Install the published package in a React application:
 
 ```bash
-npm run build
-npm run build-storybook
+npm install elij-ui-library
 ```
 
-## Components
+`react` and `react-dom` are peer dependencies, so your application should provide React 18 or 19.
 
-- Actions: `Button`
-- Data visualization: `LineChart`, `BarChart`, `AreaChart`, `PieChart`, `DonutChart`, `StackedBarChart`, `StackedBarLineChart`, `VerticalBarChart`, `HorizontalBarChart`, `GroupedBarChart`, `DualAxisChart`
-- General: `Title`, `Text`, `Paragraph`, `Link`
-- Forms: `Input`, `Textarea`, `Checkbox`, `RadioGroup`, `Switch`, `Select`
-- Navigation: `Menu`, `Dropdown`, `Tabs`, `Breadcrumb`, `Pagination`, `Steps`
-- Feedback: `Alert`, `Spinner`, `Skeleton`, `Progress`, `Result`
-- Data display: `Badge`, `Card`, `CardHeader`, `CardBody`, `CardFooter`, `Avatar`, `Tag`, `Tooltip`, `Table`, `Empty`
-- Overlay: `Dialog`, `Drawer`
-- Layout: `Divider`, `Space`, `Flex`, `Row`, `Col`, `Layout`, `Header`, `Sider`, `Content`, `Footer`
+## Basic usage
 
-Every component includes TypeScript types and Storybook examples. Form controls expose native HTML attributes, and interactive components include keyboard and accessibility semantics.
-
-The Storybook Registry/Catalog story provides a searchable starting point for
-the public component inventory. Every public component has a dedicated Storybook
-story with controls or an interaction example where appropriate.
-
-## Versioning and future tooling
-
-Use the changelog for each published version and keep the registry version in
-sync with the package version. The next packages can be added separately:
-
-~~~text
-elij-ui-library       React runtime, styles, and registry
-elij-ui-cli           init, list, add, and doctor commands
-elij-ui-mcp-server    read-only component discovery for AI hosts
-~~~
-
-The CLI and MCP server should consume the registry rather than parsing source
-files or Storybook internals.
-
-## Test
-
-```bash
-npm run test
-npm run typecheck
-npm run lint
-```
-
-## Use from another local project
-
-Build this library first, then install it from the consuming project:
-
-```bash
-npm install ../ui-library
-```
-
-Import the shared stylesheet once in your application's entry file, then use components normally:
+Import the stylesheet once in your application entry point, then import the components you need:
 
 ```tsx
-import 'elij-ui-library/styles.css';
-import { Button } from 'elij-ui-library';
-
-export function Example() {
-  return <Button variant="primary">Continue</Button>;
-}
-```
-
-## Install from npm
-
-~~~bash
-npm install elij-ui-library
-~~~
-
-Import the stylesheet once, then use the typed component exports:
-
-~~~tsx
 import 'elij-ui-library/styles.css';
 import { Button, SectionHeading } from 'elij-ui-library';
 
 export function Example() {
   return (
-    <>
-      <SectionHeading eyebrow="Example" title="A typed component" />
-      <Button>Continue</Button>
-    </>
+    <section>
+      <SectionHeading
+        eyebrow="Example"
+        title="Build a clear interface"
+        description="Typed components with consistent visual treatment."
+      />
+      <Button variant="primary">Continue</Button>
+    </section>
   );
 }
-~~~
+```
 
-The published registry can be consumed by tooling:
+Import `elij-ui-library/styles.css` only once, from the application entry point. In Next.js App Router projects, import it from `app/layout.tsx`; in Vite projects, import it from `main.tsx`.
 
-~~~ts
-import registry from 'elij-ui-library/registry';
-~~~
+## Component examples
 
-registry/components.json is intended for component search, documentation,
-CLI scaffolding, and MCP resources. It is not required at runtime by the
-React components.
+### Card and actions
 
-## Locale and color themes
+```tsx
+import { Button, Card, CardBody, SectionHeading } from 'elij-ui-library';
 
-Wrap your application, or one section of it, with `UIProvider`. English and light theme are used by default.
+export function PricingCard() {
+  return (
+    <Card>
+      <CardBody>
+        <SectionHeading
+          eyebrow="Popular"
+          title="3 Hours"
+          description="A complete photo booth experience for larger celebrations."
+        />
+        <Button variant="primary">Request details</Button>
+      </CardBody>
+    </Card>
+  );
+}
+```
+
+### Tabs and filters
+
+```tsx
+import { FilterTabs } from 'elij-ui-library';
+
+const tabs = [
+  { id: 'all', label: 'All' },
+  { id: 'wedding', label: 'Wedding' },
+  { id: 'birthday', label: 'Birthday' },
+];
+
+export function CategoryFilters() {
+  return <FilterTabs items={tabs} value="all" onChange={(value) => console.log(value)} />;
+}
+```
+
+### Event carousel
+
+```tsx
+import { EventCarousel } from 'elij-ui-library';
+
+const media = [
+  { src: '/events/wedding-01.jpg', alt: 'Wedding celebration' },
+  { src: '/events/setup-01.jpg', alt: 'On-site booth setup' },
+  { src: '/events/prints-01.mp4', type: 'video', alt: 'Instant print demo' },
+];
+
+export function EventExample() {
+  return (
+    <EventCarousel
+      title="Real celebrations"
+      description="Photos from recent events."
+      media={media}
+    />
+  );
+}
+```
+
+`EventCarousel` supports image and video media. Each item should include a stable `src`; add `alt` text for accessible image descriptions.
+
+### WhatsApp button
+
+```tsx
+import { WhatsAppButton } from 'elij-ui-library';
+
+export function ContactExample() {
+  return (
+    <WhatsAppButton href="https://wa.me/659xxxxxxx">
+      WhatsApp enquire
+    </WhatsAppButton>
+  );
+}
+```
+
+Pass your own WhatsApp URL through `href`. The component opens external links in a new tab by default and supports `size`, `variant`, `icon`, `target`, and `rel` props.
+
+### Forms
+
+```tsx
+import { Button, Input, Select, Textarea } from 'elij-ui-library';
+
+export function EnquiryForm() {
+  return (
+    <form>
+      <Input label="Name" name="name" placeholder="Your name" required />
+      <Select
+        label="Event type"
+        name="eventType"
+        options={[
+          { value: 'wedding', label: 'Wedding' },
+          { value: 'birthday', label: 'Birthday' },
+        ]}
+      />
+      <Textarea label="Message" name="message" rows={4} />
+      <Button type="submit" variant="primary">Send enquiry</Button>
+    </form>
+  );
+}
+```
+
+Form components expose native HTML attributes where appropriate. Validation and submission state remain owned by the consuming application.
+
+### Charts
+
+```tsx
+import { BarChart, UIProvider } from 'elij-ui-library';
+
+const data = [
+  { month: 'Jan', bookings: 12 },
+  { month: 'Feb', bookings: 18 },
+];
+
+export function BookingChart() {
+  return (
+    <UIProvider>
+      <BarChart
+        data={data}
+        xKey="month"
+        series={[{ dataKey: 'bookings', name: 'Bookings' }]}
+        ariaLabel="Monthly bookings"
+      />
+    </UIProvider>
+  );
+}
+```
+
+Cartesian charts accept `data`, `series`, and `xKey`. Pie and donut charts accept `data`, `nameKey`, and `valueKey`. Charts support loading and empty states, legends, tooltips, formatters, custom colors, and accessible labels.
+
+## Themes and localization
+
+Wrap your application, or one section of it, with `UIProvider`:
 
 ```tsx
 import 'elij-ui-library/styles.css';
@@ -134,20 +189,99 @@ export function App() {
 }
 ```
 
-Built-in locales are `en` and `zh-CN`. Built-in themes are `light`, `dark`, and `ocean`. Add another locale by passing `messages`, and add another theme by defining CSS variables under your own `[data-ui-theme="..."]` selector.
-
-Elij UI automatically translates built-in control text and accessible labels such as close, loading, pagination, menus, tabs, steps, and progress. Product-specific content—titles, field labels, table data, and messages—remains owned by the consuming application and should be passed through props. In Storybook, use the globe toolbar to switch both component semantics and demo content between English and Simplified Chinese.
+Built-in locales are `en` and `zh-CN`. Built-in themes are `light`, `dark`, and `ocean`. Custom locale strings can be provided through `messages`, and custom themes can define CSS variables under a matching `[data-ui-theme="..."]` selector.
 
 ```tsx
-<UIProvider
-  locale="en-SG"
-  messages={{ next: 'Carry on' }}
-  theme="my-theme"
->
+<UIProvider locale="en-SG" messages={{ next: 'Carry on' }} theme="ocean">
   <App />
 </UIProvider>
 ```
 
-For active development across projects, use `npm link` or a workspace monorepo. Before publishing to npm, remove `private: true` from `package.json`, choose an available package name, and run `npm publish --access public`.
+Elij UI translates built-in control labels and accessibility text. Product-specific copy, field labels, table data, and event content should be supplied by the consuming application.
 
-Charts are responsive and theme-aware, with loading, empty, tooltip, legend, formatter, custom palette, and accessible-label support. Cartesian charts accept `data`, `series`, and `xKey`; pie charts accept `nameKey` and `valueKey`.
+## Component catalogue
+
+The package currently includes 54 public components:
+
+- Actions: `Button`, `ActionLinkButton`, `WhatsAppButton`
+- Data visualization: `LineChart`, `BarChart`, `AreaChart`, `PieChart`, `DonutChart`, `StackedBarChart`, `StackedBarLineChart`, `VerticalBarChart`, `HorizontalBarChart`, `GroupedBarChart`, `DualAxisChart`
+- General: `Title`, `Text`, `Paragraph`, `Link`
+- Forms: `Input`, `Textarea`, `Checkbox`, `RadioGroup`, `Switch`, `Select`
+- Navigation: `Menu`, `Dropdown`, `Tabs`, `FilterTabs`, `Breadcrumb`, `Pagination`, `Steps`
+- Feedback: `Alert`, `Spinner`, `Skeleton`, `Progress`, `Result`, `Empty`
+- Data display: `Badge`, `Card`, `CardHeader`, `CardBody`, `CardFooter`, `Avatar`, `Tag`, `Tooltip`, `Table`
+- Overlay: `Dialog`, `Drawer`
+- Layout: `Divider`, `Space`, `Flex`, `Row`, `Col`, `Layout`, `Header`, `Sider`, `Content`, `Footer`
+- Content: `SectionHeading`, `EventCarousel`
+
+Every public component has TypeScript declarations and a Storybook story. The Storybook Registry/Catalog provides a searchable inventory with component descriptions, props, and story names.
+
+## Registry metadata
+
+The published registry is intended for CLI, MCP, documentation, and scaffolding tools. It is not required for normal React component rendering.
+
+In Node.js, import the JSON registry with an import attribute:
+
+```ts
+import registry from 'elij-ui-library/registry' with { type: 'json' };
+
+console.log(registry.version);
+console.log(registry.components.length);
+```
+
+The registry schema is also available at `elij-ui-library/registry/schema`.
+
+## Storybook
+
+Run Storybook locally from this package:
+
+```bash
+npm run dev
+```
+
+Open `http://localhost:6006` to browse components, change controls, inspect accessibility, and view interaction examples. Build the static Storybook output with:
+
+```bash
+npm run build-storybook
+```
+
+## TypeScript, accessibility, and browser support
+
+The package exports component prop types from the main entry point. Interactive components use semantic HTML, keyboard interaction, focusable controls, and accessible labels where applicable. Always provide meaningful `alt` text and `ariaLabel` values for content whose meaning is not obvious from surrounding text.
+
+## Local development and monorepo usage
+
+From the monorepo root:
+
+```bash
+corepack yarn workspace elij-ui-library dev
+corepack yarn workspace elij-ui-library build
+corepack yarn workspace elij-ui-library test
+corepack yarn workspace elij-ui-library typecheck
+corepack yarn workspace elij-ui-library lint
+```
+
+For active development across separate projects, use a workspace monorepo or a local package link. In the current monorepo, depend on the workspace package and run `corepack yarn install` from the root.
+
+## Versioning and publishing
+
+The registry version should stay synchronized with the package version. Before publishing:
+
+```bash
+npm pack --dry-run
+npm publish --access public
+```
+
+Use the published package in another application with:
+
+```bash
+npm install elij-ui-library
+```
+
+## Troubleshooting
+
+- **Styles are missing:** import `elij-ui-library/styles.css` once from the application entry point.
+- **A component is not found:** check the exported component names or search the Storybook Registry/Catalog.
+- **Charts do not render:** ensure the chart is mounted in a browser environment and has a non-empty `data` array.
+- **Theme changes do not apply:** use `UIProvider` or define CSS variables under the matching `data-ui-theme` selector.
+- **Registry import fails in Node.js:** use `with { type: 'json' }` as shown in the Registry metadata section.
