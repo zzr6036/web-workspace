@@ -1,6 +1,6 @@
 {
   "name": "elij-ui-library-cli",
-  "version": "0.1.2",
+  "version": "0.3.0",
   "description": "CLI for discovering Elij UI components",
   "type": "module",
   "bin": {
@@ -18,7 +18,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "elij-ui-library": "^0.2.1"
+    "elij-ui-library": "^0.3.0"
   },
   "devDependencies": {
     "@types/node": "^22.18.0",

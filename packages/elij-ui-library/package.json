@@ -1,6 +1,6 @@
 {
   "name": "elij-ui-library",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "type": "module",
   "description": "Reusable React UI Components Storybook",
   "license": "MIT",

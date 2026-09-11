@@ -1,6 +1,6 @@
 {
   "name": "elij-ui-library-mcp",
-  "version": "0.1.2",
+  "version": "0.3.0",
   "description": "MCP server for discovering Elij UI components",
   "type": "module",
   "bin": "./dist/index.js",
@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@modelcontextprotocol/server": "^2.0.0",
-    "elij-ui-library": "^0.2.1",
+    "elij-ui-library": "^0.3.0",
     "zod": "^4.2.0"
   },
   "devDependencies": {
