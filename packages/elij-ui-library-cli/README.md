@@ -83,7 +83,7 @@ Example output:
 
 ```text
 Registry package: elij-ui-library
-Registry version: 0.3.1
+Registry version: 1.0.0
 Components: 54
 Status: ready
 ```

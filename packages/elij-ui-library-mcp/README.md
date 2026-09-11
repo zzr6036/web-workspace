@@ -23,7 +23,7 @@ npx -y elij-ui-library-mcp
 For a reproducible setup, pin a version instead:
 
 ```bash
-npx -y elij-ui-library-mcp@0.3.1
+npx -y elij-ui-library-mcp@1.0.0
 ```
 
 The unpinned command is convenient for trying the latest release. Pinning is recommended for production or shared team configuration.
@@ -46,7 +46,7 @@ Create or open `.vscode/mcp.json` in your workspace and add:
 }
 ```
 
-You can replace the package argument with `elij-ui-library-mcp@0.3.1` when you need a fixed version. After saving, run `MCP: List Servers` from the Command Palette and start `elijUiLibrary`.
+You can replace the package argument with `elij-ui-library-mcp@1.0.0` when you need a fixed version. After saving, run `MCP: List Servers` from the Command Palette and start `elijUiLibrary`.
 
 ### Claude Desktop and Cursor
 
