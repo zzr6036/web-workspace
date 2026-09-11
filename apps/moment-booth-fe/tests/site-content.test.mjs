@@ -166,6 +166,24 @@ test('offers custom multi-day and long-term rentals', () => {
   assert.doesNotMatch(styles, /rental-shell|rental-section/);
 });
 
+test('explains the optional backdrop add-on and care requirements', () => {
+  for (const detail of [
+    'Backdrop rental',
+    '\\+\\$30',
+    '2 × 2 m backdrop',
+    'white, red, blue, or pink',
+    'backdrop and setup only',
+    'additional decorations',
+    'supplied and installed by you',
+    'sewing, patching, painting',
+    'puncturing, altering, or',
+  ]) {
+    assert.match(packagesSection, new RegExp(detail, 'i'));
+  }
+  assert.match(packagesSection, /className="backdrop-addon"/);
+  assert.match(styles, /\.backdrop-addon[\s\S]*grid-template-columns/);
+});
+
 test('presents six guest-focused photo booth benefits', () => {
   assert.match(heroSection, /More than photos\. A better guest experience\./);
   assert.equal((heroSection.match(/title:\s*["']/g) ?? []).length, 6);

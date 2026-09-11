@@ -150,6 +150,36 @@ export default function PackagesSection() {
           </Card>
         ))}
       </div>
+      <aside className="backdrop-addon" aria-label="Optional backdrop add-on">
+        <div>
+          <span className="backdrop-addon__eyebrow">Optional add-on</span>
+          <h3>Backdrop rental · +$30</h3>
+        </div>
+        <ul className="backdrop-addon__points">
+          <li>
+            <strong>2 × 2 m backdrop</strong>
+            <span>A neat backdrop size for photo booth setups.</span>
+          </li>
+          <li>
+            <strong>Choose one solid colour</strong>
+            <span>White, red, blue, or pink.</span>
+          </li>
+          <li>
+            <strong>Setup included</strong>
+            <span>
+              We provide the backdrop and setup only. Additional decorations
+              must be supplied and installed by you.
+            </span>
+          </li>
+          <li>
+            <strong>Keep it damage-free</strong>
+            <span>
+              No sewing, patching, painting, taping, puncturing, altering, or
+              damaging the backdrop.
+            </span>
+          </li>
+        </ul>
+      </aside>
     </section>
   );
 }
