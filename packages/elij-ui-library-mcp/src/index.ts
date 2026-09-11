@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+import { createRequire } from "node:module";
 import { McpServer } from "@modelcontextprotocol/server";
 import { StdioServerTransport } from "@modelcontextprotocol/server/stdio";
 import { z } from "zod";
@@ -10,9 +11,12 @@ import {
     searchComponents,
 } from "./registry.js";
 
+const require = createRequire(import.meta.url);
+const packageMetadata = require("../package.json") as { version: string };
+
 const server = new McpServer({
     name: "elij-ui-library",
-    version: "0.1.0",
+    version: packageMetadata.version,
 });
 
 function textResult(value: unknown) {

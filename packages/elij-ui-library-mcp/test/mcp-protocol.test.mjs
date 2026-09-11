@@ -2,10 +2,14 @@ import assert from "node:assert/strict";
 import { once } from "node:events";
 import { spawn } from "node:child_process";
 import { fileURLToPath } from "node:url";
+import { readFileSync } from "node:fs";
 import { createInterface } from "node:readline";
 import test from "node:test";
 
 const serverPath = fileURLToPath(new URL("../dist/index.js", import.meta.url));
+const packageMetadata = JSON.parse(
+    readFileSync(new URL("../package.json", import.meta.url), "utf8"),
+);
 
 function startServer() {
     const child = spawn(process.execPath, [serverPath], {
@@ -66,6 +70,7 @@ test("MCP server exposes tools through the stdio protocol", async (t) => {
     });
 
     assert.equal(initialized.result.serverInfo.name, "elij-ui-library");
+    assert.equal(initialized.result.serverInfo.version, packageMetadata.version);
     assert.ok(initialized.result.capabilities.tools);
 
     const tools = await server.request("tools/list");

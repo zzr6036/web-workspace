@@ -10,7 +10,7 @@ import {
 test("lists all registry components", () => {
     const result = listComponents();
 
-    assert.equal(result.registryVersion, "0.2.2");
+    assert.equal(result.registryVersion, "0.3.1");
     assert.equal(result.count, 54);
 });
 
