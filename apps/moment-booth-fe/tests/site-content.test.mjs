@@ -194,6 +194,10 @@ test('presents six guest-focused photo booth benefits', () => {
   assert.match(styles, /\.hero-benefits-grid[\s\S]*grid-template-columns:\s*repeat\(3/);
 });
 
+test('gives the event-types heading comfortable word spacing', () => {
+  assert.match(styles, /\.event-types-section \.section-heading h2[\s\S]*word-spacing:\s*0\.08em/);
+});
+
 test('keeps booking steps detailed but compact', () => {
   for (const detail of ['guest count', 'SGD 100 deposit', 'names, colours, logo', 'remaining balance one week']) {
     assert.match(siteSource, new RegExp(detail));
