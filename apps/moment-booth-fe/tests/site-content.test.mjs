@@ -211,12 +211,15 @@ test('explains template-library updates and custom artwork scope', () => {
 });
 
 test('presents the three optional keepsake products', () => {
-  for (const product of ['Photobooth Photo Bags', 'Photobooth Photo Decoration Cards', 'Wedding Photobooth Album']) {
+  for (const product of ['Photobooth Photo Bags', 'Photobooth Photo Decoration Cards', 'Wedding Photobooth Album', 'at least 1 month before your event', '2-hour event · \\$38', '3-hour event · \\$50', 'Unlimited use']) {
     assert.match(addOnProductsSection, new RegExp(product));
   }
   assert.match(homePage, /<AddOnProductsSection \/>/);
   assert.match(addOnProductsSection, /Add-on products/);
-  assert.match(styles, /\.add-on-products-grid[\s\S]*grid-template-columns:\s*repeat\(3/);
+  assert.match(addOnProductsSection, /ProductCarousel/);
+  assert.match(addOnProductsSection, /blank:\s*`\/card\/\$\{number\}-blank\.png`/);
+  assert.match(addOnProductsSection, /day11\/video3\.mp4/);
+  assert.match(styles, /\.add-on-products-grid[\s\S]*grid-template-columns:\s*repeat\(2/);
 });
 
 test('presents six guest-focused photo booth benefits', () => {
