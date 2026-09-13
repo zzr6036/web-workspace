@@ -9,6 +9,7 @@ import GallerySection from "../component/GallerySection";
 import HeroSection from "../component/HeroSection";
 import LibrarySection from "../component/LibrarySection";
 import PackagesSection from "../component/PackagesSection";
+import OptionalAddOnsSection from "../component/OptionalAddOnsSection";
 import WhyChooseUsSection from "../component/WhyChooseUsSection";
 import SiteFooter from "../layout/SiteFooter";
 import SiteHeader from "../layout/SiteHeader";
@@ -22,6 +23,7 @@ export default function HomePage() {
       <GallerySection />
       <LibrarySection />
       <PackagesSection />
+      <OptionalAddOnsSection />
       <BookingStepsSection />
       <EventTypesSection />
       <WhyChooseUsSection />

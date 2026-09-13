@@ -10,6 +10,7 @@ const robotsEntry = await readAppFile('robots.ts');
 const sitemapEntry = await readAppFile('sitemap.ts');
 const styles = await readAppFile('globals.css');
 const packagesSection = await readAppFile('component/PackagesSection.tsx');
+const optionalAddOnsSection = await readAppFile('component/OptionalAddOnsSection.tsx');
 const heroSection = await readAppFile('component/HeroSection.tsx');
 const gallerySection = await readAppFile('component/GallerySection.tsx');
 const contactSection = await readAppFile('component/ContactSection.tsx');
@@ -39,7 +40,7 @@ test('organises the home page into page, layout, and component folders', () => {
   assert.match(homePage, /SiteHeader/);
   assert.match(homePage, /HeroSection/);
   assert.deepEqual(layoutFiles.sort(), ['SiteFooter.tsx', 'SiteHeader.tsx']);
-  for (const file of ['BookingStepsSection.tsx', 'ContactSection.tsx', 'EventTypesSection.tsx', 'FAQSection.tsx', 'GallerySection.tsx', 'HeroSection.tsx', 'LibrarySection.tsx', 'PackagesSection.tsx', 'WhyChooseUsSection.tsx']) {
+  for (const file of ['BookingStepsSection.tsx', 'ContactSection.tsx', 'EventTypesSection.tsx', 'FAQSection.tsx', 'GallerySection.tsx', 'HeroSection.tsx', 'LibrarySection.tsx', 'OptionalAddOnsSection.tsx', 'PackagesSection.tsx', 'WhyChooseUsSection.tsx']) {
     assert.ok(componentFiles.includes(file), `missing ${file}`);
   }
 });
@@ -175,13 +176,13 @@ test('explains the optional backdrop add-on and care requirements', () => {
     'backdrop and setup only',
     'additional decorations',
     'supplied and installed by you',
-    'sewing, patching, painting',
-    'puncturing, altering, or',
+    'sew, patch, paint',
+    'puncture, alter, or',
   ]) {
-    assert.match(packagesSection, new RegExp(detail, 'i'));
+    assert.match(optionalAddOnsSection, new RegExp(detail, 'i'));
   }
-  assert.match(packagesSection, /className="backdrop-addon"/);
-  assert.match(styles, /\.backdrop-addon[\s\S]*grid-template-columns/);
+  assert.match(optionalAddOnsSection, /className="optional-addon-card"/);
+  assert.match(styles, /\.optional-addons-grid[\s\S]*grid-template-columns/);
 });
 
 test('explains template-library updates and custom artwork scope', () => {
@@ -197,10 +198,11 @@ test('explains template-library updates and custom artwork scope', () => {
     'round of consolidated revisions',
     'theme, colours, logo, and design\\s+assets',
   ]) {
-    assert.match(packagesSection, new RegExp(detail, 'i'));
+    assert.match(optionalAddOnsSection, new RegExp(detail, 'i'));
   }
-  assert.match(packagesSection, /className="custom-design-addon"/);
-  assert.match(styles, /\.custom-design-addon[\s\S]*grid-template-columns/);
+  assert.match(optionalAddOnsSection, /optional-addon-card--design/);
+  assert.match(homePage, /<OptionalAddOnsSection \/>/);
+  assert.match(styles, /\.optional-addon-card--design/);
 });
 
 test('presents six guest-focused photo booth benefits', () => {
