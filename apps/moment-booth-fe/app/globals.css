@@ -693,6 +693,38 @@ a {
   object-fit: contain;
   background: #f4f6fa;
 }
+.product-carousel__bag-grid {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  padding: 8px 4px 12px;
+  scroll-snap-type: x proximity;
+}
+.product-carousel__bag-card {
+  flex: 0 0 200px;
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+  padding: 10px 10px 12px;
+  border: 1px solid #e4e8f1;
+  border-radius: 12px;
+  background: #fff;
+  scroll-snap-align: start;
+}
+.product-carousel__bag-card img {
+  width: 180px;
+  height: 180px;
+  display: block;
+  border-radius: 8px;
+  object-fit: contain;
+  background: #f4f6fa;
+}
+.product-carousel__bag-card strong {
+  color: var(--navy);
+  font-size: 11px;
+  line-height: 1.35;
+  text-align: center;
+}
 .product-carousel__pair {
   width: 100%;
   height: 100%;

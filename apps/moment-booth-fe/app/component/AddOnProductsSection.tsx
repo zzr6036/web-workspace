@@ -64,6 +64,21 @@ function ProductCarousel({ slides, kind }: ProductCarouselProps) {
     setActiveIndex((current) => (current + direction + slides.length) % slides.length);
   };
 
+  if (kind === "bags") {
+    return (
+      <div className="product-carousel product-carousel--bags" aria-label="Photobooth photo bag styles">
+        <div className="product-carousel__bag-grid">
+          {slides.map((slide) => (
+            <article className="product-carousel__bag-card" key={slide.label}>
+              {slide.image ? <img src={slide.image} alt={slide.label} /> : null}
+              <strong>{slide.label}</strong>
+            </article>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className={`product-carousel product-carousel--${kind}`}>
       <div className="product-carousel__header">
