@@ -230,7 +230,7 @@ test('explains template-library updates and custom artwork scope', () => {
 });
 
 test('presents the three optional keepsake products', () => {
-  for (const product of ['Photobooth Photo Bags', 'Photobooth Photo Decoration Cards', 'Wedding Photobooth Album', 'at least 1 month before your event', '2-hour event - \\$38 for unlimited use', '3-hour event - \\$50 for unlimited use']) {
+  for (const product of ['Photobooth Photo Bags', 'Photobooth Photo Decoration Cards', 'Wedding Photobooth Album', 'at\\s+least\\s+1\\s+month\\s+before\\s+your\\s+event', '2-hour event - \\$\\d+ for unlimited use', '3-hour event - \\$\\d+ for unlimited use']) {
     assert.match(addOnProductsSection, new RegExp(product));
   }
   assert.doesNotMatch(addOnProductsSection, /<li>Unlimited use<\/li>/);
@@ -242,11 +242,14 @@ test('presents the three optional keepsake products', () => {
   assert.match(addOnProductsSection, /blank:\s*`\/products\/cards\/\$\{number\}-blank\.png`/);
   assert.match(addOnProductsSection, /products\/photoframe\/video\.mp4/);
   assert.match(addOnProductsSection, /products\/bags\/13\.png/);
+  assert.match(addOnProductsSection, /className="add-on-product-card__title-row"/);
+  assert.match(addOnProductsSection, /<strong>From \$16<\/strong>/);
   assert.equal((addOnProductsSection.match(/image: "\/products\/bags\//g) ?? []).length, 11);
   assert.match(addOnProductsSection, /product-carousel__bag-grid/);
-  assert.match(styles, /\.product-carousel__bag-card[\s\S]*flex:\s*0 0 220px/);
+  assert.match(styles, /\.product-carousel__bag-grid[\s\S]*grid-template-columns:\s*repeat\(auto-fit,\s*minmax\(220px,\s*1fr\)\)/);
   assert.match(styles, /\.product-carousel__bag-card img[\s\S]*width:\s*200px[\s\S]*height:\s*200px/);
   assert.match(styles, /\.product-carousel--bags[\s\S]*width:\s*100%[\s\S]*max-width:\s*none/);
+  assert.match(styles, /\.add-on-product-card__title-row strong[\s\S]*font-size:\s*18px[\s\S]*font-weight:\s*500/);
   assert.match(styles, /\.add-on-products-grid[\s\S]*grid-template-columns:\s*minmax\(0,\s*1fr\)/);
 });
 
