@@ -835,6 +835,28 @@ a {
   line-height: 1.35;
   text-align: center;
 }
+.product-carousel--album .product-carousel__slide {
+  width: 200px;
+  height: 200px;
+  aspect-ratio: 1;
+  margin: 0 auto;
+}
+.add-on-product-card__benefits {
+  display: grid;
+  gap: 7px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.45;
+}
+.add-on-product-card__benefits li::before {
+  content: "•";
+  margin-right: 7px;
+  color: #287a5b;
+  font-weight: 800;
+}
 .product-carousel__pair {
   width: 100%;
   height: 100%;

@@ -257,17 +257,26 @@ export default function AddOnProductsSection() {
           </ul>
         </article>
 
-        <article
-          className="add-on-product-card add-on-product-card--album"
-          aria-label="Wedding photobooth album"
-        >
-          <span className="add-on-product-card__eyebrow">Wedding keepsake</span>
-          <h3>Wedding Photobooth Album</h3>
+            <article
+              className="add-on-product-card add-on-product-card--album"
+              aria-label="Wedding photobooth album"
+            >
+              <span className="add-on-product-card__eyebrow">Wedding keepsake</span>
+          <div className="add-on-product-card__title-row">
+            <h3>Wedding Photobooth Album</h3>
+            <strong>From $38</strong>
+          </div>
           <ProductCarousel slides={albumSlides} kind="album" />
           <Paragraph>
             A dedicated album for collecting photobooth memories from your
             wedding celebration.
           </Paragraph>
+          <ul className="add-on-product-card__benefits">
+            <li>A meaningful keepsake of your celebration</li>
+            <li>Guests can interact by adding messages and photos</li>
+            <li>Keeps your favourite photobooth memories together</li>
+            <li>Easy to revisit and share after the event</li>
+          </ul>
         </article>
       </div>
       <p className="add-on-products-note">

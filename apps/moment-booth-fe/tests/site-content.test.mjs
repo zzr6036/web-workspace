@@ -241,6 +241,10 @@ test('presents the three optional keepsake products', () => {
   assert.match(addOnProductsSection, /ProductCarousel/);
   assert.match(addOnProductsSection, /blank:\s*`\/products\/cards\/\$\{number\}-blank\.png`/);
   assert.match(addOnProductsSection, /products\/photoframe\/video\.mp4/);
+  assert.match(addOnProductsSection, /Wedding Photobooth Album[\s\S]*From \$38/);
+  for (const benefit of ['meaningful keepsake', 'Guests can interact', 'favourite photobooth memories', 'revisit and share']) {
+    assert.match(addOnProductsSection, new RegExp(benefit, 'i'));
+  }
   assert.match(addOnProductsSection, /products\/bags\/13\.png/);
   assert.match(addOnProductsSection, /className="add-on-product-card__title-row"/);
   assert.match(addOnProductsSection, /<strong>From \$\d+<\/strong>/);
@@ -255,6 +259,7 @@ test('presents the three optional keepsake products', () => {
   assert.equal((addOnProductsSection.match(/blank: `\/products\/cards\//g) ?? []).length, 1);
   assert.match(styles, /\.product-carousel__card-grid[\s\S]*grid-template-columns:\s*repeat\(auto-fit/);
   assert.match(styles, /\.product-carousel__mini-control/);
+  assert.match(styles, /\.product-carousel--album \.product-carousel__slide[\s\S]*width:\s*200px[\s\S]*height:\s*200px/);
   assert.match(styles, /\.product-carousel__bag-grid[\s\S]*grid-template-columns:\s*repeat\(auto-fit,\s*minmax\(220px,\s*1fr\)\)/);
   assert.match(styles, /\.product-carousel__bag-card img[\s\S]*width:\s*200px[\s\S]*height:\s*200px/);
   assert.match(styles, /\.product-carousel--bags[\s\S]*width:\s*100%[\s\S]*max-width:\s*none/);
