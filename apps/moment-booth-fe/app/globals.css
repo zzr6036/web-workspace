@@ -487,6 +487,12 @@ a {
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
+.optional-addon-card__subtitle {
+  margin: 4px 0 0;
+  color: var(--navy);
+  font-size: 14px;
+  font-weight: 700;
+}
 .optional-addon-card--design .optional-addon-card__eyebrow {
   color: #287a5b;
 }
@@ -508,13 +514,37 @@ a {
 }
 .optional-addon-card ul {
   margin: 0;
-  padding-left: 18px;
+  padding: 0;
+  list-style: none;
+}
+.optional-addon-card li {
+  position: relative;
+  padding-left: 16px;
+}
+.optional-addon-card li::before {
+  content: "";
+  position: absolute;
+  top: 0.65em;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #8a6bff;
 }
 .optional-addon-card li::marker {
   color: #8a6bff;
 }
 .optional-addon-card--design li::marker {
   color: #43a477;
+}
+.optional-addon-card--design li::before {
+  background: #43a477;
+}
+.optional-addon-card__revision {
+  margin-top: 12px !important;
+  color: var(--muted);
+  font-size: 11px;
+  font-style: italic;
 }
 .package-card {
   height: 100%;

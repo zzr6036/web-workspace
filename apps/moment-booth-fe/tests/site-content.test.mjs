@@ -172,6 +172,7 @@ test('explains the optional backdrop add-on and care requirements', () => {
     'Backdrop rental',
     '\\$30',
     '2 × 2 m backdrop',
+    '2 × 2 m backdrop',
     'white, red, blue, or pink',
     'backdrop and setup only',
     'additional decorations',
@@ -189,7 +190,7 @@ test('explains template-library updates and custom artwork scope', () => {
   for (const detail of [
     'choice from our template library',
     'customise a specific photobooth template',
-    'key visual \\(KT\\) board',
+    'theme and requirements',
     '\\$128',
     'photobooth welcome screen',
     'single-photo template',
@@ -202,6 +203,7 @@ test('explains template-library updates and custom artwork scope', () => {
   }
   assert.match(optionalAddOnsSection, /Customised Photobooth Template/);
   assert.match(optionalAddOnsSection, /className="optional-addon-card__title-row"/);
+  assert.match(optionalAddOnsSection, /className="optional-addon-card__revision"/);
   assert.match(homePage, /<OptionalAddOnsSection \/>/);
   assert.match(styles, /\.optional-addon-card--design/);
 });
