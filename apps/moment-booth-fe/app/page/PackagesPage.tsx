@@ -1,3 +1,5 @@
+"use client";
+
 import { Button, SectionHeading } from "elij-ui-library";
 import AddOnProductsSection from "../component/AddOnProductsSection";
 import OptionalAddOnsSection from "../component/OptionalAddOnsSection";
