@@ -11,6 +11,7 @@ const sitemapEntry = await readAppFile('sitemap.ts');
 const styles = await readAppFile('globals.css');
 const packagesSection = await readAppFile('component/PackagesSection.tsx');
 const optionalAddOnsSection = await readAppFile('component/OptionalAddOnsSection.tsx');
+const addOnProductsSection = await readAppFile('component/AddOnProductsSection.tsx');
 const heroSection = await readAppFile('component/HeroSection.tsx');
 const gallerySection = await readAppFile('component/GallerySection.tsx');
 const contactSection = await readAppFile('component/ContactSection.tsx');
@@ -40,7 +41,7 @@ test('organises the home page into page, layout, and component folders', () => {
   assert.match(homePage, /SiteHeader/);
   assert.match(homePage, /HeroSection/);
   assert.deepEqual(layoutFiles.sort(), ['SiteFooter.tsx', 'SiteHeader.tsx']);
-  for (const file of ['BookingStepsSection.tsx', 'ContactSection.tsx', 'EventTypesSection.tsx', 'FAQSection.tsx', 'GallerySection.tsx', 'HeroSection.tsx', 'LibrarySection.tsx', 'OptionalAddOnsSection.tsx', 'PackagesSection.tsx', 'WhyChooseUsSection.tsx']) {
+  for (const file of ['AddOnProductsSection.tsx', 'BookingStepsSection.tsx', 'ContactSection.tsx', 'EventTypesSection.tsx', 'FAQSection.tsx', 'GallerySection.tsx', 'HeroSection.tsx', 'LibrarySection.tsx', 'OptionalAddOnsSection.tsx', 'PackagesSection.tsx', 'WhyChooseUsSection.tsx']) {
     assert.ok(componentFiles.includes(file), `missing ${file}`);
   }
 });
@@ -196,7 +197,7 @@ test('explains template-library updates and custom artwork scope', () => {
     'single-photo template',
     'two-photo template',
     'six-photo template',
-    'round of consolidated revisions',
+    'rounds? of consolidated revisions',
     'theme, colours, logo, and design\\s+assets',
   ]) {
     assert.match(optionalAddOnsSection, new RegExp(detail, 'i'));
@@ -207,6 +208,15 @@ test('explains template-library updates and custom artwork scope', () => {
   assert.match(styles, /\.optional-addon-card__revision[\s\S]*color:\s*#6aa889/);
   assert.match(homePage, /<OptionalAddOnsSection \/>/);
   assert.match(styles, /\.optional-addon-card--design/);
+});
+
+test('presents the three optional keepsake products', () => {
+  for (const product of ['Photobooth Photo Bags', 'Photobooth Photo Decoration Cards', 'Wedding Photobooth Album']) {
+    assert.match(addOnProductsSection, new RegExp(product));
+  }
+  assert.match(homePage, /<AddOnProductsSection \/>/);
+  assert.match(addOnProductsSection, /Add-on products/);
+  assert.match(styles, /\.add-on-products-grid[\s\S]*grid-template-columns:\s*repeat\(3/);
 });
 
 test('presents six guest-focused photo booth benefits', () => {

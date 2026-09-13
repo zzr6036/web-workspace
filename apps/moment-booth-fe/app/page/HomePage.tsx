@@ -1,6 +1,7 @@
 "use client";
 
 import ContactSection from "../component/ContactSection";
+import AddOnProductsSection from "../component/AddOnProductsSection";
 import BookingStepsSection from "../component/BookingStepsSection";
 import EventTypesSection from "../component/EventTypesSection";
 import FAQSection from "../component/FAQSection";
@@ -24,6 +25,7 @@ export default function HomePage() {
       <LibrarySection />
       <PackagesSection />
       <OptionalAddOnsSection />
+      <AddOnProductsSection />
       <BookingStepsSection />
       <EventTypesSection />
       <WhyChooseUsSection />
