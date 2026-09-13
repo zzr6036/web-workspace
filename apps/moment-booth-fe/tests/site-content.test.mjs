@@ -266,7 +266,7 @@ test('presents the three optional keepsake products', () => {
   assert.match(styles, /\.product-carousel__card-grid[\s\S]*grid-template-columns:\s*repeat\(3,\s*minmax\(0,\s*1fr\)\)/);
   assert.match(styles, /\.product-carousel__mini-control/);
   assert.match(styles, /\.product-carousel--album \.product-carousel__slide[\s\S]*width:\s*400px[\s\S]*height:\s*400px/);
-  assert.match(styles, /\.add-on-product-card__album-layout[\s\S]*grid-template-columns/);
+  assert.match(styles, /\.add-on-product-card__album-layout[\s\S]*grid-template-columns[\s\S]*align-items:\s*start/);
   assert.match(styles, /\.product-carousel--cards[\s\S]*width:\s*100%[\s\S]*max-width:\s*none/);
   assert.match(styles, /\.product-carousel__bag-grid[\s\S]*grid-template-columns:\s*repeat\(auto-fit,\s*minmax\(220px,\s*1fr\)\)/);
   assert.match(styles, /\.product-carousel__bag-card img[\s\S]*width:\s*200px[\s\S]*height:\s*200px/);

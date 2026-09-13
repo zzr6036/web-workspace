@@ -853,7 +853,7 @@ a {
 .add-on-product-card__album-layout {
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
-  align-items: center;
+  align-items: start;
   gap: 28px;
 }
 .add-on-product-card__album-info {
