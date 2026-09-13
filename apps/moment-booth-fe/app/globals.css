@@ -542,7 +542,7 @@ a {
 }
 .optional-addon-card__revision {
   margin-top: 12px !important;
-  color: var(--muted);
+  color: #6aa889;
   font-size: 11px;
   font-style: italic;
 }

@@ -204,6 +204,7 @@ test('explains template-library updates and custom artwork scope', () => {
   assert.match(optionalAddOnsSection, /Customised Photobooth Template/);
   assert.match(optionalAddOnsSection, /className="optional-addon-card__title-row"/);
   assert.match(optionalAddOnsSection, /className="optional-addon-card__revision"/);
+  assert.match(styles, /\.optional-addon-card__revision[\s\S]*color:\s*#6aa889/);
   assert.match(homePage, /<OptionalAddOnsSection \/>/);
   assert.match(styles, /\.optional-addon-card--design/);
 });
