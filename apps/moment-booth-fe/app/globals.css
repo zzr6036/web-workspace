@@ -630,6 +630,12 @@ a {
   line-height: 1.2;
   white-space: nowrap;
 }
+.add-on-product-card__subtitle {
+  margin: -2px 0 12px !important;
+  color: var(--muted) !important;
+  font-size: 11px !important;
+  line-height: 1.45;
+}
 .add-on-product-card__notice {
   margin-top: 14px !important;
   color: #287a5b !important;

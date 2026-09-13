@@ -22,7 +22,6 @@ const bagSlides: ProductSlide[] = [
   { label: "Joyful Floral", image: "/products/bags/24.png" },
   { label: "Classic Thank You", image: "/products/bags/18.png" },
   { label: "Pastel Celebration", image: "/products/bags/22.png" },
-  { label: "Elegant Keepsake", image: "/products/bags/23.png" },
 ];
 
 const cardSlides: ProductSlide[] = [
@@ -174,6 +173,10 @@ export default function AddOnProductsSection() {
             <h3>Photobooth Photo Bags</h3>
             <strong>From $16</strong>
           </div>
+          <p className="add-on-product-card__subtitle">
+            Suitable for 4 × 6 in photos, including 1-photo, 2-photo, and
+            6-photo layouts.
+          </p>
           <ProductCarousel slides={bagSlides} kind="bags" />
           <Paragraph>
             Choose from our available bag styles for guests to carry their
