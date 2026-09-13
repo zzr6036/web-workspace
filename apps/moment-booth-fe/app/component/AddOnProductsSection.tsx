@@ -83,6 +83,18 @@ function ProductCarousel({ slides, kind }: ProductCarouselProps) {
     );
   }
 
+  if (kind === "cards") {
+    return (
+      <div className="product-carousel product-carousel--cards" aria-label="Photobooth photo decoration card styles">
+        <div className="product-carousel__card-grid">
+          {slides.map((slide) => (
+            <DecorationCardCarousel key={slide.label} slide={slide} />
+          ))}
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className={`product-carousel product-carousel--${kind}`}>
       <div className="product-carousel__header">
@@ -149,9 +161,37 @@ function ProductCarousel({ slides, kind }: ProductCarouselProps) {
   );
 }
 
+function DecorationCardCarousel({ slide }: { slide: ProductSlide }) {
+  const images = [slide.blank, slide.photo].filter(Boolean) as string[];
+  const [activeIndex, setActiveIndex] = useState(0);
+  const move = (direction: -1 | 1) => {
+    setActiveIndex((current) => (current + direction + images.length) % images.length);
+  };
+
+  return (
+    <article className="product-carousel__card-item">
+      <div className="product-carousel__card-viewport">
+        <button type="button" className="product-carousel__mini-control product-carousel__mini-control--prev" aria-label={`Show previous ${slide.label} view`} onClick={() => move(-1)}>
+          ‹
+        </button>
+        <img src={images[activeIndex]} alt={`${slide.label} ${activeIndex === 0 ? "without photo" : "with photo"}`} />
+        <button type="button" className="product-carousel__mini-control product-carousel__mini-control--next" aria-label={`Show next ${slide.label} view`} onClick={() => move(1)}>
+          ›
+        </button>
+      </div>
+      <div className="product-carousel__mini-dots" aria-label={`${slide.label} views`}>
+        {images.map((_, index) => (
+          <button type="button" key={`${slide.label}-${index}`} aria-label={`Show ${slide.label} ${index === 0 ? "without photo" : "with photo"}`} aria-current={index === activeIndex ? "true" : undefined} onClick={() => setActiveIndex(index)} />
+        ))}
+      </div>
+      <strong>{slide.label}</strong>
+    </article>
+  );
+}
+
 const bagPricing = [
-  "2-hour event - $16 for unlimited use",
-  "3-hour event - $22 for unlimited use",
+  "2-hour event - $38 for unlimited use",
+  "3-hour event - $48 for unlimited use",
 ];
 
 export default function AddOnProductsSection() {
@@ -171,7 +211,7 @@ export default function AddOnProductsSection() {
           <span className="add-on-product-card__eyebrow">Keepsake extra</span>
           <div className="add-on-product-card__title-row">
             <h3>Photobooth Photo Bags</h3>
-            <strong>From $16</strong>
+            <strong>From $38</strong>
           </div>
           <p className="add-on-product-card__subtitle">
             Suitable for 4 × 6 in photos, including 1-photo, 2-photo, and
