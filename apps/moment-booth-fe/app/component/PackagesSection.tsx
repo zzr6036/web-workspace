@@ -180,6 +180,34 @@ export default function PackagesSection() {
           </li>
         </ul>
       </aside>
+      <aside className="custom-design-addon" aria-label="Custom design add-on">
+        <div>
+          <span className="custom-design-addon__eyebrow">Design options</span>
+          <h3>Custom event artwork · +$128</h3>
+        </div>
+        <div className="custom-design-addon__content">
+          <p>
+            Your package includes a choice from our template library. We can
+            update the selected design with your event name, date, logo, and
+            simple text.
+          </p>
+          <p>
+            Prefer a design based on your key visual (KT) board and venue
+            backdrop theme? Our custom design service includes:
+          </p>
+          <ul>
+            <li>1 photobooth welcome screen</li>
+            <li>1 single-photo template</li>
+            <li>1 two-photo template</li>
+            <li>1 six-photo template</li>
+            <li>1 round of consolidated revisions</li>
+          </ul>
+          <p>
+            We create the artwork using your theme, colours, logo, and design
+            assets.
+          </p>
+        </div>
+      </aside>
     </section>
   );
 }

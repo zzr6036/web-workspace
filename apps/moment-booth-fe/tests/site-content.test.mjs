@@ -184,6 +184,25 @@ test('explains the optional backdrop add-on and care requirements', () => {
   assert.match(styles, /\.backdrop-addon[\s\S]*grid-template-columns/);
 });
 
+test('explains template-library updates and custom artwork scope', () => {
+  for (const detail of [
+    'choice from our template library',
+    'event name, date, logo',
+    'key visual \\(KT\\) board',
+    '\\+\\$128',
+    'photobooth welcome screen',
+    'single-photo template',
+    'two-photo template',
+    'six-photo template',
+    'round of consolidated revisions',
+    'theme, colours, logo, and design\\s+assets',
+  ]) {
+    assert.match(packagesSection, new RegExp(detail, 'i'));
+  }
+  assert.match(packagesSection, /className="custom-design-addon"/);
+  assert.match(styles, /\.custom-design-addon[\s\S]*grid-template-columns/);
+});
+
 test('presents six guest-focused photo booth benefits', () => {
   assert.match(heroSection, /More than photos\. A better guest experience\./);
   assert.equal((heroSection.match(/title:\s*["']/g) ?? []).length, 6);

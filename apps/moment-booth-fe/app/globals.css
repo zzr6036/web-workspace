@@ -519,6 +519,53 @@ a {
 .backdrop-addon__points span {
   margin: 0;
 }
+.custom-design-addon {
+  max-width: 1400px;
+  margin: 16px auto 0;
+  padding: 22px 24px;
+  display: grid;
+  grid-template-columns: minmax(220px, 0.55fr) 1.45fr;
+  align-items: start;
+  gap: 28px;
+  border: 1px solid #cfe3da;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #f0faf5, #fbfffd);
+}
+.custom-design-addon__eyebrow {
+  display: block;
+  margin-bottom: 6px;
+  color: #287a5b;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.custom-design-addon h3 {
+  margin: 0;
+  color: var(--navy);
+  font-size: 20px;
+}
+.custom-design-addon__content {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.55;
+}
+.custom-design-addon__content p {
+  margin: 0 0 10px;
+}
+.custom-design-addon__content p:last-child {
+  margin-bottom: 0;
+}
+.custom-design-addon__content ul {
+  margin: 0 0 10px;
+  padding-left: 18px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px 24px;
+}
+.custom-design-addon__content li::marker {
+  color: #43a477;
+}
 .package-card {
   height: 100%;
   border: 1px solid var(--line);
@@ -900,6 +947,13 @@ footer small {
     gap: 12px;
   }
   .backdrop-addon__points {
+    grid-template-columns: 1fr;
+  }
+  .custom-design-addon {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .custom-design-addon__content ul {
     grid-template-columns: 1fr;
   }
   .package-card--featured {
