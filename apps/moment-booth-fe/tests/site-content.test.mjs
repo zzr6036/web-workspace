@@ -269,7 +269,7 @@ test('presents the three optional keepsake products', () => {
   assert.match(styles, /\.product-carousel__card-grid[\s\S]*grid-template-columns:\s*repeat\(5,\s*minmax\(0,\s*1fr\)\)/);
   assert.match(styles, /\.product-carousel__card-grid[\s\S]*grid-template-columns:\s*repeat\(3,\s*minmax\(0,\s*1fr\)\)/);
   assert.match(styles, /\.product-carousel__mini-control/);
-  assert.match(styles, /\.product-carousel--album \.product-carousel__slide[\s\S]*width:\s*100%[\s\S]*max-width:\s*400px[\s\S]*aspect-ratio:\s*1/);
+  assert.match(styles, /\.product-carousel--album \.product-carousel__slide[\s\S]*width:\s*100%[\s\S]*max-width:\s*none[\s\S]*aspect-ratio:\s*1/);
   assert.match(styles, /\.add-on-product-card__album-layout[\s\S]*grid-template-columns[\s\S]*align-items:\s*start/);
   assert.match(styles, /\.add-on-product-card__album-media-grid[\s\S]*grid-template-columns:\s*repeat\(2[\s\S]*align-items:\s*end/);
   assert.match(styles, /\.product-carousel--cards[\s\S]*width:\s*100%[\s\S]*max-width:\s*none/);

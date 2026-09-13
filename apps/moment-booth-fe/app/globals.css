@@ -842,7 +842,7 @@ a {
 }
 .product-carousel--album .product-carousel__slide {
   width: 100%;
-  max-width: 400px;
+  max-width: none;
   height: auto;
   aspect-ratio: 1;
   margin: 0 auto;
