@@ -170,7 +170,7 @@ test('offers custom multi-day and long-term rentals', () => {
 test('explains the optional backdrop add-on and care requirements', () => {
   for (const detail of [
     'Backdrop rental',
-    '\\+\\$30',
+    '\\$30',
     '2 × 2 m backdrop',
     'white, red, blue, or pink',
     'backdrop and setup only',
@@ -188,9 +188,9 @@ test('explains the optional backdrop add-on and care requirements', () => {
 test('explains template-library updates and custom artwork scope', () => {
   for (const detail of [
     'choice from our template library',
-    'event name, date, logo',
+    'customise a specific photobooth template',
     'key visual \\(KT\\) board',
-    '\\+\\$128',
+    '\\$128',
     'photobooth welcome screen',
     'single-photo template',
     'two-photo template',
@@ -200,7 +200,8 @@ test('explains template-library updates and custom artwork scope', () => {
   ]) {
     assert.match(optionalAddOnsSection, new RegExp(detail, 'i'));
   }
-  assert.match(optionalAddOnsSection, /optional-addon-card--design/);
+  assert.match(optionalAddOnsSection, /Customised Photobooth Template/);
+  assert.match(optionalAddOnsSection, /className="optional-addon-card__title-row"/);
   assert.match(homePage, /<OptionalAddOnsSection \/>/);
   assert.match(styles, /\.optional-addon-card--design/);
 });

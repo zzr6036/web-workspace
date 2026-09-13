@@ -11,8 +11,10 @@ export default function OptionalAddOnsSection() {
       />
       <div className="optional-addons-grid">
         <article className="optional-addon-card" aria-label="Optional backdrop add-on">
-          <span className="optional-addon-card__eyebrow">Backdrop rental</span>
-          <h3>+$30 · 2 × 2 m backdrop</h3>
+          <div className="optional-addon-card__title-row">
+            <span className="optional-addon-card__eyebrow">Backdrop rental</span>
+            <h3>$30 · 2 × 2 m backdrop</h3>
+          </div>
           <Paragraph>Choose one solid colour: white, red, blue, or pink.</Paragraph>
           <ul>
             <li>We provide the backdrop and setup only.</li>
@@ -21,10 +23,12 @@ export default function OptionalAddOnsSection() {
           </ul>
         </article>
         <article className="optional-addon-card optional-addon-card--design" aria-label="Custom design add-on">
-          <span className="optional-addon-card__eyebrow">Custom template design</span>
-          <h3>+$128 · Event artwork package</h3>
+          <div className="optional-addon-card__title-row">
+            <span className="optional-addon-card__eyebrow">Customised Photobooth Template</span>
+            <h3>$128</h3>
+          </div>
           <Paragraph>
-            Your package includes a choice from our template library. We can update the selected design with your event name, date, logo, and simple text.
+            Your package includes a choice from our template library. We can customise a specific photobooth template for your event based on your theme and requirements.
           </Paragraph>
           <p>
             Prefer artwork based on your key visual (KT) board and venue backdrop theme? The custom design package includes:
