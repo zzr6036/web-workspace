@@ -841,10 +841,23 @@ a {
   text-align: center;
 }
 .product-carousel--album .product-carousel__slide {
-  width: 200px;
-  height: 200px;
+  width: 400px;
+  height: 400px;
   aspect-ratio: 1;
   margin: 0 auto;
+}
+.product-carousel--album {
+  width: 100%;
+  max-width: none;
+}
+.add-on-product-card__album-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+  align-items: center;
+  gap: 28px;
+}
+.add-on-product-card__album-info {
+  min-width: 0;
 }
 .add-on-product-card__benefits {
   display: grid;
@@ -1322,6 +1335,9 @@ footer small {
   .product-carousel__card-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+  .add-on-product-card__album-layout {
+    grid-template-columns: 1fr;
+  }
   .add-on-product-card--album {
     grid-column: auto;
   }
@@ -1390,6 +1406,11 @@ footer small {
   }
   .product-carousel__card-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .product-carousel--album .product-carousel__slide {
+    width: min(400px, 100%);
+    height: auto;
+    aspect-ratio: 1;
   }
   .hero-summary {
     grid-template-columns: 1fr;
