@@ -230,9 +230,12 @@ test('explains template-library updates and custom artwork scope', () => {
 });
 
 test('presents the three optional keepsake products', () => {
-  for (const product of ['Photobooth Photo Bags', 'Photobooth Photo Decoration Cards', 'Wedding Photobooth Album', 'at least 1 month before your event', '2-hour event · \\$38', '3-hour event · \\$50', 'Unlimited use']) {
+  for (const product of ['Photobooth Photo Bags', 'Photobooth Photo Decoration Cards', 'Wedding Photobooth Album', 'at least 1 month before your event', '2-hour event - \\$38 for unlimited use', '3-hour event - \\$50 for unlimited use']) {
     assert.match(addOnProductsSection, new RegExp(product));
   }
+  assert.doesNotMatch(addOnProductsSection, /<li>Unlimited use<\/li>/);
+  assert.match(addOnProductsSection, /add-on-product-card__notice--soft/);
+  assert.match(styles, /\.add-on-product-card__notice--soft[\s\S]*color:\s*#6aa889[\s\S]*font-style:\s*italic/);
   assert.match(packagesPage, /<AddOnProductsSection \/>/);
   assert.match(addOnProductsSection, /Add-on products/);
   assert.match(addOnProductsSection, /ProductCarousel/);

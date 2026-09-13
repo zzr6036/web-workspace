@@ -121,7 +121,7 @@ function ProductCarousel({ slides, kind }: ProductCarouselProps) {
   );
 }
 
-const pricing = ["2-hour event · $38", "3-hour event · $50", "Unlimited use"];
+const bagPricing = ["2-hour event - $38 for unlimited use", "3-hour event - $50 for unlimited use"];
 
 export default function AddOnProductsSection() {
   return (
@@ -138,8 +138,8 @@ export default function AddOnProductsSection() {
           <h3>Photobooth Photo Bags</h3>
           <ProductCarousel slides={bagSlides} kind="bags" />
           <Paragraph>Choose from our available bag styles for guests to carry their prints home.</Paragraph>
-          <p className="add-on-product-card__notice">Please confirm your preferred style at least 1 month before your event so we can prepare and print it in advance.</p>
-          <ul className="add-on-product-card__pricing">{pricing.map((item) => <li key={item}>{item}</li>)}</ul>
+          <p className="add-on-product-card__notice add-on-product-card__notice--soft">Please confirm your preferred style at least 1 month before your event so we can prepare and print it in advance.</p>
+          <ul className="add-on-product-card__pricing">{bagPricing.map((item) => <li key={item}>{item}</li>)}</ul>
         </article>
 
         <article className="add-on-product-card" aria-label="Photobooth photo decoration cards">
@@ -147,8 +147,8 @@ export default function AddOnProductsSection() {
           <h3>Photobooth Photo Decoration Cards</h3>
           <ProductCarousel slides={cardSlides} kind="cards" />
           <Paragraph>Browse our styles with and without a photo to find the look that suits your event.</Paragraph>
-          <p className="add-on-product-card__notice">Please confirm your preferred style at least 1 month before your event so we can prepare and print it in advance.</p>
-          <ul className="add-on-product-card__pricing">{pricing.map((item) => <li key={item}>{item}</li>)}</ul>
+          <p className="add-on-product-card__notice add-on-product-card__notice--soft">Please confirm your preferred style at least 1 month before your event so we can prepare and print it in advance.</p>
+          <ul className="add-on-product-card__pricing">{bagPricing.map((item) => <li key={item}>{item}</li>)}</ul>
         </article>
 
         <article className="add-on-product-card add-on-product-card--album" aria-label="Wedding photobooth album">
