@@ -17,9 +17,8 @@ export default function SiteHeader() {
       </a>
       <nav aria-label="Main navigation">
         <a href="/#gallery">Gallery</a>
-        <a href="/#library">Collection</a>
         <a href="/packages">Packages</a>
-        <a href="/#faq">FAQ</a>
+        <a href="/faq">FAQ</a>
       </nav>
       <TrackedWhatsAppLink
         location="header"

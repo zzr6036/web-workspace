@@ -1265,6 +1265,9 @@ footer small {
   width: 100%;
   padding-inline: max(2vw, 24px);
 }
+.gallery-collection-group {
+  background: linear-gradient(180deg, #fff, #f3f5fb);
+}
 .gallery-cases {
   width: 100%;
   display: grid;

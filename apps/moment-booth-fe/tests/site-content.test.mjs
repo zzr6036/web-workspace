@@ -7,6 +7,8 @@ const pageEntry = await readAppFile('page.tsx');
 const homePage = await readAppFile('page/HomePage.tsx');
 const packagesPage = await readAppFile('page/PackagesPage.tsx');
 const packagesRoute = await readAppFile('packages/page.tsx');
+const faqPage = await readAppFile('page/FAQPage.tsx');
+const faqRoute = await readAppFile('faq/page.tsx');
 const layoutEntry = await readAppFile('layout.tsx');
 const robotsEntry = await readAppFile('robots.ts');
 const sitemapEntry = await readAppFile('sitemap.ts');
@@ -48,10 +50,16 @@ test('organises the home page into page, layout, and component folders', () => {
   }
   assert.match(homePage, /<PackagesPreviewSection \/>/);
   assert.doesNotMatch(homePage, /<PackagesSection \/>|<OptionalAddOnsSection \/>|<AddOnProductsSection \/>/);
+  assert.doesNotMatch(homePage, /<FAQSection \/>/);
+  assert.match(homePage, /gallery-collection-group/);
+  assert.match(homePage, /<GallerySection \/>[\s\S]*<LibrarySection \/>/);
   assert.match(packagesRoute, /PackagesPage/);
   assert.match(packagesRoute, /Photobooth Packages & Add-ons/);
   assert.match(packagesRoute, /canonical: "\/packages"/);
   for (const section of ['PackagesSection', 'OptionalAddOnsSection', 'AddOnProductsSection']) assert.match(packagesPage, new RegExp(`<${section} \/>`));
+  assert.match(faqPage, /<FAQSection \/>/);
+  assert.match(faqRoute, /Photobooth FAQ/);
+  assert.match(faqRoute, /canonical: "\/faq"/);
 });
 
 test('organises reusable non-Elij components in the common layer', () => {
@@ -71,7 +79,8 @@ test('organises reusable non-Elij components in the common layer', () => {
 
 test('showcases the real props and template library', () => {
   assert.match(homePage, /<LibrarySection \/>/);
-  assert.match(layoutSource, /href="\/#library">Collection/);
+  assert.doesNotMatch(layoutSource, />Collection</);
+  assert.match(layoutSource, /href="\/faq">FAQ/);
   assert.match(librarySection, /100\+/);
   assert.match(librarySection, /\["Many", "Popular event styles"\]/);
   assert.match(librarySection, /200\+/);

@@ -3,7 +3,6 @@
 import ContactSection from "../component/ContactSection";
 import BookingStepsSection from "../component/BookingStepsSection";
 import EventTypesSection from "../component/EventTypesSection";
-import FAQSection from "../component/FAQSection";
 import FloatingContact from "../component/FloatingContact";
 import GallerySection from "../component/GallerySection";
 import HeroSection from "../component/HeroSection";
@@ -19,13 +18,14 @@ export default function HomePage() {
       <SiteHeader />
       <FloatingContact />
       <HeroSection />
-      <GallerySection />
-      <LibrarySection />
+      <div className="gallery-collection-group">
+        <GallerySection />
+        <LibrarySection />
+      </div>
       <PackagesPreviewSection />
       <BookingStepsSection />
       <EventTypesSection />
       <WhyChooseUsSection />
-      <FAQSection />
       <ContactSection />
       <SiteFooter />
     </main>
