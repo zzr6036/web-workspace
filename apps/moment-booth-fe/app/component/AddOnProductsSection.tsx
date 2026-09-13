@@ -44,11 +44,11 @@ const cardSlides: ProductSlide[] = [
 }));
 
 const albumSlides: ProductSlide[] = [
+  { label: "Wedding album video", video: "/products/photoframe/video.mp4" },
   { label: "Wedding album detail 1", image: "/products/photoframe/2.png" },
   { label: "Wedding album detail 2", image: "/products/photoframe/3.jpg" },
   { label: "Wedding album detail 3", image: "/products/photoframe/4.png" },
   { label: "Wedding album detail 4", image: "/products/photoframe/5.png" },
-  { label: "Wedding album video", video: "/products/photoframe/video.mp4" },
 ];
 
 type ProductCarouselProps = {
@@ -240,21 +240,30 @@ export default function AddOnProductsSection() {
           aria-label="Photobooth photo decoration cards"
         >
           <span className="add-on-product-card__eyebrow">Keepsake extra</span>
-          <h3>Photobooth Photo Decoration Cards</h3>
-          <ProductCarousel slides={cardSlides} kind="cards" />
-          <Paragraph>
-            Browse our styles with and without a photo to find the look that
-            suits your event.
-          </Paragraph>
-          <p className="add-on-product-card__notice add-on-product-card__notice--soft">
-            Please confirm your preferred style at least 1 month before your
-            event so we can prepare and print it in advance.
+          <div className="add-on-product-card__title-row">
+            <h3>Photobooth Photo Decoration Cards</h3>
+            <strong>From $38</strong>
+          </div>
+          <p className="add-on-product-card__subtitle">
+            Suitable for 4 × 6 in photos, including 1-photo, 2-photo, and
+            6-photo layouts.
           </p>
-          <ul className="add-on-product-card__pricing">
-            {bagPricing.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
+          <div className="add-on-product-card__info">
+            <Paragraph>
+              Browse our styles with and without a photo to find the look that
+              suits your event.
+            </Paragraph>
+            <p className="add-on-product-card__notice add-on-product-card__notice--soft">
+              Please confirm your preferred style at least 1 month before your
+              event so we can prepare and print it in advance.
+            </p>
+            <ul className="add-on-product-card__pricing">
+              {bagPricing.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+          <ProductCarousel slides={cardSlides} kind="cards" />
         </article>
 
             <article
@@ -262,20 +271,22 @@ export default function AddOnProductsSection() {
               aria-label="Wedding photobooth album"
             >
               <span className="add-on-product-card__eyebrow">Wedding keepsake</span>
-          <div className="add-on-product-card__title-row">
-            <h3>Wedding Photobooth Album</h3>
-            <strong>From $38</strong>
-          </div>
+              <div className="add-on-product-card__title-row">
+                <h3>Wedding Photobooth Album</h3>
+                <strong>From $30 each</strong>
+              </div>
           <ProductCarousel slides={albumSlides} kind="album" />
           <Paragraph>
             A dedicated album for collecting photobooth memories from your
             wedding celebration.
           </Paragraph>
           <ul className="add-on-product-card__benefits">
-            <li>A meaningful keepsake of your celebration</li>
-            <li>Guests can interact by adding messages and photos</li>
-            <li>Keeps your favourite photobooth memories together</li>
-            <li>Easy to revisit and share after the event</li>
+            <li>Holds up to 200 photos and is recommended for 3 × 7 in prints</li>
+            <li>Add messages and photos to preserve your favourite memories</li>
+            <li>Arrange photos freely with a secure adhesive</li>
+            <li>Transparent protective film stays clear and resists yellowing</li>
+            <li>No glue required, with high-definition lamination</li>
+            <li>Reposition photos easily—peel off and reapply if needed</li>
           </ul>
         </article>
       </div>
