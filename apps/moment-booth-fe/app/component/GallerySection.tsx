@@ -82,13 +82,13 @@ const galleryCases: GalleryCase[] = [
 export default function GallerySection() {
   return (
     <section className="section gallery-section" id="gallery">
+      <HeroBenefitsSection />
       <SectionHeading
         className="section-heading"
         eyebrow="Selected moments"
         title="Made for real connection."
         description="Real celebrations, considered styling, and keepsakes guests can take home on the day."
       />
-      <HeroBenefitsSection />
       <div className="gallery-cases">
         {galleryCases.map((event) => (
           <EventCarousel

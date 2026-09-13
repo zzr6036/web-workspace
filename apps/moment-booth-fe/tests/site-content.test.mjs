@@ -63,6 +63,7 @@ test('organises the home page into page, layout, and component folders', () => {
   assert.match(faqPage, /<FAQSection \/>/);
   assert.match(faqRoute, /Photobooth FAQ/);
   assert.match(faqRoute, /canonical: "\/faq"/);
+  assert.match(gallerySection, /<HeroBenefitsSection \/>[\s\S]*<SectionHeading[\s\S]*<div className="gallery-cases">/);
 });
 
 test('organises reusable non-Elij components in the common layer', () => {
@@ -295,7 +296,7 @@ test('presents six guest-focused photo booth benefits', () => {
   }
   assert.doesNotMatch(heroBenefitsSection, /From SGD 288/);
   assert.match(styles, /\.hero-benefits-grid[\s\S]*grid-template-columns:\s*repeat\(3/);
-  assert.match(styles, /\.hero-benefits[\s\S]*margin:\s*72px\s+auto\s+0/);
+  assert.match(styles, /\.hero-benefits[\s\S]*margin:\s*0\s+auto\s+72px/);
 });
 
 test('keeps the hero introduction compact', () => {

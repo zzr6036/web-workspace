@@ -244,7 +244,7 @@ a {
 }
 .hero-benefits {
   width: min(100%, 1120px);
-  margin: 72px auto 0;
+  margin: 0 auto 72px;
   position: relative;
   z-index: 2;
 }
@@ -1424,7 +1424,7 @@ footer small {
     width: 100%;
   }
   .hero-benefits {
-    margin-top: 72px;
+    margin: 0 auto 48px;
   }
   .hero-benefits-grid {
     grid-template-columns: 1fr;
