@@ -585,7 +585,7 @@ a {
   max-width: 1400px;
   margin: auto;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: 16px;
 }
 .add-on-product-card {
@@ -650,6 +650,7 @@ a {
   text-align: center;
 }
 .product-carousel {
+  max-width: 960px;
   margin: 18px 0;
   padding: 10px;
   border: 1px solid #e4e8f1;
@@ -677,7 +678,7 @@ a {
   background: #f4f6fa;
 }
 .product-carousel__slide {
-  aspect-ratio: 1 / 0.78;
+  aspect-ratio: 16 / 9;
   display: grid;
   place-items: center;
 }
@@ -687,6 +688,10 @@ a {
   height: 100%;
   display: block;
   object-fit: contain;
+}
+.product-carousel--bags .product-carousel__slide > img {
+  object-fit: contain;
+  background: #f4f6fa;
 }
 .product-carousel__pair {
   width: 100%;

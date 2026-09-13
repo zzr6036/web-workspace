@@ -11,24 +11,45 @@ type ProductSlide = {
   video?: string;
 };
 
-const cardSlides: ProductSlide[] = Array.from({ length: 12 }, (_, index) => {
-  const number = String(index + 1).padStart(2, "0");
-  return {
-    label: `Style ${number}`,
-    blank: `/card/${number}-blank.png`,
-    photo: `/card/${number}-photo.png`,
-  };
-});
+const bagSlides: ProductSlide[] = [
+  { label: "Botanical Thank You", image: "/products/bags/13.png" },
+  { label: "Blush Floral Celebration", image: "/products/bags/14.png" },
+  { label: "Mint Love", image: "/products/bags/15.png" },
+  { label: "Cherry Blossom Thank You", image: "/products/bags/16.png" },
+  { label: "Garden Celebration", image: "/products/bags/17.png" },
+  { label: "Classic Thank You", image: "/products/bags/18.png" },
+  { label: "Soft Floral Moments", image: "/products/bags/20.png" },
+  { label: "Modern Love", image: "/products/bags/21.png" },
+  { label: "Pastel Celebration", image: "/products/bags/22.png" },
+  { label: "Elegant Keepsake", image: "/products/bags/23.png" },
+  { label: "Joyful Floral", image: "/products/bags/24.png" },
+];
 
-const bagSlides: ProductSlide[] = Array.from({ length: 6 }, (_, index) => ({
-  label: `Style ${String(index + 1).padStart(2, "0")}`,
+const cardSlides: ProductSlide[] = [
+  ["Heart Frame", "01"],
+  ["Floral Thank You", "02"],
+  ["Garden Love", "03"],
+  ["Blush Petals", "04"],
+  ["Modern Monogram", "05"],
+  ["Sweet Celebration", "06"],
+  ["Classic Keepsake", "07"],
+  ["Pastel Moments", "08"],
+  ["Botanical Note", "09"],
+  ["Wedding Bloom", "10"],
+  ["Joyful Confetti", "11"],
+  ["Timeless Thank You", "12"],
+].map(([label, number]) => ({
+  label,
+  blank: `/products/cards/${number}-blank.png`,
+  photo: `/products/cards/${number}-photo.png`,
 }));
 
 const albumSlides: ProductSlide[] = [
-  { label: "Album preview 1", image: "/gallery/day8/2.png" },
-  { label: "Album preview 2", image: "/gallery/day8/5.png" },
-  { label: "Album preview 3", image: "/gallery/day9/3.png" },
-  { label: "Album preview video", video: "/gallery/day11/video3.mp4" },
+  { label: "Wedding album detail 1", image: "/products/photoframe/2.png" },
+  { label: "Wedding album detail 2", image: "/products/photoframe/3.jpg" },
+  { label: "Wedding album detail 3", image: "/products/photoframe/4.png" },
+  { label: "Wedding album detail 4", image: "/products/photoframe/5.png" },
+  { label: "Wedding album video", video: "/products/photoframe/video.mp4" },
 ];
 
 type ProductCarouselProps = {

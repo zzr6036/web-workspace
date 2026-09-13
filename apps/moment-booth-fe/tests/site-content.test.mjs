@@ -236,9 +236,10 @@ test('presents the three optional keepsake products', () => {
   assert.match(packagesPage, /<AddOnProductsSection \/>/);
   assert.match(addOnProductsSection, /Add-on products/);
   assert.match(addOnProductsSection, /ProductCarousel/);
-  assert.match(addOnProductsSection, /blank:\s*`\/card\/\$\{number\}-blank\.png`/);
-  assert.match(addOnProductsSection, /day11\/video3\.mp4/);
-  assert.match(styles, /\.add-on-products-grid[\s\S]*grid-template-columns:\s*repeat\(2/);
+  assert.match(addOnProductsSection, /blank:\s*`\/products\/cards\/\$\{number\}-blank\.png`/);
+  assert.match(addOnProductsSection, /products\/photoframe\/video\.mp4/);
+  assert.match(addOnProductsSection, /products\/bags\/13\.png/);
+  assert.match(styles, /\.add-on-products-grid[\s\S]*grid-template-columns:\s*minmax\(0,\s*1fr\)/);
 });
 
 test('presents six guest-focused photo booth benefits', () => {
