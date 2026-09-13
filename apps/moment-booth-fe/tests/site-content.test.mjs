@@ -61,6 +61,7 @@ test('organises the home page into page, layout, and component folders', () => {
   assert.match(packagesPage, /<HeroSection exploreHref="\/#gallery" \/>/);
   assert.doesNotMatch(packagesPage, /packages-page-intro|Packages & extras/);
   assert.match(faqPage, /<FAQSection \/>/);
+  assert.match(faqPage, /<HeroSection exploreHref="\/#gallery" \/>[\s\S]*<FAQSection \/>/);
   assert.match(faqRoute, /Photobooth FAQ/);
   assert.match(faqRoute, /canonical: "\/faq"/);
   assert.match(gallerySection, /<HeroBenefitsSection \/>[\s\S]*<SectionHeading[\s\S]*<div className="gallery-cases">/);
