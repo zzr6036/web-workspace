@@ -241,7 +241,7 @@ test('presents the three optional keepsake products', () => {
   assert.match(addOnProductsSection, /ProductCarousel/);
   assert.match(addOnProductsSection, /blank:\s*`\/products\/cards\/\$\{number\}-blank\.png`/);
   assert.match(addOnProductsSection, /products\/photoframe\/video\.mp4/);
-  assert.match(addOnProductsSection, /Wedding Photo Album[\s\S]*From \$30 each/);
+  assert.match(addOnProductsSection, /Wedding Photo Album[\s\S]*\$30/);
   for (const benefit of ['up to 200 photos', '3 × 7 in prints', 'Add messages and photos', 'Arrange photos freely', 'stays clear', 'No glue required', 'Reposition photos easily']) {
     assert.match(addOnProductsSection, new RegExp(benefit, 'i'));
   }
@@ -259,6 +259,8 @@ test('presents the three optional keepsake products', () => {
   assert.equal((addOnProductsSection.match(/Suitable for 4 × 6 in photos/g) ?? []).length, 2);
   assert.match(addOnProductsSection, /Photo Keepsake Cards[\s\S]*add-on-product-card__info[\s\S]*Browse our styles[\s\S]*ProductCarousel slides=\{cardSlides\}/);
   assert.match(addOnProductsSection, /Photo Keepsake Cards[\s\S]*<strong>From \$38<\/strong>/);
+  const cardsInfo = addOnProductsSection.match(/Photo Keepsake Cards[\s\S]*?className="add-on-product-card__info"([\s\S]*?)ProductCarousel slides=\{cardSlides\}/)?.[1] ?? '';
+  assert.ok(cardsInfo.indexOf('add-on-product-card__pricing') < cardsInfo.indexOf('Browse our styles'));
   assert.equal((addOnProductsSection.match(/blank: `\/products\/cards\//g) ?? []).length, 1);
   assert.match(styles, /\.product-carousel__card-grid[\s\S]*grid-template-columns:\s*repeat\(5,\s*minmax\(0,\s*1fr\)\)/);
   assert.match(styles, /\.product-carousel__card-grid[\s\S]*grid-template-columns:\s*repeat\(3,\s*minmax\(0,\s*1fr\)\)/);

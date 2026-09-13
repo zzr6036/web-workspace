@@ -271,21 +271,21 @@ export default function AddOnProductsSection() {
             <h3>Photo Keepsake Cards</h3>
             <strong>From $38</strong>
           </div>
-          <p className="add-on-product-card__subtitle">
-            Suitable for 4 × 6 in photos, including 1-photo, 2-photo, and
-            6-photo layouts.
-          </p>
-          <div className="add-on-product-card__info">
-            <Paragraph>
-              Browse our styles with and without a photo to find the look that
-              suits your event.
-            </Paragraph>
-            <ul className="add-on-product-card__pricing">
-              {bagPricing.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-            <p className="add-on-product-card__notice add-on-product-card__notice--soft">
+              <p className="add-on-product-card__subtitle">
+                Suitable for 4 × 6 in photos, including 1-photo, 2-photo, and
+                6-photo layouts.
+              </p>
+              <div className="add-on-product-card__info">
+                <ul className="add-on-product-card__pricing">
+                  {bagPricing.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+                <Paragraph>
+                  Browse our styles with and without a photo to find the look that
+                  suits your event.
+                </Paragraph>
+                <p className="add-on-product-card__notice add-on-product-card__notice--soft">
               Please confirm your preferred style at least 1 month before your
               event so we can prepare and print it in advance.
             </p>
