@@ -57,6 +57,8 @@ test('organises the home page into page, layout, and component folders', () => {
   assert.match(packagesRoute, /Photobooth Packages & Add-ons/);
   assert.match(packagesRoute, /canonical: "\/packages"/);
   for (const section of ['PackagesSection', 'OptionalAddOnsSection', 'AddOnProductsSection']) assert.match(packagesPage, new RegExp(`<${section} \/>`));
+  assert.match(packagesPage, /<HeroSection exploreHref="\/#gallery" \/>/);
+  assert.doesNotMatch(packagesPage, /packages-page-intro|Packages & extras/);
   assert.match(faqPage, /<FAQSection \/>/);
   assert.match(faqRoute, /Photobooth FAQ/);
   assert.match(faqRoute, /canonical: "\/faq"/);

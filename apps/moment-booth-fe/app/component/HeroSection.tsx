@@ -50,7 +50,11 @@ const boothBenefits = [
   },
 ];
 
-export default function HeroSection() {
+type HeroSectionProps = {
+  exploreHref?: string;
+};
+
+export default function HeroSection({ exploreHref = "#gallery" }: HeroSectionProps) {
   return (
     <section className="hero" id="top">
       <div className="hero-glow hero-glow--left" />
@@ -98,7 +102,7 @@ export default function HeroSection() {
           >
             Enquire
           </TrackedWhatsAppButton>
-          <a href="#gallery">
+          <a href={exploreHref}>
             <Button variant="secondary" size="large">
               Explore moments
             </Button>
