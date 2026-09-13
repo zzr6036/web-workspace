@@ -847,6 +847,16 @@ a {
   aspect-ratio: 1;
   margin: 0 auto;
 }
+.product-carousel--album-video .product-carousel__slide {
+  width: 240px;
+  height: 320px;
+  aspect-ratio: auto;
+}
+.product-carousel--album-photos .product-carousel__slide {
+  width: 320px;
+  height: 320px;
+  aspect-ratio: auto;
+}
 .product-carousel--album {
   width: 100%;
   max-width: none;
@@ -1425,6 +1435,14 @@ footer small {
     width: min(400px, 100%);
     height: auto;
     aspect-ratio: 1;
+  }
+  .product-carousel--album-video .product-carousel__slide {
+    width: min(240px, 100%);
+    height: min(320px, 100vw);
+  }
+  .product-carousel--album-photos .product-carousel__slide {
+    width: min(320px, 100%);
+    height: min(320px, 100vw);
   }
   .add-on-product-card__album-media-grid {
     grid-template-columns: 1fr;

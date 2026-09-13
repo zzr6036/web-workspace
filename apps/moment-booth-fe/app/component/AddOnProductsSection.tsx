@@ -101,8 +101,15 @@ function ProductCarousel({ slides, kind }: ProductCarouselProps) {
     );
   }
 
+  const albumMediaClass =
+    kind === "album"
+      ? slides[0]?.video
+        ? " product-carousel--album-video"
+        : " product-carousel--album-photos"
+      : "";
+
   return (
-    <div className={`product-carousel product-carousel--${kind}`}>
+    <div className={`product-carousel product-carousel--${kind}${albumMediaClass}`}>
       {kind !== "album" ? (
         <div className="product-carousel__header">
           <span>{activeSlide.label}</span>
