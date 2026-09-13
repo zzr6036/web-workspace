@@ -247,6 +247,8 @@ test('presents the three optional keepsake products', () => {
   assert.equal((addOnProductsSection.match(/image: "\/products\/bags\//g) ?? []).length, 10);
   assert.match(addOnProductsSection, /Suitable for 4 × 6 in photos/);
   assert.match(addOnProductsSection, /1-photo, 2-photo, and[\s\S]*6-photo layouts/);
+  assert.match(addOnProductsSection, /className="add-on-product-card__info"[\s\S]*Choose from our available bag styles[\s\S]*ProductCarousel slides=\{bagSlides\}/);
+  assert.match(styles, /\.add-on-product-card__info[\s\S]*text-align:\s*right/);
   assert.match(addOnProductsSection, /product-carousel__bag-grid/);
   assert.match(styles, /\.product-carousel__bag-grid[\s\S]*grid-template-columns:\s*repeat\(auto-fit,\s*minmax\(220px,\s*1fr\)\)/);
   assert.match(styles, /\.product-carousel__bag-card img[\s\S]*width:\s*200px[\s\S]*height:\s*200px/);

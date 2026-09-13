@@ -636,6 +636,14 @@ a {
   font-size: 11px !important;
   line-height: 1.45;
 }
+.add-on-product-card__info {
+  margin: 0 0 12px auto;
+  max-width: 760px;
+  text-align: right;
+}
+.add-on-product-card__info .add-on-product-card__pricing {
+  justify-content: flex-end;
+}
 .add-on-product-card__notice {
   margin-top: 14px !important;
   color: #287a5b !important;
