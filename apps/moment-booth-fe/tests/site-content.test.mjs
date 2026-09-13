@@ -295,6 +295,12 @@ test('presents six guest-focused photo booth benefits', () => {
   }
   assert.doesNotMatch(heroBenefitsSection, /From SGD 288/);
   assert.match(styles, /\.hero-benefits-grid[\s\S]*grid-template-columns:\s*repeat\(3/);
+  assert.match(styles, /\.hero-benefits[\s\S]*margin:\s*72px\s+auto\s+0/);
+});
+
+test('keeps the hero introduction compact', () => {
+  assert.match(styles, /\.hero\s*\{[\s\S]*min-height:\s*720px[\s\S]*padding:\s*110px/);
+  assert.match(styles, /@media \(max-width:\s*900px\)[\s\S]*\.hero\s*\{[\s\S]*min-height:\s*auto/);
 });
 
 test('gives the event-types heading comfortable word spacing', () => {

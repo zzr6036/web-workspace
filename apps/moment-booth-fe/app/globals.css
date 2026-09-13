@@ -128,8 +128,8 @@ a {
   height: 100%;
 }
 .hero {
-  min-height: 900px;
-  padding: 130px max(4vw, 24px) 70px;
+  min-height: 720px;
+  padding: 110px max(4vw, 24px) 56px;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -244,7 +244,7 @@ a {
 }
 .hero-benefits {
   width: min(100%, 1120px);
-  margin-top: 100px;
+  margin: 72px auto 0;
   position: relative;
   z-index: 2;
 }
@@ -1409,6 +1409,7 @@ footer small {
     display: none;
   }
   .hero {
+    min-height: auto;
     padding-top: 90px;
   }
   .hero h1 {
