@@ -17,6 +17,7 @@ const packagesSection = await readAppFile('component/PackagesSection.tsx');
 const optionalAddOnsSection = await readAppFile('component/OptionalAddOnsSection.tsx');
 const addOnProductsSection = await readAppFile('component/AddOnProductsSection.tsx');
 const heroSection = await readAppFile('component/HeroSection.tsx');
+const heroBenefitsSection = await readAppFile('component/HeroBenefitsSection.tsx');
 const gallerySection = await readAppFile('component/GallerySection.tsx');
 const contactSection = await readAppFile('component/ContactSection.tsx');
 const librarySection = await readAppFile('component/LibrarySection.tsx');
@@ -45,7 +46,7 @@ test('organises the home page into page, layout, and component folders', () => {
   assert.match(homePage, /SiteHeader/);
   assert.match(homePage, /HeroSection/);
   assert.deepEqual(layoutFiles.sort(), ['SiteFooter.tsx', 'SiteHeader.tsx']);
-  for (const file of ['AddOnProductsSection.tsx', 'BookingStepsSection.tsx', 'ContactSection.tsx', 'EventTypesSection.tsx', 'FAQSection.tsx', 'GallerySection.tsx', 'HeroSection.tsx', 'LibrarySection.tsx', 'OptionalAddOnsSection.tsx', 'PackagesPreviewSection.tsx', 'PackagesSection.tsx', 'WhyChooseUsSection.tsx']) {
+  for (const file of ['AddOnProductsSection.tsx', 'BookingStepsSection.tsx', 'ContactSection.tsx', 'EventTypesSection.tsx', 'FAQSection.tsx', 'GallerySection.tsx', 'HeroBenefitsSection.tsx', 'HeroSection.tsx', 'LibrarySection.tsx', 'OptionalAddOnsSection.tsx', 'PackagesPreviewSection.tsx', 'PackagesSection.tsx', 'WhyChooseUsSection.tsx']) {
     assert.ok(componentFiles.includes(file), `missing ${file}`);
   }
   assert.match(homePage, /<PackagesPreviewSection \/>/);
@@ -230,7 +231,7 @@ test('explains template-library updates and custom artwork scope', () => {
 });
 
 test('presents the three optional keepsake products', () => {
-  for (const product of ['Photo Print Bags', 'Photo Keepsake Cards', 'Wedding Photo Album', 'at\\s+least\\s+1\\s+month\\s+before\\s+your\\s+event', '2-hour event - \\$\\d+ for unlimited use', '3-hour event - \\$\\d+ for unlimited use']) {
+  for (const product of ['Photo Print Bags', 'Photo Keepsake Cards', 'Wedding Photo Album', 'at\\s+least\\s+\\d+\\s+(?:month|months|week|weeks)\\s+before\\s+your\\s+event', '2-hour event - \\$\\d+ for unlimited use', '3-hour event - \\$\\d+ for unlimited use']) {
     assert.match(addOnProductsSection, new RegExp(product));
   }
   assert.doesNotMatch(addOnProductsSection, /<li>Unlimited use<\/li>/);
@@ -285,12 +286,14 @@ test('presents the three optional keepsake products', () => {
 });
 
 test('presents six guest-focused photo booth benefits', () => {
-  assert.match(heroSection, /More than photos\. A better guest experience\./);
-  assert.equal((heroSection.match(/title:\s*["']/g) ?? []).length, 6);
+  assert.match(heroBenefitsSection, /More than photos\. A better guest experience\./);
+  assert.match(gallerySection, /<HeroBenefitsSection \/>/);
+  assert.doesNotMatch(heroSection, /hero-benefits/);
+  assert.equal((heroBenefitsSection.match(/title:\s*["']/g) ?? []).length, 6);
   for (const benefit of ['Break the Ice', 'Instant Keepsakes', 'Entertainment for Everyone', 'Capture Candid Moments', 'Made for Your Event', 'Easy, Hassle-Free Experience']) {
-    assert.match(heroSection, new RegExp(benefit));
+    assert.match(heroBenefitsSection, new RegExp(benefit));
   }
-  assert.doesNotMatch(heroSection, /From SGD 288/);
+  assert.doesNotMatch(heroBenefitsSection, /From SGD 288/);
   assert.match(styles, /\.hero-benefits-grid[\s\S]*grid-template-columns:\s*repeat\(3/);
 });
 
@@ -307,11 +310,11 @@ test('keeps booking steps detailed but compact', () => {
 });
 
 test('uses a matching Lucide icon for each photo booth benefit', () => {
-  assert.match(heroSection, /from ["']lucide-react["']/);
+  assert.match(heroBenefitsSection, /from ["']lucide-react["']/);
   for (const icon of ['MessageCircle', 'Images', 'PartyPopper', 'Camera', 'Palette', 'HandHeart']) {
-    assert.match(heroSection, new RegExp(`icon: ${icon}`));
+    assert.match(heroBenefitsSection, new RegExp(`icon: ${icon}`));
   }
-  assert.match(heroSection, /<Icon size=\{22\} strokeWidth=\{1\.8\} \/>/);
+  assert.match(heroBenefitsSection, /<Icon size=\{22\} strokeWidth=\{1\.8\} \/>/);
 });
 
 test('summarises concrete Moment Booth differentiators in the hero', () => {

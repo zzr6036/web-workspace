@@ -3,6 +3,7 @@ import {
   SectionHeading,
   type CarouselMedia,
 } from "elij-ui-library";
+import HeroBenefitsSection from "./HeroBenefitsSection";
 type GalleryCase = {
   title: string;
   description: string;
@@ -87,6 +88,7 @@ export default function GallerySection() {
         title="Made for real connection."
         description="Real celebrations, considered styling, and keepsakes guests can take home on the day."
       />
+      <HeroBenefitsSection />
       <div className="gallery-cases">
         {galleryCases.map((event) => (
           <EventCarousel
