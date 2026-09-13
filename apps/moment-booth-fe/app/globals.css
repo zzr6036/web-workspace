@@ -693,6 +693,10 @@ a {
   object-fit: contain;
   background: #f4f6fa;
 }
+.product-carousel--bags {
+  width: 100%;
+  max-width: none;
+}
 .product-carousel__bag-grid {
   display: flex;
   gap: 14px;
@@ -701,7 +705,7 @@ a {
   scroll-snap-type: x proximity;
 }
 .product-carousel__bag-card {
-  flex: 0 0 200px;
+  flex: 0 0 220px;
   display: grid;
   gap: 10px;
   justify-items: center;
@@ -712,8 +716,8 @@ a {
   scroll-snap-align: start;
 }
 .product-carousel__bag-card img {
-  width: 180px;
-  height: 180px;
+  width: 200px;
+  height: 200px;
   display: block;
   border-radius: 8px;
   object-fit: contain;

@@ -241,7 +241,9 @@ test('presents the three optional keepsake products', () => {
   assert.match(addOnProductsSection, /products\/bags\/13\.png/);
   assert.equal((addOnProductsSection.match(/image: "\/products\/bags\//g) ?? []).length, 11);
   assert.match(addOnProductsSection, /product-carousel__bag-grid/);
-  assert.match(styles, /\.product-carousel__bag-card[\s\S]*flex:\s*0 0 200px/);
+  assert.match(styles, /\.product-carousel__bag-card[\s\S]*flex:\s*0 0 220px/);
+  assert.match(styles, /\.product-carousel__bag-card img[\s\S]*width:\s*200px[\s\S]*height:\s*200px/);
+  assert.match(styles, /\.product-carousel--bags[\s\S]*width:\s*100%[\s\S]*max-width:\s*none/);
   assert.match(styles, /\.add-on-products-grid[\s\S]*grid-template-columns:\s*minmax\(0,\s*1fr\)/);
 });
 
