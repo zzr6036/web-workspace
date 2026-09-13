@@ -6,7 +6,7 @@ import { TrackedWhatsAppLink } from "../component/TrackedWhatsApp";
 export default function SiteHeader() {
   return (
     <header className="site-header">
-      <a className="header-logo" href="#top" aria-label="Moment Booth home">
+      <a className="header-logo" href="/" aria-label="Moment Booth home">
         <Image
           src="/moment-booth-logo.png"
           alt="Moment Booth logo"
@@ -16,10 +16,10 @@ export default function SiteHeader() {
         />
       </a>
       <nav aria-label="Main navigation">
-        <a href="#gallery">Gallery</a>
-        <a href="#library">Collection</a>
-        <a href="#packages">Packages</a>
-        <a href="#faq">FAQ</a>
+        <a href="/#gallery">Gallery</a>
+        <a href="/#library">Collection</a>
+        <a href="/packages">Packages</a>
+        <a href="/#faq">FAQ</a>
       </nav>
       <TrackedWhatsAppLink
         location="header"

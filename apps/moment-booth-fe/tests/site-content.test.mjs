@@ -5,6 +5,8 @@ import test from 'node:test';
 const readAppFile = (path) => readFile(new URL(`../app/${path}`, import.meta.url), 'utf8');
 const pageEntry = await readAppFile('page.tsx');
 const homePage = await readAppFile('page/HomePage.tsx');
+const packagesPage = await readAppFile('page/PackagesPage.tsx');
+const packagesRoute = await readAppFile('packages/page.tsx');
 const layoutEntry = await readAppFile('layout.tsx');
 const robotsEntry = await readAppFile('robots.ts');
 const sitemapEntry = await readAppFile('sitemap.ts');
@@ -41,9 +43,13 @@ test('organises the home page into page, layout, and component folders', () => {
   assert.match(homePage, /SiteHeader/);
   assert.match(homePage, /HeroSection/);
   assert.deepEqual(layoutFiles.sort(), ['SiteFooter.tsx', 'SiteHeader.tsx']);
-  for (const file of ['AddOnProductsSection.tsx', 'BookingStepsSection.tsx', 'ContactSection.tsx', 'EventTypesSection.tsx', 'FAQSection.tsx', 'GallerySection.tsx', 'HeroSection.tsx', 'LibrarySection.tsx', 'OptionalAddOnsSection.tsx', 'PackagesSection.tsx', 'WhyChooseUsSection.tsx']) {
+  for (const file of ['AddOnProductsSection.tsx', 'BookingStepsSection.tsx', 'ContactSection.tsx', 'EventTypesSection.tsx', 'FAQSection.tsx', 'GallerySection.tsx', 'HeroSection.tsx', 'LibrarySection.tsx', 'OptionalAddOnsSection.tsx', 'PackagesPreviewSection.tsx', 'PackagesSection.tsx', 'WhyChooseUsSection.tsx']) {
     assert.ok(componentFiles.includes(file), `missing ${file}`);
   }
+  assert.match(homePage, /<PackagesPreviewSection \/>/);
+  assert.doesNotMatch(homePage, /<PackagesSection \/>|<OptionalAddOnsSection \/>|<AddOnProductsSection \/>/);
+  assert.match(packagesRoute, /PackagesPage/);
+  for (const section of ['PackagesSection', 'OptionalAddOnsSection', 'AddOnProductsSection']) assert.match(packagesPage, new RegExp(`<${section} \/>`));
 });
 
 test('organises reusable non-Elij components in the common layer', () => {
@@ -63,7 +69,7 @@ test('organises reusable non-Elij components in the common layer', () => {
 
 test('showcases the real props and template library', () => {
   assert.match(homePage, /<LibrarySection \/>/);
-  assert.match(layoutSource, /href="#library">Collection/);
+  assert.match(layoutSource, /href="\/#library">Collection/);
   assert.match(librarySection, /100\+/);
   assert.match(librarySection, /\["Many", "Popular event styles"\]/);
   assert.match(librarySection, /200\+/);
@@ -206,7 +212,7 @@ test('explains template-library updates and custom artwork scope', () => {
   assert.match(optionalAddOnsSection, /className="optional-addon-card__title-row"/);
   assert.match(optionalAddOnsSection, /className="optional-addon-card__revision"/);
   assert.match(styles, /\.optional-addon-card__revision[\s\S]*color:\s*#6aa889/);
-  assert.match(homePage, /<OptionalAddOnsSection \/>/);
+  assert.match(packagesPage, /<OptionalAddOnsSection \/>/);
   assert.match(styles, /\.optional-addon-card--design/);
 });
 
@@ -214,7 +220,7 @@ test('presents the three optional keepsake products', () => {
   for (const product of ['Photobooth Photo Bags', 'Photobooth Photo Decoration Cards', 'Wedding Photobooth Album', 'at least 1 month before your event', '2-hour event · \\$38', '3-hour event · \\$50', 'Unlimited use']) {
     assert.match(addOnProductsSection, new RegExp(product));
   }
-  assert.match(homePage, /<AddOnProductsSection \/>/);
+  assert.match(packagesPage, /<AddOnProductsSection \/>/);
   assert.match(addOnProductsSection, /Add-on products/);
   assert.match(addOnProductsSection, /ProductCarousel/);
   assert.match(addOnProductsSection, /blank:\s*`\/card\/\$\{number\}-blank\.png`/);

@@ -1,7 +1,6 @@
 "use client";
 
 import ContactSection from "../component/ContactSection";
-import AddOnProductsSection from "../component/AddOnProductsSection";
 import BookingStepsSection from "../component/BookingStepsSection";
 import EventTypesSection from "../component/EventTypesSection";
 import FAQSection from "../component/FAQSection";
@@ -9,8 +8,7 @@ import FloatingContact from "../component/FloatingContact";
 import GallerySection from "../component/GallerySection";
 import HeroSection from "../component/HeroSection";
 import LibrarySection from "../component/LibrarySection";
-import PackagesSection from "../component/PackagesSection";
-import OptionalAddOnsSection from "../component/OptionalAddOnsSection";
+import PackagesPreviewSection from "../component/PackagesPreviewSection";
 import WhyChooseUsSection from "../component/WhyChooseUsSection";
 import SiteFooter from "../layout/SiteFooter";
 import SiteHeader from "../layout/SiteHeader";
@@ -23,9 +21,7 @@ export default function HomePage() {
       <HeroSection />
       <GallerySection />
       <LibrarySection />
-      <PackagesSection />
-      <OptionalAddOnsSection />
-      <AddOnProductsSection />
+      <PackagesPreviewSection />
       <BookingStepsSection />
       <EventTypesSection />
       <WhyChooseUsSection />
