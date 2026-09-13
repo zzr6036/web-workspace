@@ -43,8 +43,11 @@ const cardSlides: ProductSlide[] = [
   photo: `/products/cards/${number}-photo.png`,
 }));
 
-const albumSlides: ProductSlide[] = [
+const albumVideoSlides: ProductSlide[] = [
   { label: "Wedding album video", video: "/products/photoframe/video.mp4" },
+];
+
+const albumPhotoSlides: ProductSlide[] = [
   { label: "Wedding album detail 1", image: "/products/photoframe/2.png" },
   { label: "Wedding album detail 2", image: "/products/photoframe/3.jpg" },
   { label: "Wedding album detail 3", image: "/products/photoframe/4.png" },
@@ -100,12 +103,14 @@ function ProductCarousel({ slides, kind }: ProductCarouselProps) {
 
   return (
     <div className={`product-carousel product-carousel--${kind}`}>
-      <div className="product-carousel__header">
-        <span>{activeSlide.label}</span>
-        <strong>
-          {activeIndex + 1} / {slides.length}
-        </strong>
-      </div>
+      {kind !== "album" ? (
+        <div className="product-carousel__header">
+          <span>{activeSlide.label}</span>
+          <strong>
+            {activeIndex + 1} / {slides.length}
+          </strong>
+        </div>
+      ) : null}
       <div className="product-carousel__viewport">
         <button
           type="button"
@@ -226,7 +231,7 @@ export default function AddOnProductsSection() {
     <section className="section add-on-products-section" id="add-on-products">
       <SectionHeading
         className="section-heading"
-        eyebrow="Custom Add-ons"
+        eyebrow="Product Add-ons"
         title="Little keepsakes for every guest."
         description="Choose from our photo bags, decoration cards, and wedding albums to make printed memories easier to share and keep."
       />
@@ -271,21 +276,21 @@ export default function AddOnProductsSection() {
             <h3>Photo Keepsake Cards</h3>
             <strong>From $38</strong>
           </div>
-              <p className="add-on-product-card__subtitle">
-                Suitable for 4 × 6 in photos, including 1-photo, 2-photo, and
-                6-photo layouts.
-              </p>
-              <div className="add-on-product-card__info">
-                <ul className="add-on-product-card__pricing">
-                  {bagPricing.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-                <Paragraph>
-                  Browse our styles with and without a photo to find the look that
-                  suits your event.
-                </Paragraph>
-                <p className="add-on-product-card__notice add-on-product-card__notice--soft">
+          <p className="add-on-product-card__subtitle">
+            Suitable for 4 × 6 in photos, including 1-photo, 2-photo, and
+            6-photo layouts.
+          </p>
+          <div className="add-on-product-card__info">
+            <ul className="add-on-product-card__pricing">
+              {bagPricing.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+            <Paragraph>
+              Browse our styles with and without a photo to find the look that
+              suits your event.
+            </Paragraph>
+            <p className="add-on-product-card__notice add-on-product-card__notice--soft">
               Please confirm your preferred style at least 1 month before your
               event so we can prepare and print it in advance.
             </p>
@@ -303,7 +308,10 @@ export default function AddOnProductsSection() {
             <strong>$30</strong>
           </div>
           <div className="add-on-product-card__album-layout">
-            <ProductCarousel slides={albumSlides} kind="album" />
+            <div className="add-on-product-card__album-media-grid">
+              <ProductCarousel slides={albumVideoSlides} kind="album" />
+              <ProductCarousel slides={albumPhotoSlides} kind="album" />
+            </div>
             <div className="add-on-product-card__album-info">
               <Paragraph>
                 A dedicated album for collecting photobooth memories from your
