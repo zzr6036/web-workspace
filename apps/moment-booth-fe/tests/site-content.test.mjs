@@ -230,18 +230,18 @@ test('explains template-library updates and custom artwork scope', () => {
 });
 
 test('presents the three optional keepsake products', () => {
-  for (const product of ['Photobooth Photo Bags', 'Photobooth Photo Decoration Cards', 'Wedding Photobooth Album', 'at\\s+least\\s+1\\s+month\\s+before\\s+your\\s+event', '2-hour event - \\$\\d+ for unlimited use', '3-hour event - \\$\\d+ for unlimited use']) {
+  for (const product of ['Photo Print Bags', 'Photo Keepsake Cards', 'Wedding Photo Album', 'at\\s+least\\s+1\\s+month\\s+before\\s+your\\s+event', '2-hour event - \\$\\d+ for unlimited use', '3-hour event - \\$\\d+ for unlimited use']) {
     assert.match(addOnProductsSection, new RegExp(product));
   }
   assert.doesNotMatch(addOnProductsSection, /<li>Unlimited use<\/li>/);
   assert.match(addOnProductsSection, /add-on-product-card__notice--soft/);
   assert.match(styles, /\.add-on-product-card__notice--soft[\s\S]*color:\s*#6aa889[\s\S]*font-style:\s*italic/);
   assert.match(packagesPage, /<AddOnProductsSection \/>/);
-  assert.match(addOnProductsSection, /Add-on products/);
+  assert.match(addOnProductsSection, /Custom Add-ons/);
   assert.match(addOnProductsSection, /ProductCarousel/);
   assert.match(addOnProductsSection, /blank:\s*`\/products\/cards\/\$\{number\}-blank\.png`/);
   assert.match(addOnProductsSection, /products\/photoframe\/video\.mp4/);
-  assert.match(addOnProductsSection, /Wedding Photobooth Album[\s\S]*From \$30 each/);
+  assert.match(addOnProductsSection, /Wedding Photo Album[\s\S]*From \$30 each/);
   for (const benefit of ['up to 200 photos', '3 × 7 in prints', 'Add messages and photos', 'Arrange photos freely', 'stays clear', 'No glue required', 'Reposition photos easily']) {
     assert.match(addOnProductsSection, new RegExp(benefit, 'i'));
   }
@@ -257,13 +257,14 @@ test('presents the three optional keepsake products', () => {
   assert.match(addOnProductsSection, /DecorationCardCarousel/);
   assert.match(addOnProductsSection, /product-carousel__card-grid/);
   assert.equal((addOnProductsSection.match(/Suitable for 4 × 6 in photos/g) ?? []).length, 2);
-  assert.match(addOnProductsSection, /Photobooth Photo Decoration Cards[\s\S]*add-on-product-card__info[\s\S]*Browse our styles[\s\S]*ProductCarousel slides=\{cardSlides\}/);
-  assert.match(addOnProductsSection, /Photobooth Photo Decoration Cards[\s\S]*<strong>From \$38<\/strong>/);
+  assert.match(addOnProductsSection, /Photo Keepsake Cards[\s\S]*add-on-product-card__info[\s\S]*Browse our styles[\s\S]*ProductCarousel slides=\{cardSlides\}/);
+  assert.match(addOnProductsSection, /Photo Keepsake Cards[\s\S]*<strong>From \$38<\/strong>/);
   assert.equal((addOnProductsSection.match(/blank: `\/products\/cards\//g) ?? []).length, 1);
   assert.match(styles, /\.product-carousel__card-grid[\s\S]*grid-template-columns:\s*repeat\(5,\s*minmax\(0,\s*1fr\)\)/);
   assert.match(styles, /\.product-carousel__card-grid[\s\S]*grid-template-columns:\s*repeat\(3,\s*minmax\(0,\s*1fr\)\)/);
   assert.match(styles, /\.product-carousel__mini-control/);
-  assert.match(styles, /\.product-carousel--album \.product-carousel__slide[\s\S]*width:\s*200px[\s\S]*height:\s*200px/);
+  assert.match(styles, /\.product-carousel--album \.product-carousel__slide[\s\S]*width:\s*400px[\s\S]*height:\s*400px/);
+  assert.match(styles, /\.add-on-product-card__album-layout[\s\S]*grid-template-columns/);
   assert.match(styles, /\.product-carousel--cards[\s\S]*width:\s*100%[\s\S]*max-width:\s*none/);
   assert.match(styles, /\.product-carousel__bag-grid[\s\S]*grid-template-columns:\s*repeat\(auto-fit,\s*minmax\(220px,\s*1fr\)\)/);
   assert.match(styles, /\.product-carousel__bag-card img[\s\S]*width:\s*200px[\s\S]*height:\s*200px/);

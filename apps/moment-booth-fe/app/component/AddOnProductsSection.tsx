@@ -85,7 +85,10 @@ function ProductCarousel({ slides, kind }: ProductCarouselProps) {
 
   if (kind === "cards") {
     return (
-      <div className="product-carousel product-carousel--cards" aria-label="Photobooth photo decoration card styles">
+      <div
+        className="product-carousel product-carousel--cards"
+        aria-label="Photobooth photo decoration card styles"
+      >
         <div className="product-carousel__card-grid">
           {slides.map((slide) => (
             <DecorationCardCarousel key={slide.label} slide={slide} />
@@ -165,23 +168,47 @@ function DecorationCardCarousel({ slide }: { slide: ProductSlide }) {
   const images = [slide.blank, slide.photo].filter(Boolean) as string[];
   const [activeIndex, setActiveIndex] = useState(0);
   const move = (direction: -1 | 1) => {
-    setActiveIndex((current) => (current + direction + images.length) % images.length);
+    setActiveIndex(
+      (current) => (current + direction + images.length) % images.length,
+    );
   };
 
   return (
     <article className="product-carousel__card-item">
       <div className="product-carousel__card-viewport">
-        <button type="button" className="product-carousel__mini-control product-carousel__mini-control--prev" aria-label={`Show previous ${slide.label} view`} onClick={() => move(-1)}>
+        <button
+          type="button"
+          className="product-carousel__mini-control product-carousel__mini-control--prev"
+          aria-label={`Show previous ${slide.label} view`}
+          onClick={() => move(-1)}
+        >
           ‹
         </button>
-        <img src={images[activeIndex]} alt={`${slide.label} ${activeIndex === 0 ? "without photo" : "with photo"}`} />
-        <button type="button" className="product-carousel__mini-control product-carousel__mini-control--next" aria-label={`Show next ${slide.label} view`} onClick={() => move(1)}>
+        <img
+          src={images[activeIndex]}
+          alt={`${slide.label} ${activeIndex === 0 ? "without photo" : "with photo"}`}
+        />
+        <button
+          type="button"
+          className="product-carousel__mini-control product-carousel__mini-control--next"
+          aria-label={`Show next ${slide.label} view`}
+          onClick={() => move(1)}
+        >
           ›
         </button>
       </div>
-      <div className="product-carousel__mini-dots" aria-label={`${slide.label} views`}>
+      <div
+        className="product-carousel__mini-dots"
+        aria-label={`${slide.label} views`}
+      >
         {images.map((_, index) => (
-          <button type="button" key={`${slide.label}-${index}`} aria-label={`Show ${slide.label} ${index === 0 ? "without photo" : "with photo"}`} aria-current={index === activeIndex ? "true" : undefined} onClick={() => setActiveIndex(index)} />
+          <button
+            type="button"
+            key={`${slide.label}-${index}`}
+            aria-label={`Show ${slide.label} ${index === 0 ? "without photo" : "with photo"}`}
+            aria-current={index === activeIndex ? "true" : undefined}
+            onClick={() => setActiveIndex(index)}
+          />
         ))}
       </div>
       <strong>{slide.label}</strong>
@@ -199,7 +226,7 @@ export default function AddOnProductsSection() {
     <section className="section add-on-products-section" id="add-on-products">
       <SectionHeading
         className="section-heading"
-        eyebrow="Add-on products"
+        eyebrow="Custom Add-ons"
         title="Little keepsakes for every guest."
         description="Choose from our photo bags, decoration cards, and wedding albums to make printed memories easier to share and keep."
       />
@@ -210,7 +237,7 @@ export default function AddOnProductsSection() {
         >
           <span className="add-on-product-card__eyebrow">Keepsake extra</span>
           <div className="add-on-product-card__title-row">
-            <h3>Photobooth Photo Bags</h3>
+            <h3>Photo Print Bags</h3>
             <strong>From $38</strong>
           </div>
           <p className="add-on-product-card__subtitle">
@@ -222,15 +249,15 @@ export default function AddOnProductsSection() {
               Choose from our available bag styles for guests to carry their
               prints home.
             </Paragraph>
-            <p className="add-on-product-card__notice add-on-product-card__notice--soft">
-              Please confirm your preferred style at least 1 month before your
-              event so we can prepare and print it in advance.
-            </p>
             <ul className="add-on-product-card__pricing">
               {bagPricing.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
+            <p className="add-on-product-card__notice add-on-product-card__notice--soft">
+              Please confirm your preferred style at least 1 month before your
+              event so we can prepare and print it in advance.
+            </p>
           </div>
           <ProductCarousel slides={bagSlides} kind="bags" />
         </article>
@@ -241,7 +268,7 @@ export default function AddOnProductsSection() {
         >
           <span className="add-on-product-card__eyebrow">Keepsake extra</span>
           <div className="add-on-product-card__title-row">
-            <h3>Photobooth Photo Decoration Cards</h3>
+            <h3>Photo Keepsake Cards</h3>
             <strong>From $38</strong>
           </div>
           <p className="add-on-product-card__subtitle">
@@ -253,41 +280,51 @@ export default function AddOnProductsSection() {
               Browse our styles with and without a photo to find the look that
               suits your event.
             </Paragraph>
-            <p className="add-on-product-card__notice add-on-product-card__notice--soft">
-              Please confirm your preferred style at least 1 month before your
-              event so we can prepare and print it in advance.
-            </p>
             <ul className="add-on-product-card__pricing">
               {bagPricing.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
+            <p className="add-on-product-card__notice add-on-product-card__notice--soft">
+              Please confirm your preferred style at least 1 month before your
+              event so we can prepare and print it in advance.
+            </p>
           </div>
           <ProductCarousel slides={cardSlides} kind="cards" />
         </article>
 
-            <article
-              className="add-on-product-card add-on-product-card--album"
-              aria-label="Wedding photobooth album"
-            >
-              <span className="add-on-product-card__eyebrow">Wedding keepsake</span>
-              <div className="add-on-product-card__title-row">
-                <h3>Wedding Photobooth Album</h3>
-                <strong>From $30 each</strong>
-              </div>
-          <ProductCarousel slides={albumSlides} kind="album" />
-          <Paragraph>
-            A dedicated album for collecting photobooth memories from your
-            wedding celebration.
-          </Paragraph>
-          <ul className="add-on-product-card__benefits">
-            <li>Holds up to 200 photos and is recommended for 3 × 7 in prints</li>
-            <li>Add messages and photos to preserve your favourite memories</li>
-            <li>Arrange photos freely with a secure adhesive</li>
-            <li>Transparent protective film stays clear and resists yellowing</li>
-            <li>No glue required, with high-definition lamination</li>
-            <li>Reposition photos easily—peel off and reapply if needed</li>
-          </ul>
+        <article
+          className="add-on-product-card add-on-product-card--album"
+          aria-label="Wedding photobooth album"
+        >
+          <span className="add-on-product-card__eyebrow">Wedding keepsake</span>
+          <div className="add-on-product-card__title-row">
+            <h3>Wedding Photo Album</h3>
+            <strong>$30</strong>
+          </div>
+          <div className="add-on-product-card__album-layout">
+            <ProductCarousel slides={albumSlides} kind="album" />
+            <div className="add-on-product-card__album-info">
+              <Paragraph>
+                A dedicated album for collecting photobooth memories from your
+                wedding celebration.
+              </Paragraph>
+              <ul className="add-on-product-card__benefits">
+                <li>
+                  Holds up to 200 photos and is recommended for 3 × 7 in prints
+                </li>
+                <li>
+                  Add messages and photos to preserve your favourite memories
+                </li>
+                <li>Arrange photos freely with a secure adhesive</li>
+                <li>
+                  Transparent protective film stays clear and resists yellowing
+                </li>
+                <li>No glue required, with high-definition lamination</li>
+                <li>Reposition photos easily—peel off and reapply if needed</li>
+              </ul>
+            </div>
+          </div>
         </article>
       </div>
       <p className="add-on-products-note">
