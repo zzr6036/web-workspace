@@ -435,6 +435,27 @@ a {
 .badge-guidance-grid h3 { margin: 0 0 10px; font-size: 20px; }
 .badge-feature-card p,
 .badge-guidance-grid p { margin: 0; color: var(--muted); line-height: 1.7; }
+.badge-style-grid {
+  max-width: 1040px;
+  margin: 0 auto 28px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+.badge-style-card {
+  display: grid;
+  grid-template-columns: minmax(160px, 0.9fr) 1.1fr;
+  align-items: center;
+  gap: 22px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: #fff;
+}
+.badge-style-card img { width: 100%; aspect-ratio: 1.5; object-fit: cover; border-radius: 14px; }
+.badge-style-card .eyebrow { margin-bottom: 8px; }
+.badge-style-card h3 { margin: 0 0 8px; font-size: 19px; }
+.badge-style-card p:last-child { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
 .badge-facts {
   max-width: 1040px;
   margin: 0 auto 28px;
@@ -1458,10 +1479,12 @@ footer small {
     display: none;
   }
   .badge-intro-grid,
+  .badge-style-grid,
   .badge-guidance-grid,
   .badge-facts {
     grid-template-columns: 1fr;
   }
+  .badge-style-card { grid-template-columns: 140px 1fr; }
   .hero {
     min-height: auto;
     padding-top: 90px;

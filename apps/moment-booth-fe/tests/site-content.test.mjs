@@ -364,7 +364,7 @@ test('provides site-specific metadata', () => {
 });
 
 test('describes the custom round badge offering', () => {
-  for (const detail of ['Custom Round Shape Badges', '32 mm, 44 mm, 58 mm, or 75 mm', 'From just 1 piece', 'Full-colour HD', 'scratch-resistant', 'built-in pin back', 'Design tips', 'How to order']) {
+  for (const detail of ['Custom Round Shape Badges', 'fridge.png', 'keychain.png', 'Custom Fridge Magnet', 'Custom Keychain', '32 mm, 44 mm, 58 mm, or 75 mm', 'From just 1 piece', 'Full-colour HD', 'scratch-resistant', 'built-in pin back', 'Design tips', 'How to order']) {
     assert.match(badgeSection, new RegExp(detail, 'i'));
   }
   assert.match(badgeSection, /TrackedWhatsAppButton/);

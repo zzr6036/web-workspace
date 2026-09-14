@@ -41,6 +41,24 @@ export default function BadgeSection() {
           </p>
         </article>
       </div>
+      <div className="badge-style-grid" aria-label="Badge styles">
+        <article className="badge-style-card">
+          <img src="/products/badge/fridge.png" alt="Custom fridge magnet badge" />
+          <div>
+            <p className="eyebrow">Style option</p>
+            <h3>Custom Fridge Magnet</h3>
+            <p>A round keepsake that turns your design into a bright display for the fridge.</p>
+          </div>
+        </article>
+        <article className="badge-style-card">
+          <img src="/products/badge/keychain.png" alt="Custom keychain badge" />
+          <div>
+            <p className="eyebrow">Style option</p>
+            <h3>Custom Keychain</h3>
+            <p>A portable everyday keepsake with your logo, photo, or artwork.</p>
+          </div>
+        </article>
+      </div>
       <div className="badge-facts" aria-label="Round badge quick facts">
         {quickFacts.map(([label, value, Icon]) => (
           <article key={label}>
