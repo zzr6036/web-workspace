@@ -43,9 +43,10 @@ export default function BadgeSection() {
           <ul className="badge-pricing__note">
             <li>Handmade production: approximately 2 weeks after design confirmation</li>
             <li>Rush processing: completion in 2 days with an additional $50 processing fee</li>
-            <li>Delivery is free for orders of $100 or more</li>
-            <li>Orders below $100 have a $10 delivery fee</li>
+            <li>Free Delivery: orders more than $100</li>
+            <li>$10 delivery fee: orders below $100</li>
           </ul>
+          <p className="badge-pricing__highlight">Photobooth customers enjoy free delivery.</p>
         </div>
         <article>
           <p className="eyebrow">How to order</p>

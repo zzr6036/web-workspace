@@ -2101,3 +2101,8 @@ footer small {
   border-radius: 50%;
   font-size: 10px;
 }
+.badge-pricing__highlight {
+  margin: 12px 0 0;
+  color: var(--purple);
+  font-weight: 600;
+}
