@@ -63,9 +63,9 @@ export default function OptionalAddOnsSection() {
             We create the artwork using your theme, colours, logo, and design
             assets.
           </p>
-          <p className="optional-addon-card__revision">
-            1 round of consolidated revisions
-          </p>
+          {/* <p className="optional-addon-card__revision">
+            2 rounds of consolidated revisions
+          </p> */}
         </article>
       </div>
     </section>

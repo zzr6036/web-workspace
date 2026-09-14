@@ -6,11 +6,16 @@ export default function GiftsPage() {
   return (
     <main>
       <SiteHeader />
-      <section className="section gifts-page-intro" aria-labelledby="gifts-page-title">
-        <div className="section-heading">
+      <section className="gifts-hero" aria-labelledby="gifts-page-title">
+        <div className="gifts-hero-glow gifts-hero-glow--left" />
+        <div className="gifts-hero-glow gifts-hero-glow--right" />
+        <div className="gifts-hero-copy">
           <p className="eyebrow">Keepsake gifts</p>
           <h1 id="gifts-page-title">Gifts for your event</h1>
-          <p>Choose a personalised keepsake for guests. More gift options will be added here over time.</p>
+          <p>
+            Choose a personalised keepsake for guests. More gift options will be
+            added here over time.
+          </p>
         </div>
       </section>
       <BadgeSection />

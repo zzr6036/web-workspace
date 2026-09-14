@@ -73,8 +73,9 @@ test('organises the home page into page, layout, and component folders', () => {
   assert.match(badgesRoute, /title: "Custom Round Shape Badges/);
   assert.match(badgesRoute, /canonical: "\/badges"/);
   assert.match(giftsPage, /<BadgeSection \/>/);
+  assert.match(giftsPage, /className="gifts-hero"/);
   assert.match(giftsPage, /aria-labelledby="gifts-page-title"/);
-  assert.match(giftsPage, /More gift options will be added here over time/);
+  assert.match(giftsPage, /More gift options will be\s+added here over time/);
   assert.match(giftsRoute, /title: "Event Gifts/);
   assert.match(giftsRoute, /canonical: "\/gifts"/);
   assert.match(gallerySection, /<HeroBenefitsSection \/>[\s\S]*<SectionHeading[\s\S]*<div className="gallery-cases">/);
@@ -372,7 +373,7 @@ test('provides site-specific metadata', () => {
 });
 
 test('describes the custom round badge offering', () => {
-  for (const detail of ['Custom Round Shape Badges', 'products/badge/fridge-\\${number}.png', 'products/badge/keychain-\\${number}.png', 'Custom Fridge Magnet', 'Custom Keychain', '58 mm keepsake', 'fridge magnet or keychain backing', '\\$45', '\\$65', '\\$88', '\\$0.85', '30 pieces', '50 pieces', '100 pieces', '100\\+ pieces', 'Handmade production', 'Rush processing', '2 weeks', '2 days', '\\$50 processing fee', 'free', '\\$10 delivery fee', 'How to order']) {
+  for (const detail of ['Custom Round Shape Badges', 'products/badge/fridge-\\${number}.png', 'products/badge/keychain-\\${number}.png', 'Custom Fridge Magnet', 'Custom Keychain', '58 mm keepsake', 'fridge magnet or keychain backing', '\\$45', '\\$65', '\\$88', '\\$0.85', '30 pieces', '50 pieces', '100 pieces', '100\\+ pieces', 'Handmade production', 'Rush processing', '2 weeks', '2 days', '\\$50 processing fee', 'Free Delivery: orders more than \\$100', '\\$10 delivery fee: orders below \\$100', 'Photobooth customers enjoy free delivery.', 'How to order']) {
     assert.match(badgeSection, new RegExp(detail, 'i'));
   }
   assert.doesNotMatch(badgeSection, /Price &amp; order options|<select|type="number"|carousel|Design tips|Quick facts/i);
@@ -380,6 +381,7 @@ test('describes the custom round badge offering', () => {
   assert.match(badgeSection, /Photobooth customers enjoy free delivery\./);
   assert.match(styles, /\.badge-order-grid > article ul[\s\S]*list-style:\s*disc[\s\S]*font-size:\s*13px/);
   assert.match(badgeSection, /TrackedWhatsAppButton/);
+  assert.match(badgeSection, /eyebrow="Custom Badges"/);
   assert.match(badgeSection, /className="whatsapp-enquire-button"[\s\S]*variant="primary"/);
   assert.match(layoutSource, /href="\/gifts">Gifts/);
   assert.match(sitemapEntry, /https:\/\/momentboothsg\.com\/badges/);

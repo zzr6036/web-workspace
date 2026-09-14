@@ -14,13 +14,13 @@ type ProductSlide = {
 const bagSlides: ProductSlide[] = [
   { label: "Botanical Thank You", image: "/products/bags/13.png" },
   { label: "Blush Floral Celebration", image: "/products/bags/14.png" },
-  { label: "Mint Love", image: "/products/bags/15.png" },
+  // { label: "Mint Love", image: "/products/bags/15.png" },
   { label: "Cherry Blossom Thank You", image: "/products/bags/16.png" },
-  { label: "Garden Celebration", image: "/products/bags/17.png" },
-  { label: "Soft Floral Moments", image: "/products/bags/20.png" },
-  { label: "Modern Love", image: "/products/bags/21.png" },
+  // { label: "Garden Celebration", image: "/products/bags/17.png" },
+  // { label: "Soft Floral Moments", image: "/products/bags/20.png" },
+  // { label: "Modern Love", image: "/products/bags/21.png" },
   { label: "Joyful Floral", image: "/products/bags/24.png" },
-  { label: "Classic Thank You", image: "/products/bags/18.png" },
+  // { label: "Classic Thank You", image: "/products/bags/18.png" },
   { label: "Pastel Celebration", image: "/products/bags/22.png" },
 ];
 
@@ -109,7 +109,9 @@ function ProductCarousel({ slides, kind }: ProductCarouselProps) {
       : "";
 
   return (
-    <div className={`product-carousel product-carousel--${kind}${albumMediaClass}`}>
+    <div
+      className={`product-carousel product-carousel--${kind}${albumMediaClass}`}
+    >
       {kind !== "album" ? (
         <div className="product-carousel__header">
           <span>{activeSlide.label}</span>
@@ -267,14 +269,14 @@ export default function AddOnProductsSection() {
               ))}
             </ul>
             <p className="add-on-product-card__notice add-on-product-card__notice--soft">
-              Please confirm your preferred style at least 1 month before your
+              Please confirm your preferred style at least 2-3 weeks before your
               event so we can prepare and print it in advance.
             </p>
           </div>
           <ProductCarousel slides={bagSlides} kind="bags" />
         </article>
 
-        <article
+        {/* <article
           className="add-on-product-card"
           aria-label="Photobooth photo decoration cards"
         >
@@ -298,12 +300,12 @@ export default function AddOnProductsSection() {
               suits your event.
             </Paragraph>
             <p className="add-on-product-card__notice add-on-product-card__notice--soft">
-              Please confirm your preferred style at least 1 month before your
+              Please confirm your preferred style at least 2-3 weeks before your
               event so we can prepare and print it in advance.
             </p>
           </div>
           <ProductCarousel slides={cardSlides} kind="cards" />
-        </article>
+        </article> */}
 
         <article
           className="add-on-product-card add-on-product-card--album"
@@ -326,17 +328,18 @@ export default function AddOnProductsSection() {
               </Paragraph>
               <ul className="add-on-product-card__benefits">
                 <li>
-                  Holds up to 200 photos and is recommended for 3 × 7 in prints
+                  Holds up to 200 photos and is recommended for 3 to 7 inches
+                  photos
                 </li>
+                <li>
+                  Transparent protective film stays clear and resists yellowing
+                </li>
+                <li>No glue required, with high definition lamination</li>
+                <li>Reposition photos easily peel off and reapply if needed</li>
                 <li>
                   Add messages and photos to preserve your favourite memories
                 </li>
                 <li>Arrange photos freely with a secure adhesive</li>
-                <li>
-                  Transparent protective film stays clear and resists yellowing
-                </li>
-                <li>No glue required, with high-definition lamination</li>
-                <li>Reposition photos easily—peel off and reapply if needed</li>
               </ul>
             </div>
           </div>

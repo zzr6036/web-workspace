@@ -14,7 +14,7 @@ export default function BadgeSection() {
     <section className="section badge-section" id="badges">
       <SectionHeading
         className="section-heading"
-        eyebrow="Custom merchandise"
+        eyebrow="Custom Badges"
         title="Custom Round Shape Badges"
         description="Turn your logo, photo, or artwork into a bright, durable 58 mm keepsake with a fridge magnet or keychain backing."
       />
