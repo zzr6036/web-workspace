@@ -16,7 +16,10 @@
     "lint": "yarn workspace moment-booth-fe lint",
     "test": "yarn workspace moment-booth-fe test",
     "test:startup": "node --test tests/startup.test.mjs",
-    "test:vercel": "node --test tests/vercel-build.test.mjs"
+    "test:vercel": "node --test tests/vercel-build.test.mjs",
+    "dev:frame": "yarn workspace moment-frame-fe dev",
+    "build:frame": "yarn workspace moment-frame-fe build",
+    "test:frame": "yarn workspace moment-frame-fe test"
   },
   "devDependencies": {
     "elij-ui-library-cli": "^1.0.0"
