@@ -59,7 +59,7 @@ export default function BadgeSection() {
       </div>
       <div className="badge-cta">
         <p>Get your design pressed into a badge, from just one piece.</p>
-        <TrackedWhatsAppButton location="badges" href={whatsappHref}>Enquire about badges</TrackedWhatsAppButton>
+        <TrackedWhatsAppButton location="badges" href={whatsappHref} className="whatsapp-enquire-button" variant="primary">Enquire about badges</TrackedWhatsAppButton>
       </div>
     </section>
   );

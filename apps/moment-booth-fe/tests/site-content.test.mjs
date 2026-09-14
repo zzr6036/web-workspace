@@ -73,6 +73,7 @@ test('organises the home page into page, layout, and component folders', () => {
   assert.match(badgesRoute, /title: "Custom Round Shape Badges/);
   assert.match(badgesRoute, /canonical: "\/badges"/);
   assert.match(giftsPage, /<BadgeSection \/>/);
+  assert.match(giftsPage, /aria-labelledby="gifts-page-title"/);
   assert.match(giftsPage, /More gift options will be added here over time/);
   assert.match(giftsRoute, /title: "Event Gifts/);
   assert.match(giftsRoute, /canonical: "\/gifts"/);
@@ -376,6 +377,7 @@ test('describes the custom round badge offering', () => {
   }
   assert.doesNotMatch(badgeSection, /Price &amp; order options|<select|type="number"|carousel|Design tips|Quick facts/i);
   assert.match(badgeSection, /TrackedWhatsAppButton/);
+  assert.match(badgeSection, /className="whatsapp-enquire-button"[\s\S]*variant="primary"/);
   assert.match(layoutSource, /href="\/gifts">Gifts/);
   assert.match(sitemapEntry, /https:\/\/momentboothsg\.com\/badges/);
 });
