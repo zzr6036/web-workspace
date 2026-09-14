@@ -49,12 +49,12 @@ export default function BadgeSection() {
         </div>
         <article>
           <p className="eyebrow">How to order</p>
-          <ol>
+          <ul>
             <li>Choose a 58 mm fridge magnet or keychain.</li>
             <li>Send us your logo, photo, or design.</li>
             <li>Confirm the quotation and approve the order.</li>
             <li>We print, press, and prepare your badges.</li>
-          </ol>
+          </ul>
         </article>
       </div>
       <div className="badge-cta">
