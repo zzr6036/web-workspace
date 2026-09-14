@@ -371,10 +371,10 @@ test('provides site-specific metadata', () => {
 });
 
 test('describes the custom round badge offering', () => {
-  for (const detail of ['Custom Round Shape Badges', 'products/badge/fridge-\\${number}.png', 'products/badge/keychain-\\${number}.png', 'Custom Fridge Magnet', 'Custom Keychain', '32 mm, 44 mm, 58 mm, or 75 mm', 'From just 1 piece', 'Full-colour HD', 'scratch-resistant', 'magnet or keychain backing', '\\$45', '\\$65', '\\$88', '30 pieces', '50 pieces', '100 pieces', '2 weeks', '2 days', '\\$50 processing fee', 'Design tips', 'How to order']) {
+  for (const detail of ['Custom Round Shape Badges', 'products/badge/fridge-\\${number}.png', 'products/badge/keychain-\\${number}.png', 'Custom Fridge Magnet', 'Custom Keychain', '58 mm keepsake', 'fridge magnet or keychain backing', '\\$45', '\\$65', '\\$88', '\\$0.85', '30 pieces', '50 pieces', '100 pieces', '100\\+ pieces', 'Handmade production', 'Rush processing', '2 weeks', '2 days', '\\$50 processing fee', 'free', '\\$10 delivery fee', 'How to order']) {
     assert.match(badgeSection, new RegExp(detail, 'i'));
   }
-  assert.doesNotMatch(badgeSection, /Price &amp; order options|<select|type="number"|carousel/i);
+  assert.doesNotMatch(badgeSection, /Price &amp; order options|<select|type="number"|carousel|Design tips|Quick facts/i);
   assert.match(badgeSection, /TrackedWhatsAppButton/);
   assert.match(layoutSource, /href="\/gifts">Gifts/);
   assert.match(sitemapEntry, /https:\/\/momentboothsg\.com\/badges/);

@@ -460,11 +460,16 @@ a {
 .badge-pricing__header { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; }
 .badge-pricing__header h3 { margin: 0; font-size: 24px; }
 .badge-pricing__header .eyebrow { margin-bottom: 8px; }
-.badge-pricing__list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 20px; }
+.badge-pricing__list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 20px; }
 .badge-pricing__list div { display: grid; gap: 4px; padding: 16px; border: 1px solid var(--line); border-radius: 12px; background: #fff; text-align: center; }
 .badge-pricing__list strong { color: var(--purple); font-size: 24px; }
-.badge-pricing__list span, .badge-pricing__note { color: var(--muted); font-size: 11px; font-weight: 400; }
-.badge-pricing__note { margin: 18px 0 0; line-height: 1.6; }
+.badge-pricing__list span { color: var(--muted); font-size: 11px; font-weight: 400; }
+.badge-pricing__note { margin: 18px 0 0; padding-left: 18px; color: var(--muted); font-size: 12px; line-height: 1.7; }
+.badge-pricing__note li::marker { color: var(--purple); }
+.badge-order-grid { max-width: 1040px; margin: 0 auto 28px; display: grid; grid-template-columns: 1.35fr .65fr; gap: 18px; align-items: stretch; }
+.badge-order-grid > .badge-pricing { width: 100%; margin: 0; }
+.badge-order-grid > article { padding: 28px; border: 1px solid var(--line); border-radius: 20px; background: #fff; }
+.badge-order-grid > article ol { margin: 0; padding-left: 20px; color: var(--muted); line-height: 1.9; }
 .badge-facts {
   max-width: 1040px;
   margin: 0 auto 28px;
@@ -1490,6 +1495,7 @@ footer small {
   .badge-intro-grid,
   .badge-style-grid,
   .badge-guidance-grid,
+  .badge-order-grid,
   .badge-facts {
     grid-template-columns: 1fr;
   }

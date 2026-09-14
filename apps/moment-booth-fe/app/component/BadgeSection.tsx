@@ -1,18 +1,8 @@
 "use client";
 
-import { Check, Circle, Palette, Ruler, ShieldCheck } from "lucide-react";
 import { SectionHeading } from "elij-ui-library";
 import { whatsappHref } from "../lib/contact";
 import { TrackedWhatsAppButton } from "./TrackedWhatsApp";
-
-const quickFacts = [
-  ["Sizes", "32 mm, 44 mm, 58 mm, or 75 mm", Ruler],
-  ["Minimum order", "From just 1 piece", Check],
-  ["Print", "Full-colour HD with no colour limit", Palette],
-  ["Finish", "Clear, scratch-resistant protective top", ShieldCheck],
-  ["Backing", "Choose a fridge magnet or keychain backing", Circle],
-  ["Perfect for", "Events, schools, campaigns, merch, and personal designs", Circle],
-] as const;
 
 export default function BadgeSection() {
   const styles = {
@@ -26,28 +16,8 @@ export default function BadgeSection() {
         className="section-heading"
         eyebrow="Custom merchandise"
         title="Custom Round Shape Badges"
-        description="Turn your logo, photo, or artwork into a bright, durable pin badge—available from just one piece."
+        description="Turn your logo, photo, or artwork into a bright, durable 58 mm keepsake with a fridge magnet or keychain backing."
       />
-      <div className="badge-intro-grid">
-        <article className="badge-feature-card">
-          <span className="badge-feature-card__icon" aria-hidden="true"><Circle size={28} /></span>
-          <h3>Made for your design</h3>
-          <p>
-            Your artwork is printed in full colour, cut to your chosen round size,
-            and sealed under a clear protective film. The metal disc and pin back
-            are pressed together into one solid badge.
-          </p>
-        </article>
-        <article className="badge-feature-card">
-          <span className="badge-feature-card__icon" aria-hidden="true"><ShieldCheck size={28} /></span>
-          <h3>Bright, flexible, and ready to wear</h3>
-          <p>
-            The scratch-resistant top keeps the print looking sharp in normal use.
-            Photos, gradients, small text, and any colour are supported—giving you
-            more freedom than an enamel pin.
-          </p>
-        </article>
-      </div>
       <div className="badge-style-grid" aria-label="Badge styles">
         <article className="badge-style-card">
           <div className="badge-style-card__heading">
@@ -66,31 +36,21 @@ export default function BadgeSection() {
           <div className="badge-style-card__gallery">{styles.keychain.map((src, index) => <img key={src} src={src} alt={`Custom keychain style ${index + 1}`} />)}</div>
         </article>
       </div>
-      <div className="badge-pricing" aria-label="Badge pricing">
-        <div className="badge-pricing__header">
-          <div><p className="eyebrow">Pricing</p><h3>Custom badge packages</h3></div>
+      <div className="badge-order-grid">
+        <div className="badge-pricing" aria-label="Badge pricing">
+          <div className="badge-pricing__header"><div><p className="eyebrow">Pricing</p><h3>58 mm custom badge packages</h3></div></div>
+          <div className="badge-pricing__list"><div><strong>$45</strong><span>30 pieces</span></div><div><strong>$65</strong><span>50 pieces</span></div><div><strong>$88</strong><span>100 pieces</span></div><div><strong>$0.85</strong><span>per piece for 100+ pieces</span></div></div>
+          <ul className="badge-pricing__note">
+            <li>Handmade production: approximately 2 weeks after design confirmation</li>
+            <li>Rush processing: completion in 2 days with an additional $50 processing fee</li>
+            <li>Delivery is free for orders of $100 or more</li>
+            <li>Orders below $100 have a $10 delivery fee</li>
+          </ul>
         </div>
-        <div className="badge-pricing__list"><div><strong>$45</strong><span>30 pieces</span></div><div><strong>$65</strong><span>50 pieces</span></div><div><strong>$88</strong><span>100 pieces</span></div></div>
-        <p className="badge-pricing__note">These badges are handmade. After your design is confirmed, standard production takes about 2 weeks. Need them sooner? Choose rush processing for completion in 2 days with a $50 processing fee.</p>
-      </div>
-      <div className="badge-facts" aria-label="Round badge quick facts">
-        {quickFacts.map(([label, value, Icon]) => (
-          <article key={label}>
-            <Icon size={20} aria-hidden="true" />
-            <div><strong>{label}</strong><span>{value}</span></div>
-          </article>
-        ))}
-      </div>
-      <div className="badge-guidance-grid">
-        <article>
-          <p className="eyebrow">Design tips</p>
-          <h3>Keep important details inside the circle</h3>
-          <p>Leave a safe margin around the edge so text and fine details are not cut off or folded under during pressing. Bold, clear artwork works best on 32 mm badges; 75 mm gives more room for detail.</p>
-        </article>
         <article>
           <p className="eyebrow">How to order</p>
           <ol>
-            <li>Choose your badge size.</li>
+            <li>Choose a 58 mm fridge magnet or keychain.</li>
             <li>Send us your logo, photo, or design.</li>
             <li>Confirm the quotation and approve the order.</li>
             <li>We print, press, and prepare your badges.</li>
