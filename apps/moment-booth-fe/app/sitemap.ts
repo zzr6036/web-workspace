@@ -24,6 +24,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: 'https://momentboothsg.com/badges',
       lastModified: new Date(),
       changeFrequency: 'monthly',
+      priority: 0.5,
+    },
+    {
+      url: 'https://momentboothsg.com/gifts',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
       priority: 0.7,
     },
   ];

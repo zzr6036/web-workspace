@@ -18,7 +18,7 @@ export default function SiteHeader() {
       <nav aria-label="Main navigation">
         <a href="/#top">Gallery</a>
         <a href="/packages">Packages</a>
-        <a href="/badges">Badges</a>
+        <a href="/gifts">Gifts</a>
         <a href="/faq">FAQ</a>
       </nav>
       <TrackedWhatsAppLink

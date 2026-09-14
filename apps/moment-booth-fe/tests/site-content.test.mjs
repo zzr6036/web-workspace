@@ -11,6 +11,8 @@ const faqPage = await readAppFile('page/FAQPage.tsx');
 const faqRoute = await readAppFile('faq/page.tsx');
 const badgesPage = await readAppFile('page/BadgesPage.tsx');
 const badgesRoute = await readAppFile('badges/page.tsx');
+const giftsPage = await readAppFile('page/GiftsPage.tsx');
+const giftsRoute = await readAppFile('gifts/page.tsx');
 const layoutEntry = await readAppFile('layout.tsx');
 const robotsEntry = await readAppFile('robots.ts');
 const sitemapEntry = await readAppFile('sitemap.ts');
@@ -70,6 +72,10 @@ test('organises the home page into page, layout, and component folders', () => {
   assert.match(badgesPage, /<BadgeSection \/>/);
   assert.match(badgesRoute, /title: "Custom Round Shape Badges/);
   assert.match(badgesRoute, /canonical: "\/badges"/);
+  assert.match(giftsPage, /<BadgeSection \/>/);
+  assert.match(giftsPage, /More gift options will be added here over time/);
+  assert.match(giftsRoute, /title: "Event Gifts/);
+  assert.match(giftsRoute, /canonical: "\/gifts"/);
   assert.match(gallerySection, /<HeroBenefitsSection \/>[\s\S]*<SectionHeading[\s\S]*<div className="gallery-cases">/);
 });
 
@@ -92,6 +98,7 @@ test('showcases the real props and template library', () => {
   assert.match(homePage, /<LibrarySection \/>/);
   assert.doesNotMatch(layoutSource, />Collection</);
   assert.match(layoutSource, /href="\/faq">FAQ/);
+  assert.match(layoutSource, /href="\/gifts">Gifts/);
   assert.match(librarySection, /100\+/);
   assert.match(librarySection, /\["Many", "Popular event styles"\]/);
   assert.match(librarySection, /200\+/);
@@ -368,7 +375,7 @@ test('describes the custom round badge offering', () => {
     assert.match(badgeSection, new RegExp(detail, 'i'));
   }
   assert.match(badgeSection, /TrackedWhatsAppButton/);
-  assert.match(layoutSource, /href="\/badges">Badges/);
+  assert.match(layoutSource, /href="\/gifts">Gifts/);
   assert.match(sitemapEntry, /https:\/\/momentboothsg\.com\/badges/);
 });
 
