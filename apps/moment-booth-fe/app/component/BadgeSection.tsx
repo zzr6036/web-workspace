@@ -1,4 +1,7 @@
-import { Check, Circle, Palette, Pin, Ruler, ShieldCheck } from "lucide-react";
+"use client";
+
+import { useState } from "react";
+import { Check, ChevronLeft, ChevronRight, Circle, Palette, Ruler, ShieldCheck } from "lucide-react";
 import { SectionHeading } from "elij-ui-library";
 import { whatsappHref } from "../lib/contact";
 import { TrackedWhatsAppButton } from "./TrackedWhatsApp";
@@ -8,11 +11,30 @@ const quickFacts = [
   ["Minimum order", "From just 1 piece", Check],
   ["Print", "Full-colour HD with no colour limit", Palette],
   ["Finish", "Clear, scratch-resistant protective top", ShieldCheck],
-  ["Backing", "Built-in pin back, ready to wear", Pin],
+  ["Backing", "Choose a fridge magnet or keychain backing", Circle],
   ["Perfect for", "Events, schools, campaigns, merch, and personal designs", Circle],
 ] as const;
 
 export default function BadgeSection() {
+  const [styleIndex, setStyleIndex] = useState({ fridge: 0, keychain: 0 });
+  const [badgeType, setBadgeType] = useState("Fridge Magnet");
+  const [size, setSize] = useState("58");
+  const [quantity, setQuantity] = useState(30);
+  const [rush, setRush] = useState(false);
+  const styles = {
+    fridge: [1, 2, 3, 4].map((number) => `/products/badge/fridge-${number}.png`),
+    keychain: [1, 2, 3, 4].map((number) => `/products/badge/keychain-${number}.png`),
+  };
+  const unitPrice = quantity >= 100 ? 1 : quantity >= 50 ? 1.2 : 1.5;
+  const total = quantity >= 30 && size === "58" ? quantity * unitPrice + (rush ? 50 : 0) : 0;
+
+  const moveStyle = (type: "fridge" | "keychain", direction: -1 | 1) => {
+    setStyleIndex((current) => ({
+      ...current,
+      [type]: (current[type] + direction + styles[type].length) % styles[type].length,
+    }));
+  };
+
   return (
     <section className="section badge-section" id="badges">
       <SectionHeading
@@ -43,7 +65,12 @@ export default function BadgeSection() {
       </div>
       <div className="badge-style-grid" aria-label="Badge styles">
         <article className="badge-style-card">
-          <img src="/products/badge/fridge.png" alt="Custom fridge magnet badge" />
+          <div className="badge-style-card__media">
+            <button type="button" aria-label="Previous fridge magnet style" onClick={() => moveStyle("fridge", -1)}><ChevronLeft size={24} /></button>
+            <img src={styles.fridge[styleIndex.fridge]} alt={`Custom fridge magnet style ${styleIndex.fridge + 1}`} />
+            <button type="button" aria-label="Next fridge magnet style" onClick={() => moveStyle("fridge", 1)}><ChevronRight size={24} /></button>
+            <div className="badge-style-card__dots">{styles.fridge.map((_, index) => <span key={index} className={index === styleIndex.fridge ? "is-active" : ""} />)}</div>
+          </div>
           <div>
             <p className="eyebrow">Style option</p>
             <h3>Custom Fridge Magnet</h3>
@@ -51,13 +78,31 @@ export default function BadgeSection() {
           </div>
         </article>
         <article className="badge-style-card">
-          <img src="/products/badge/keychain.png" alt="Custom keychain badge" />
+          <div className="badge-style-card__media">
+            <button type="button" aria-label="Previous keychain style" onClick={() => moveStyle("keychain", -1)}><ChevronLeft size={24} /></button>
+            <img src={styles.keychain[styleIndex.keychain]} alt={`Custom keychain style ${styleIndex.keychain + 1}`} />
+            <button type="button" aria-label="Next keychain style" onClick={() => moveStyle("keychain", 1)}><ChevronRight size={24} /></button>
+            <div className="badge-style-card__dots">{styles.keychain.map((_, index) => <span key={index} className={index === styleIndex.keychain ? "is-active" : ""} />)}</div>
+          </div>
           <div>
             <p className="eyebrow">Style option</p>
             <h3>Custom Keychain</h3>
             <p>A portable everyday keepsake with your logo, photo, or artwork.</p>
           </div>
         </article>
+      </div>
+      <div className="badge-pricing" aria-label="Badge pricing options">
+        <div className="badge-pricing__header">
+          <div><p className="eyebrow">Price &amp; order options</p><h3>Configure your custom badges</h3></div>
+          <strong>{total ? `$${total.toFixed(2)}` : "—"}</strong>
+        </div>
+        <div className="badge-pricing__fields">
+          <label>Option 1: style<select value={badgeType} onChange={(event) => setBadgeType(event.target.value)}><option>Fridge Magnet</option><option>Keychain</option></select></label>
+          <label>Option 2: size<select value={size} onChange={(event) => setSize(event.target.value)}><option value="58">58 mm</option><option value="32" disabled>32 mm — currently unavailable</option></select></label>
+          <label>Option 3: quantity<input type="number" min={30} step={1} value={quantity} onChange={(event) => setQuantity(Math.max(30, Number(event.target.value) || 30))} /><span>Minimum 30 pieces</span></label>
+        </div>
+        <div className="badge-pricing__summary"><span>{size === "58" ? `$${unitPrice.toFixed(2)} each for ${quantity} pieces` : "Pricing is currently available for 58 mm only"}</span><label><input type="checkbox" checked={rush} onChange={(event) => setRush(event.target.checked)} /> Rush processing (+$50, ready in 2 days)</label></div>
+        <p className="badge-pricing__note">These badges are handmade. After your design is confirmed, standard production takes about 2 weeks. Need them sooner? Choose rush processing for completion in 2 days with a $50 processing fee.</p>
       </div>
       <div className="badge-facts" aria-label="Round badge quick facts">
         {quickFacts.map(([label, value, Icon]) => (
