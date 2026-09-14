@@ -378,6 +378,7 @@ test('describes the custom round badge offering', () => {
   assert.doesNotMatch(badgeSection, /Price &amp; order options|<select|type="number"|carousel|Design tips|Quick facts/i);
   assert.match(badgeSection, /How to order[\s\S]*<ul>[\s\S]*Choose a 58 mm fridge magnet or keychain/);
   assert.match(badgeSection, /Photobooth customers enjoy free delivery\./);
+  assert.match(styles, /\.badge-order-grid > article ul[\s\S]*list-style:\s*disc[\s\S]*font-size:\s*13px/);
   assert.match(badgeSection, /TrackedWhatsAppButton/);
   assert.match(badgeSection, /className="whatsapp-enquire-button"[\s\S]*variant="primary"/);
   assert.match(layoutSource, /href="\/gifts">Gifts/);

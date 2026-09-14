@@ -2106,3 +2106,8 @@ footer small {
   color: var(--purple);
   font-weight: 600;
 }
+.badge-order-grid > article ul {
+  list-style: disc;
+  font-size: 13px;
+  line-height: 1.65;
+}
