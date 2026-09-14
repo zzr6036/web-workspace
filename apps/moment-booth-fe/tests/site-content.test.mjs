@@ -9,6 +9,8 @@ const packagesPage = await readAppFile('page/PackagesPage.tsx');
 const packagesRoute = await readAppFile('packages/page.tsx');
 const faqPage = await readAppFile('page/FAQPage.tsx');
 const faqRoute = await readAppFile('faq/page.tsx');
+const badgesPage = await readAppFile('page/BadgesPage.tsx');
+const badgesRoute = await readAppFile('badges/page.tsx');
 const layoutEntry = await readAppFile('layout.tsx');
 const robotsEntry = await readAppFile('robots.ts');
 const sitemapEntry = await readAppFile('sitemap.ts');
@@ -17,6 +19,7 @@ const packagesSection = await readAppFile('component/PackagesSection.tsx');
 const optionalAddOnsSection = await readAppFile('component/OptionalAddOnsSection.tsx');
 const addOnProductsSection = await readAppFile('component/AddOnProductsSection.tsx');
 const heroSection = await readAppFile('component/HeroSection.tsx');
+const badgeSection = await readAppFile('component/BadgeSection.tsx');
 const heroBenefitsSection = await readAppFile('component/HeroBenefitsSection.tsx');
 const gallerySection = await readAppFile('component/GallerySection.tsx');
 const contactSection = await readAppFile('component/ContactSection.tsx');
@@ -46,7 +49,7 @@ test('organises the home page into page, layout, and component folders', () => {
   assert.match(homePage, /SiteHeader/);
   assert.match(homePage, /HeroSection/);
   assert.deepEqual(layoutFiles.sort(), ['SiteFooter.tsx', 'SiteHeader.tsx']);
-  for (const file of ['AddOnProductsSection.tsx', 'BookingStepsSection.tsx', 'ContactSection.tsx', 'EventTypesSection.tsx', 'FAQSection.tsx', 'GallerySection.tsx', 'HeroBenefitsSection.tsx', 'HeroSection.tsx', 'LibrarySection.tsx', 'OptionalAddOnsSection.tsx', 'PackagesPreviewSection.tsx', 'PackagesSection.tsx', 'WhyChooseUsSection.tsx']) {
+  for (const file of ['AddOnProductsSection.tsx', 'BadgeSection.tsx', 'BookingStepsSection.tsx', 'ContactSection.tsx', 'EventTypesSection.tsx', 'FAQSection.tsx', 'GallerySection.tsx', 'HeroBenefitsSection.tsx', 'HeroSection.tsx', 'LibrarySection.tsx', 'OptionalAddOnsSection.tsx', 'PackagesPreviewSection.tsx', 'PackagesSection.tsx', 'WhyChooseUsSection.tsx']) {
     assert.ok(componentFiles.includes(file), `missing ${file}`);
   }
   assert.match(homePage, /<PackagesPreviewSection \/>/);
@@ -64,6 +67,9 @@ test('organises the home page into page, layout, and component folders', () => {
   assert.match(faqPage, /<HeroSection exploreHref="\/#gallery" \/>[\s\S]*<FAQSection \/>/);
   assert.match(faqRoute, /Photobooth FAQ/);
   assert.match(faqRoute, /canonical: "\/faq"/);
+  assert.match(badgesPage, /<BadgeSection \/>/);
+  assert.match(badgesRoute, /title: "Custom Round Shape Badges/);
+  assert.match(badgesRoute, /canonical: "\/badges"/);
   assert.match(gallerySection, /<HeroBenefitsSection \/>[\s\S]*<SectionHeading[\s\S]*<div className="gallery-cases">/);
 });
 
@@ -233,7 +239,7 @@ test('explains template-library updates and custom artwork scope', () => {
 });
 
 test('presents the three optional keepsake products', () => {
-  for (const product of ['Photo Print Bags', 'Photo Keepsake Cards', 'Wedding Photo Album', 'at\\s+least\\s+\\d+\\s+(?:month|months|week|weeks)\\s+before\\s+your\\s+event', '2-hour event - \\$\\d+ for unlimited use', '3-hour event - \\$\\d+ for unlimited use']) {
+  for (const product of ['Photo Print Bags', 'Photo Keepsake Cards', 'Wedding Photo Album', 'at\\s+least\\s+(?:\\d+\\s*-\\s*)?\\d+\\s+(?:month|months|week|weeks)\\s+before\\s+your\\s+event', '2-hour event - \\$\\d+ for unlimited use', '3-hour event - \\$\\d+ for unlimited use']) {
     assert.match(addOnProductsSection, new RegExp(product));
   }
   assert.doesNotMatch(addOnProductsSection, /<li>Unlimited use<\/li>/);
@@ -249,7 +255,7 @@ test('presents the three optional keepsake products', () => {
   assert.match(addOnProductsSection, /kind !== "album"/);
   assert.doesNotMatch(addOnProductsSection, /Wedding album detail 1<\/span>/);
   assert.match(addOnProductsSection, /Wedding Photo Album[\s\S]*\$30/);
-  for (const benefit of ['up to 200 photos', '3 × 7 in prints', 'Add messages and photos', 'Arrange photos freely', 'stays clear', 'No glue required', 'Reposition photos easily']) {
+  for (const benefit of ['up to 200 photos', '(?:3 × 7 in prints|3 to 7 inches)', 'Add messages and photos', 'Arrange photos freely', 'stays clear', '(?:No glue required|No glue required,)', '(?:Reposition photos easily|Reposition photos easily peel)']) {
     assert.match(addOnProductsSection, new RegExp(benefit, 'i'));
   }
   assert.match(addOnProductsSection, /products\/bags\/13\.png/);
@@ -355,6 +361,15 @@ test('provides site-specific metadata', () => {
   assert.match(layoutEntry, /metadataBase: new URL\('https:\/\/momentboothsg\.com'\)/);
   assert.match(layoutEntry, /icons:[\s\S]*\/moment-booth-logo\.png/);
   assert.match(layoutEntry, /\/og\.png/);
+});
+
+test('describes the custom round badge offering', () => {
+  for (const detail of ['Custom Round Shape Badges', '32 mm, 44 mm, 58 mm, or 75 mm', 'From just 1 piece', 'Full-colour HD', 'scratch-resistant', 'built-in pin back', 'Design tips', 'How to order']) {
+    assert.match(badgeSection, new RegExp(detail, 'i'));
+  }
+  assert.match(badgeSection, /TrackedWhatsAppButton/);
+  assert.match(layoutSource, /href="\/badges">Badges/);
+  assert.match(sitemapEntry, /https:\/\/momentboothsg\.com\/badges/);
 });
 
 test('publishes production SEO routes', () => {

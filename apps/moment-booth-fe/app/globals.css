@@ -403,6 +403,52 @@ a {
 .gallery-section {
   background: var(--white);
 }
+.badge-section {
+  background: var(--bg);
+}
+.badge-intro-grid,
+.badge-guidance-grid {
+  max-width: 1040px;
+  margin: 0 auto 28px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+.badge-feature-card,
+.badge-guidance-grid article {
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: #fff;
+}
+.badge-feature-card__icon {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 18px;
+  border-radius: 50%;
+  color: var(--purple);
+  background: #eee9ff;
+}
+.badge-feature-card h3,
+.badge-guidance-grid h3 { margin: 0 0 10px; font-size: 20px; }
+.badge-feature-card p,
+.badge-guidance-grid p { margin: 0; color: var(--muted); line-height: 1.7; }
+.badge-facts {
+  max-width: 1040px;
+  margin: 0 auto 28px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.badge-facts article { display: flex; gap: 12px; padding: 18px; border: 1px solid var(--line); border-radius: 16px; background: #fff; color: var(--purple); }
+.badge-facts article div { display: grid; gap: 4px; }
+.badge-facts strong { color: var(--navy); font-size: 13px; }
+.badge-facts span { color: var(--muted); font-size: 12px; line-height: 1.45; }
+.badge-guidance-grid ol { margin: 0; padding-left: 20px; color: var(--muted); line-height: 1.9; }
+.badge-cta { display: grid; justify-items: center; gap: 16px; text-align: center; }
+.badge-cta p { margin: 0; color: var(--muted); }
 .gallery-grid {
   max-width: 1040px;
   margin: auto;
@@ -1328,6 +1374,9 @@ footer small {
   .hero-summary {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+  .badge-facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
   .statement {
     grid-template-columns: 1fr;
   }
@@ -1407,6 +1456,11 @@ footer small {
   }
   .header-cta {
     display: none;
+  }
+  .badge-intro-grid,
+  .badge-guidance-grid,
+  .badge-facts {
+    grid-template-columns: 1fr;
   }
   .hero {
     min-height: auto;
