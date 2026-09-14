@@ -57,3 +57,18 @@ test('draft collection distinguishes illustrations from available products', () 
   assert.match(html, /Illustrative previews/);
   assert.match(html, /Product details coming soon/);
 });
+
+
+test('production page serves its purple theme stylesheet', async () => {
+  const styles = [...html.matchAll(/<link[^>]+href="([^" ]+\.css(?:\?[^" ]*)?)"[^>]*>/g)].map(match => match[1]);
+  assert.ok(styles.length > 0, 'Page must link a stylesheet');
+  const contents = await Promise.all(styles.map(async path => {
+    const response = await fetch(new URL(path, origin));
+    assert.equal(response.status, 200, `Stylesheet failed: ${path}`);
+    return response.text();
+  }));
+  const css = contents.join('');
+  assert.match(css, /--accent:\s*#7c5cff/i);
+  assert.match(css, /--paper:\s*#f7f8fb/i);
+  assert.doesNotMatch(css, /#bb481f|#23625c|#203d39/i);
+});
