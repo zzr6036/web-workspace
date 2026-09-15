@@ -1,6 +1,6 @@
 # MomentFrame
 
-Initial responsive layout with the supplied logo, navigation, illustrated collection placeholders, and footer. No live product catalogue or contact integration is configured.
+Photo-led responsive home page with the supplied logo, three frame collections, alternating inspiration sections and a brand story. No live product catalogue or contact integration is configured.
 
 From the workspace root (Node 22.13.0, Yarn 4.9.2):
 
@@ -18,6 +18,6 @@ Uses Next.js App Router, React and TypeScript. Unlike the existing Booth app's V
 
 For a future independent Vercel project, select `apps/moment-frame-fe` as Root Directory and Next.js as the framework. Configure that project's domain and environment variables separately. Deployment has not been performed.
 
-The images in the collection are CSS illustrations, not product photographs. `public/logo_circle.png` is an unchanged copy of the supplied original.
+Collection photos are cleaned derivatives of supplied product photos; source files remain unchanged. See ASSETS.md for provenance and cleanup prompts. `public/logo_circle.png` is an unchanged copy of the supplied original.
 
 The start/build scripts skip Next.js npm-lockfile patching because this repository uses Yarn. Run `yarn build:frame` before the HTTP regression tests.

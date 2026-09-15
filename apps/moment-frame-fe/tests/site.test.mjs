@@ -52,10 +52,13 @@ test('logo is served unchanged and shown in both header and footer', async () =>
   assert.equal((html.match(/alt="MomentFrame logo"/g) || []).length, 2);
 });
 
-test('draft collection distinguishes illustrations from available products', () => {
+test('home presents three frame collections without shopping controls or placeholder art', () => {
   assert.equal((html.match(/<article[ >]/g) || []).length, 3);
-  assert.match(html, /Illustrative previews/);
-  assert.match(html, /Product details coming soon/);
+  assert.match(html, /Frameless photo panels/);
+  assert.match(html, /Warm wooden frames/);
+  assert.match(html, /Classic matted frames/);
+  assert.doesNotMatch(html, /Illustrative previews|CONCEPT|Add to cart|Checkout|type="file"/);
+  assert.doesNotMatch(html, /[\u3400-\u9fff]/);
 });
 
 
@@ -71,4 +74,15 @@ test('production page serves its purple theme stylesheet', async () => {
   assert.match(css, /--accent:\s*#7c5cff/i);
   assert.match(css, /--paper:\s*#f7f8fb/i);
   assert.doesNotMatch(css, /#bb481f|#23625c|#203d39/i);
+});
+
+
+test('all collection photos are served locally with image content', async () => {
+  for (const name of ['desktop', 'wood', 'classic']) {
+    assert.ok(html.includes(`/frames/${name}.png`) || html.includes(`%2Fframes%2F${name}.png`));
+    const response = await fetch(`${origin}/frames/${name}.png`);
+    assert.equal(response.status, 200);
+    assert.match(response.headers.get('content-type'), /image\/png/);
+    assert.ok((await response.arrayBuffer()).byteLength > 10000);
+  }
 });

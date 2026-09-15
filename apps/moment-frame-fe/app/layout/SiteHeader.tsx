@@ -7,7 +7,7 @@ export default function SiteHeader() {
         <Image src="/logo_circle.png" alt="MomentFrame logo" width={60} height={60} priority />
         <span>Moment<span className="brand-accent">Frame</span></span>
       </a>
-      <nav aria-label="Main navigation"><a href="#collection">Collection</a><a href="#our-story">Our story</a></nav>
+      <nav aria-label="Main navigation"><a href="#collection">Collection</a><a href="#inspiration">Inspiration</a><a href="#our-story">Our story</a></nav>
       <a className="header-cta" href="#collection">Explore frames <span aria-hidden="true">↗</span></a>
     </header>
   );
