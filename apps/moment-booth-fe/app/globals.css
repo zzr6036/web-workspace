@@ -560,6 +560,28 @@ a {
 .badge-pricing__header .eyebrow {
   margin-bottom: 8px;
 }
+.badge-pricing__switch {
+  display: inline-flex;
+  gap: 6px;
+  margin-top: 18px;
+  padding: 4px;
+  border-radius: 999px;
+  background: #eee9ff;
+}
+.badge-pricing__switch button {
+  border: 0;
+  border-radius: 999px;
+  padding: 8px 14px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+}
+.badge-pricing__switch button.is-active {
+  background: var(--purple);
+  color: #fff;
+}
 .badge-pricing__list {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));

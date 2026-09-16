@@ -1,10 +1,26 @@
 "use client";
 
 import { SectionHeading } from "elij-ui-library";
+import { useState } from "react";
 import { whatsappHref } from "../lib/contact";
 import { TrackedWhatsAppButton } from "./TrackedWhatsApp";
 
 export default function BadgeSection() {
+  const [badgeType, setBadgeType] = useState<"fridge" | "keychain">("fridge");
+  const pricing = {
+    fridge: [
+      ["$45", "30 pieces"],
+      ["$65", "50 pieces"],
+      ["$88", "100 pieces"],
+      ["$0.85", "per piece for 100+ pieces"],
+    ],
+    keychain: [
+      ["$50", "30 pieces"],
+      ["$75", "50 pieces"],
+      ["$100", "100 pieces"],
+      ["$0.95", "per piece for 100+ pieces"],
+    ],
+  } as const;
   const styles = {
     fridge: [1, 2, 3, 4].map((number) => `/products/badge/fridge-${number}.png`),
     keychain: [1, 2, 3, 4].map((number) => `/products/badge/keychain-${number}.png`),
@@ -38,8 +54,19 @@ export default function BadgeSection() {
       </div>
       <div className="badge-order-grid">
         <div className="badge-pricing" aria-label="Badge pricing">
-          <div className="badge-pricing__header"><div><p className="eyebrow">Pricing</p><h3>58 mm custom badge packages</h3></div></div>
-          <div className="badge-pricing__list"><div><strong>$45</strong><span>30 pieces</span></div><div><strong>$65</strong><span>50 pieces</span></div><div><strong>$88</strong><span>100 pieces</span></div><div><strong>$0.85</strong><span>per piece for 100+ pieces</span></div></div>
+          <div className="badge-pricing__header">
+            <div>
+              <p className="eyebrow">Pricing</p>
+              <h3>58 mm custom badge packages</h3>
+            </div>
+          </div>
+          <div className="badge-pricing__switch" role="group" aria-label="Choose badge type">
+            <button type="button" className={badgeType === "fridge" ? "is-active" : ""} aria-pressed={badgeType === "fridge"} onClick={() => setBadgeType("fridge")}>Fridge magnet</button>
+            <button type="button" className={badgeType === "keychain" ? "is-active" : ""} aria-pressed={badgeType === "keychain"} onClick={() => setBadgeType("keychain")}>Keychain</button>
+          </div>
+          <div className="badge-pricing__list" aria-live="polite">
+            {pricing[badgeType].map(([price, quantity]) => <div key={`${badgeType}-${quantity}`}><strong>{price}</strong><span>{quantity}</span></div>)}
+          </div>
           <ul className="badge-pricing__note">
             <li>Handmade production: approximately 2 weeks after design confirmation</li>
             <li>Rush processing: completion in 2 days with an additional $50 processing fee</li>

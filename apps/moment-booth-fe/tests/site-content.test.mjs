@@ -373,11 +373,13 @@ test('provides site-specific metadata', () => {
 });
 
 test('describes the custom round badge offering', () => {
-  for (const detail of ['Custom Round Shape Badges', 'products/badge/fridge-\\${number}.png', 'products/badge/keychain-\\${number}.png', 'Custom Fridge Magnet', 'Custom Keychain', '58 mm keepsake', 'fridge magnet or keychain backing', '\\$45', '\\$65', '\\$88', '\\$0.85', '30 pieces', '50 pieces', '100 pieces', '100\\+ pieces', 'Handmade production', 'Rush processing', '2 weeks', '2 days', '\\$50 processing fee', 'Free Delivery: orders more than \\$100', '\\$10 delivery fee: orders below \\$100', 'Photobooth customers enjoy free delivery.', 'How to order']) {
+  for (const detail of ['Custom Round Shape Badges', 'products/badge/fridge-\\${number}.png', 'products/badge/keychain-\\${number}.png', 'Custom Fridge Magnet', 'Custom Keychain', '58 mm keepsake', 'fridge magnet or keychain backing', '\\$45', '\\$65', '\\$88', '\\$0.85', '\\$50', '\\$75', '\\$100', '\\$0.95', '30 pieces', '50 pieces', '100 pieces', '100\\+ pieces', 'Handmade production', 'Rush processing', '(?:1|2) week', '2 days', '\\$(?:20|50)[\\s\\S]*processing fee', 'Free Delivery: orders more than \\$100', '\\$10 delivery fee: orders below \\$100', 'Photobooth customers enjoy free delivery.', 'How to order']) {
     assert.match(badgeSection, new RegExp(detail, 'i'));
   }
   assert.doesNotMatch(badgeSection, /Price &amp; order options|<select|type="number"|carousel|Design tips|Quick facts/i);
   assert.match(badgeSection, /How to order[\s\S]*<ul>[\s\S]*Choose a 58 mm fridge magnet or keychain/);
+  assert.match(badgeSection, /Choose badge type[\s\S]*Fridge magnet[\s\S]*Keychain/);
+  assert.match(badgeSection, /\$50[\s\S]*\$75[\s\S]*\$100[\s\S]*\$0\.95/);
   assert.match(badgeSection, /Photobooth customers enjoy free delivery\./);
   assert.match(styles, /\.badge-order-grid > article ul[\s\S]*list-style:\s*disc[\s\S]*font-size:\s*13px/);
   assert.match(badgeSection, /TrackedWhatsAppButton/);
