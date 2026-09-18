@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Photo } from "./Photo";
 
 export function HeroSection() {
@@ -23,9 +24,7 @@ export function HeroSection() {
             photo panels made for the stories you want to keep close.
           </em>
         </p>
-        <a className="primary-link" href="#collection">
-          Shopping Now
-        </a>
+        <Link className="primary-link" href="/shop">Start Shopping</Link>
         <p className="hero-signature">Print Your Story. Frame Your Memories.</p>
       </div>
     </section>

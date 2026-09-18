@@ -101,6 +101,9 @@ nav {
   align-items: center;
   gap: 12px;
 }
+.header-whatsapp { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-height: 36px; padding: 0 14px; border: 1px solid var(--accent); border-radius: 999px; background: var(--accent); color: #fff; font-size: 12px; font-weight: 750; white-space: nowrap; }
+.header-whatsapp svg { width: 16px; height: 16px; fill: currentColor; }
+.header-whatsapp:hover { border-color: #9275ed; background: #6842d0; color: #fff; }
 .cart-control {
   position: relative;
 }
@@ -399,6 +402,8 @@ h1 em {
 .best-seller-card img {
   object-fit: cover;
 }
+.best-seller-link { display: block; width: 100%; height: 100%; }
+.best-seller-link:focus-visible { outline: 3px solid #7c5cff; outline-offset: -3px; }
 @keyframes best-sellers-scroll {
   to {
     transform: translateX(-50%);
@@ -463,6 +468,35 @@ h3 {
 .inspiration {
   padding-top: 12px;
 }
+.why-momentframe { padding-top: 28px; }
+.why-momentframe-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.why-momentframe-card { min-height: 330px; padding: 30px; border: 1px solid #e3daf4; border-radius: 16px; background: #fbfaff; }
+.why-momentframe-card .eyebrow, .coming-soon .eyebrow, .ordering-process .eyebrow { color: #7551cf; }
+.why-momentframe-card h3 { margin: 24px 0 14px; color: #2d1b5f; font-size: 24px; line-height: 1.2; }
+.why-momentframe-card p:not(.eyebrow) { margin: 0; color: #5d5570; line-height: 1.7; }
+.why-momentframe-summary-card { display: grid; align-content: start; gap: 28px; }
+.why-momentframe-summary-card section + section { padding-top: 26px; border-top: 1px solid #e3daf4; }
+.why-momentframe-summary-card h3 { margin: 13px 0 10px; font-size: 21px; }
+.why-momentframe-video-card { display: grid; grid-template-rows: auto auto; padding: 0; overflow: hidden; background: #201341; }
+.why-momentframe-video-card video { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; background: #120a24; }
+.why-momentframe-video-card > div { padding: 22px 24px 25px; }
+.why-momentframe-video-card .eyebrow { color: #cbb8ff; }
+.why-momentframe-video-card h3, .why-momentframe-video-card p:not(.eyebrow) { color: #fff; }
+.home-cta { display: inline-flex; align-items: center; gap: 8px; margin-top: 28px; padding: 13px 20px; border-radius: 999px; background: #6337cf; color: #fff; font-size: 14px; font-weight: 800; }
+.home-cta:hover { background: #4f26b0; }
+.coming-soon { display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, .8fr); gap: 56px; align-items: center; }
+.coming-soon-copy h2 { max-width: 600px; color: #2d1b5f; }
+.coming-soon-copy > p:not(.eyebrow) { max-width: 550px; color: #5d5570; line-height: 1.75; }
+.coming-soon video { width: 100%; max-height: 520px; border-radius: 16px; background: #1f1733; object-fit: cover; }
+.ordering-process { margin-top: 30px; background: #eee9f8; }
+.ordering-process .section-wrap { padding-top: 68px; padding-bottom: 68px; }
+.ordering-process-list { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 18px; margin: 0; padding: 0; list-style: none; }
+.ordering-process-list li { padding: 20px; border-radius: 14px; background: #fff; }
+.ordering-process-list li > span { display: inline-block; margin-bottom: 30px; color: #7b55d3; font-size: 12px; font-weight: 800; letter-spacing: .08em; }
+.ordering-process-list h3 { color: #2d1b5f; font-size: 17px; }
+.ordering-process-list p { margin: 10px 0 0; color: #5d5570; font-size: 13px; line-height: 1.6; }
+.ordering-process-actions { display: flex; align-items: center; justify-content: center; gap: 24px; margin-top: 30px; }
+.ordering-process-actions .home-cta { margin-top: 0; }
 .feature {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -738,6 +772,20 @@ h3 {
   font-size: clamp(38px, 5vw, 68px);
   letter-spacing: -2.5px;
 }
+.faq-intro, .faq-groups, .faq-help { max-width: 980px; margin-left: auto; margin-right: auto; }
+.faq-intro > p:not(.eyebrow) { max-width: 580px; margin: 22px 0 0; color: #615775; line-height: 1.75; }
+.faq-groups { display: grid; gap: 36px; margin-top: 54px; }
+.faq-groups section h2 { margin: 0 0 14px; color: #2d1b5f; font-size: 22px; }
+.faq-groups details { border-top: 1px solid #e3daf4; }
+.faq-groups details:last-child { border-bottom: 1px solid #e3daf4; }
+.faq-groups summary { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 19px 0; color: #352260; font-weight: 700; cursor: pointer; list-style: none; }
+.faq-groups summary::-webkit-details-marker { display: none; }
+.faq-groups summary::after { content: "+"; color: #714dd0; font-size: 24px; font-weight: 400; }
+.faq-groups details[open] summary::after { content: "−"; }
+.faq-groups details p { max-width: 760px; margin: 0 0 19px; color: #615775; line-height: 1.7; }
+.faq-help { margin-top: 60px; padding: 34px; border-radius: 16px; background: #eae0fb; }
+.faq-help h2 { margin: 0; color: #2d1b5f; }
+.faq-help p { max-width: 600px; color: #5d5570; line-height: 1.7; }
 .shop-intro {
   max-width: 780px;
   margin: 0 auto 48px;
@@ -1636,4 +1684,9 @@ h3 {
 .gallery-wooden-frame-images img { width: 100%; height: 100%; min-height: 220px; object-fit: cover; border-radius: 14px; }
 .gallery-wooden-frame-finishes { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 8px; }
 .gallery-wooden-frame-finishes span { padding: 8px 10px; border-radius: 999px; background: #eee6fa; color: #55329a; font-size: 13px; font-weight: 700; }
-@media (max-width: 760px) { .product-information { margin-top: 4px; } .product-size-guide, .gallery-wooden-frame-information { grid-template-columns: 1fr; } .product-size-columns, .gallery-wooden-frame-images { grid-template-columns: 1fr; } }
+.gallery-wooden-frame-video { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(220px, .8fr) minmax(0, 1.2fr); gap: 24px; align-items: center; padding: 18px; border: 1px solid #e9ddfa; border-radius: 14px; background: #fff; }
+.gallery-wooden-frame-video video { width: 100%; max-height: 420px; border-radius: 10px; background: #1f1733; object-fit: cover; }
+.gallery-wooden-frame-video h4 { margin: 8px 0; color: #32176b; font-size: 21px; }
+.gallery-wooden-frame-video p:not(.eyebrow) { margin: 0; color: #665b7d; line-height: 1.6; }
+@media (max-width: 900px) { .why-momentframe-grid { grid-template-columns: 1fr; } .why-momentframe-card { min-height: 0; } .why-momentframe-video-card { grid-template-columns: minmax(220px, .8fr) minmax(0, 1.2fr); grid-template-rows: none; } .ordering-process-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 760px) { .product-information { margin-top: 4px; } .product-size-guide, .gallery-wooden-frame-information, .coming-soon, .gallery-wooden-frame-video { grid-template-columns: 1fr; } .product-size-columns, .gallery-wooden-frame-images { grid-template-columns: 1fr; } .ordering-process-list { grid-template-columns: 1fr; } .ordering-process-actions { flex-direction: column; } .why-momentframe-video-card { grid-template-columns: 1fr; } .why-momentframe-card { padding: 24px; } .why-momentframe-video-card { padding: 0; } }

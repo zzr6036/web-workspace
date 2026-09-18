@@ -9,12 +9,12 @@ export const inspirationFeatures = [
 ];
 
 export const bestSellerPrints = [
-  { image: "bestseller-1.png", alt: "Family and wedding portrait panels" },
-  { image: "bestseller-2.png", alt: "Wedding photo panels in a home setting" },
-  { image: "bestseller-3.png", alt: "Family and child photo panels" },
-  { image: "bestseller-4.png", alt: "Family portrait displayed as a photo panel" },
-  { image: "bestseller-5.png", alt: "Pink wedding portrait photo panel" },
-  { image: "bestseller-6.png", alt: "Gold-edged wedding photo frame" },
-  { image: "bestseller-7.png", alt: "White-edged wedding photo panel" },
-  { image: "bestseller-8.png", alt: "Family and baby photo panels" },
+  { image: "bestseller-1.png", alt: "Family and wedding portrait panels", href: "/shop/frameless/s1-t1" },
+  { image: "bestseller-4.png", alt: "Family portrait displayed as a photo panel", href: "/shop/frameless/s1-t1" },
+  { image: "bestseller-5.png", alt: "Pink wedding portrait photo panel", href: "/shop/frameless/s1-t1" },
+  { image: "bestseller-8.png", alt: "Family and baby photo panels", href: "/shop/frameless/s1-t1" },
+  { image: "bestseller-6.png", alt: "Gold-edged wedding photo frame", href: "/shop/bordered/s2-t6" },
+  { image: "bestseller-7.png", alt: "White-edged wedding photo panel", href: "/shop/bordered/s2-t1" },
+  { image: "bestseller-3.png", alt: "Family and child photo panels", href: "/shop/bordered/s2-t2" },
+  { image: "bestseller-2.png", alt: "Wedding photo panels in a home setting", href: "/shop/frameless/s2-t4" },
 ];

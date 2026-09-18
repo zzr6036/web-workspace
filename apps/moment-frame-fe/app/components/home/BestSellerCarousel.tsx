@@ -1,16 +1,19 @@
 import Image from "next/image";
+import Link from "next/link";
 import { bestSellerPrints } from "./homeContent";
 
 export function BestSellerCarousel() {
   const printGroup = (copy: number) =>
     bestSellerPrints.map((print) => (
       <article className="best-seller-card" key={`${copy}-${print.image}`}>
-        <Image
-          src={`/frames/bestsellers/${print.image}`}
-          alt={print.alt}
-          fill
-          sizes="400px"
-        />
+        <Link href={print.href} className="best-seller-link" tabIndex={copy === 2 ? -1 : undefined} aria-label={`View ${print.alt}`}>
+          <Image
+            src={`/frames/bestsellers/${print.image}`}
+            alt={print.alt}
+            fill
+            sizes="400px"
+          />
+        </Link>
       </article>
     ));
 

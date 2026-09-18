@@ -45,7 +45,7 @@ export function DeliveryDetailsForm({
           setAddressError("Postal code not found");
           setAddressLine("");
         }
-      } catch (e) {
+      } catch {
         setAddressError("Failed to fetch address");
         setAddressLine("");
       } finally {
@@ -97,8 +97,8 @@ export function DeliveryDetailsForm({
       <div className="cart-summary-line"><span>Delivery</span><strong>SGD {deliveryPrice.toFixed(2)}</strong></div>
       <div className="cart-summary-total"><span>Total</span><strong>SGD {(subtotal + deliveryPrice).toFixed(2)}</strong></div>
       
-      <button className="send-quote-button" type="button" onClick={() => onOrder({ userName, contact, email, address: fullAddress, deliveryPrice })} disabled={!isReady}>SEND QUOTE</button>
-      <p className="quote-help" style={{ fontSize: "0.75rem", textAlign: "center", color: "#60547a", marginTop: "0.5rem" }}>WhatsApp will open so you can attach your downloaded PDF quote.</p>
+      <button className="send-quote-button" type="button" onClick={() => onOrder({ userName, contact, email, address: fullAddress, deliveryPrice })} disabled={!isReady}>REQUEST A QUOTE</button>
+      <p className="quote-help" style={{ fontSize: "0.75rem", textAlign: "center", color: "#60547a", marginTop: "0.5rem" }}>Your quote PDF will open, followed by WhatsApp. Send it to us and we will confirm your order and payment details before production begins.</p>
     </aside>
   );
 }

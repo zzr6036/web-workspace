@@ -63,7 +63,7 @@ export function GalleryWoodenFrameInformation() {
       <div className="gallery-wooden-frame-copy">
         <h3>Crafted for a statement wall</h3>
         <ul>
-          <li>Eco-conscious PS frame construction</li>
+          <li>Selected solid-wood frame options</li>
           <li>Soft matte surface finish</li>
           <li>Made for bedrooms, living rooms and feature walls</li>
           <li>Suitable for wedding, family, baby and portrait photography</li>
@@ -167,6 +167,9 @@ export function ProductInformation({
   displayTypes: string[];
   isGalleryWoodenFrame: boolean;
 }) {
+  // Kept in the shared component API for product configurations that provide display types.
+  void displayTypes;
+
   return (
     <div className="product-information">
       {/* <PrintQualityInformation /> */}

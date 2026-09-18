@@ -7,9 +7,10 @@
     "node": ">=22.13.0 <23"
   },
   "scripts": {
-    "dev": "NEXT_IGNORE_INCORRECT_LOCKFILE=1 next dev --port 3001",
-    "build": "NEXT_IGNORE_INCORRECT_LOCKFILE=1 next build",
+    "dev": "yarn sync:slides && NEXT_IGNORE_INCORRECT_LOCKFILE=1 next dev --port 3001",
+    "build": "yarn sync:slides && NEXT_IGNORE_INCORRECT_LOCKFILE=1 next build",
     "sync:catalog": "node scripts/sync-product-catalog.mjs",
+    "sync:slides": "node scripts/sync-product-slides.mjs",
     "start": "NEXT_IGNORE_INCORRECT_LOCKFILE=1 next start --port 3001",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
