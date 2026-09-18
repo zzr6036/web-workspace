@@ -6,6 +6,7 @@ import { imageDimensions, fileAsDataUrl } from "../../../lib/imageUpload";
 import { ShopSubcategory } from "../../../lib/shopCatalog";
 import { ShopProduct } from "../../../lib/shopProductData";
 import { DesignUploadModal } from "./DesignUploadModal";
+import { FrameMockupPreview } from "./FrameMockupPreview";
 import { ProductConfigurator } from "./ProductConfigurator";
 import { ProductDetails } from "./ProductDetails";
 import { ProductMediaGallery } from "./ProductMediaGallery";
@@ -19,6 +20,7 @@ export function ShopProductDetailView({ subcategory, products }: { subcategory: 
   const [quantity, setQuantity] = useState(1);
   const [drafts, setDrafts] = useState<DesignDraft[]>([createDesignDraft(0)]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isPreviewOpen, setIsPreviewOpen] = useState(false);
 
   useEffect(() => {
     setDrafts((current) => Array.from({ length: quantity }, (_, index) => current[index] ?? createDesignDraft(index)));
@@ -41,6 +43,7 @@ export function ShopProductDetailView({ subcategory, products }: { subcategory: 
     const product = configuration.selectedProduct;
     addItem({ sku: product.sku, productName: subcategory.englishName, type: configuration.selectedType, size: product.size, unitPrice: product.price, quantity, color: product.color, craftsmanship: product.craftsmanship, photoIncluded: product.photoIncluded, material: product.material, designs: drafts.map((draft) => ({ orientation: draft.orientation, imageDataUrl: draft.imageDataUrl!, cropArea: draft.croppedAreaPixels!, zoom: draft.zoom, ...draft.imageMetadata })) });
     setIsModalOpen(false);
+    setIsPreviewOpen(false);
   }
 
   return <section className="shop-product-detail">
@@ -48,6 +51,7 @@ export function ShopProductDetailView({ subcategory, products }: { subcategory: 
     <ProductConfigurator name={subcategory.englishName} price={configuration.selectedProduct.price} types={configuration.types} selectedType={configuration.selectedType} selectedSku={configuration.selectedSku} products={configuration.selectedTypeProducts} quantity={quantity} onTypeChange={configuration.chooseType} onSkuChange={configuration.setSelectedSku} onQuantityChange={setQuantity} onUpload={() => setIsModalOpen(true)} />
     <ProductDetails product={configuration.selectedProduct} fallbackName={subcategory.englishName} />
     <ProductInformation displayTypes={configuration.types} isGalleryWoodenFrame={subcategory.categoryKey === "gallery"} />
-    {isModalOpen && <DesignUploadModal drafts={drafts} productSize={configuration.selectedProduct.size} total={configuration.selectedProduct.price * quantity} onClose={() => setIsModalOpen(false)} onUpload={selectUpload} onOrientationChange={(index, orientation: Orientation) => updateDraft(index, { orientation, crop: { x: 0, y: 0 }, zoom: 1, croppedAreaPixels: null })} onDraftChange={updateDraft} onAddToCart={addToCart} />}
+    {isModalOpen && <DesignUploadModal drafts={drafts} productSize={configuration.selectedProduct.size} total={configuration.selectedProduct.price * quantity} onClose={() => setIsModalOpen(false)} onUpload={selectUpload} onOrientationChange={(index, orientation: Orientation) => updateDraft(index, { orientation, crop: { x: 0, y: 0 }, zoom: 1, croppedAreaPixels: null })} onDraftChange={updateDraft} onAddToCart={addToCart} onOpenPreview={() => setIsPreviewOpen(true)} />}
+    <FrameMockupPreview isOpen={isPreviewOpen} onClose={() => setIsPreviewOpen(false)} drafts={drafts} subcategoryKey={subcategory.key} productName={subcategory.englishName} onAddToCart={addToCart} isReadyToAddToCart={drafts.every((d) => d.imageDataUrl && d.croppedAreaPixels)} />
   </section>;
 }

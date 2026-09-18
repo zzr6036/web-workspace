@@ -13,6 +13,7 @@ type DesignUploadModalProps = {
   onOrientationChange: (index: number, orientation: Orientation) => void;
   onDraftChange: (index: number, changes: Partial<DesignDraft>) => void;
   onAddToCart: () => void;
+  onOpenPreview?: () => void;
 };
 
 export function DesignUploadModal({
@@ -24,10 +25,12 @@ export function DesignUploadModal({
   onOrientationChange,
   onDraftChange,
   onAddToCart,
+  onOpenPreview,
 }: DesignUploadModalProps) {
   const isReady = drafts.every(
     (draft) => draft.imageDataUrl && draft.croppedAreaPixels,
   );
+  const hasImage = drafts.some((draft) => Boolean(draft.imageDataUrl));
   return (
     <div className="upload-modal-backdrop" role="presentation">
       <section
@@ -64,14 +67,26 @@ export function DesignUploadModal({
             />
           ))}
         </div>
-        <button
-          className="upload-confirm"
-          type="button"
-          onClick={onAddToCart}
-          disabled={!isReady}
-        >
-          ADD TO CART · SGD {total.toFixed(2)}
-        </button>
+        <div className="upload-modal-actions">
+          {onOpenPreview && (
+            <button
+              className="upload-preview-btn"
+              type="button"
+              onClick={onOpenPreview}
+              disabled={!hasImage}
+            >
+              👁️ Preview on Frame
+            </button>
+          )}
+          <button
+            className="upload-confirm"
+            type="button"
+            onClick={onAddToCart}
+            disabled={!isReady}
+          >
+            ADD TO CART · SGD {total.toFixed(2)}
+          </button>
+        </div>
       </section>
     </div>
   );
