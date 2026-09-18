@@ -1,0 +1,53 @@
+"use client";
+
+import { ChangeEvent, useEffect, useState } from "react";
+import { useCart } from "../../cart/CartProvider";
+import { imageDimensions, fileAsDataUrl } from "../../../lib/imageUpload";
+import { ShopSubcategory } from "../../../lib/shopCatalog";
+import { ShopProduct } from "../../../lib/shopProductData";
+import { DesignUploadModal } from "./DesignUploadModal";
+import { ProductConfigurator } from "./ProductConfigurator";
+import { ProductDetails } from "./ProductDetails";
+import { ProductMediaGallery } from "./ProductMediaGallery";
+import { ProductInformation } from "../productInformation/ProductInformation";
+import { createDesignDraft, DesignDraft, Orientation } from "./types";
+import { useProductConfiguration } from "./useProductConfiguration";
+
+export function ShopProductDetailView({ subcategory, products }: { subcategory: ShopSubcategory; products: ShopProduct[] }) {
+  const { addItem } = useCart();
+  const configuration = useProductConfiguration(products);
+  const [quantity, setQuantity] = useState(1);
+  const [drafts, setDrafts] = useState<DesignDraft[]>([createDesignDraft(0)]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    setDrafts((current) => Array.from({ length: quantity }, (_, index) => current[index] ?? createDesignDraft(index)));
+  }, [quantity]);
+
+  function updateDraft(index: number, changes: Partial<DesignDraft>) {
+    setDrafts((current) => current.map((draft, draftIndex) => draftIndex === index ? { ...draft, ...changes } : draft));
+  }
+
+  async function selectUpload(index: number, event: ChangeEvent<HTMLInputElement>) {
+    const file = event.target.files?.[0];
+    if (!file) return;
+    const imageDataUrl = await fileAsDataUrl(file);
+    const dimensions = await imageDimensions(imageDataUrl);
+    updateDraft(index, { imageDataUrl, crop: { x: 0, y: 0 }, zoom: 1, croppedAreaPixels: null, imageMetadata: { fileName: file.name, mimeType: file.type || "image/unknown", fileSizeBytes: file.size, ...dimensions } });
+  }
+
+  function addToCart() {
+    if (!drafts.every((draft) => draft.imageDataUrl && draft.croppedAreaPixels)) return;
+    const product = configuration.selectedProduct;
+    addItem({ sku: product.sku, productName: subcategory.englishName, type: configuration.selectedType, size: product.size, unitPrice: product.price, quantity, color: product.color, craftsmanship: product.craftsmanship, photoIncluded: product.photoIncluded, material: product.material, designs: drafts.map((draft) => ({ orientation: draft.orientation, imageDataUrl: draft.imageDataUrl!, cropArea: draft.croppedAreaPixels!, zoom: draft.zoom, ...draft.imageMetadata })) });
+    setIsModalOpen(false);
+  }
+
+  return <section className="shop-product-detail">
+    <ProductMediaGallery subcategoryKey={subcategory.key} productName={subcategory.englishName} imageSku={configuration.selectedProduct.imageSku} />
+    <ProductConfigurator name={subcategory.englishName} price={configuration.selectedProduct.price} types={configuration.types} selectedType={configuration.selectedType} selectedSku={configuration.selectedSku} products={configuration.selectedTypeProducts} quantity={quantity} onTypeChange={configuration.chooseType} onSkuChange={configuration.setSelectedSku} onQuantityChange={setQuantity} onUpload={() => setIsModalOpen(true)} />
+    <ProductDetails product={configuration.selectedProduct} fallbackName={subcategory.englishName} />
+    <ProductInformation displayTypes={configuration.types} isGalleryWoodenFrame={subcategory.categoryKey === "gallery"} />
+    {isModalOpen && <DesignUploadModal drafts={drafts} productSize={configuration.selectedProduct.size} total={configuration.selectedProduct.price * quantity} onClose={() => setIsModalOpen(false)} onUpload={selectUpload} onOrientationChange={(index, orientation: Orientation) => updateDraft(index, { orientation, crop: { x: 0, y: 0 }, zoom: 1, croppedAreaPixels: null })} onDraftChange={updateDraft} onAddToCart={addToCart} />}
+  </section>;
+}

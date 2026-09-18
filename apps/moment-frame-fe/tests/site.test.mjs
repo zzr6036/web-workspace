@@ -6,6 +6,7 @@ import { readFile } from 'node:fs/promises';
 import { setTimeout as delay } from 'node:timers/promises';
 
 const require = createRequire(import.meta.url);
+const productMediaGallery = await readFile(new URL('../app/components/shop/productDetail/ProductMediaGallery.tsx', import.meta.url), 'utf8');
 const port = 3101;
 const origin = `http://127.0.0.1:${port}`;
 let server;
@@ -78,11 +79,28 @@ test('production page serves its purple theme stylesheet', async () => {
 
 
 test('all collection photos are served locally with image content', async () => {
-  for (const name of ['desktop', 'wood', 'classic']) {
+  for (const name of ['desktop', 'wood', 'classic', 'hero-panels']) {
     assert.ok(html.includes(`/frames/${name}.png`) || html.includes(`%2Fframes%2F${name}.png`));
     const response = await fetch(`${origin}/frames/${name}.png`);
     assert.equal(response.status, 200);
     assert.match(response.headers.get('content-type'), /image\/png/);
     assert.ok((await response.arrayBuffer()).byteLength > 10000);
   }
+});
+
+
+test('hero uses premium photo panels while the wooden frame collection remains available', () => {
+  const hero = html.match(/<section[^>]*id="top"[\s\S]*?<\/section>/)?.[0];
+  assert.ok(hero);
+  assert.match(hero, /hero-panels\.png/);
+  assert.match(hero, /Premium frameless photo panels/);
+  assert.doesNotMatch(hero, /(?:%2F|\/)wood\.png/);
+  assert.match(html, /Warm wooden frames/);
+});
+
+test('product gallery keeps variant and slide selection as one source of truth', () => {
+  assert.match(productMediaGallery, /const variantSlide = useMemo/);
+  assert.match(productMediaGallery, /setSelectedSrc\(variantSlide\?\.src \?\? slides\[0\]\?\.src\)/);
+  assert.match(productMediaGallery, /onClick=\{\(\) => setSelectedSrc\(slide\.src\)\}/);
+  assert.doesNotMatch(productMediaGallery, /allSlides = imageSku/);
 });

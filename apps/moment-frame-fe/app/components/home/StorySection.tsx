@@ -1,0 +1,3 @@
+export function StorySection() {
+  return <section className="story" id="our-story" aria-labelledby="story-title"><div className="story-inner"><p className="eyebrow">HELLO, WE’RE MOMENTFRAME</p><h2 id="story-title">Life happens in moments.<br />Keep a few where you can see them.</h2><p>We believe your favourite photos deserve a place in everyday life. On the bedside table, beside your books, or in that quiet corner that makes a house feel like home.</p><p>MomentFrame is about giving those stories a little space to stay.</p><a className="primary-link" href="#collection">Find your inspiration <span aria-hidden="true">↗</span></a></div></section>;
+}
