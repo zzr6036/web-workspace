@@ -30,10 +30,8 @@ export function GalleryFrameProfileGuideSection() {
             <g key={profile.label}>
               <rect x={profile.x} y={profile.y} width="460" height="86" fill="#3f3c50" />
               <text x={profile.x + 230} y={profile.y + 54} fill="#fff" fontSize="31" fontWeight="700" textAnchor="middle" fontFamily="Arial, sans-serif">{profile.label}</text>
-              <rect x={profile.x + 22} y={profile.labelY - 40} width="260" height="54" fill="#fff" opacity=".94" />
-              <text x={profile.x + 34} y={profile.labelY} fill="#b22a20" fontSize="32" fontWeight="700" fontFamily="Arial, sans-serif">{profile.width}</text>
-              <rect x={profile.x + 22} y={profile.depthY - 40} width="290" height="54" fill="#fff" opacity=".94" />
-              <text x={profile.x + 34} y={profile.depthY} fill="#b22a20" fontSize="32" fontWeight="700" fontFamily="Arial, sans-serif">{profile.depth}</text>
+              <text x={profile.x + 34} y={profile.labelY} fill="#b22a20" stroke="#fff" strokeWidth="10" paintOrder="stroke" fontSize="38" fontWeight="800" fontFamily="Arial, sans-serif" textLength="245" lengthAdjust="spacingAndGlyphs">{profile.width}</text>
+              <text x={profile.x + 34} y={profile.depthY} fill="#b22a20" stroke="#fff" strokeWidth="10" paintOrder="stroke" fontSize="38" fontWeight="800" fontFamily="Arial, sans-serif" textLength="270" lengthAdjust="spacingAndGlyphs">{profile.depth}</text>
             </g>
           ))}
           <rect x="40" y="2340" width="1420" height="110" rx="48" fill="#dedede" />
