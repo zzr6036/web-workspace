@@ -1614,3 +1614,32 @@ h3 {
     animation: none;
   }
 }
+
+/* Product detail information blocks */
+.shop-product-copy h2 { margin: 0 0 20px; color: #2d1b5f; font-size: clamp(34px, 4vw, 58px); line-height: 1.02; letter-spacing: -2.2px; }
+.product-information { grid-column: 1 / -1; display: grid; gap: 28px; margin-top: 32px; }
+.product-information > section { grid-column: 1 / -1; }
+.product-size-guide { display: grid; grid-template-columns: minmax(250px, .85fr) minmax(0, 1.15fr); gap: 38px; padding: clamp(28px, 5vw, 64px); border: 1px solid #e9ddfa; border-radius: 22px; background: #fbf9ff; color: #352260; }
+.product-size-guide h3, .high-definition-quality h3, .usage-guide h3, .photo-orientation-selection h3, .print-colour-guide h3, .protective-film-guide h3, .gallery-wooden-frame-copy h3, .gallery-protective-film-guide h3, .gallery-wall-mounting-options h3 { margin: 0; color: #32176b; font-size: clamp(25px, 2.5vw, 36px); line-height: 1.05; }
+.product-size-guide > div > ul, .gallery-wooden-frame-copy ul { display: grid; gap: 9px; margin: 18px 0 0; padding-left: 20px; color: #665b7d; font-size: 15px; line-height: 1.5; }
+.product-size-columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.product-size-column { overflow: hidden; border-radius: 14px; background: #fff; color: #2e2250; }
+.product-size-column h4 { margin: 0; padding: 14px 16px; background: #eadfff; color: #442187; font-size: 15px; }
+.product-size-column table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.product-size-column th, .product-size-column td { padding: 9px 12px; border-bottom: 1px solid #eee8f8; text-align: left; }
+.product-size-column th { color: #786c91; font-size: 11px; text-transform: uppercase; letter-spacing: .05em; }
+.product-size-column tr:last-child td { border-bottom: 0; }
+.high-definition-quality, .usage-guide, .photo-orientation-selection, .print-colour-guide, .protective-film-guide, .gallery-protective-film-guide, .gallery-wall-mounting-options { padding: clamp(24px, 3vw, 38px); border: 1px solid #e9ddfa; border-radius: 22px; background: #fbf9ff; }
+.high-definition-quality > img, .usage-guide-list, .photo-orientation-selection-list, .print-colour-guide article, .protective-film-guide article, .gallery-protective-film-guide article, .gallery-wall-mounting-options article { display: block; width: min(100%, 800px); height: auto; margin: 18px auto 0; overflow: hidden; border: 1px solid #eee8f8; border-radius: 14px; background: #fff; }
+.high-definition-quality > img, .usage-guide-list img, .photo-orientation-selection-list img, .print-colour-guide img, .protective-film-guide img, .gallery-protective-film-guide img, .gallery-wall-mounting-options img { width: 100%; height: auto; }
+.usage-guide-list, .photo-orientation-selection-list { display: grid; gap: 26px; border: 0; background: transparent; overflow: visible; }
+.usage-guide-list article, .photo-orientation-selection-list article { overflow: hidden; border: 1px solid #eee8f8; border-radius: 14px; background: #fff; }
+.usage-guide-list article > div, .photo-orientation-selection-list article > div { padding: 16px 18px 18px; }
+.usage-guide-list h4, .photo-orientation-selection-list h4 { margin: 0; color: #3b2177; font-size: 18px; }
+.usage-guide-list p, .photo-orientation-selection-list p { margin: 7px 0 0; color: #665b7d; line-height: 1.5; }
+.gallery-wooden-frame-information { display: grid; grid-template-columns: minmax(240px, .8fr) minmax(360px, 1.2fr); gap: 28px; padding: clamp(28px, 5vw, 64px); border: 1px solid #e9ddfa; border-radius: 22px; background: #fbf9ff; }
+.gallery-wooden-frame-images { display: grid; grid-template-columns: 1.25fr .75fr; gap: 12px; }
+.gallery-wooden-frame-images img { width: 100%; height: 100%; min-height: 220px; object-fit: cover; border-radius: 14px; }
+.gallery-wooden-frame-finishes { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 8px; }
+.gallery-wooden-frame-finishes span { padding: 8px 10px; border-radius: 999px; background: #eee6fa; color: #55329a; font-size: 13px; font-weight: 700; }
+@media (max-width: 760px) { .product-information { margin-top: 4px; } .product-size-guide, .gallery-wooden-frame-information { grid-template-columns: 1fr; } .product-size-columns, .gallery-wooden-frame-images { grid-template-columns: 1fr; } }
