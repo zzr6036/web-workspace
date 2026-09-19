@@ -38,9 +38,24 @@ export function CartPage() {
     <main id="main" className="cart-page">
       <div className="cart-page-title-row">
         <h1>My Cart</h1>
-        <a className="continue-shopping-top" href="/shop">
-          CONTINUE SHOPPING <span aria-hidden="true">↗</span>
-        </a>
+        <div className="cart-page-title-actions">
+          {items.length > 0 && (
+            <button
+              type="button"
+              className="cart-clear-button"
+              onClick={() => {
+                if (window.confirm("Are you sure you want to clear all items from your cart?")) {
+                  clearCart();
+                }
+              }}
+            >
+              Clear all
+            </button>
+          )}
+          <a className="continue-shopping-top" href="/shop">
+            CONTINUE SHOPPING <span aria-hidden="true">↗</span>
+          </a>
+        </div>
       </div>
       {!isHydrated ? (
         <section className="cart-page-empty">

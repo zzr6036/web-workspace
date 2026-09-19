@@ -6,7 +6,7 @@ import { useCart } from "./CartProvider";
 export function CartButton() {
   const [isOpen, setIsOpen] = useState(false);
   const controlRef = useRef<HTMLDivElement>(null);
-  const { items, itemCount, total, removeItem, isHydrated } = useCart();
+  const { items, itemCount, total, removeItem, isHydrated, clearCart } = useCart();
 
   useEffect(() => {
     if (!isOpen) return;
@@ -42,13 +42,29 @@ export function CartButton() {
         >
           <div className="cart-drawer-heading">
             <h2>My Cart</h2>
-            <button
-              type="button"
-              onClick={() => setIsOpen(false)}
-              aria-label="Close cart"
-            >
-              ×
-            </button>
+            <div className="cart-drawer-heading-actions">
+              {items.length > 0 && (
+                <button
+                  type="button"
+                  className="cart-drawer-clear-button"
+                  onClick={() => {
+                    if (window.confirm("Are you sure you want to clear all items from your cart?")) {
+                      clearCart();
+                    }
+                  }}
+                >
+                  Clear all
+                </button>
+              )}
+              <button
+                type="button"
+                className="cart-drawer-close-button"
+                onClick={() => setIsOpen(false)}
+                aria-label="Close cart"
+              >
+                ×
+              </button>
+            </div>
           </div>
           {!isHydrated ? (
             <p className="cart-empty">Loading your cart…</p>
