@@ -2,7 +2,10 @@ import { configureStore, createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export type CartDesign = {
   orientation: "landscape" | "portrait";
+  /** Final image rendered from the customer's crop and zoom settings. */
   imageDataUrl: string;
+  /** Original uploaded image, retained for quote review and production. */
+  originalImageDataUrl?: string;
   cropArea: { x: number; y: number; width: number; height: number };
   zoom: number;
   fileName?: string;
@@ -10,11 +13,14 @@ export type CartDesign = {
   fileSizeBytes?: number;
   imageWidth?: number;
   imageHeight?: number;
+  originalImageWidth?: number;
+  originalImageHeight?: number;
 };
 
 export type CartItem = {
   id: string;
   sku: string;
+  frameImageSku?: string;
   productName: string;
   type: string;
   size: string;

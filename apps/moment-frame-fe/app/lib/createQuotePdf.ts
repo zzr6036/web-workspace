@@ -1,5 +1,6 @@
 import { jsPDF } from "jspdf";
-import type { CartItem } from "../components/cart/CartProvider";
+import type { CartDesign, CartItem } from "../components/cart/CartProvider";
+import { imageDimensions } from "./imageUpload";
 import { createQuoteOrderId, fetchImageAsDataUrl, fitImage } from "./quote/quotePdfUtils";
 
 type QuoteOptions = { recipientName: string; contact: string; email: string; deliveryAddress: string; deliveryPrice: number };
@@ -14,6 +15,36 @@ const margin = 16;
 function valueOrDash(value: string | undefined | null) {
   const text = value?.trim();
   return text || "-";
+}
+
+function formatCropDetails(design: CartDesign | undefined) {
+  if (!design) return { crop: "Crop: -", trim: "Trim: -" };
+  const sourceWidth = design.originalImageWidth || design.imageWidth || 0;
+  const sourceHeight = design.originalImageHeight || design.imageHeight || 0;
+  const crop = design.cropArea;
+  const toPercent = (value: number) => `${Math.round(Math.max(0, Math.min(1, value)) * 100)}%`;
+  const trim = sourceWidth > 0 && sourceHeight > 0
+    ? `Trim: L ${toPercent(crop.x / sourceWidth)} | R ${toPercent((sourceWidth - crop.x - crop.width) / sourceWidth)} | T ${toPercent(crop.y / sourceHeight)} | B ${toPercent((sourceHeight - crop.y - crop.height) / sourceHeight)}`
+    : "Trim: -";
+
+  return {
+    crop: `Crop: ${design.orientation === "portrait" ? "3:4" : "4:3"} | Zoom: ${design.zoom.toFixed(2)}x`,
+    trim,
+  };
+}
+
+async function loadFrameImage(imageSku: string | undefined) {
+  if (!imageSku) return null;
+  for (const extension of [".png", ".jpg", ".jpeg"]) {
+    try {
+      const dataUrl = await fetchImageAsDataUrl(`/frames/product-placeholders/${imageSku}${extension}`);
+      const { imageWidth, imageHeight } = await imageDimensions(dataUrl);
+      return { dataUrl, imageWidth, imageHeight };
+    } catch {
+      // Try the next supported product-image format.
+    }
+  }
+  return null;
 }
 
 export async function downloadQuotePdf(items: CartItem[], total: number, options: QuoteOptions) {
@@ -98,50 +129,84 @@ export async function downloadQuotePdf(items: CartItem[], total: number, options
   document.setFontSize(12);
   setTextColor(navy);
   document.text("FRAME SUMMARY", margin, 89);
-  let table = drawTableHeader(y);
-  y = table.nextY;
-
   for (const [index, item] of items.entries()) {
     const design = item.designs[0];
+    const frameImage = await loadFrameImage(item.frameImageSku ?? item.sku.replace(/^MFR-/, "IMG-"));
     const nameLines = document.splitTextToSize(`Frame ${index + 1} - ${item.productName}`, 74) as string[];
     const detailLines = document.splitTextToSize(`${valueOrDash(item.size)} | ${valueOrDash(item.color)}`, 74) as string[];
-    const rowHeight = Math.max(76, 49 + nameLines.length * 4.2 + detailLines.length * 3.8 + 5);
-    if (y + rowHeight > pageHeight - 48) {
+    const cropDetails = formatCropDetails(design);
+    const cropLines = document.splitTextToSize(cropDetails.crop, 74) as string[];
+    const trimLines = document.splitTextToSize(cropDetails.trim, 74) as string[];
+    const previewHeight = 62;
+    const skuLines = document.splitTextToSize(valueOrDash(item.sku), 26) as string[];
+    const detailsRowHeight = Math.max(42, 8 + nameLines.length * 4.2 + detailLines.length * 3.8 + cropLines.length * 3.8 + trimLines.length * 3.8 + 8);
+    const itemHeight = previewHeight + 12 + detailsRowHeight;
+    if (y + itemHeight > pageHeight - 48) {
       document.addPage();
       await drawPageHeader(true);
       y = 41;
-      table = drawTableHeader(y);
-      y = table.nextY;
     }
-    const [descriptionStart, skuStart, qtyStart, rateStart, amountStart, tableEnd] = table.columns;
+    const previewStart = y;
+    const previewMiddle = margin + contentWidth / 2;
     document.setDrawColor(line[0], line[1], line[2]);
-    document.rect(margin, y, contentWidth, rowHeight, "S");
-    for (const column of [skuStart, qtyStart, rateStart, amountStart]) document.line(column, y, column, y + rowHeight);
-    if (design?.imageDataUrl) {
-      const imageSize = fitImage(design.imageWidth || 1, design.imageHeight || 1, 68, 42);
-      document.addImage(design.imageDataUrl, descriptionStart + 3, y + 3 + (42 - imageSize.height) / 2, imageSize.width, imageSize.height);
+    document.setFillColor(paper[0], paper[1], paper[2]);
+    document.rect(margin, previewStart, contentWidth, previewHeight, "FD");
+    document.line(previewMiddle, previewStart, previewMiddle, previewStart + previewHeight);
+    document.setFont("helvetica", "bold");
+    document.setFontSize(8);
+    setTextColor(muted);
+    document.text("ORIGINAL PHOTO", margin + 5, previewStart + 8);
+    document.text("PRINT PREVIEW", previewMiddle + 5, previewStart + 8);
+    const originalImageDataUrl = design?.originalImageDataUrl ?? design?.imageDataUrl;
+    if (originalImageDataUrl) {
+      const originalImageSize = fitImage(design?.originalImageWidth || design?.imageWidth || 1, design?.originalImageHeight || design?.imageHeight || 1, 76, 42);
+      document.addImage(originalImageDataUrl, margin + (contentWidth / 2 - originalImageSize.width) / 2, previewStart + 13 + (42 - originalImageSize.height) / 2, originalImageSize.width, originalImageSize.height);
     } else {
       document.setFont("helvetica", "normal");
       document.setFontSize(11);
       setTextColor(muted);
-      document.text("-", descriptionStart + 3, y + 25);
+      document.text("-", margin + contentWidth / 4, previewStart + 35, { align: "center" });
     }
+    if (design?.imageDataUrl) {
+      const zoomedImageSize = fitImage(design.imageWidth || 1, design.imageHeight || 1, 76, 42);
+      document.addImage(design.imageDataUrl, previewMiddle + (contentWidth / 2 - zoomedImageSize.width) / 2, previewStart + 13 + (42 - zoomedImageSize.height) / 2, zoomedImageSize.width, zoomedImageSize.height);
+    } else {
+      document.setFont("helvetica", "normal");
+      document.setFontSize(11);
+      setTextColor(muted);
+      document.text("-", previewMiddle + contentWidth / 4, previewStart + 35, { align: "center" });
+    }
+    y += previewHeight;
+    const table = drawTableHeader(y);
+    y = table.nextY;
+    const [descriptionStart, skuStart, qtyStart, rateStart, amountStart, tableEnd] = table.columns;
+    document.setDrawColor(line[0], line[1], line[2]);
+    document.rect(margin, y, contentWidth, detailsRowHeight, "S");
+    for (const column of [skuStart, qtyStart, rateStart, amountStart]) document.line(column, y, column, y + detailsRowHeight);
     document.setFont("helvetica", "bold");
     document.setFontSize(9.5);
     setTextColor(ink);
-    document.text(nameLines, descriptionStart + 3, y + 50);
+    document.text(nameLines, descriptionStart + 3, y + 8);
     document.setFont("helvetica", "normal");
     document.setFontSize(8);
     setTextColor(muted);
-    document.text(detailLines, descriptionStart + 3, y + 50 + nameLines.length * 4.2 + 4);
-    document.setFontSize(7.5);
-    document.text(valueOrDash(item.sku), skuStart + 3, y + rowHeight / 2 + 1.5);
+    const detailStart = 8 + nameLines.length * 4.2 + 4;
+    document.text(detailLines, descriptionStart + 3, y + detailStart);
+    document.text(cropLines, descriptionStart + 3, y + detailStart + detailLines.length * 3.8 + 4);
+    document.text(trimLines, descriptionStart + 3, y + detailStart + detailLines.length * 3.8 + cropLines.length * 3.8 + 7);
+    if (frameImage) {
+      const frameImageSize = fitImage(frameImage.imageWidth, frameImage.imageHeight, 20, 13);
+      document.addImage(frameImage.dataUrl, skuStart + 3, y + 3 + (13 - frameImageSize.height) / 2, frameImageSize.width, frameImageSize.height);
+    }
+    document.setFontSize(6.5);
+    setTextColor(ink);
+    document.text(skuLines, skuStart + 3, y + 22);
     document.setFontSize(9);
     setTextColor(ink);
-    document.text(String(item.quantity), (qtyStart + rateStart) / 2, y + rowHeight / 2 + 1.5, { align: "center" });
-    document.text(item.unitPrice.toFixed(2), rateStart + 21, y + rowHeight / 2 + 1.5, { align: "right" });
-    document.text((item.unitPrice * item.quantity).toFixed(2), tableEnd - 3, y + rowHeight / 2 + 1.5, { align: "right" });
-    y += rowHeight;
+    document.text(String(item.quantity), (qtyStart + rateStart) / 2, y + detailsRowHeight / 2 + 1.5, { align: "center" });
+    document.text(item.unitPrice.toFixed(2), rateStart + 21, y + detailsRowHeight / 2 + 1.5, { align: "right" });
+    document.text((item.unitPrice * item.quantity).toFixed(2), tableEnd - 3, y + detailsRowHeight / 2 + 1.5, { align: "right" });
+    y += detailsRowHeight;
   }
 
   if (y + 64 > pageHeight - 20) {

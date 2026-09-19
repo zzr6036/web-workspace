@@ -20,6 +20,9 @@ const slideManifest = await readFile(new URL('../app/lib/productSlideLists.ts', 
 const globalStyles = await readFile(new URL('../app/globals.css', import.meta.url), 'utf8');
 const quotePdf = await readFile(new URL('../app/lib/createQuotePdf.ts', import.meta.url), 'utf8');
 const appLayout = await readFile(new URL('../app/layout.tsx', import.meta.url), 'utf8');
+const shopProductDetailView = await readFile(new URL('../app/components/shop/productDetail/ShopProductDetailView.tsx', import.meta.url), 'utf8');
+const cartStore = await readFile(new URL('../app/lib/cartStore.ts', import.meta.url), 'utf8');
+const productInformation = await readFile(new URL('../app/components/shop/productInformation/ProductInformation.tsx', import.meta.url), 'utf8');
 const productStatus = await readFile(new URL('../app/lib/productStatus.ts', import.meta.url), 'utf8');
 const catalogSync = await readFile(new URL('../scripts/sync-product-catalog.mjs', import.meta.url), 'utf8');
 const shopProductData = await readFile(new URL('../app/lib/shopProductData.ts', import.meta.url), 'utf8');
@@ -107,7 +110,7 @@ test('quote request language explains that confirmation happens on WhatsApp', ()
 
 test('quote PDF uses a structured invoice-style summary with a SKU per frame', () => {
   for (const label of ['BILL TO', 'QUOTE DATE', 'PAYMENT TERMS', 'FRAME SUMMARY', 'DESCRIPTION', 'SKU', 'QTY', 'TOTAL QUOTE (SGD)', 'NOTES']) assert.ok(quotePdf.includes(label));
-  assert.match(quotePdf, /document\.text\(valueOrDash\(item\.sku\)/);
+  assert.match(quotePdf, /const skuLines = document\.splitTextToSize\(valueOrDash\(item\.sku\)/);
   assert.match(quotePdf, /document\.addPage\(\)/);
   assert.doesNotMatch(quotePdf, /ORDER SUMMARY/);
 });
@@ -126,20 +129,51 @@ test('shop category cards use a compact centered name and full-width size action
   assert.match(globalStyles, /\.shop-subcategory-copy \{[^}]*flex: 0 0 112px/);
 });
 
-test('quote PDF stacks each frame image, name, and specification details', () => {
+test('quote PDF presents original and print-preview photos above the frame summary', () => {
   assert.match(quotePdf, /const nameLines = document\.splitTextToSize/);
   assert.match(quotePdf, /const detailLines = document\.splitTextToSize/);
-  assert.match(quotePdf, /document\.addImage\(design\.imageDataUrl, descriptionStart \+ 3, y \+ 3/);
-  assert.match(quotePdf, /document\.text\(nameLines, descriptionStart \+ 3, y \+ 50\)/);
-  assert.match(quotePdf, /document\.text\(detailLines, descriptionStart \+ 3, y \+ 50 \+ nameLines\.length/);
+  assert.match(quotePdf, /const originalImageDataUrl = design\?\.originalImageDataUrl \?\? design\?\.imageDataUrl/);
+  assert.match(quotePdf, /document\.text\("ORIGINAL PHOTO"/);
+  assert.match(quotePdf, /document\.text\("PRINT PREVIEW"/);
+  assert.match(quotePdf, /document\.addImage\(originalImageDataUrl, margin/);
+  assert.match(quotePdf, /document\.addImage\(design\.imageDataUrl, previewMiddle/);
+  assert.match(quotePdf, /function formatCropDetails/);
+  assert.match(quotePdf, /Trim: L \$\{toPercent\(crop\.x \/ sourceWidth\)\}/);
+  assert.match(quotePdf, /document\.text\(trimLines, descriptionStart \+ 3/);
+  assert.match(quotePdf, /document\.text\(nameLines, descriptionStart \+ 3, y \+ 8\)/);
+  assert.match(quotePdf, /document\.text\(detailLines, descriptionStart \+ 3, y \+ detailStart\)/);
 });
 
 test('quote PDF enlarges item images and uses dashes for missing customer values', () => {
   assert.match(quotePdf, /function valueOrDash/);
-  assert.match(quotePdf, /fitImage\(design\.imageWidth \|\| 1, design\.imageHeight \|\| 1, 68, 42\)/);
-  assert.match(quotePdf, /document\.text\("-", descriptionStart \+ 3, y \+ 25\)/);
+  assert.match(quotePdf, /fitImage\(design\.imageWidth \|\| 1, design\.imageHeight \|\| 1, 76, 42\)/);
+  assert.match(quotePdf, /document\.text\("-", margin \+ contentWidth \/ 4, previewStart \+ 35/);
   assert.match(quotePdf, /valueOrDash\(options\.recipientName\)/);
   assert.match(quotePdf, /valueOrDash\(options\.deliveryAddress\)/);
+});
+
+test('cart retains originals while displaying each final cropped and zoomed image', () => {
+  assert.match(cartStore, /originalImageDataUrl\?: string/);
+  assert.match(shopProductDetailView, /getCroppedImg\(\s*originalImageDataUrl,\s*draft\.croppedAreaPixels,\s*draft\.orientation/);
+  assert.match(shopProductDetailView, /originalImageDataUrl,/);
+  assert.match(shopProductDetailView, /imageDataUrl,/);
+});
+
+test('quote PDF places the selected frame thumbnail in the SKU column', () => {
+  assert.match(cartStore, /frameImageSku\?: string/);
+  assert.match(shopProductDetailView, /frameImageSku: product\.imageSku/);
+  assert.match(quotePdf, /loadFrameImage\(item\.frameImageSku \?\? item\.sku\.replace/);
+  assert.match(quotePdf, /document\.addImage\(frameImage\.dataUrl, skuStart \+ 3/);
+});
+
+test('product size guide lists every available format without display-type categories', () => {
+  assert.match(productInformation, /const compactSizes/);
+  assert.match(productInformation, /const largeSizes/);
+  assert.match(productInformation, /\["A4", "21 × 29\.7 cm"\]/);
+  assert.match(productInformation, /\["A3", "29\.7 × 42 cm"\]/);
+  assert.match(productInformation, /const compactSizes = \[[\s\S]*?\['16"', "30 × 40 cm"\]/);
+  assert.match(productInformation, /const largeSizes = \[\s*\['18"', "35 × 45 cm"\]/);
+  assert.doesNotMatch(productInformation, /Tabletop panels|Wall-mount panels/);
 });
 
 test('a floating WhatsApp button is available across the site', () => {

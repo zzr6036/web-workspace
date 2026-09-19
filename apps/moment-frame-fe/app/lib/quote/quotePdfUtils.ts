@@ -10,6 +10,7 @@ export function fitImage(
 
 export async function fetchImageAsDataUrl(source: string) {
   const response = await fetch(source);
+  if (!response.ok) throw new Error(`Unable to load image: ${source}`);
   const blob = await response.blob();
 
   return new Promise<string>((resolve, reject) => {

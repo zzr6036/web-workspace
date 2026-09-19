@@ -17,7 +17,7 @@ type FrameMockupPreviewProps = {
   drafts: DesignDraft[];
   subcategoryKey: string;
   productName: string;
-  onAddToCart?: () => void;
+  onAddToCart?: () => void | Promise<void>;
   isReadyToAddToCart?: boolean;
 };
 
@@ -453,7 +453,7 @@ export function FrameMockupPreview({
               className="upload-confirm"
               onClick={() => {
                 onClose();
-                onAddToCart();
+                void onAddToCart();
               }}
               disabled={!isReadyToAddToCart}
             >

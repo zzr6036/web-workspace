@@ -12,7 +12,7 @@ type DesignUploadModalProps = {
   onUpload: (index: number, event: ChangeEvent<HTMLInputElement>) => void;
   onOrientationChange: (index: number, orientation: Orientation) => void;
   onDraftChange: (index: number, changes: Partial<DesignDraft>) => void;
-  onAddToCart: () => void;
+  onAddToCart: () => void | Promise<void>;
   onOpenPreview?: () => void;
 };
 
@@ -81,7 +81,7 @@ export function DesignUploadModal({
           <button
             className="upload-confirm"
             type="button"
-            onClick={onAddToCart}
+            onClick={() => void onAddToCart()}
             disabled={!isReady}
           >
             ADD TO CART · SGD {total.toFixed(2)}
