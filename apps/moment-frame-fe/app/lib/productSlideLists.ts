@@ -26,6 +26,10 @@ export const productSlidesBySubcategory: Record<string, ProductSlide[]> = {
     {
       "src": "/frames/product-slides/s1-t1/slide-06.png",
       "mediaType": "image"
+    },
+    {
+      "src": "/frames/product-slides/s1-t1/slide-07.jpg",
+      "mediaType": "image"
     }
   ],
   "s2-t1": [
@@ -51,6 +55,10 @@ export const productSlidesBySubcategory: Record<string, ProductSlide[]> = {
     },
     {
       "src": "/frames/product-slides/s2-t1/slide-06.png",
+      "mediaType": "image"
+    },
+    {
+      "src": "/frames/product-slides/s2-t1/slide-07.jpg",
       "mediaType": "image"
     }
   ],
@@ -78,6 +86,10 @@ export const productSlidesBySubcategory: Record<string, ProductSlide[]> = {
     {
       "src": "/frames/product-slides/s2-t2/slide-06.png",
       "mediaType": "image"
+    },
+    {
+      "src": "/frames/product-slides/s2-t2/slide-07.jpg",
+      "mediaType": "image"
     }
   ],
   "s2-t3": [
@@ -103,6 +115,10 @@ export const productSlidesBySubcategory: Record<string, ProductSlide[]> = {
     },
     {
       "src": "/frames/product-slides/s2-t3/slide-06.png",
+      "mediaType": "image"
+    },
+    {
+      "src": "/frames/product-slides/s2-t3/slide-07.jpg",
       "mediaType": "image"
     }
   ],
@@ -130,6 +146,10 @@ export const productSlidesBySubcategory: Record<string, ProductSlide[]> = {
     {
       "src": "/frames/product-slides/s2-t4/slide-06.png",
       "mediaType": "image"
+    },
+    {
+      "src": "/frames/product-slides/s2-t4/slide-07.jpg",
+      "mediaType": "image"
     }
   ],
   "s2-t5": [
@@ -140,6 +160,10 @@ export const productSlidesBySubcategory: Record<string, ProductSlide[]> = {
     {
       "src": "/frames/product-slides/s2-t5/slide-05.png",
       "mediaType": "image"
+    },
+    {
+      "src": "/frames/product-slides/s2-t5/slide-06.jpg",
+      "mediaType": "image"
     }
   ],
   "s2-t6": [
@@ -149,6 +173,10 @@ export const productSlidesBySubcategory: Record<string, ProductSlide[]> = {
     },
     {
       "src": "/frames/product-slides/s2-t6/slide-05.png",
+      "mediaType": "image"
+    },
+    {
+      "src": "/frames/product-slides/s2-t6/slide-06.jpg",
       "mediaType": "image"
     }
   ],
