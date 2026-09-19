@@ -208,6 +208,10 @@ export const productSlidesBySubcategory: Record<string, ProductSlide[]> = {
     {
       "src": "/frames/product-slides/s3-t1/slide-07.png",
       "mediaType": "image"
+    },
+    {
+      "src": "/frames/product-slides/s3-t1/slide-08.png",
+      "mediaType": "image"
     }
   ],
   "s3-t2": [
@@ -237,6 +241,10 @@ export const productSlidesBySubcategory: Record<string, ProductSlide[]> = {
     },
     {
       "src": "/frames/product-slides/s3-t2/slide-07.png",
+      "mediaType": "image"
+    },
+    {
+      "src": "/frames/product-slides/s3-t2/slide-08.png",
       "mediaType": "image"
     }
   ],
@@ -268,6 +276,10 @@ export const productSlidesBySubcategory: Record<string, ProductSlide[]> = {
     {
       "src": "/frames/product-slides/s3-t3/slide-07.png",
       "mediaType": "image"
+    },
+    {
+      "src": "/frames/product-slides/s3-t3/slide-08.png",
+      "mediaType": "image"
     }
   ],
   "s3-t4": [
@@ -298,6 +310,10 @@ export const productSlidesBySubcategory: Record<string, ProductSlide[]> = {
     {
       "src": "/frames/product-slides/s3-t4/slide-07.png",
       "mediaType": "image"
+    },
+    {
+      "src": "/frames/product-slides/s3-t4/slide-08.png",
+      "mediaType": "image"
     }
   ],
   "s3-t5": [
@@ -327,6 +343,10 @@ export const productSlidesBySubcategory: Record<string, ProductSlide[]> = {
     },
     {
       "src": "/frames/product-slides/s3-t5/slide-07.png",
+      "mediaType": "image"
+    },
+    {
+      "src": "/frames/product-slides/s3-t5/slide-08.png",
       "mediaType": "image"
     }
   ],
