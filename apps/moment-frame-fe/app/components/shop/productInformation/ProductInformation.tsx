@@ -105,15 +105,19 @@ export function ProductInformation({
   return (
     <div className="product-information">
       <ProductSizeGuide />
-      <HighDefinitionQualitySection />
       <UsageGuideSection />
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '28px' }}>
+        <HighDefinitionQualitySection />
+        <PrintColourGuideSection />
+      </div>
       <PhotoOrientationSelectionSection />
-      <PrintColourGuideSection />
       <ProtectiveFilmGuideSection />
       {isGalleryWoodenFrame && (
         <>
-          <GalleryProtectiveFilmGuideSection />
-          <GalleryWallMountingOptionsSection />
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '28px' }}>
+            <GalleryProtectiveFilmGuideSection />
+            <GalleryWallMountingOptionsSection />
+          </div>
           <GalleryFrameProfileGuideSection />
         </>
       )}

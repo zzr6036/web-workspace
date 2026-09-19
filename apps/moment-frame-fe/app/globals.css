@@ -2184,6 +2184,8 @@ h3 {
 .high-definition-quality > img, .usage-guide-list, .photo-orientation-selection-list, .print-colour-guide article, .protective-film-guide article, .gallery-protective-film-guide article, .gallery-wall-mounting-options article { display: block; width: min(100%, 800px); height: auto; margin: 18px auto 0; overflow: hidden; border: 1px solid #eee8f8; border-radius: 14px; background: #fff; }
 .high-definition-quality > img, .usage-guide-list img, .photo-orientation-selection-list img, .print-colour-guide img, .protective-film-guide img, .gallery-protective-film-guide img, .gallery-wall-mounting-options img { width: 100%; height: auto; }
 .usage-guide-list, .photo-orientation-selection-list { display: grid; gap: 26px; border: 0; background: transparent; overflow: visible; }
+.usage-guide-list { grid-template-columns: repeat(3, minmax(0, 1fr)); width: 100%; max-width: 100%; }
+.photo-orientation-selection-list { grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; max-width: 100%; }
 .usage-guide-list article, .photo-orientation-selection-list article { overflow: hidden; border: 1px solid #eee8f8; border-radius: 14px; background: #fff; }
 .usage-guide-list article > div, .photo-orientation-selection-list article > div { padding: 16px 18px 18px; }
 .usage-guide-list h4, .photo-orientation-selection-list h4 { margin: 0; color: #3b2177; font-size: 18px; }
@@ -2199,3 +2201,7 @@ h3 {
 .gallery-wooden-frame-video p:not(.eyebrow) { margin: 0; color: #665b7d; line-height: 1.6; }
 @media (max-width: 900px) { .why-momentframe-grid { grid-template-columns: 1fr; } .why-momentframe-card { min-height: 0; } .why-momentframe-video-card { grid-template-columns: minmax(220px, .8fr) minmax(0, 1.2fr); grid-template-rows: none; } .ordering-process-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 760px) { .product-information { margin-top: 4px; } .product-size-guide, .gallery-wooden-frame-information, .coming-soon, .gallery-wooden-frame-video { grid-template-columns: 1fr; } .product-size-columns, .gallery-wooden-frame-images { grid-template-columns: 1fr; } .ordering-process-list { grid-template-columns: 1fr; } .ordering-process-actions { flex-direction: column; } .why-momentframe-video-card { grid-template-columns: 1fr; } .why-momentframe-card { padding: 24px; } .why-momentframe-video-card { padding: 0; } }
+
+@media (max-width: 760px) { .usage-guide-list, .photo-orientation-selection-list { grid-template-columns: 1fr; } }
+.size-and-film-layout { display: grid; grid-template-columns: 1.6fr 1fr; gap: 28px; }
+@media (max-width: 1080px) { .size-and-film-layout { grid-template-columns: 1fr; } }
