@@ -497,7 +497,7 @@ h3 {
 }
 .wall-gallery-sets { background: #f0ebfa; }
 .wall-gallery-sets .section-wrap { max-width: none; padding-right: 0; }
-.wall-gallery-sets .section-heading { max-width: 660px; margin-left: 5%; margin-right: 5%; }
+.wall-gallery-sets .section-heading { max-width: 660px; margin: 0 auto 38px; padding: 0 5%; }
 .wall-gallery-sets-track { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(270px, 330px); gap: 20px; overflow-x: auto; padding: 4px 5% 14px; scroll-snap-type: x mandatory; scrollbar-color: #b7a7df transparent; }
 .wall-gallery-set-card { overflow: hidden; border: 1px solid #ded4f1; border-radius: 16px; background: #fff; box-shadow: 0 12px 28px rgba(51, 30, 105, .08); scroll-snap-align: start; }
 .wall-gallery-set-card img { display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; background: #eee9f8; }
