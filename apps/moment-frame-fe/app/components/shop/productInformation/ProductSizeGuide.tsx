@@ -52,8 +52,7 @@ export function ProductSizeGuide() {
       aria-labelledby="product-size-guide-title"
     >
       <div>
-        <p className="eyebrow">PRODUCT SIZE GUIDE</p>
-        <h3 id="product-size-guide-title">Product size information</h3>
+        <h3 id="product-size-guide-title">Product Size Information</h3>
         <ul>
           <li>Measurements are a guide for your image layout</li>
           <li>Final cropping preserves the strongest composition</li>

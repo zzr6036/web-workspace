@@ -16,6 +16,8 @@ const bestSellerCarousel = await readFile(new URL('../app/components/home/BestSe
 const bestSellerContent = await readFile(new URL('../app/components/home/homeContent.ts', import.meta.url), 'utf8');
 const shopContent = await readFile(new URL('../app/components/shop/ShopContent.tsx', import.meta.url), 'utf8');
 const inspirationSection = await readFile(new URL('../app/components/home/InspirationSection.tsx', import.meta.url), 'utf8');
+const wallGallerySetsSection = await readFile(new URL('../app/components/home/WallGallerySetsSection.tsx', import.meta.url), 'utf8');
+const homePage = await readFile(new URL('../app/page.tsx', import.meta.url), 'utf8');
 const slideManifest = await readFile(new URL('../app/lib/productSlideLists.ts', import.meta.url), 'utf8');
 const globalStyles = await readFile(new URL('../app/globals.css', import.meta.url), 'utf8');
 const quotePdf = await readFile(new URL('../app/lib/createQuotePdf.ts', import.meta.url), 'utf8');
@@ -23,6 +25,7 @@ const appLayout = await readFile(new URL('../app/layout.tsx', import.meta.url), 
 const shopProductDetailView = await readFile(new URL('../app/components/shop/productDetail/ShopProductDetailView.tsx', import.meta.url), 'utf8');
 const cartStore = await readFile(new URL('../app/lib/cartStore.ts', import.meta.url), 'utf8');
 const productInformation = await readFile(new URL('../app/components/shop/productInformation/ProductInformation.tsx', import.meta.url), 'utf8');
+const productSizeGuide = await readFile(new URL('../app/components/shop/productInformation/ProductSizeGuide.tsx', import.meta.url), 'utf8');
 const productStatus = await readFile(new URL('../app/lib/productStatus.ts', import.meta.url), 'utf8');
 const catalogSync = await readFile(new URL('../scripts/sync-product-catalog.mjs', import.meta.url), 'utf8');
 const shopProductData = await readFile(new URL('../app/lib/shopProductData.ts', import.meta.url), 'utf8');
@@ -91,6 +94,19 @@ test('home explains the MomentFrame difference, ordering flow, and new collectio
     assert.equal(response.status, 200);
     assert.match(response.headers.get('content-type'), /video\/mp4/);
   }
+});
+
+test('home features English curated wall gallery layouts above Why MomentFrame', () => {
+  assert.match(html, /CURATED WALL GALLERY SETS/);
+  assert.match(html, /Bring your favourite moments together/);
+  assert.match(wallGallerySetsSection, /set-a\.png/);
+  assert.match(wallGallerySetsSection, /set-b\.png/);
+  assert.match(wallGallerySetsSection, /set-c\.png/);
+  assert.match(wallGallerySetsSection, /set-d\.png/);
+  assert.match(wallGallerySetsSection, /size-guide\.png/);
+  assert.match(globalStyles, /\.wall-gallery-sets-track/);
+  assert.match(globalStyles, /grid-auto-columns: minmax\(270px, 330px\)/);
+  assert.ok(homePage.indexOf('<WallGallerySetsSection />') < homePage.indexOf('<InspirationSection />'));
 });
 
 test('FAQ answers cover the quote process, photo preparation, display, and delivery', () => {
@@ -167,13 +183,13 @@ test('quote PDF places the selected frame thumbnail in the SKU column', () => {
 });
 
 test('product size guide lists every available format without display-type categories', () => {
-  assert.match(productInformation, /const compactSizes/);
-  assert.match(productInformation, /const largeSizes/);
-  assert.match(productInformation, /\["A4", "21 × 29\.7 cm"\]/);
-  assert.match(productInformation, /\["A3", "29\.7 × 42 cm"\]/);
-  assert.match(productInformation, /const compactSizes = \[[\s\S]*?\['16"', "30 × 40 cm"\]/);
-  assert.match(productInformation, /const largeSizes = \[\s*\['18"', "35 × 45 cm"\]/);
-  assert.doesNotMatch(productInformation, /Tabletop panels|Wall-mount panels/);
+  assert.match(productSizeGuide, /const compactSizes/);
+  assert.match(productSizeGuide, /const largeSizes/);
+  assert.match(productSizeGuide, /["A4", "21 × 29\.7 cm"]/);
+  assert.match(productSizeGuide, /["A3", "29\.7 × 42 cm"]/);
+  assert.match(productSizeGuide, /const compactSizes = \[[\s\S]*?\['16"', "30 × 40 cm"\]/);
+  assert.match(productSizeGuide, /const largeSizes = \[\s*\['18"', "35 × 45 cm"\]/);
+  assert.doesNotMatch(productSizeGuide, /Tabletop panels|Wall-mount panels/);
 });
 
 test('a floating WhatsApp button is available across the site', () => {

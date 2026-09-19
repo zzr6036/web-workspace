@@ -6,6 +6,7 @@ import { HeroSection } from "./components/home/HeroSection";
 import { InspirationSection } from "./components/home/InspirationSection";
 import { OrderingProcessSection } from "./components/home/OrderingProcessSection";
 import { StorySection } from "./components/home/StorySection";
+import { WallGallerySetsSection } from "./components/home/WallGallerySetsSection";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <BrandStrip />
       <BestSellerCarousel />
       <CollectionSection />
+      <WallGallerySetsSection />
       <InspirationSection />
       <ComingSoonSection />
       <OrderingProcessSection />
