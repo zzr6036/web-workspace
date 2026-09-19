@@ -34,8 +34,8 @@ function SubcategoryCard({ subcategory }: { subcategory: ShopSubcategory }) {
       <div className="shop-subcategory-copy">
         {/* <p>{subcategory.chineseName}</p> */}
         <h3>{subcategory.englishName}</h3>
-        <span>
-          View sizes <b aria-hidden="true">↗</b>
+        <span className="shop-subcategory-action">
+          View sizes <b aria-hidden="true">→</b>
         </span>
       </div>
     </a>

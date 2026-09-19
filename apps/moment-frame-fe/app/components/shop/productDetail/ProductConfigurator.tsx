@@ -52,7 +52,7 @@ export function ProductConfigurator({
         >
           {products.map((product) => (
             <option value={product.sku} key={product.sku}>
-              {product.size}
+              {product.sizeLabel}
             </option>
           ))}
         </select>

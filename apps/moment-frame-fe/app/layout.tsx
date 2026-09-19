@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import SiteHeader from './layout/SiteHeader';
 import SiteFooter from './layout/SiteFooter';
+import { FloatingWhatsAppButton } from './layout/FloatingWhatsAppButton';
 import { CartProvider } from './components/cart/CartProvider';
 import './globals.css';
 
@@ -21,6 +22,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <SiteHeader />
           {children}
           <SiteFooter />
+          <FloatingWhatsAppButton />
         </CartProvider>
       </body>
     </html>

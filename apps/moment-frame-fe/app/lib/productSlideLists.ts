@@ -138,19 +138,7 @@ export const productSlidesBySubcategory: Record<string, ProductSlide[]> = {
       "mediaType": "image"
     },
     {
-      "src": "/frames/product-slides/s2-t5/slide-03.png",
-      "mediaType": "image"
-    },
-    {
-      "src": "/frames/product-slides/s2-t5/slide-04.png",
-      "mediaType": "image"
-    },
-    {
       "src": "/frames/product-slides/s2-t5/slide-05.png",
-      "mediaType": "image"
-    },
-    {
-      "src": "/frames/product-slides/s2-t5/slide-06.png",
       "mediaType": "image"
     }
   ],
@@ -160,19 +148,7 @@ export const productSlidesBySubcategory: Record<string, ProductSlide[]> = {
       "mediaType": "image"
     },
     {
-      "src": "/frames/product-slides/s2-t6/slide-03.png",
-      "mediaType": "image"
-    },
-    {
-      "src": "/frames/product-slides/s2-t6/slide-04.png",
-      "mediaType": "image"
-    },
-    {
       "src": "/frames/product-slides/s2-t6/slide-05.png",
-      "mediaType": "image"
-    },
-    {
-      "src": "/frames/product-slides/s2-t6/slide-06.png",
       "mediaType": "image"
     }
   ],

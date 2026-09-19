@@ -17,6 +17,12 @@ const bestSellerContent = await readFile(new URL('../app/components/home/homeCon
 const shopContent = await readFile(new URL('../app/components/shop/ShopContent.tsx', import.meta.url), 'utf8');
 const inspirationSection = await readFile(new URL('../app/components/home/InspirationSection.tsx', import.meta.url), 'utf8');
 const slideManifest = await readFile(new URL('../app/lib/productSlideLists.ts', import.meta.url), 'utf8');
+const globalStyles = await readFile(new URL('../app/globals.css', import.meta.url), 'utf8');
+const quotePdf = await readFile(new URL('../app/lib/createQuotePdf.ts', import.meta.url), 'utf8');
+const appLayout = await readFile(new URL('../app/layout.tsx', import.meta.url), 'utf8');
+const productStatus = await readFile(new URL('../app/lib/productStatus.ts', import.meta.url), 'utf8');
+const catalogSync = await readFile(new URL('../scripts/sync-product-catalog.mjs', import.meta.url), 'utf8');
+const shopProductData = await readFile(new URL('../app/lib/shopProductData.ts', import.meta.url), 'utf8');
 const port = 3101;
 const origin = `http://127.0.0.1:${port}`;
 let server;
@@ -93,6 +99,94 @@ test('FAQ answers cover the quote process, photo preparation, display, and deliv
 test('quote request language explains that confirmation happens on WhatsApp', () => {
   assert.match(deliveryDetailsForm, /REQUEST A QUOTE/);
   assert.match(deliveryDetailsForm, /confirm your order and payment details before production begins/);
+  assert.match(deliveryDetailsForm, /const isReady = Boolean\(userName\.trim\(\) && contact\.trim\(\)\)/);
+  assert.match(deliveryDetailsForm, /required-marker/);
+  assert.match(deliveryDetailsForm, /disabled=\{!isReady\}/);
+  assert.doesNotMatch(deliveryDetailsForm, /email\.trim\(\) && fullAddress\.trim\(\)/);
+});
+
+test('quote PDF uses a structured invoice-style summary with a SKU per frame', () => {
+  for (const label of ['BILL TO', 'QUOTE DATE', 'PAYMENT TERMS', 'FRAME SUMMARY', 'DESCRIPTION', 'SKU', 'QTY', 'TOTAL QUOTE (SGD)', 'NOTES']) assert.ok(quotePdf.includes(label));
+  assert.match(quotePdf, /document\.text\(valueOrDash\(item\.sku\)/);
+  assert.match(quotePdf, /document\.addPage\(\)/);
+  assert.doesNotMatch(quotePdf, /ORDER SUMMARY/);
+});
+
+test('shop category cards use a compact centered name and full-width size action', async () => {
+  const shopContent = await readFile(new URL('../app/components/shop/ShopContent.tsx', import.meta.url), 'utf8');
+
+  assert.match(shopContent, /View sizes/);
+  assert.doesNotMatch(shopContent, /Tabletop & Wall-mounted/);
+  assert.doesNotMatch(shopContent, /shop-subcategory-display/);
+  assert.match(shopContent, /shop-subcategory-action/);
+  assert.match(globalStyles, /\.shop-subcategory-copy h3 \{[^}]*text-align: center/);
+  assert.match(globalStyles, /\.shop-subcategory-action \{[^}]*justify-content: center/);
+  assert.match(globalStyles, /\.shop-subcategory-grid \{[^}]*align-items: start/);
+  assert.match(globalStyles, /\.shop-subcategory-card \{[^}]*align-self: start/);
+  assert.match(globalStyles, /\.shop-subcategory-copy \{[^}]*flex: 0 0 112px/);
+});
+
+test('quote PDF stacks each frame image, name, and specification details', () => {
+  assert.match(quotePdf, /const nameLines = document\.splitTextToSize/);
+  assert.match(quotePdf, /const detailLines = document\.splitTextToSize/);
+  assert.match(quotePdf, /document\.addImage\(design\.imageDataUrl, descriptionStart \+ 3, y \+ 3/);
+  assert.match(quotePdf, /document\.text\(nameLines, descriptionStart \+ 3, y \+ 50\)/);
+  assert.match(quotePdf, /document\.text\(detailLines, descriptionStart \+ 3, y \+ 50 \+ nameLines\.length/);
+});
+
+test('quote PDF enlarges item images and uses dashes for missing customer values', () => {
+  assert.match(quotePdf, /function valueOrDash/);
+  assert.match(quotePdf, /fitImage\(design\.imageWidth \|\| 1, design\.imageHeight \|\| 1, 68, 42\)/);
+  assert.match(quotePdf, /document\.text\("-", descriptionStart \+ 3, y \+ 25\)/);
+  assert.match(quotePdf, /valueOrDash\(options\.recipientName\)/);
+  assert.match(quotePdf, /valueOrDash\(options\.deliveryAddress\)/);
+});
+
+test('a floating WhatsApp button is available across the site', () => {
+  assert.match(appLayout, /FloatingWhatsAppButton/);
+  assert.match(globalStyles, /\.floating-whatsapp \{[^}]*position: fixed/);
+  assert.match(globalStyles, /\.floating-whatsapp \{[^}]*bottom: 24px/);
+});
+
+test('product statuses use stable localization keys with their English labels', () => {
+  for (const [key, label] of [
+    ['ready-stock', 'Ready Stock'],
+    ['made-to-order', 'Made to Order'],
+    ['pre-order', 'Pre-Order'],
+    ['out-of-stock', 'Out of Stock'],
+    ['sold-out', 'Sold Out'],
+    ['coming-soon', 'Coming Soon'],
+    ['unavailable', 'Unavailable'],
+  ]) {
+    assert.ok(productStatus.includes(`key: ProductStatusKey.`));
+    assert.ok(productStatus.includes(`"${key}"`));
+    assert.ok(productStatus.includes(`label: "${label}"`));
+  }
+  assert.match(productStatus, /export const productStatusByKey/);
+  assert.match(catalogSync, /workbook\.Sheets\["Product Status"\]/);
+  assert.match(catalogSync, /workbook\.Sheets\["Product Sizes"\]/);
+  assert.match(catalogSync, /getStatusKey\(row\[column\("Status"\)\]\)/);
+  assert.match(catalogSync, /getSize\(sizeKey\)/);
+  assert.match(shopProductData, /status: ProductStatusValue/);
+  assert.match(shopProductData, /"status": "ready-stock"/);
+});
+
+test('available size choices use workbook-backed inch and centimetre labels', async () => {
+  const productConfigurator = await readFile(new URL('../app/components/shop/productDetail/ProductConfigurator.tsx', import.meta.url), 'utf8');
+
+  assert.match(productConfigurator, /product\.sizeLabel/);
+  assert.match(shopProductData, /sizeKey: string; sizeCm: string; sizeLabel: string/);
+  assert.match(shopProductData, /"sizeLabel": "7\\\" \(12\.7 × 17\.8 cm\)"/);
+  assert.match(shopProductData, /"sizeKey": "24-small"/);
+});
+
+test('delivery details fields use dedicated full-width form styles', () => {
+  assert.match(deliveryDetailsForm, /className="delivery-input"/);
+  assert.match(deliveryDetailsForm, /className="address-feedback"/);
+  assert.match(deliveryDetailsForm, /className="delivery-notes"/);
+  assert.match(globalStyles, /\.delivery-input \{ display: grid;/);
+  assert.match(globalStyles, /\.delivery-input input \{[^}]*width: 100%/);
+  assert.match(globalStyles, /\.delivery-notes \{[^}]*background:/);
 });
 
 test('start creating leads to the shop and shared navigation exposes WhatsApp', () => {

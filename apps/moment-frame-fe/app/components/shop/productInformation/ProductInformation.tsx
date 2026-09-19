@@ -181,17 +181,12 @@ export function ProductInformation({
       <ProtectiveFilmGuideSection />
       {isGalleryWoodenFrame && (
         <>
-          <GalleryWoodenFrameInformation />
+          {/* <GalleryWoodenFrameInformation /> */}
           <GalleryProtectiveFilmGuideSection />
           <GalleryWallMountingOptionsSection />
           <GalleryFrameProfileGuideSection />
         </>
       )}
-      {/* {supportsTabletop && <TabletopDisplayInformation />} */}
-      {/* {supportsWallMount && <WallMountInformation />} */}
-      {/* <OrientationInformation />
-      <PhotoSelectionInformation />
-      <ProtectiveFilmInformation /> */}
     </div>
   );
 }
