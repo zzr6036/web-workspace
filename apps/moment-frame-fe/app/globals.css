@@ -2213,5 +2213,10 @@ h3 {
 @media (max-width: 760px) { .product-information { margin-top: 4px; } .product-size-guide, .gallery-wooden-frame-information, .coming-soon, .gallery-wooden-frame-video { grid-template-columns: 1fr; } .product-size-columns, .gallery-wooden-frame-images { grid-template-columns: 1fr; } .ordering-process-list { grid-template-columns: 1fr; } .ordering-process-actions { flex-direction: column; } .why-momentframe-video-card { grid-template-columns: 1fr; } .why-momentframe-card { padding: 24px; } .why-momentframe-video-card { padding: 0; } }
 
 @media (max-width: 760px) { .usage-guide-list, .photo-orientation-selection-list { grid-template-columns: 1fr; } }
-.size-and-film-layout { display: grid; grid-template-columns: 1.6fr 1fr; gap: 28px; }
+.size-and-film-layout { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(320px, 1fr); gap: 28px; align-items: start; }
+.product-information-side-guides { display: grid; gap: 28px; }
+.high-definition-quality, .protective-film-guide { padding: clamp(20px, 2.4vw, 30px); }
+.high-definition-quality h3, .protective-film-guide h3 { font-size: clamp(21px, 2.1vw, 29px); }
+.high-definition-quality article { display: block; width: 100%; margin-top: 16px; overflow: hidden; border: 1px solid #eee8f8; border-radius: 14px; background: #fff; }
+.high-definition-quality article img { display: block; width: 100%; height: auto; }
 @media (max-width: 1080px) { .size-and-film-layout { grid-template-columns: 1fr; } }

@@ -26,6 +26,7 @@ const shopProductDetailView = await readFile(new URL('../app/components/shop/pro
 const cartStore = await readFile(new URL('../app/lib/cartStore.ts', import.meta.url), 'utf8');
 const productInformation = await readFile(new URL('../app/components/shop/productInformation/ProductInformation.tsx', import.meta.url), 'utf8');
 const productSizeGuide = await readFile(new URL('../app/components/shop/productInformation/ProductSizeGuide.tsx', import.meta.url), 'utf8');
+const highDefinitionQualitySection = await readFile(new URL('../app/components/shop/productInformation/HighDefinitionQualitySection.tsx', import.meta.url), 'utf8');
 const productStatus = await readFile(new URL('../app/lib/productStatus.ts', import.meta.url), 'utf8');
 const catalogSync = await readFile(new URL('../scripts/sync-product-catalog.mjs', import.meta.url), 'utf8');
 const shopProductData = await readFile(new URL('../app/lib/shopProductData.ts', import.meta.url), 'utf8');
@@ -180,6 +181,14 @@ test('quote PDF places the selected frame thumbnail in the SKU column', () => {
   assert.match(shopProductDetailView, /frameImageSku: product\.imageSku/);
   assert.match(quotePdf, /loadFrameImage\(item\.frameImageSku \?\? item\.sku\.replace/);
   assert.match(quotePdf, /document\.addImage\(frameImage\.dataUrl, skuStart \+ 3/);
+});
+
+test('product information stacks high-definition quality above the protective-film guide beside sizes', () => {
+  assert.match(productInformation, /product-information-side-guides/);
+  assert.ok(productInformation.indexOf('<HighDefinitionQualitySection />') < productInformation.indexOf('<ProtectiveFilmGuideSection />'));
+  assert.match(highDefinitionQualitySection, /high-definition-quality\.png/);
+  assert.match(highDefinitionQualitySection, /High-Definition Quality/);
+  assert.match(globalStyles, /\.product-information-side-guides \{ display: grid; gap: 28px;/);
 });
 
 test('product size guide lists every available format without display-type categories', () => {
