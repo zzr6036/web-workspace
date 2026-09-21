@@ -365,11 +365,18 @@ test('continues to use Elij UI and the supplied logo', () => {
 });
 
 test('provides site-specific metadata', () => {
-  assert.match(layoutEntry, /Moment Booth \| Capture Every Smile\. Print Every Memory/);
+  assert.match(layoutEntry, /Moment Booth \| Singapore Photobooth Experiences/);
   assert.match(layoutEntry, /photobooth experiences/i);
+  assert.match(layoutEntry, /keywords:\s*\[[\s\S]*photobooth Singapore/);
   assert.match(layoutEntry, /metadataBase: new URL\('https:\/\/momentboothsg\.com'\)/);
   assert.match(layoutEntry, /icons:[\s\S]*\/moment-booth-logo\.png/);
   assert.match(layoutEntry, /\/og\.png/);
+});
+
+test('includes photobooth search context in gift metadata', () => {
+  assert.match(giftsRoute, /Event Gifts & Photobooth Keepsakes/);
+  assert.match(giftsRoute, /personalised photobooth keepsakes/i);
+  assert.match(badgesRoute, /custom photobooth keepsake badges/i);
 });
 
 test('describes the custom round badge offering', () => {

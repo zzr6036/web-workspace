@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import GiftsPage from "../page/GiftsPage";
 
 export const metadata: Metadata = {
-  title: "Event Gifts | Moment Booth",
-  description: "Explore personalised keepsake gifts for your event, starting with custom round shape badges.",
+  title: "Event Gifts & Photobooth Keepsakes | Moment Booth",
+  description: "Explore personalised photobooth keepsakes and event gifts, starting with custom round shape badges, for celebrations in Singapore.",
   alternates: { canonical: "/gifts" },
   openGraph: {
-    title: "Event Gifts | Moment Booth",
-    description: "Personalised keepsake gifts for events, starting with custom round shape badges.",
+    title: "Event Gifts & Photobooth Keepsakes | Moment Booth",
+    description: "Personalised photobooth keepsakes and event gifts, starting with custom round shape badges, for celebrations in Singapore.",
     url: "/gifts",
     type: "website",
     images: ["/og.png"],
