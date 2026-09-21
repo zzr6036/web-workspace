@@ -1,3 +1,11 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Photo Frame Printing FAQ",
+  description: "Answers about custom photo frames, photo frame printing, image cropping, delivery and quote requests in Singapore.",
+  alternates: { canonical: "/faq" },
+};
+
 const groups = [
   {
     title: "Ordering & Quotes",

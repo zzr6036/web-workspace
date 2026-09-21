@@ -18,6 +18,10 @@ const shopContent = await readFile(new URL('../app/components/shop/ShopContent.t
 const inspirationSection = await readFile(new URL('../app/components/home/InspirationSection.tsx', import.meta.url), 'utf8');
 const wallGallerySetsSection = await readFile(new URL('../app/components/home/WallGallerySetsSection.tsx', import.meta.url), 'utf8');
 const homePage = await readFile(new URL('../app/page.tsx', import.meta.url), 'utf8');
+const appLayoutSeo = await readFile(new URL('../app/layout.tsx', import.meta.url), 'utf8');
+const robotsRoute = await readFile(new URL('../app/robots.ts', import.meta.url), 'utf8');
+const sitemapRoute = await readFile(new URL('../app/sitemap.ts', import.meta.url), 'utf8');
+const shopPageSeo = await readFile(new URL('../app/shop/page.tsx', import.meta.url), 'utf8');
 const slideManifest = await readFile(new URL('../app/lib/productSlideLists.ts', import.meta.url), 'utf8');
 const globalStyles = await readFile(new URL('../app/globals.css', import.meta.url), 'utf8');
 const quotePdf = await readFile(new URL('../app/lib/createQuotePdf.ts', import.meta.url), 'utf8');
@@ -51,8 +55,19 @@ before(async () => {
 });
 after(() => { server?.kill('SIGTERM'); });
 
+test('site provides searchable MomentFrame metadata and crawl routes', () => {
+  assert.match(appLayoutSeo, /Custom Photo Frames & Photo Frame Printing in Singapore/);
+  assert.match(appLayoutSeo, /photo frame printing Singapore/);
+  assert.match(appLayoutSeo, /application\/ld\+json/);
+  assert.match(appLayoutSeo, /Organization/);
+  assert.match(robotsRoute, /https:\/\/www\.momentframesg\.com\/sitemap\.xml/);
+  assert.match(sitemapRoute, /getSubcategories/);
+  assert.match(sitemapRoute, /\/shop\/\$\{category\.key\}/);
+  assert.match(shopPageSeo, /Personalised Photo Frames & Photo Frame Prints/);
+});
+
 test('homepage renders the new brand and accessible page landmarks', () => {
-  assert.match(html, /<title>MomentFrame/);
+  assert.match(html, /<title>Custom Photo Frames &amp; Photo Frame Printing in Singapore \| MomentFrame<\/title>/);
   assert.equal((html.match(/<h1[ >]/g) || []).length, 1);
   for (const landmark of ['header', 'main', 'footer']) assert.match(html, new RegExp(`<${landmark}[ >]`));
   assert.match(html, /aria-label="Main navigation"/);
