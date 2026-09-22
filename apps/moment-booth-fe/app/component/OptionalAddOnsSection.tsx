@@ -37,7 +37,7 @@ export default function OptionalAddOnsSection() {
             </li>
           </ul>
         </article>
-        <article
+        {/* <article
           className="optional-addon-card optional-addon-card--design"
           aria-label="Custom design add-on"
         >
@@ -63,10 +63,7 @@ export default function OptionalAddOnsSection() {
             We create the artwork using your theme, colours, logo, and design
             assets.
           </p>
-          {/* <p className="optional-addon-card__revision">
-            2 rounds of consolidated revisions
-          </p> */}
-        </article>
+        </article> */}
       </div>
     </section>
   );
