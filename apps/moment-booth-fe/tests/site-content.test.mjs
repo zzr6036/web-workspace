@@ -365,8 +365,9 @@ test('continues to use Elij UI and the supplied logo', () => {
 });
 
 test('provides site-specific metadata', () => {
-  assert.match(layoutEntry, /Moment Booth \| Singapore Photobooth Experiences/);
-  assert.match(layoutEntry, /photobooth experiences/i);
+  assert.match(layoutEntry, /Event Photo Booth Rental in Singapore \| Moment Booth/);
+  assert.match(layoutEntry, /\$368 for 2 hours/);
+  assert.match(layoutEntry, /interactive props[\s\S]*on-site help[\s\S]*no hidden fees/i);
   assert.match(layoutEntry, /keywords:\s*\[[\s\S]*photobooth Singapore/);
   assert.match(layoutEntry, /metadataBase: new URL\('https:\/\/momentboothsg\.com'\)/);
   assert.match(layoutEntry, /icons:[\s\S]*\/moment-booth-logo\.png/);
