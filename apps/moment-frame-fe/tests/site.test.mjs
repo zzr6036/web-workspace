@@ -60,6 +60,8 @@ test('site provides searchable MomentFrame metadata and crawl routes', () => {
   assert.match(appLayoutSeo, /photo frame printing Singapore/);
   assert.match(appLayoutSeo, /application\/ld\+json/);
   assert.match(appLayoutSeo, /Organization/);
+  assert.match(appLayoutSeo, /@vercel\/analytics\/next/);
+  assert.match(appLayoutSeo, /<Analytics\s*\/?>/);
   assert.match(robotsRoute, /https:\/\/www\.momentframesg\.com\/sitemap\.xml/);
   assert.match(sitemapRoute, /getSubcategories/);
   assert.match(sitemapRoute, /\/shop\/\$\{category\.key\}/);

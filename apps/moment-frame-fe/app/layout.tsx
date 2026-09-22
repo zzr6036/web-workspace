@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import SiteHeader from './layout/SiteHeader';
 import SiteFooter from './layout/SiteFooter';
 import { FloatingWhatsAppButton } from './layout/FloatingWhatsAppButton';
+import { Analytics } from '@vercel/analytics/next';
 import { CartProvider } from './components/cart/CartProvider';
 import './globals.css';
 
@@ -78,6 +79,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           {children}
           <SiteFooter />
           <FloatingWhatsAppButton />
+          <Analytics />
         </CartProvider>
       </body>
     </html>

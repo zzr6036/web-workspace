@@ -7808,6 +7808,7 @@ __metadata:
     "@types/node": "npm:22.19.19"
     "@types/react": "npm:19.2.14"
     "@types/react-dom": "npm:19.2.3"
+    "@vercel/analytics": "npm:^2.0.1"
     eslint: "npm:9.39.4"
     eslint-config-next: "npm:16.2.6"
     jspdf: "npm:^4.2.1"
