@@ -21,6 +21,8 @@ type FrameMockupPreviewProps = {
   isReadyToAddToCart?: boolean;
 };
 
+const showCalibrator = process.env.NEXT_PUBLIC_SHOW_CALIBRATOR === "true";
+
 export function FrameMockupPreview({
   isOpen,
   onClose,
@@ -250,14 +252,16 @@ export function FrameMockupPreview({
             <p className="eyebrow">Real-World Mockup Preview</p>
             <h2 id="frame-preview-title">See your photo on the frame.</h2>
           </div>
-          <button
-            type="button"
-            className={`preview-calibrate-toggle ${isCalibrating ? "is-active" : ""}`}
-            onClick={() => setIsCalibrating(!isCalibrating)}
-            title="Toggle interactive 4-corner calibration"
-          >
-            {isCalibrating ? "✓ Exit Calibrator" : "🎯 Calibrate (Admin)"}
-          </button>
+          {showCalibrator && (
+            <button
+              type="button"
+              className={`preview-calibrate-toggle ${isCalibrating ? "is-active" : ""}`}
+              onClick={() => setIsCalibrating(!isCalibrating)}
+              title="Toggle interactive 4-corner calibration"
+            >
+              {isCalibrating ? "✓ Exit Calibrator" : "🎯 Calibrate (Admin)"}
+            </button>
+          )}
         </div>
 
         <p className="upload-intro">
@@ -317,7 +321,7 @@ export function FrameMockupPreview({
         </div>
 
         {/* Live calibration toolbar when admin mode is on */}
-        {isCalibrating && (
+        {showCalibrator && isCalibrating && (
           <div className="preview-calibrator-bar">
             <div className="calibrator-top-row">
               <span>Drag pins to align with frame corners.</span>
@@ -410,7 +414,8 @@ export function FrameMockupPreview({
               )}
 
               {/* Draggable Corner Handles for Calibrator */}
-              {isCalibrating &&
+              {showCalibrator &&
+                isCalibrating &&
                 corners.map(([px, py], index) => (
                   <div
                     key={index}
