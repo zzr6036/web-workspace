@@ -272,7 +272,7 @@ test('start creating leads to the shop and shared navigation exposes WhatsApp', 
   assert.match(siteHeader, /className="header-whatsapp"/);
   assert.match(siteHeader, /<svg viewBox="0 0 24 24" aria-hidden="true">/);
   assert.match(siteFooter, /Message us on WhatsApp/);
-  assert.doesNotMatch(siteHeader.match(/<nav[\s\S]*?<\/nav>/)?.[0] ?? '', /Message us/);
+  assert.match(siteHeader.match(/<nav[\s\S]*?<\/nav>/)?.[0] ?? '', /className="mobile-menu-whatsapp"/);
 });
 
 test('popular frame cards link to individual product pages', () => {
