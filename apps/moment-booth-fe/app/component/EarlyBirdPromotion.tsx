@@ -34,6 +34,7 @@ export default function EarlyBirdPromotion({ compact = false }: EarlyBirdPromoti
         </p>
         <p className="early-bird-promotion__note">
           Available for new photobooth bookings confirmed at least 3 months in advance.
+          Promotion valid until 31 March 2027.
         </p>
         <div className="early-bird-promotion__actions">
           <a
