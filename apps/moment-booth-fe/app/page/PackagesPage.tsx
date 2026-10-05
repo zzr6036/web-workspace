@@ -2,6 +2,7 @@
 
 import AddOnProductsSection from "../component/AddOnProductsSection";
 import HeroSection from "../component/HeroSection";
+import EarlyBirdPromotion from "../component/EarlyBirdPromotion";
 import OptionalAddOnsSection from "../component/OptionalAddOnsSection";
 import PackagesSection from "../component/PackagesSection";
 import SiteFooter from "../layout/SiteFooter";
@@ -12,6 +13,7 @@ export default function PackagesPage() {
     <main>
       <SiteHeader />
       <HeroSection exploreHref="/#gallery" />
+      <EarlyBirdPromotion compact />
       <PackagesSection />
       <OptionalAddOnsSection />
       <AddOnProductsSection />

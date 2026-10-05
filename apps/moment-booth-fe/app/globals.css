@@ -146,6 +146,128 @@ a {
   filter: blur(4px);
   opacity: 0.7;
 }
+.early-bird-promotion {
+  position: relative;
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto 56px;
+  padding: 34px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.95fr);
+  align-items: center;
+  gap: 34px;
+  overflow: hidden;
+  border: 1px solid #ddd4ff;
+  border-radius: 28px;
+  background: linear-gradient(135deg, #f5f1ff 0%, #fff 62%);
+  box-shadow: var(--shadow);
+}
+.early-bird-promotion__ribbon {
+  position: absolute;
+  top: 24px;
+  right: -42px;
+  z-index: 2;
+  width: 176px;
+  padding: 8px 12px;
+  transform: rotate(35deg);
+  background: #d9344b;
+  color: #fff;
+  box-shadow: 0 6px 14px rgba(160, 25, 46, 0.22);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-align: center;
+  text-transform: uppercase;
+}
+.early-bird-promotion__copy {
+  max-width: 620px;
+}
+.early-bird-promotion h2 {
+  max-width: 620px;
+  margin: 10px 0 16px;
+  font-size: clamp(28px, 3vw, 44px);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+.early-bird-promotion__deal {
+  grid-column: 1 / -1;
+  display: block;
+  width: 100%;
+  margin: -8px 0 0;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #d9344b;
+  color: #fff;
+  font-size: clamp(14px, 1.8vw, 22px);
+  font-weight: 900;
+  line-height: 1.25;
+  text-align: center;
+  white-space: nowrap;
+  box-shadow: 0 8px 18px rgba(217, 52, 75, 0.2);
+}
+.early-bird-promotion__copy > p:not(.early-bird-promotion__deal):not(.early-bird-promotion__note) {
+  max-width: 560px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.6;
+}
+.early-bird-promotion__note {
+  margin: 16px 0 0;
+  color: #7466a9;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.early-bird-promotion__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+.early-bird-promotion__actions a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 18px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 800;
+}
+.early-bird-promotion__primary {
+  background: var(--purple);
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(124, 92, 255, 0.22);
+}
+.early-bird-promotion__secondary {
+  border: 1px solid #d8d0f8;
+  background: #fff;
+  color: var(--navy);
+}
+.early-bird-promotion__images {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.early-bird-promotion__images img {
+  width: 100%;
+  aspect-ratio: 1;
+  display: block;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 10px 26px rgba(35, 46, 72, 0.14);
+}
+.early-bird-promotion--compact {
+  margin-bottom: 40px;
+  padding: 26px;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+}
+.early-bird-promotion--compact h2 {
+  font-size: clamp(24px, 2.5vw, 34px);
+}
+.early-bird-promotion--compact .early-bird-promotion__images {
+  max-width: 360px;
+  justify-self: end;
+}
 .hero-glow--left {
   width: 430px;
   height: 430px;
@@ -1615,6 +1737,14 @@ footer small {
   font-size: 9px;
 }
 @media (max-width: 900px) {
+  .early-bird-promotion,
+  .early-bird-promotion--compact {
+    grid-template-columns: 1fr;
+  }
+  .early-bird-promotion--compact .early-bird-promotion__images {
+    max-width: none;
+    justify-self: stretch;
+  }
   .site-header nav {
     display: none;
   }
@@ -1759,6 +1889,32 @@ footer small {
   }
 }
 @media (max-width: 560px) {
+  .early-bird-promotion {
+    width: min(100% - 32px, 520px);
+    margin-bottom: 36px;
+    padding: 24px 20px;
+    border-radius: 22px;
+  }
+  .early-bird-promotion__images {
+    gap: 10px;
+  }
+  .early-bird-promotion__deal {
+    margin-top: -4px;
+    padding: 9px 8px;
+    font-size: 10px;
+  }
+  .early-bird-promotion__ribbon {
+    top: 18px;
+    right: -52px;
+    width: 164px;
+    font-size: 9px;
+  }
+  .early-bird-promotion__actions {
+    flex-direction: column;
+  }
+  .early-bird-promotion__actions a {
+    width: 100%;
+  }
   .site-header {
     height: 68px;
     position: sticky;
