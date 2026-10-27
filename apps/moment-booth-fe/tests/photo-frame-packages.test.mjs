@@ -22,6 +22,7 @@ test('presents photo frame packages in the approved purchase flow', async () => 
   assert.match(page, /frames-gallery-title/);
   assert.match(page, /https:\/\/www\.momentframesg\.com\/shop/);
   assert.match(page, /Explore more custom frames on MomentFrame/);
+  assert.ok(page.indexOf('id="materials"') < page.indexOf('id="frames-gallery-title"'), 'material selector should appear before curated gallery');
   assert.match(styles, /\.frame-package-tabs[\s\S]*grid-template-columns/);
   assert.match(styles, /\.frame-material-showcase[\s\S]*grid-template-columns/);
   assert.match(styles, /\.frame-material-rail[\s\S]*overflow-y/);
