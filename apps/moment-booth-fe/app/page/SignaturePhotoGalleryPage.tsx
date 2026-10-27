@@ -44,8 +44,16 @@ const galleryImages = [
   ["/signature-products/floral /combine.png", "Complete floral hedge catalogue"],
 ] as const;
 
+const grandeImages = [
+  ["/signature-products/2 - Grande Gallery /A1.png", "Grande gallery display"],
+  ["/signature-products/2 - Grande Gallery /A2.png", "Grande gallery panel styling"],
+  ["/signature-products/2 - Grande Gallery /A3.png", "Grande gallery wedding display"],
+  ...galleryImages.slice(7),
+] as const;
+
 export default function SignaturePhotoGalleryPage() {
   const [activeImage, setActiveImage] = useState(0);
+  const [activeGrandeImage, setActiveGrandeImage] = useState(0);
   const signatureEnquiryHref = `${whatsappHref.split("?", 1)[0]}?text=${encodeURIComponent("Hi, I’d like to learn more about your Signature Photo Gallery service, including the available designs, setup options and pricing.")}`;
 
   return (
@@ -131,6 +139,11 @@ export default function SignaturePhotoGalleryPage() {
             Enquire ↗
           </a>
         </div>
+      </section>
+      <section className="signature-product" id="grande-gallery" aria-labelledby="grande-gallery-title">
+        <h2 className="signature-product__section-title" id="grande-gallery-title">Grande Gallery</h2>
+        <div className="signature-product__gallery"><div className="signature-product__main"><Image src={grandeImages[activeGrandeImage][0]} alt={grandeImages[activeGrandeImage][1]} width={1200} height={900} /></div><div className="signature-product__thumbs" aria-label="Grande Gallery images">{grandeImages.map(([src, alt], index) => <button type="button" key={src} className={index === activeGrandeImage ? "is-selected" : ""} onClick={() => setActiveGrandeImage(index)} aria-label={`View ${alt}`} aria-pressed={index === activeGrandeImage}><Image src={src} alt="" width={120} height={90} /></button>)}</div></div>
+        <div className="signature-product__details"><p className="signature-product__price">$628.00</p><p>Three 1.8 m-high panels are included. Add extra panels for larger spaces at <strong>$100 per panel</strong>, inclusive of a floral hedge and spotlight.</p><h3>Package options</h3><ul><li>3 panels — $628</li><li>4 panels — $728</li><li>6 panels — $928</li></ul><h3>Includes</h3><ul><li>Delivery, setup and teardown</li><li>Three 1.8 m-high gallery panels</li><li>Photo prints for each panel</li><li>Floral hedges for every panel</li><li>One spotlight per panel</li><li>Choice of floral hedge styles from our catalogue</li><li>Available in black or white</li></ul><a className="hub-button hub-button--primary" href={`${whatsappHref.split("?", 1)[0]}?text=${encodeURIComponent("Hi, I’d like to learn more about the Grande Gallery package, including panel options, floral themes and pricing.")}`} target="_blank" rel="noreferrer">Enquire ↗</a></div>
       </section>
       <SiteFooter />
     </main>
