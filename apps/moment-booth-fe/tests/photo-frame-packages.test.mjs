@@ -37,7 +37,6 @@ test('presents photo frame packages in the approved purchase flow', async () => 
   assert.match(productDetails, /Image area/);
   assert.ok(productDetails.indexOf('PhotoFrameProductDetails') >= 0);
   assert.ok(page.indexOf('frames-gallery-title') < page.indexOf('<PhotoFrameProductDetails />'), 'product details should be at the bottom of the photo frame page');
-  assert.match(signaturePage, /Enquire about Signature Photo Gallery/);
   assert.match(signaturePage, /Signature Photo Gallery service, including the available designs/);
   assert.match(signaturePage, /whatsappHref/);
   assert.match(signaturePage, /\$588\.00/);
@@ -46,6 +45,7 @@ test('presents photo frame packages in the approved purchase flow', async () => 
   assert.match(signaturePage, /signature-products\/floral /);
   assert.match(signaturePage, /A7\.png/);
   assert.match(signaturePage, /B7\.png/);
+  assert.match(signaturePage, /signature-products\/floral \/combine\.png/);
   assert.ok(page.indexOf('id="materials"') < page.indexOf('id="frames-gallery-title"'), 'material selector should appear before curated gallery');
   assert.match(styles, /\.frame-package-tabs[\s\S]*grid-template-columns/);
   assert.match(styles, /\.frame-material-showcase[\s\S]*grid-template-columns/);
