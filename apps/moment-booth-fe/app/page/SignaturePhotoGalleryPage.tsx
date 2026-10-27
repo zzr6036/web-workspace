@@ -128,7 +128,7 @@ export default function SignaturePhotoGalleryPage() {
             Choose your preferred floral hedge style from our catalogue.
           </p>
           <a className="hub-button hub-button--primary" href={signatureEnquiryHref} target="_blank" rel="noreferrer">
-            Enquire about Signature Photo Gallery ↗
+            Enquire ↗
           </a>
         </div>
       </section>
