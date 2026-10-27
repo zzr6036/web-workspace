@@ -12,7 +12,8 @@ test('presents photo frame packages in the approved purchase flow', async () => 
   assert.match(page, /Most Popular/);
   assert.match(page, /aria-pressed/);
   assert.match(page, /whatsappHref/);
-  assert.match(styles, /\.frame-package-options[\s\S]*grid-template-columns/);
-  assert.match(styles, /\.frame-material-grid[\s\S]*grid-template-columns/);
+  assert.match(styles, /\.frame-package-tabs[\s\S]*grid-template-columns/);
+  assert.match(styles, /\.frame-material-showcase[\s\S]*grid-template-columns/);
+  assert.match(styles, /\.frame-material-rail[\s\S]*overflow-y/);
   assert.match(styles, /@media \(max-width: 560px\)/);
 });
