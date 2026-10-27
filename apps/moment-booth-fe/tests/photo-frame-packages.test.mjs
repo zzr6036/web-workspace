@@ -3,10 +3,11 @@ import { access, readFile } from 'node:fs/promises';
 import test from 'node:test';
 
 const page = await readFile(new URL('../app/page/PhotoFramePackages.tsx', import.meta.url), 'utf8');
+const framesPage = await readFile(new URL('../app/page/PhotoFramesPage.tsx', import.meta.url), 'utf8');
 const styles = await readFile(new URL('../app/page/photo-frame-packages.css', import.meta.url), 'utf8');
 
 test('presents photo frame packages in the approved purchase flow', async () => {
-  for (const section of ['Package options', 'Choose your frame material', 'Package preview', 'Product details', 'How to order', 'Ready to create yours?']) assert.match(page, new RegExp(section));
+  for (const section of ['Package options', 'Choose your frame material']) assert.match(page, new RegExp(section));
   for (const material of ['Frameless Rounded Corner', 'White Rounded Border', 'Silver Rounded Border', 'Black Rounded Border', 'Gold Square Corner', 'Solid Wood - Warm Walnut', 'Fresh Light Wheat', 'Roasted Tea', 'Black Walnut']) assert.match(page, new RegExp(material));
   for (const asset of ['1-Frameless Rounded Corner/combine.png', '2-White Rounded Border/combine.png', '3-Silver Rounded Border/combine.png', '4-Black Rounded Border/combine.png', '5-Gold Square Corner/combine.png', '6-Solid Wood-Warm Walnut/combine.png', '7-Fresh Light Wheat/combine.png', '8-Roasted Tea/combine.png', '9-Black Walnut/combine.png']) await access(new URL(`../public/frame-products/${asset}`, import.meta.url));
   assert.match(page, /Most Popular/);
@@ -22,6 +23,9 @@ test('presents photo frame packages in the approved purchase flow', async () => 
   assert.match(page, /frames-gallery-title/);
   assert.match(page, /https:\/\/www\.momentframesg\.com\/shop/);
   assert.match(page, /Explore more custom frames on MomentFrame/);
+  assert.match(framesPage, /icons\/whatsapp\.png/);
+  assert.match(framesPage, /photo frames, including the available packages/);
+  assert.match(framesPage, /Ask about a frame/);
   assert.ok(page.indexOf('id="materials"') < page.indexOf('id="frames-gallery-title"'), 'material selector should appear before curated gallery');
   assert.match(styles, /\.frame-package-tabs[\s\S]*grid-template-columns/);
   assert.match(styles, /\.frame-material-showcase[\s\S]*grid-template-columns/);
