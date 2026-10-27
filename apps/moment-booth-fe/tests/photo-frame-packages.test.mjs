@@ -32,6 +32,10 @@ test('presents photo frame packages in the approved purchase flow', async () => 
   assert.match(homePage, /Need multiple tabletop frames for your wedding/);
   for (const title of ['Product size information', 'High-definition quality', 'Protective film guide', 'Usage guide', 'Print colour guide', 'Photo orientation and selection']) assert.match(productDetails, new RegExp(title));
   assert.match(productDetails, /<details/);
+  assert.match(productDetails, /Panel size/);
+  assert.match(productDetails, /Image area/);
+  assert.ok(productDetails.indexOf('PhotoFrameProductDetails') >= 0);
+  assert.ok(page.indexOf('frames-gallery-title') < page.indexOf('<PhotoFrameProductDetails />'), 'product details should be at the bottom of the photo frame page');
   assert.ok(page.indexOf('id="materials"') < page.indexOf('id="frames-gallery-title"'), 'material selector should appear before curated gallery');
   assert.match(styles, /\.frame-package-tabs[\s\S]*grid-template-columns/);
   assert.match(styles, /\.frame-material-showcase[\s\S]*grid-template-columns/);

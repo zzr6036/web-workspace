@@ -164,8 +164,6 @@ export default function PhotoFramePackages() {
         </div>
       </section>
 
-      <PhotoFrameProductDetails />
-
       <section
         className="frame-materials"
         id="materials"
@@ -247,7 +245,6 @@ export default function PhotoFramePackages() {
           </aside>
         </div>
       </section>
-
       <section
         className="hub-section hub-wall-gallery frames-gallery"
         aria-labelledby="frames-gallery-title"
@@ -283,6 +280,7 @@ export default function PhotoFramePackages() {
           ))}
         </div>
       </section>
+      <PhotoFrameProductDetails />
     </>
   );
 }
