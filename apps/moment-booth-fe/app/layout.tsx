@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
+import './page/photo-frame-packages.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://momentboothsg.com'),
