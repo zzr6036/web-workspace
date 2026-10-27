@@ -6,6 +6,7 @@ const page = await readFile(new URL('../app/page/PhotoFramePackages.tsx', import
 const framesPage = await readFile(new URL('../app/page/PhotoFramesPage.tsx', import.meta.url), 'utf8');
 const homePage = await readFile(new URL('../app/page/HomePage.tsx', import.meta.url), 'utf8');
 const productDetails = await readFile(new URL('../app/page/PhotoFrameProductDetails.tsx', import.meta.url), 'utf8');
+const signaturePage = await readFile(new URL('../app/page/SignaturePhotoGalleryPage.tsx', import.meta.url), 'utf8');
 const styles = await readFile(new URL('../app/page/photo-frame-packages.css', import.meta.url), 'utf8');
 
 test('presents photo frame packages in the approved purchase flow', async () => {
@@ -36,6 +37,9 @@ test('presents photo frame packages in the approved purchase flow', async () => 
   assert.match(productDetails, /Image area/);
   assert.ok(productDetails.indexOf('PhotoFrameProductDetails') >= 0);
   assert.ok(page.indexOf('frames-gallery-title') < page.indexOf('<PhotoFrameProductDetails />'), 'product details should be at the bottom of the photo frame page');
+  assert.match(signaturePage, /Explore Signature Photo Gallery/);
+  assert.match(signaturePage, /Signature Photo Gallery service, including the available designs/);
+  assert.match(signaturePage, /whatsappHref/);
   assert.ok(page.indexOf('id="materials"') < page.indexOf('id="frames-gallery-title"'), 'material selector should appear before curated gallery');
   assert.match(styles, /\.frame-package-tabs[\s\S]*grid-template-columns/);
   assert.match(styles, /\.frame-material-showcase[\s\S]*grid-template-columns/);
