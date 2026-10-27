@@ -19,6 +19,9 @@ test('presents photo frame packages in the approved purchase flow', async () => 
   assert.match(page, /30\.5cm x 40\.6cm/);
   assert.match(page, /aria-pressed/);
   assert.match(page, /whatsappHref/);
+  assert.match(page, /frames-gallery-title/);
+  assert.match(page, /https:\/\/www\.momentframesg\.com\/shop/);
+  assert.match(page, /Explore more custom frames on MomentFrame/);
   assert.match(styles, /\.frame-package-tabs[\s\S]*grid-template-columns/);
   assert.match(styles, /\.frame-material-showcase[\s\S]*grid-template-columns/);
   assert.match(styles, /\.frame-material-rail[\s\S]*overflow-y/);
