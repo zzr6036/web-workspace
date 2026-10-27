@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { readFile, readdir } from 'node:fs/promises';
+import { access, readFile, readdir } from 'node:fs/promises';
 import test from 'node:test';
 
 const readAppFile = (path) => readFile(new URL(`../app/${path}`, import.meta.url), 'utf8');
@@ -24,6 +24,7 @@ const heroSection = await readAppFile('component/HeroSection.tsx');
 const badgeSection = await readAppFile('component/BadgeSection.tsx');
 const heroBenefitsSection = await readAppFile('component/HeroBenefitsSection.tsx');
 const gallerySection = await readAppFile('component/GallerySection.tsx');
+const photoFramesPage = await readAppFile('page/PhotoFramesPage.tsx');
 const contactSection = await readAppFile('component/ContactSection.tsx');
 const librarySection = await readAppFile('component/LibrarySection.tsx');
 const contactSource = await readAppFile('lib/contact.ts');
@@ -154,6 +155,14 @@ test('shows real Moment Booth event cases in the gallery', () => {
   assert.match(styles, /\.event-carousel-slide img[\s\S]*object-fit:\s*contain/);
 });
 
+test('uses the original four curated photo frame set assets', async () => {
+  for (const set of ['set-a', 'set-b', 'set-c', 'set-d']) {
+    assert.match(photoFramesPage, new RegExp(`/frames/home/wall-gallery-sets/${set}\\.png`));
+    await access(new URL(`../public/frames/home/wall-gallery-sets/${set}.png`, import.meta.url));
+  }
+  assert.doesNotMatch(photoFramesPage, /size-guide/);
+});
+
 test('preserves the Moment Booth brand and page sections', () => {
   assert.match(siteSource, /Moment Booth/);
   assert.match(siteSource, /Capture Every Smile/);
@@ -280,7 +289,7 @@ test('presents the three optional keepsake products', () => {
   assert.match(addOnProductsSection, /product-carousel__card-grid/);
   assert.equal((addOnProductsSection.match(/Suitable for 4 × 6 in photos/g) ?? []).length, 2);
   assert.match(addOnProductsSection, /Photo Keepsake Cards[\s\S]*add-on-product-card__info[\s\S]*Browse our styles[\s\S]*ProductCarousel slides=\{cardSlides\}/);
-  assert.match(addOnProductsSection, /Photo Keepsake Cards[\s\S]*<strong>From \$38<\/strong>/);
+  assert.match(addOnProductsSection, /Photo Keepsake Cards[\s\S]*<strong>From \$18<\/strong>/);
   const cardsInfo = addOnProductsSection.match(/Photo Keepsake Cards[\s\S]*?className="add-on-product-card__info"([\s\S]*?)ProductCarousel slides=\{cardSlides\}/)?.[1] ?? '';
   assert.ok(cardsInfo.indexOf('add-on-product-card__pricing') < cardsInfo.indexOf('Browse our styles'));
   assert.equal((addOnProductsSection.match(/blank: `\/products\/cards\//g) ?? []).length, 1);
