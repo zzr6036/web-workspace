@@ -73,7 +73,6 @@ export default function SignaturePhotoGalleryPage() {
           A beautiful place for your guests’ memories.
         </h1>
         <div className="signature-hero-banner">
-          <Image src="/signature-products/1 - Signature Photo Gallery/A1.png" alt="Signature Photo Gallery wedding display with floral styling" width={1200} height={900} />
           <div className="signature-hero-banner__copy">
             <strong>Make your wedding memories part of the décor.</strong>
             <span>Gold frame panels, floral styling and beautifully printed photos for your guests to enjoy and remember.</span>

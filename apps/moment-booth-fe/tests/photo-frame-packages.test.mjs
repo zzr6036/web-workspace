@@ -60,6 +60,7 @@ test('presents photo frame packages in the approved purchase flow', async () => 
   assert.match(signaturePage, /signature-product__accent/);
   assert.match(signaturePage, /signature-hero-banner/);
   assert.match(signaturePage, /Make your wedding memories part of the décor/);
+  assert.doesNotMatch(signaturePage, /signature-hero-banner\">\s*<Image/);
   assert.doesNotMatch(signaturePage, /From \$588/);
   assert.doesNotMatch(signaturePage, /Three 1\.8 m-high panels are included/);
   assert.ok(page.indexOf('id="materials"') < page.indexOf('id="frames-gallery-title"'), 'material selector should appear before curated gallery');
