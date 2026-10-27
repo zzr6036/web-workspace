@@ -4,6 +4,8 @@ import test from 'node:test';
 
 const page = await readFile(new URL('../app/page/PhotoFramePackages.tsx', import.meta.url), 'utf8');
 const framesPage = await readFile(new URL('../app/page/PhotoFramesPage.tsx', import.meta.url), 'utf8');
+const homePage = await readFile(new URL('../app/page/HomePage.tsx', import.meta.url), 'utf8');
+const productDetails = await readFile(new URL('../app/page/PhotoFrameProductDetails.tsx', import.meta.url), 'utf8');
 const styles = await readFile(new URL('../app/page/photo-frame-packages.css', import.meta.url), 'utf8');
 
 test('presents photo frame packages in the approved purchase flow', async () => {
@@ -26,6 +28,10 @@ test('presents photo frame packages in the approved purchase flow', async () => 
   assert.match(framesPage, /icons\/whatsapp\.png/);
   assert.match(framesPage, /photo frames, including the available packages/);
   assert.match(framesPage, /Ask about a frame/);
+  for (const asset of ['1-Frameless Rounded Corner', '2-White Rounded Border', '3-Silver Rounded Border', '5-Gold Square Corner', '9-Black Walnut']) assert.match(homePage, new RegExp(`/frame-products/${asset}/combine\\.png`));
+  assert.match(homePage, /Need multiple tabletop frames for your wedding/);
+  for (const title of ['Product size information', 'High-definition quality', 'Protective film guide', 'Usage guide', 'Print colour guide', 'Photo orientation and selection']) assert.match(productDetails, new RegExp(title));
+  assert.match(productDetails, /<details/);
   assert.ok(page.indexOf('id="materials"') < page.indexOf('id="frames-gallery-title"'), 'material selector should appear before curated gallery');
   assert.match(styles, /\.frame-package-tabs[\s\S]*grid-template-columns/);
   assert.match(styles, /\.frame-material-showcase[\s\S]*grid-template-columns/);
