@@ -46,6 +46,8 @@ test('presents photo frame packages in the approved purchase flow', async () => 
   assert.match(signaturePage, /A7\.png/);
   assert.match(signaturePage, /B7\.png/);
   assert.match(signaturePage, /signature-products\/floral \/combine\.png/);
+  assert.match(signaturePage, /id="signature-photo-gallery"/);
+  assert.match(signaturePage, /signature-product__section-title/);
   assert.ok(page.indexOf('id="materials"') < page.indexOf('id="frames-gallery-title"'), 'material selector should appear before curated gallery');
   assert.match(styles, /\.frame-package-tabs[\s\S]*grid-template-columns/);
   assert.match(styles, /\.frame-material-showcase[\s\S]*grid-template-columns/);

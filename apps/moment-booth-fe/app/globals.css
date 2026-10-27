@@ -208,6 +208,7 @@ a {
 .signature-hero h1 { margin: 14px 0 20px; font-size: clamp(42px, 6vw, 78px); line-height: .98; letter-spacing: -.06em; white-space: nowrap; }
 .signature-hero > p:not(.eyebrow) { margin: 0 auto; max-width: none; color: var(--muted); font-size: 18px; line-height: 1.6; white-space: nowrap; }
 .signature-product { width: min(1180px, calc(100% - 48px)); margin: 0 auto; padding: 82px 0 110px; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(360px, .9fr); gap: 48px; align-items: start; }
+.signature-product__section-title { grid-column: 1 / -1; margin: 0; color: var(--navy); font-size: clamp(34px, 4vw, 58px); line-height: 1.04; letter-spacing: -.045em; white-space: nowrap; }
 .signature-product__main { overflow: hidden; border-radius: 22px; background: #f4f2f8; box-shadow: var(--shadow); }
 .signature-product__gallery { display: grid; grid-template-columns: 86px minmax(0, 1fr); gap: 14px; align-items: stretch; }
 .signature-product__gallery .signature-product__main { grid-column: 2; grid-row: 1; }
@@ -2031,6 +2032,7 @@ footer small {
   .signature-hero h1, .signature-hero > p:not(.eyebrow) { white-space: normal; }
   .signature-hero h1 { font-size: 52px; }
   .signature-product { width: min(100% - 32px, 520px); grid-template-columns: 1fr; gap: 28px; padding: 58px 0 70px; }
+  .signature-product__section-title { font-size: 38px; white-space: normal; }
   .signature-product__gallery { grid-template-columns: 1fr; }
   .signature-product__gallery .signature-product__main { grid-column: 1; grid-row: 1; }
   .signature-product__main { height: auto; }

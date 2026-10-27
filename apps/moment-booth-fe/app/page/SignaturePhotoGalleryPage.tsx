@@ -66,8 +66,10 @@ export default function SignaturePhotoGalleryPage() {
       </section>
       <section
         className="signature-product"
+        id="signature-photo-gallery"
         aria-labelledby="signature-product-title"
       >
+        <h2 className="signature-product__section-title" id="signature-product-title">Signature Photo Gallery</h2>
         <div className="signature-product__gallery">
           <div className="signature-product__main">
             <Image
@@ -97,8 +99,6 @@ export default function SignaturePhotoGalleryPage() {
           </div>
         </div>
         <div className="signature-product__details">
-          <p className="eyebrow">Signature Photo Gallery</p>
-          <h2 id="signature-product-title">Signature Photo Gallery</h2>
           <p className="signature-product__price">$588.00</p>
           <p>
             Includes delivery, setup and teardown, plus all styling items
