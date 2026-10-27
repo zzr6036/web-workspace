@@ -10,6 +10,8 @@ test('presents photo frame packages in the approved purchase flow', async () => 
   for (const material of ['Frameless Rounded Corner', 'White Rounded Border', 'Silver Rounded Border', 'Black Rounded Border', 'Gold Square Corner', 'Solid Wood - Warm Walnut', 'Fresh Light Wheat', 'Roasted Tea', 'Black Walnut']) assert.match(page, new RegExp(material));
   for (const asset of ['1-Frameless Rounded Corner/combine.png', '2-White Rounded Border/combine.png', '3-Silver Rounded Border/combine.png', '4-Black Rounded Border/combine.png', '5-Gold Square Corner/combine.png', '6-Solid Wood-Warm Walnut/combine.png', '7-Fresh Light Wheat/combine.png', '8-Roasted Tea/combine.png', '9-Black Walnut/combine.png']) await access(new URL(`../public/frame-products/${asset}`, import.meta.url));
   assert.match(page, /Most Popular/);
+  assert.match(page, /frame-material-selection__package/);
+  assert.match(page, /activePackage\.name/);
   assert.match(page, /The package includes:/);
   assert.match(page, /pieces of \{size\} frame/);
   assert.match(page, /20\.3cm x 25\.4cm/);

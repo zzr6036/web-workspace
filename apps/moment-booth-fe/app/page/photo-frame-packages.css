@@ -21,6 +21,8 @@
 .frame-material-main img { display: block; width: 100%; height: 100%; aspect-ratio: 1; object-fit: cover; }
 .frame-material-selection { display: flex; flex-direction: column; justify-content: center; padding: 30px; border-radius: 22px; background: #fff; box-shadow: var(--shadow); }
 .frame-material-selection h3 { margin: 10px 0 22px; font-size: 28px; line-height: 1.08; }
+.frame-material-selection__package { margin: 12px 0 4px !important; color: var(--purple); font-size: 30px !important; }
+.frame-material-selection__material { margin: 0 0 22px; color: var(--navy); font-size: 16px; font-weight: 800; }
 .frame-material-selection label { color: var(--muted); font-size: 12px; font-weight: 800; }
 .frame-material-selection select { width: 100%; margin-top: 8px; padding: 13px 14px; border: 1px solid #d8d0ff; border-radius: 10px; background: #fff; color: var(--navy); font: inherit; }
 .frame-material-selection__description { margin: 20px 0; color: var(--muted); font-size: 14px; line-height: 1.55; }
