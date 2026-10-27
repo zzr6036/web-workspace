@@ -204,6 +204,25 @@ a {
 .frames-hero p:not(.eyebrow) { color: var(--muted); font-size: 18px; line-height: 1.6; }
 .frames-hero .hub-hero__actions { justify-content: center; }
 .frames-gallery { padding-top: 76px; }
+.signature-hero { padding: 100px max(4vw, 24px) 72px; background: linear-gradient(135deg, #f7f0ff, #eef9fb); text-align: center; }
+.signature-hero h1 { margin: 14px 0 20px; font-size: clamp(42px, 6vw, 78px); line-height: .98; letter-spacing: -.06em; white-space: nowrap; }
+.signature-hero > p:not(.eyebrow) { margin: 0 auto; max-width: none; color: var(--muted); font-size: 18px; line-height: 1.6; white-space: nowrap; }
+.signature-product { width: min(1180px, calc(100% - 48px)); margin: 0 auto; padding: 82px 0 110px; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(360px, .9fr); gap: 48px; align-items: start; }
+.signature-product__main { overflow: hidden; border-radius: 22px; background: #f4f2f8; box-shadow: var(--shadow); }
+.signature-product__main img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
+.signature-product__thumbs { display: flex; gap: 10px; margin-top: 12px; overflow-x: auto; padding-bottom: 4px; }
+.signature-product__thumbs button { flex: 0 0 78px; padding: 0; border: 2px solid transparent; border-radius: 10px; overflow: hidden; background: #fff; cursor: pointer; }
+.signature-product__thumbs button.is-selected { border-color: var(--purple); }
+.signature-product__thumbs img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.signature-product__details { padding: 30px; border-radius: 22px; background: #fff; box-shadow: var(--shadow); }
+.signature-product__details h2 { margin: 10px 0 12px; font-size: 36px; line-height: 1.05; }
+.signature-product__price { margin: 0 0 22px; color: var(--purple); font-size: 42px; font-weight: 900; }
+.signature-product__details > p:not(.eyebrow):not(.signature-product__price), .signature-product__details li, .signature-product__note { color: var(--muted); font-size: 14px; line-height: 1.55; }
+.signature-product__details h3 { margin: 28px 0 10px; font-size: 17px; }
+.signature-product__details ul { margin: 0; padding-left: 20px; }
+.signature-product__details li + li { margin-top: 8px; }
+.signature-product__note { margin: 20px 0; font-style: italic; }
+.signature-product__details .hub-button { width: 100%; text-align: center; }
 .frames-gallery .hub-section__heading > p:not(.eyebrow) { max-width: none; white-space: nowrap; }
 .frames-details { display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, .8fr); gap: 50px; width: min(1180px, calc(100% - 48px)); margin: 0 auto; padding: 78px 0 110px; }
 .frames-details h2 { margin: 12px 0 16px; font-size: clamp(32px, 4vw, 56px); line-height: 1.04; letter-spacing: -.045em; }
@@ -2005,6 +2024,11 @@ footer small {
   .hub-wall-card { min-width: 220px; scroll-snap-align: start; }
   .hub-signature { width: 100%; padding-left: 16px; padding-right: 16px; }
   .hub-signature > div { width: min(100%, 520px); }
+  .signature-hero { padding: 64px 16px 48px; }
+  .signature-hero h1, .signature-hero > p:not(.eyebrow) { white-space: normal; }
+  .signature-hero h1 { font-size: 52px; }
+  .signature-product { width: min(100% - 32px, 520px); grid-template-columns: 1fr; gap: 28px; padding: 58px 0 70px; }
+  .signature-product__details { padding: 24px; }
   .early-bird-promotion {
     width: min(100% - 32px, 520px);
     margin-bottom: 36px;
