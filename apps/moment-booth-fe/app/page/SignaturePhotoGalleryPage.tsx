@@ -9,10 +9,17 @@ const galleryImages = [
   ["/signature-products/1 - Signature Photo Gallery/A1.png", "Signature gallery display"],
   ["/signature-products/1 - Signature Photo Gallery/A2.png", "Gold frame gallery at a wedding"],
   ["/signature-products/1 - Signature Photo Gallery/A3.png", "Wedding photo signing display"],
+  ["/signature-products/1 - Signature Photo Gallery/A4.png", "Signature gallery arrangement"],
+  ["/signature-products/1 - Signature Photo Gallery/A5.png", "Wedding gallery styling"],
+  ["/signature-products/1 - Signature Photo Gallery/A6.png", "Gold frame panel display"],
+  ["/signature-products/1 - Signature Photo Gallery/A7.png", "Guest photo gallery"],
   ["/signature-products/floral /B1.png", "Floral hedge styling"],
   ["/signature-products/floral /B2.png", "Floral frame panel styling"],
   ["/signature-products/floral /B3.png", "Floral gallery arrangement"],
   ["/signature-products/floral /B4.png", "Floral hedge catalogue option"],
+  ["/signature-products/floral /B5.png", "Floral hedge colour option"],
+  ["/signature-products/floral /B6.png", "Floral hedge styling option"],
+  ["/signature-products/floral /B7.png", "Floral hedge theme option"],
 ] as const;
 
 export default function SignaturePhotoGalleryPage() {
