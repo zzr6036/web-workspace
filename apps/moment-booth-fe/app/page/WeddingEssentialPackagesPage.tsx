@@ -221,11 +221,6 @@ export default function WeddingEssentialPackagesPage() {
                     <option>Frameless Rounded Corner</option>
                     <option>Black Walnut</option>
                   </select>
-                  {item.name === "Photo Booth + Signature Photo Gallery" && (
-                    <s className="essential-package-card__selector-note">
-                      Frameless Rounded Corner or Black Walnut
-                    </s>
-                  )}
                 </div>
                 <div className="essential-package-card__price">
                   {(() => {
