@@ -10,6 +10,8 @@
 .frame-package-tab strong { font-size: 20px; }
 .frame-package-tab small { display: flex; flex-direction: column; gap: 4px; margin-top: auto; color: var(--muted); font-size: 12px; line-height: 1.45; }
 .frame-package-tab small b { color: var(--navy); font-size: 13px; }
+.frame-package-tab__note { margin-top: 6px; color: var(--purple); font-size: 11px; font-weight: 800; line-height: 1.35; }
+.frame-material-selection__size-note { margin: -12px 0 18px; color: var(--purple); font-size: 13px; font-weight: 800; line-height: 1.4; }
 .frame-materials { padding: 56px 0 82px; }
 .frame-materials__heading { max-width: 740px; }
 .frame-material-showcase { display: grid; grid-template-columns: 88px minmax(0, 1fr) minmax(300px, .72fr); gap: 18px; align-items: stretch; margin-top: 32px; }

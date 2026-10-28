@@ -99,6 +99,13 @@ const materials = [
   ["Black Walnut", "/frame-products/9-Black Walnut/combine.png"],
 ] as const;
 
+const woodenMaterials = new Set([
+  "Solid Wood - Warm Walnut",
+  "Fresh Light Wheat",
+  "Roasted Tea",
+  "Black Walnut",
+]);
+
 const pvcDescription =
   "Photo and frame are printed together on premium studio-grade PVC material for a sleek, fashion-forward finish.";
 const woodDescription =
@@ -131,8 +138,8 @@ export default function PhotoFramePackages() {
           <h2 id="frame-packages-title">A complete set, made for your wall.</h2>
           <p>
             Choose the number of frames first, then pick a finish that suits
-            your space. Every package includes 8&quot;, 10&quot; and 12&quot;
-            prints.
+            your space. Every package includes 8&quot;, 10&quot; and either
+            12&quot; or A4 prints, depending on the frame type.
           </p>
         </div>
         <div
@@ -158,6 +165,10 @@ export default function PhotoFramePackages() {
                     {quantity} pieces of {size} frame ({dimensions})
                   </span>
                 ))}
+                <span className="frame-package-tab__note">
+                  For Solid Wood - Warm Walnut, Fresh Light Wheat, Roasted Tea
+                  and Black Walnut, A4 replaces the 12&quot; option.
+                </span>
               </small>
             </button>
           ))}
@@ -214,6 +225,11 @@ export default function PhotoFramePackages() {
             <p className="frame-material-selection__material">
               {activeMaterial[0]}
             </p>
+            {woodenMaterials.has(activeMaterial[0]) && (
+              <p className="frame-material-selection__size-note">
+                A4 replaces the 12&quot; option for this frame type.
+              </p>
+            )}
             <label htmlFor="frame-material-select">Frame type</label>
             <select
               id="frame-material-select"

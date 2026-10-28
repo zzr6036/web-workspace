@@ -18,6 +18,9 @@ test('presents photo frame packages in the approved purchase flow', async () => 
   assert.match(page, /activePackage\.name/);
   assert.match(page, /The package includes:/);
   assert.match(page, /pieces of \{size\} frame/);
+  assert.match(page, /12&quot; or A4 prints/);
+  assert.match(page, /A4 replaces the 12&quot; option/);
+  for (const material of ['Solid Wood - Warm Walnut', 'Fresh Light Wheat', 'Roasted Tea', 'Black Walnut']) assert.match(page, new RegExp(material));
   assert.match(page, /20\.3cm x 25\.4cm/);
   assert.match(page, /25\.4cm x 30\.5cm/);
   assert.match(page, /30\.5cm x 40\.6cm/);
