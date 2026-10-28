@@ -58,6 +58,10 @@ test('organises the home page into page, layout, and component folders', () => {
     assert.ok(componentFiles.includes(file), `missing ${file}`);
   }
   assert.match(homePage, /<PackagesPreviewSection \/>/);
+  assert.match(homePage, /<HomeBanner \/>/);
+  assert.match(faqPage, /<HomeBanner \/>/);
+  assert.match(homePage, /Make your wedding memories part of the décor/);
+  assert.match(homePage, /Bring Photo Booth, Photo Frames and Signature Photo Gallery together/);
   assert.match(packagesSection, /Additional hours: <strong>\$200\/hour<\/strong>/);
   assert.match(faqSection, /Weather and outdoor events/);
   assert.match(faqSection, /No refund will be provided/);

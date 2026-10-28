@@ -195,9 +195,12 @@ a {
 .hub-wall-gallery--photos-only .hub-wall-card img { aspect-ratio: 1; }
 .hub-wall-card h3 { margin: 8px 0 6px; font-size: 16px; line-height: 1.2; }
 .hub-wall-card > div > p:last-child { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.4; }
-.hub-signature { max-width: none; width: 100%; padding-left: max(4vw, 24px); padding-right: max(4vw, 24px); background: linear-gradient(135deg, #fff6e5, #f7f0ff); }
-.hub-signature > div, .hub-packages > * { width: min(1180px, 100%); margin-left: auto; margin-right: auto; }
+.hub-signature { max-width: none; width: 100%; display: grid; grid-template-columns: minmax(0, 1fr) minmax(320px, 520px); align-items: center; gap: 52px; padding-left: max(4vw, 24px); padding-right: max(4vw, 24px); background: linear-gradient(135deg, #fff6e5, #f7f0ff); }
+.hub-signature > div { width: min(680px, 100%); margin-left: auto; margin-right: auto; }
+.hub-feature-image { display: block; width: min(100%, 520px); aspect-ratio: 4 / 3; margin: auto; border-radius: 24px; object-fit: cover; box-shadow: var(--shadow); }
+.hub-signature .hub-section__supporting-copy, .hub-packages .hub-section__supporting-copy { margin-top: 10px; font-size: 15px; }
 .hub-packages { display: flex; align-items: end; justify-content: space-between; gap: 40px; }
+.hub-packages .hub-feature-image { width: min(260px, 100%); aspect-ratio: 1; }
 .frames-hero { padding: 110px max(4vw, 24px) 96px; background: linear-gradient(135deg, #eaf8fb, #f7f0ff); }
 .frames-hero > div { width: min(760px, 100%); margin: 0 auto; text-align: center; }
 .frames-hero h1 { margin: 14px 0 20px; font-size: clamp(44px, 6vw, 78px); line-height: .98; letter-spacing: -.06em; }
@@ -2107,8 +2110,9 @@ footer small {
   .hub-media-carousel img, .hub-media-carousel video, .home-photo-carousel { flex-basis: min(72vw, 280px); width: min(72vw, 280px); }
   .hub-wall-gallery__track { display: flex; overflow-x: auto; margin-right: -16px; padding-right: 16px; scroll-snap-type: x mandatory; }
   .hub-wall-card { min-width: 220px; scroll-snap-align: start; }
-  .hub-signature { width: 100%; padding-left: 16px; padding-right: 16px; }
+  .hub-signature { width: 100%; display: block; padding-left: 16px; padding-right: 16px; }
   .hub-signature > div { width: min(100%, 520px); }
+  .hub-signature .hub-feature-image, .hub-packages .hub-feature-image { width: min(100%, 520px); margin-top: 28px; }
   .signature-hero { padding: 64px 16px 48px; }
   .signature-hero h1, .signature-hero > p:not(.eyebrow) { white-space: normal; }
   .signature-hero h1 { font-size: 52px; }

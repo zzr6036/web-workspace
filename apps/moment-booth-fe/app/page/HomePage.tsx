@@ -3,6 +3,7 @@ import Link from "next/link";
 import SiteFooter from "../layout/SiteFooter";
 import SiteHeader from "../layout/SiteHeader";
 import HomePhotoCarousel from "../component/HomePhotoCarousel";
+import HomeBanner from "../component/HomeBanner";
 
 const wallGallerySets = [
   "/frame-products/1-Frameless Rounded Corner/combine.png",
@@ -16,80 +17,7 @@ export default function HomePage() {
   return (
     <main>
       <SiteHeader />
-      <section className="hub-hero" aria-labelledby="hub-hero-title">
-        <div className="hub-hero__copy">
-          <p className="eyebrow">Moment Booth &amp; MomentFrame</p>
-          <h1 id="hub-hero-title">Create moments worth keeping.</h1>
-          <p>
-            From the first pose to the wall you come home to, we help you
-            capture, print and display the moments that matter.
-          </p>
-        </div>
-        <div className="hub-hero__cards" aria-label="Our memory products">
-          <Link
-            className="hub-service-card hub-service-card--photobooth"
-            href="/photobooth"
-          >
-            <Image
-              className="hub-service-card__image"
-              src="/home-products/photo-booth.png"
-              alt="Photo Booth at a wedding with props and instant prints"
-              width={1254}
-              height={1254}
-            />
-            <strong>Photo Booth</strong>
-            <small>Capture joyful moments, print them instantly.</small>
-          </Link>
-          <a
-            className="hub-service-card hub-service-card--frames"
-            href="/photo-frames"
-          >
-            <Image
-              className="hub-service-card__image"
-              src="/home-products/photo-frame.png"
-              alt="Wedding photo frames displayed as a keepsake collection"
-              width={1254}
-              height={1254}
-            />
-            <strong>Photo Frames</strong>
-            <small>
-              Turn your favourite wedding photos into elegant keepsakes.
-            </small>
-          </a>
-          <Link
-            className="hub-service-card hub-service-card--signature"
-            href="/signature-photo-gallery"
-          >
-            <Image
-              className="hub-service-card__image"
-              src="/home-products/wedding-signature-gallery.png"
-              alt="Wedding signature photo gallery display"
-              width={1268}
-              height={1240}
-            />
-            <strong>Signature Photo Gallery</strong>
-            <small>
-              A beautiful display for guests to sign and share their wishes.
-            </small>
-          </Link>
-          <Link
-            className="hub-service-card hub-service-card--packages"
-            href="/wedding-essential-packages"
-          >
-            <Image
-              className="hub-service-card__image"
-              src="/home-products/wedding-essential-packages.png"
-              alt="Wedding Essential Packages combining Photo Booth, Photo Frames and Signature Gallery"
-              width={1254}
-              height={1254}
-            />
-            <strong>Wedding Essential Packages</strong>
-            <small>
-              Bring every part of your wedding memory experience together.
-            </small>
-          </Link>
-        </div>
-      </section>
+      <HomeBanner />
       <section
         className="hub-section hub-photobooth-preview"
         aria-labelledby="hub-photobooth-title"
@@ -199,17 +127,22 @@ export default function HomePage() {
         <div>
           <p className="eyebrow">Signature Photo Gallery</p>
           <h2 id="hub-signature-title">
-            A signature gallery for everyone who shared the day.
+            Make your wedding memories part of the décor.
           </h2>
           <p>
-            We are preparing a wedding photo gallery experience for guest
-            signatures, messages and photos. Tell us what you would like to see
-            first.
+            A styled three-panel display with high-definition prints, floral
+            hedges and space for your guests to leave messages around the
+            moments you want to remember.
           </p>
-          <Link className="hub-text-link" href="/#contact">
-            Ask about the new gallery ↗
+          <p className="hub-section__supporting-copy">
+            Delivery, setup and teardown are included, with complimentary
+            layout design and photo sizing to match each panel.
+          </p>
+          <Link className="hub-text-link" href="/signature-photo-gallery">
+            Explore Signature Photo Gallery ↗
           </Link>
         </div>
+        <Image className="hub-feature-image" src="/signature-products/1 - Signature Photo Gallery/A1.png" alt="Signature Photo Gallery wedding display" width={1200} height={900} />
       </section>
       <section
         className="hub-section hub-packages"
@@ -220,11 +153,10 @@ export default function HomePage() {
           <h2 id="hub-packages-title">
             One celebration. More ways to remember it.
           </h2>
-          <p>
-            Combine a photobooth, framed prints, keepsakes and our future
-            wedding signature gallery into a package that fits your event.
-          </p>
+          <p>Bring Photo Booth, Photo Frames and Signature Photo Gallery together in one coordinated wedding experience.</p>
+          <p className="hub-section__supporting-copy">Choose the combination that fits your celebration, guest count, venue and preferred styling.</p>
         </div>
+        <Image className="hub-feature-image" src="/home-products/wedding-essential-packages.png" alt="Wedding Essential Packages display" width={1254} height={1254} />
         <Link
           className="hub-button hub-button--primary"
           href="/wedding-essential-packages"
