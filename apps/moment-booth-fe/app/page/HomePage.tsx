@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import SiteFooter from "../layout/SiteFooter";
 import SiteHeader from "../layout/SiteHeader";
 import HomePhotoCarousel from "../component/HomePhotoCarousel";
@@ -32,9 +31,9 @@ export default function HomePage() {
             guest involved from the first pose to the final print.
           </p>
           <div className="hub-section__actions">
-            <Link className="hub-text-link" href="/photobooth" prefetch={false}>
+            <a className="hub-text-link" href="/photobooth">
               View photobooth gallery and packages ↗
-            </Link>
+            </a>
           </div>
         </div>
         <div className="hub-media-carousel" aria-label="Photo Booth highlights">
@@ -102,9 +101,9 @@ export default function HomePage() {
             cohesive display. Our high-definition prints deliver rich colour
             and detail—loved by couples and families alike.
           </p>
-          <Link className="hub-text-link" href="/photo-frames" prefetch={false}>
+          <a className="hub-text-link" href="/photo-frames">
             View photo frame packages ↗
-          </Link>
+          </a>
         </div>
         <div className="hub-wall-gallery__track">
           {wallGallerySets.map((src) => (
@@ -138,9 +137,9 @@ export default function HomePage() {
             Delivery, setup and teardown are included, with complimentary
             layout design and photo sizing to match each panel.
           </p>
-          <Link className="hub-text-link" href="/signature-photo-gallery" prefetch={false}>
+          <a className="hub-text-link" href="/signature-photo-gallery">
             Explore Signature Photo Gallery ↗
-          </Link>
+          </a>
         </div>
         <Image className="hub-feature-image" src="/signature-products/1 - Signature Photo Gallery/A1.png" alt="Signature Photo Gallery wedding display" width={1200} height={900} />
       </section>
@@ -156,9 +155,9 @@ export default function HomePage() {
           </h2>
           <p>Bring Photo Booth, Photo Frames and Signature Photo Gallery together in one coordinated wedding experience.</p>
           <p className="hub-section__supporting-copy">Choose the combination that fits your celebration, guest count, venue and preferred styling.</p>
-          <Link className="hub-text-link" href="/wedding-essential-packages" prefetch={false}>
+          <a className="hub-text-link" href="/wedding-essential-packages">
             Explore Wedding Essential Packages ↗
-          </Link>
+          </a>
         </div>
       </section>
       <SiteFooter />

@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 
 const cards = [
   ["/home-products/photo-booth.png", "Photo Booth", "Capture joyful moments, print them instantly.", "/photobooth"],
@@ -18,11 +17,11 @@ export default function HomeBanner() {
       </div>
       <div className="hub-hero__cards" aria-label="Our memory products">
         {cards.map(([src, title, description, href]) => (
-          <Link className="hub-service-card" href={href} prefetch={false} key={href}>
+          <a className="hub-service-card" href={href} key={href}>
             <Image className="hub-service-card__image" src={src} alt={title} width={1254} height={1254} />
             <strong>{title}</strong>
             <small>{description}</small>
-          </Link>
+          </a>
         ))}
       </div>
     </section>

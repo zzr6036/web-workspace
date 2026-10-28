@@ -1,7 +1,8 @@
 "use client";
 
+/* eslint-disable @next/next/no-html-link-for-pages -- Vinext client transitions are unavailable in the deployed runtime. */
+
 import Image from "next/image";
-import Link from "next/link";
 import { Menu, MessageCircle, X } from "lucide-react";
 import { useState } from "react";
 import { whatsappHref } from "../lib/contact";
@@ -14,7 +15,7 @@ export default function SiteHeader() {
 
   return (
     <header className={`site-header${menuOpen ? " is-menu-open" : ""}`}>
-      <Link className="header-logo" href="/" prefetch={false} aria-label="Moment Booth home">
+      <a className="header-logo" href="/" aria-label="Moment Booth home">
         <Image
           src="/moment-booth-logo.png"
           alt="Moment Booth logo"
@@ -22,14 +23,14 @@ export default function SiteHeader() {
           height={1536}
           priority
         />
-      </Link>
+      </a>
       <nav aria-label="Main navigation">
-        <Link href="/" prefetch={false} onClick={closeMenu}>Home</Link>
-        <Link href="/photobooth" prefetch={false} onClick={closeMenu}>Photo Booth</Link>
-        <Link href="/photo-frames" prefetch={false} onClick={closeMenu}>Photo Frames</Link>
-        <Link href="/signature-photo-gallery" prefetch={false} onClick={closeMenu}>Signature Photo Gallery</Link>
-        <Link href="/wedding-essential-packages" prefetch={false} onClick={closeMenu}>Wedding Essential Packages</Link>
-        <Link href="/faq" prefetch={false} onClick={closeMenu}>FAQ</Link>
+        <a href="/" onClick={closeMenu}>Home</a>
+        <a href="/photobooth" onClick={closeMenu}>Photo Booth</a>
+        <a href="/photo-frames" onClick={closeMenu}>Photo Frames</a>
+        <a href="/signature-photo-gallery" onClick={closeMenu}>Signature Photo Gallery</a>
+        <a href="/wedding-essential-packages" onClick={closeMenu}>Wedding Essential Packages</a>
+        <a href="/faq" onClick={closeMenu}>FAQ</a>
       </nav>
       <TrackedWhatsAppLink
         location="header"
@@ -52,12 +53,12 @@ export default function SiteHeader() {
         {menuOpen ? <X size={22} aria-hidden="true" /> : <Menu size={22} aria-hidden="true" />}
       </button>
       <div id="mobile-navigation" className="mobile-navigation" aria-hidden={!menuOpen}>
-        <Link href="/" prefetch={false} onClick={closeMenu}>Home</Link>
-        <Link href="/photobooth" prefetch={false} onClick={closeMenu}>Photo Booth</Link>
-        <Link href="/photo-frames" prefetch={false} onClick={closeMenu}>Photo Frames</Link>
-        <Link href="/signature-photo-gallery" prefetch={false} onClick={closeMenu}>Signature Photo Gallery</Link>
-        <Link href="/wedding-essential-packages" prefetch={false} onClick={closeMenu}>Wedding Essential Packages</Link>
-        <Link href="/faq" prefetch={false} onClick={closeMenu}>FAQ</Link>
+        <a href="/" onClick={closeMenu}>Home</a>
+        <a href="/photobooth" onClick={closeMenu}>Photo Booth</a>
+        <a href="/photo-frames" onClick={closeMenu}>Photo Frames</a>
+        <a href="/signature-photo-gallery" onClick={closeMenu}>Signature Photo Gallery</a>
+        <a href="/wedding-essential-packages" onClick={closeMenu}>Wedding Essential Packages</a>
+        <a href="/faq" onClick={closeMenu}>FAQ</a>
         <TrackedWhatsAppLink
           location="header"
           className="mobile-navigation__cta"

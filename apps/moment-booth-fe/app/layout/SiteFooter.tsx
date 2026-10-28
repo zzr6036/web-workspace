@@ -1,15 +1,16 @@
+/* eslint-disable @next/next/no-html-link-for-pages -- Vinext client transitions are unavailable in the deployed runtime. */
+
 import Image from 'next/image';
-import Link from 'next/link';
 import { whatsappHref } from '../lib/contact';
 import { TrackedWhatsAppLink } from '../component/TrackedWhatsApp';
 
 export default function SiteFooter() {
   return (
     <footer>
-      <Link className="wordmark wordmark--footer" href="/" prefetch={false}>
+      <a className="wordmark wordmark--footer" href="/">
         <Image className="footer-logo" src="/moment-booth-logo.png" alt="Moment Booth logo" width={1536} height={1536} priority />
         <span>Moment Booth</span>
-      </Link>
+      </a>
       <p>Capture Every Smile. Print Every Memory.</p>
       <div>
         <a href="/photobooth">Photo Booth</a>
