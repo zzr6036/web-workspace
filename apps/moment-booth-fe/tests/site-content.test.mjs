@@ -175,6 +175,7 @@ test('uses the original four curated photo frame set assets', async () => {
   assert.match(photoFramePackages, /A4 replaces the 12.*option for/);
   assert.match(photoFramePackages, /Warm Walnut/);
   assert.match(photoFramePackages, /https:\/\/www\.momentframesg\.com\/shop/);
+  assert.match(photoFramePackages, /MomentFrame website ↗/);
 });
 
 

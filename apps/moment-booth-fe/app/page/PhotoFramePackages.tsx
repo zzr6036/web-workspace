@@ -192,9 +192,13 @@ export default function PhotoFramePackages() {
             </button>
           ))}
         </div>
-        <a className="frame-package-shop-note" href="https://www.momentframesg.com/shop" target="_blank" rel="noreferrer">
-          Need more frames or different sizes? Visit our MomentFrame website to explore more styles and options ↗
-        </a>
+        <p className="frame-package-shop-note">
+          Need more frames or different sizes? Visit our{" "}
+          <a href="https://www.momentframesg.com/shop" target="_blank" rel="noreferrer">
+            MomentFrame website ↗
+          </a>{" "}
+          to explore more styles and options.
+        </p>
       </section>
 
       <section
