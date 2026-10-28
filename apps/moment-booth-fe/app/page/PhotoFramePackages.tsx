@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useMemo, useState } from "react";
 import { whatsappHref } from "../lib/contact";
 import PhotoFrameProductDetails from "./PhotoFrameProductDetails";
+import { packagePricing } from "./frame-package-pricing.generated";
 
 const wallGallerySets = [
   [
@@ -124,6 +125,7 @@ export default function PhotoFramePackages() {
     materials.findIndex(([name]) => name === selectedMaterial) < 5
       ? pvcDescription
       : woodDescription;
+  const activePricing = packagePricing[activePackage.id][selectedMaterial];
   const enquiryHref = `${whatsappHref}%20I%27m%20interested%20in%20the%20${encodeURIComponent(activePackage.name)}%20with%20${encodeURIComponent(selectedMaterial)}.`;
 
   return (
@@ -245,9 +247,9 @@ export default function PhotoFramePackages() {
             </p>
             <div className="frame-material-selection__price">
               <span>
-                <s>{activePackage.original}</s> original
+                <s>${activePricing.original}</s> original
               </span>
-              <strong>{activePackage.price}</strong>
+              <strong>${activePricing.price}</strong>
               <small>{activePackage.name}</small>
             </div>
             <a

@@ -14,6 +14,7 @@
     "test": "node --test tests/*.test.mjs",
     "dev:cloudflare": "vinext dev",
     "start:production": "vinext start"
+    ,"sync:frame-pricing": "node scripts/sync-frame-package-pricing.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
