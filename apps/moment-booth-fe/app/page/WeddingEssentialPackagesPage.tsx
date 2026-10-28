@@ -9,7 +9,10 @@ import { whatsappHref } from "../lib/contact";
 const packages = [
   {
     name: "Photo Booth + Photo Frame",
-    titleLines: ["Photo Booth", "10 Photo Frame Package"],
+    titleLines: [
+      "Photo Booth - 2 Hour Package",
+      "Photo Frame - 10 Piece Package",
+    ],
     hasFrames: true,
     eyebrow: "Interactive keepsakes",
     image: "/home-products/photo-booth.png",
@@ -25,9 +28,11 @@ const packages = [
       { key: "wooden", name: "Black Walnut", price: 220 },
     ],
     boothPrice: 388,
+    packagePrices: { pvc: 460, wooden: 548 },
   },
   {
     name: "Photo Booth + Signature Photo Gallery",
+    titleLines: ["Photo Booth - 2 Hour Package", "Signature Photo Gallery"],
     eyebrow: "Experience + statement display",
     image: "/home-products/wedding-signature-gallery.png",
     description:
@@ -41,9 +46,11 @@ const packages = [
     framePrices: [],
     boothPrice: 388,
     galleryPrice: 488,
+    packagePrices: { pvc: 788, wooden: 788 },
   },
   {
     name: "Photo Frame + Signature Photo Gallery",
+    titleLines: ["Photo Frame - 10 Piece Package", "Signature Photo Gallery"],
     eyebrow: "Coordinated display",
     image: "/home-products/photo-frame.png",
     hasFrames: true,
@@ -60,9 +67,15 @@ const packages = [
       { key: "wooden", name: "Black Walnut", price: 220 },
     ],
     galleryPrice: 488,
+    packagePrices: { pvc: 550, wooden: 637 },
   },
   {
     name: "Photo Booth + Photo Frame + Signature Photo Gallery",
+    titleLines: [
+      "Photo Booth - 2 Hour Package",
+      "Photo Frame - 10 Piece Package",
+      "Signature Photo Gallery",
+    ],
     eyebrow: "Most complete",
     image: "/home-products/wedding-essential-packages.png",
     description:
@@ -79,6 +92,7 @@ const packages = [
     ],
     boothPrice: 388,
     galleryPrice: 488,
+    packagePrices: { pvc: 899, wooden: 986 },
     featured: true,
     hasFrames: true,
   },
@@ -196,6 +210,7 @@ export default function WeddingEssentialPackagesPage() {
                   <select
                     id={`frame-type-${item.name}`}
                     value={frameTypes[item.name]}
+                    disabled={item.name === "Photo Booth + Signature Photo Gallery"}
                     onChange={(event) =>
                       setFrameTypes((current) => ({
                         ...current,
@@ -206,6 +221,11 @@ export default function WeddingEssentialPackagesPage() {
                     <option>Frameless Rounded Corner</option>
                     <option>Black Walnut</option>
                   </select>
+                  {item.name === "Photo Booth + Signature Photo Gallery" && (
+                    <s className="essential-package-card__selector-note">
+                      Frameless Rounded Corner or Black Walnut
+                    </s>
+                  )}
                 </div>
                 <div className="essential-package-card__price">
                   {(() => {
@@ -216,16 +236,15 @@ export default function WeddingEssentialPackagesPage() {
                       (selectedFrame?.price ?? 0) +
                       (item.boothPrice ?? 0) +
                       (item.galleryPrice ?? 0);
-                    const packagePrice = Math.round(originalPrice * 0.9 * 100) / 100;
+                    const packageKey =
+                      frameTypes[item.name] === "Black Walnut" ? "wooden" : "pvc";
+                    const packagePrice = item.packagePrices?.[packageKey] ?? Math.round(originalPrice * 0.9 * 100) / 100;
                     return (
                       <>
                         <s>Original price · {formatPrice(originalPrice)}</s>
-                        <small>
-                          {item.hasFrames
-                            ? `10 Photo Frame Package · ${frameTypes[item.name]}`
-                            : "Photo Booth + Signature Photo Gallery"}
-                        </small>
-                        <strong>Package price · {formatPrice(packagePrice)}</strong>
+                        <strong>
+                          Package price · {formatPrice(packagePrice)}
+                        </strong>
                       </>
                     );
                   })()}

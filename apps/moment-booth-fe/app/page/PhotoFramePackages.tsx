@@ -117,6 +117,11 @@ const pvcDescription =
 const woodDescription =
   "Photo and frame are supplied separately. Each frame includes a removable white border that can be used or left off for a different look.";
 const formatPrice = (value: number) => `$${value.toFixed(2)}`;
+const packageSkuPrefixes = {
+  six: "6-piece-package",
+  eight: "8-piece-package",
+  ten: "10-piece-package",
+} as const;
 
 export default function PhotoFramePackages() {
   const [selectedPackage, setSelectedPackage] = useState(packages[2].id);
@@ -127,12 +132,14 @@ export default function PhotoFramePackages() {
   );
   const activeMaterial =
     materials.find(([name]) => name === selectedMaterial) ?? materials[0];
-  const activeSku = `${activePackage.id}-${activeMaterial[2]}`;
+  const activeSku = `${packageSkuPrefixes[activePackage.id]}-${activeMaterial[2]}`;
   const activeDescription =
     materials.findIndex(([name]) => name === selectedMaterial) < 5
       ? pvcDescription
       : woodDescription;
-  const activePricing = packagePricing[activePackage.id][activeSku];
+  const activePricing =
+    packagePricing[activePackage.id][activeSku] ??
+    Object.values(packagePricing[activePackage.id])[0];
   const enquiryHref = `${whatsappHref}%20I%27m%20interested%20in%20the%20${encodeURIComponent(activePackage.name)}%20with%20${encodeURIComponent(selectedMaterial)}.`;
 
   return (

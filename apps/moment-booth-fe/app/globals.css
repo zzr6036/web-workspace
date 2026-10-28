@@ -241,6 +241,8 @@ a {
 .essential-package-card__selector { display: grid; gap: 6px; height: 66px; margin-top: 20px; }
 .essential-package-card__selector label { color: var(--navy); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; }
 .essential-package-card__selector select { width: 100%; padding: 11px 12px; border: 1px solid var(--line); border-radius: 10px; background: #fff; color: var(--navy); font: inherit; font-size: 13px; }
+.essential-package-card__selector select:disabled { color: var(--muted); background: #f4f2f8; cursor: not-allowed; }
+.essential-package-card__selector-note { color: var(--muted); font-size: 12px; }
 .essential-package-card__price { display: grid; gap: 6px; height: 86px; margin-top: 22px; padding-top: 0; text-align: right; }
 .essential-package-card__price s, .essential-package-card__price small { color: var(--muted); font-size: 12px; }
 .essential-package-card__price span { color: var(--muted); font-size: 12px; }

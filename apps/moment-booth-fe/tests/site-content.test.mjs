@@ -467,6 +467,9 @@ test('publishes the wedding essential package combinations', () => {
   assert.match(page, /essential-package-card__selector/);
   assert.match(page, /value=\{frameTypes\[item\.name\]\}/);
   assert.match(page, /essential-package-card__includes/);
+  assert.match(page, /packagePrices:/);
+  assert.match(page, /packagePrices\?\.\[packageKey\]/);
+  assert.match(page, /disabled=\{item\.name === "Photo Booth \+ Signature Photo Gallery"\}/);
   assert.match(styles, /\.essential-package-card__includes \{ height: 148px/);
   assert.match(styles, /\.essential-package-card__selector \{ display: grid/);
   assert.match(styles, /\.essential-package-card__price \{ display: grid/);
