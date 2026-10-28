@@ -3,7 +3,6 @@ import {
   SectionHeading,
   type CarouselMedia,
 } from "elij-ui-library";
-import HeroBenefitsSection from "./HeroBenefitsSection";
 type GalleryCase = {
   title: string;
   description: string;
@@ -82,7 +81,6 @@ const galleryCases: GalleryCase[] = [
 export default function GallerySection() {
   return (
     <section className="section gallery-section" id="gallery">
-      <HeroBenefitsSection />
       <SectionHeading
         className="section-heading"
         eyebrow="Selected moments"

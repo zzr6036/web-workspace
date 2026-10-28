@@ -24,25 +24,6 @@ const bagSlides: ProductSlide[] = [
   { label: "Pastel Celebration", image: "/products/bags/22.png" },
 ];
 
-const cardSlides: ProductSlide[] = [
-  ["Heart Frame", "01"],
-  ["Floral Thank You", "02"],
-  ["Garden Love", "03"],
-  ["Blush Petals", "04"],
-  ["Modern Monogram", "05"],
-  ["Sweet Celebration", "06"],
-  ["Classic Keepsake", "07"],
-  ["Pastel Moments", "08"],
-  ["Botanical Note", "09"],
-  ["Wedding Bloom", "10"],
-  ["Joyful Confetti", "11"],
-  ["Timeless Thank You", "12"],
-].map(([label, number]) => ({
-  label,
-  blank: `/products/cards/${number}-blank.png`,
-  photo: `/products/cards/${number}-photo.png`,
-}));
-
 const albumVideoSlides: ProductSlide[] = [
   { label: "Wedding album video", video: "/products/photoframe/video.mp4" },
 ];
@@ -230,10 +211,44 @@ function DecorationCardCarousel({ slide }: { slide: ProductSlide }) {
   );
 }
 
-const bagPricing = [
-  "2-hour event - $38 for unlimited use",
-  "3-hour event - $48 for unlimited use",
-];
+export function PhotoBagSection() {
+  return (
+    <section className="section photo-bag-section" id="photo-bags">
+      <SectionHeading
+        className="section-heading"
+        eyebrow="Included keepsake"
+        title="Photo Print Bags"
+        description="Give guests a thoughtful way to carry their instant prints home. Choose from our available styles and confirm your preferred design before the event."
+      />
+      <article
+        className="add-on-product-card"
+        aria-label="Photobooth photo bags"
+      >
+        <span className="add-on-product-card__eyebrow">
+          Included with every package
+        </span>
+        <div className="add-on-product-card__title-row">
+          <h3>Photo Print Bags</h3>
+        </div>
+        <p className="add-on-product-card__subtitle">
+          Suitable for 4 × 6 in photos, including 1-photo, 2-photo, and 6-photo
+          layouts.
+        </p>
+        <div className="add-on-product-card__info">
+          <Paragraph>
+            Choose from our available bag styles for guests to carry their
+            prints home.
+          </Paragraph>
+          <p className="add-on-product-card__notice add-on-product-card__notice--soft">
+            Please confirm your preferred style at least 1 month before your
+            event so we can prepare and print it in advance.
+          </p>
+        </div>
+        <ProductCarousel slides={bagSlides} kind="bags" />
+      </article>
+    </section>
+  );
+}
 
 export default function AddOnProductsSection() {
   return (
@@ -245,68 +260,6 @@ export default function AddOnProductsSection() {
         description="Choose from our photo bags, decoration cards, and wedding albums to make printed memories easier to share and keep."
       />
       <div className="add-on-products-grid">
-        <article
-          className="add-on-product-card"
-          aria-label="Photobooth photo bags"
-        >
-          <span className="add-on-product-card__eyebrow">Keepsake extra</span>
-          <div className="add-on-product-card__title-row">
-            <h3>Photo Print Bags</h3>
-            <strong>From $38</strong>
-          </div>
-          <p className="add-on-product-card__subtitle">
-            Suitable for 4 × 6 in photos, including 1-photo, 2-photo, and
-            6-photo layouts.
-          </p>
-          <div className="add-on-product-card__info">
-            <Paragraph>
-              Choose from our available bag styles for guests to carry their
-              prints home.
-            </Paragraph>
-            <ul className="add-on-product-card__pricing">
-              {bagPricing.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-            <p className="add-on-product-card__notice add-on-product-card__notice--soft">
-              Please confirm your preferred style at least 2-3 weeks before your
-              event so we can prepare and print it in advance.
-            </p>
-          </div>
-          <ProductCarousel slides={bagSlides} kind="bags" />
-        </article>
-
-        {/* <article
-          className="add-on-product-card"
-          aria-label="Photobooth photo decoration cards"
-        >
-          <span className="add-on-product-card__eyebrow">Keepsake extra</span>
-          <div className="add-on-product-card__title-row">
-            <h3>Photo Keepsake Cards</h3>
-            <strong>From $38</strong>
-          </div>
-          <p className="add-on-product-card__subtitle">
-            Suitable for 4 × 6 in photos, including 1-photo, 2-photo, and
-            6-photo layouts.
-          </p>
-          <div className="add-on-product-card__info">
-            <ul className="add-on-product-card__pricing">
-              {bagPricing.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-            <Paragraph>
-              Browse our styles with and without a photo to find the look that
-              suits your event.
-            </Paragraph>
-            <p className="add-on-product-card__notice add-on-product-card__notice--soft">
-              Please confirm your preferred style at least 2-3 weeks before your
-              event so we can prepare and print it in advance.
-            </p>
-          </div>
-          <ProductCarousel slides={cardSlides} kind="cards" />
-        </article> */}
-
         <article
           className="add-on-product-card add-on-product-card--album"
           aria-label="Wedding photobooth album"

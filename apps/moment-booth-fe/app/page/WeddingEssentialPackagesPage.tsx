@@ -123,27 +123,32 @@ export default function WeddingEssentialPackagesPage() {
             Combine Photo Booth, Photo Frames and Signature Photo Gallery
             services into one coordinated wedding experience.
           </p>
-          <div className="hub-hero__actions">
-            <a
-              className="hub-button hub-button--primary"
-              href="#package-options"
-            >
-              Compare packages ↓
-            </a>
-            <a
-              className="hub-button hub-button--secondary"
-              href={enquiryHref}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Enquire on WhatsApp ↗
-            </a>
-          </div>
         </div>
-        <div className="essential-hero__panels" aria-label="Wedding package highlights">
-          <Image src="/home-products/wedding-essential-panel-booth.png" alt="Photo Booth wedding package" width={416} height={882} priority />
-          <Image src="/home-products/wedding-essential-panel-frames.png" alt="Photo Frame wedding package" width={420} height={882} priority />
-          <Image src="/home-products/wedding-essential-panel-gallery.png" alt="Signature Photo Gallery wedding package" width={418} height={882} priority />
+        <div
+          className="essential-hero__panels"
+          aria-label="Wedding package highlights"
+        >
+          <Image
+            src="/home-products/wedding-essential-panel-booth.png"
+            alt="Photo Booth wedding package"
+            width={416}
+            height={882}
+            priority
+          />
+          <Image
+            src="/home-products/wedding-essential-panel-frames.png"
+            alt="Photo Frame wedding package"
+            width={420}
+            height={882}
+            priority
+          />
+          <Image
+            src="/home-products/wedding-essential-panel-gallery.png"
+            alt="Signature Photo Gallery wedding package"
+            width={418}
+            height={882}
+            priority
+          />
         </div>
       </section>
 

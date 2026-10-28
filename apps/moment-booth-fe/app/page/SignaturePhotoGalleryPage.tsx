@@ -75,9 +75,19 @@ export default function SignaturePhotoGalleryPage() {
         <div className="signature-hero-banner">
           <div className="signature-hero-banner__copy">
             <strong>Make your wedding memories part of the décor.</strong>
-            <span>Gold frame panels, floral styling and beautifully printed photos for your guests to enjoy and remember.</span>
+            <span>
+              Gold frame panels, floral styling and beautifully printed photos
+              for your guests to enjoy and remember.
+            </span>
             <small>Delivery, setup and teardown included.</small>
-            <a className="hub-button hub-button--primary" href={signatureEnquiryHref} target="_blank" rel="noreferrer">Enquire ↗</a>
+            <a
+              className="hub-button hub-button--primary"
+              href={signatureEnquiryHref}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Enquire ↗
+            </a>
           </div>
         </div>
       </section>
@@ -129,8 +139,8 @@ export default function SignaturePhotoGalleryPage() {
           <h3>Package includes</h3>
           <ul>
             <li>
-              Three gold frame panels: one 1.8 m × 0.8 m centre panel and two
-              1.5 m × 0.5 m side panels
+              Four gold frame panels: two 1.6 m × 0.8 m panel, one 1.8 m × 0.8 m
+              panel, and one 2 m × 1.5 m panel
             </li>
             <li>
               High-definition prints on foam board or canvas, with no surcharge
@@ -212,13 +222,13 @@ export default function SignaturePhotoGalleryPage() {
           </p>
           <h3>Package options</h3>
           <ul>
-            <li>3 panels — $628</li>
-            <li>4 panels — $728</li>
+            <li>4 panels — $628</li>
+            <li>5 panels — $728</li>
             <li>6 panels — $928</li>
           </ul>
           <h3>Includes</h3>
           <ul>
-            <li>Three 1.8 m-high gallery panels</li>
+            <li>Four 1.8 m-high gallery panels</li>
             <li>Photo prints for each panel</li>
             <li>Floral hedges for every panel</li>
             <li>One spotlight per panel</li>

@@ -21,8 +21,19 @@ export default function PhotoFramesPage() {
             sets for weddings, families, celebrations and everyday memories.
           </p>
           <div className="hub-hero__actions">
-            <a className="hub-button hub-button--primary" href={frameEnquiryHref} target="_blank" rel="noreferrer">
-              <Image src="/icons/whatsapp.png" alt="" width={20} height={20} aria-hidden="true" />
+            <a
+              className="hub-button hub-button--primary"
+              href={frameEnquiryHref}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Image
+                src="/icons/whatsapp.png"
+                alt=""
+                width={20}
+                height={20}
+                aria-hidden="true"
+              />
               Ask about a frame
             </a>
           </div>
