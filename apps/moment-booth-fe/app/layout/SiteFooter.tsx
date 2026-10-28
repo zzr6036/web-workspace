@@ -1,20 +1,23 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { whatsappHref } from '../lib/contact';
 import { TrackedWhatsAppLink } from '../component/TrackedWhatsApp';
 
 export default function SiteFooter() {
   return (
     <footer>
-      <a className="wordmark wordmark--footer" href="/">
+      <Link className="wordmark wordmark--footer" href="/">
         <Image className="footer-logo" src="/moment-booth-logo.png" alt="Moment Booth logo" width={1536} height={1536} priority />
         <span>Moment Booth</span>
-      </a>
+      </Link>
       <p>Capture Every Smile. Print Every Memory.</p>
       <div>
-        <a href="/#gallery">Gallery</a>
-        <a href="/packages">Packages</a>
+        <a href="/photobooth">Photo Booth</a>
+        <a href="/photo-frames">Photo Frames</a>
+        <a href="/signature-photo-gallery">Signature Gallery</a>
+        <a href="/wedding-essential-packages">Wedding Packages</a>
         <a href="/faq">FAQ</a>
-        <TrackedWhatsAppLink location="footer" href={whatsappHref} target="_blank" rel="noreferrer"><span className="whatsapp-icon" aria-hidden="true">◉</span> WhatsApp</TrackedWhatsAppLink>
+        <TrackedWhatsAppLink location="footer" href={whatsappHref} target="_blank" rel="noreferrer"><Image className="whatsapp-icon" src="/icons/whatsapp.png" alt="" width={16} height={16} aria-hidden="true" /> WhatsApp</TrackedWhatsAppLink>
       </div>
       <small>© {new Date().getFullYear()} Moment Booth · Singapore</small>
     </footer>

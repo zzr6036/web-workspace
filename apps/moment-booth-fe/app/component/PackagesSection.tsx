@@ -101,9 +101,6 @@ export default function PackagesSection() {
         title="Simple, transparent pricing."
         description="No minimum booking hours, no hidden charges, and free setup and teardown."
       />
-      <p className="packages-overtime-note">
-        Additional hours: <strong>$200/hour</strong>, subject to crew and equipment availability.
-      </p>
       <div className="packages-grid">
         {packages.map((item) => (
           <Card
@@ -157,6 +154,9 @@ export default function PackagesSection() {
           </Card>
         ))}
       </div>
+      <p className="packages-overtime-note">
+        Additional hours: $200/hour, subject to crew and equipment availability.
+      </p>
     </section>
   );
 }
