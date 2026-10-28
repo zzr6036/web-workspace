@@ -163,6 +163,7 @@ test('uses the original four curated photo frame set assets', async () => {
   assert.doesNotMatch(photoFramesPage, /size-guide/);
 });
 
+
 test('preserves the Moment Booth brand and page sections', () => {
   assert.match(siteSource, /Moment Booth/);
   assert.match(siteSource, /Capture Every Smile/);
@@ -439,4 +440,22 @@ test('tracks production WhatsApp conversion locations', () => {
   for (const location of ['header', 'hero', 'contact', 'floating', 'footer']) {
     assert.ok(trackingSource.includes('location="' + location + '"'));
   }
+});
+
+test('publishes the wedding essential package combinations', () => {
+  const page = await readAppFile('page/WeddingEssentialPackagesPage.tsx');
+  for (const packageName of [
+    'Photo Booth + Photo Frame',
+    'Photo Booth + Signature Photo Gallery',
+    'Photo Frame + Signature Photo Gallery',
+    'Photo Booth + Photo Frame + Signature Photo Gallery',
+  ]) {
+    assert.match(page, new RegExp(packageName.replaceAll('+', '\\+')));
+  }
+  assert.match(page, /id="package-options"/);
+  assert.match(page, /essential-comparison/);
+  assert.match(page, /essential-how/);
+  assert.match(page, /Original package price/);
+  assert.match(page, /Final pricing confirmed after enquiry/);
+  assert.match(page, /home-products\/wedding-essential-packages\.png/);
 });
