@@ -31,6 +31,8 @@ test('presents photo frame packages in the approved purchase flow', async () => 
   assert.match(framesPage, /Ask about a frame/);
   for (const asset of ['1-Frameless Rounded Corner', '2-White Rounded Border', '3-Silver Rounded Border', '5-Gold Square Corner', '9-Black Walnut']) assert.match(homePage, new RegExp(`/frame-products/${asset}/combine\\.png`));
   assert.match(homePage, /Need multiple tabletop frames for your wedding/);
+  assert.match(homePage, /<strong>Signature Photo Gallery<\/strong>/);
+  assert.doesNotMatch(homePage, /<strong>Wedding Signature Gallery<\/strong>/);
   for (const title of ['Product size information', 'High-definition quality', 'Protective film guide', 'Usage guide', 'Print colour guide', 'Photo orientation and selection']) assert.match(productDetails, new RegExp(title));
   assert.match(productDetails, /<details/);
   assert.match(productDetails, /Panel size/);
