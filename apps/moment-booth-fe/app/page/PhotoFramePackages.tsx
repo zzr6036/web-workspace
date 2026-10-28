@@ -111,6 +111,7 @@ const pvcDescription =
   "Photo and frame are printed together on premium studio-grade PVC material for a sleek, fashion-forward finish.";
 const woodDescription =
   "Photo and frame are supplied separately. Each frame includes a removable white border that can be used or left off for a different look.";
+const formatPrice = (value: number) => `$${value.toFixed(2)}`;
 
 export default function PhotoFramePackages() {
   const [selectedPackage, setSelectedPackage] = useState(packages[2].id);
@@ -247,9 +248,9 @@ export default function PhotoFramePackages() {
             </p>
             <div className="frame-material-selection__price">
               <span>
-                <s>${activePricing.original}</s> original
+                <s>{formatPrice(activePricing.original)}</s> original
               </span>
-              <strong>${activePricing.price}</strong>
+              <strong>{formatPrice(activePricing.price)}</strong>
               <small>{activePackage.name}</small>
             </div>
             <a

@@ -19,6 +19,8 @@ test('presents photo frame packages in the approved purchase flow', async () => 
   assert.match(page, /activePackage\.name/);
   assert.match(page, /activePricing\.original/);
   assert.match(page, /activePricing\.price/);
+  assert.match(page, /formatPrice\(activePricing\.original\)/);
+  assert.match(page, /value\.toFixed\(2\)/);
   for (const material of ['Frameless Rounded Corner', 'Solid Wood - Warm Walnut', 'Black Walnut']) assert.match(syncedPricing, new RegExp(material));
   for (const packageId of ['six', 'eight', 'ten']) assert.match(syncedPricing, new RegExp(`${packageId}`));
   assert.match(page, /The package includes:/);

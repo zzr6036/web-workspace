@@ -3,7 +3,7 @@ export const packagePricing = {
   "six": {
     "Frameless Rounded Corner": {
       "original": 102,
-      "price": 81.60000000000001,
+      "price": 81.6,
       "sizeNote": "12\" option applies to this frame type."
     },
     "White Rounded Border": {

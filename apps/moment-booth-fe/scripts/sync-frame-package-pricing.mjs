@@ -14,14 +14,15 @@ const packageIds = {
   "8-piece package": "eight",
   "10-piece package": "ten",
 };
+const roundToTwo = (value) => Math.round(Number(value) * 100) / 100;
 
 for (const row of rows) {
   const [packageName, , , , , , , material, , , , , originalPrice, newPackagePrice, sizeNote] = row;
   const packageId = packageIds[packageName];
   if (!packageId || !material) continue;
   packages[packageId][material] = {
-    original: Number(originalPrice),
-    price: Number(newPackagePrice),
+    original: roundToTwo(originalPrice),
+    price: roundToTwo(newPackagePrice),
     sizeNote: String(sizeNote ?? ""),
   };
 }
