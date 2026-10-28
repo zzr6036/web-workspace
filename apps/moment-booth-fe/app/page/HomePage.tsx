@@ -157,10 +157,7 @@ export default function HomePage() {
           <p className="hub-section__supporting-copy">Choose the combination that fits your celebration, guest count, venue and preferred styling.</p>
         </div>
         <Image className="hub-feature-image" src="/home-products/wedding-essential-packages.png" alt="Wedding Essential Packages display" width={1254} height={1254} />
-        <Link
-          className="hub-button hub-button--primary"
-          href="/wedding-essential-packages"
-        >
+        <Link className="hub-text-link" href="/wedding-essential-packages">
           Explore Wedding Essential Packages ↗
         </Link>
       </section>
