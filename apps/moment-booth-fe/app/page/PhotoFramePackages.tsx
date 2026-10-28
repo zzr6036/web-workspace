@@ -77,27 +77,32 @@ const materials = [
   [
     "Frameless Rounded Corner",
     "/frame-products/1-Frameless Rounded Corner/combine.png",
+    "frameless-rounded-corner",
   ],
   [
     "White Rounded Border",
     "/frame-products/2-White Rounded Border/combine.png",
+    "white-rounded-border",
   ],
   [
     "Silver Rounded Border",
     "/frame-products/3-Silver Rounded Border/combine.png",
+    "silver-rounded-border",
   ],
   [
     "Black Rounded Border",
     "/frame-products/4-Black Rounded Border/combine.png",
+    "black-rounded-border",
   ],
-  ["Gold Square Corner", "/frame-products/5-Gold Square Corner/combine.png"],
+  ["Gold Square Corner", "/frame-products/5-Gold Square Corner/combine.png", "gold-square-corner"],
   [
     "Solid Wood - Warm Walnut",
     "/frame-products/6-Solid Wood-Warm Walnut/combine.png",
+    "solid-wood-warm-walnut",
   ],
-  ["Fresh Light Wheat", "/frame-products/7-Fresh Light Wheat/combine.png"],
-  ["Roasted Tea", "/frame-products/8-Roasted Tea/combine.png"],
-  ["Black Walnut", "/frame-products/9-Black Walnut/combine.png"],
+  ["Fresh Light Wheat", "/frame-products/7-Fresh Light Wheat/combine.png", "fresh-light-wheat"],
+  ["Roasted Tea", "/frame-products/8-Roasted Tea/combine.png", "roasted-tea"],
+  ["Black Walnut", "/frame-products/9-Black Walnut/combine.png", "black-walnut"],
 ] as const;
 
 const woodenMaterials = new Set([
@@ -122,11 +127,12 @@ export default function PhotoFramePackages() {
   );
   const activeMaterial =
     materials.find(([name]) => name === selectedMaterial) ?? materials[0];
+  const activeSku = `${activePackage.id}-${activeMaterial[2]}`;
   const activeDescription =
     materials.findIndex(([name]) => name === selectedMaterial) < 5
       ? pvcDescription
       : woodDescription;
-  const activePricing = packagePricing[activePackage.id][selectedMaterial];
+  const activePricing = packagePricing[activePackage.id][activeSku];
   const enquiryHref = `${whatsappHref}%20I%27m%20interested%20in%20the%20${encodeURIComponent(activePackage.name)}%20with%20${encodeURIComponent(selectedMaterial)}.`;
 
   return (

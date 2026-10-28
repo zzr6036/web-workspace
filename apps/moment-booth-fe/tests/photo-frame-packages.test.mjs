@@ -8,6 +8,7 @@ const homePage = await readFile(new URL('../app/page/HomePage.tsx', import.meta.
 const productDetails = await readFile(new URL('../app/page/PhotoFrameProductDetails.tsx', import.meta.url), 'utf8');
 const signaturePage = await readFile(new URL('../app/page/SignaturePhotoGalleryPage.tsx', import.meta.url), 'utf8');
 const syncedPricing = await readFile(new URL('../app/page/frame-package-pricing.generated.ts', import.meta.url), 'utf8');
+const syncScript = await readFile(new URL('../scripts/sync-frame-package-pricing.mjs', import.meta.url), 'utf8');
 const styles = await readFile(new URL('../app/page/photo-frame-packages.css', import.meta.url), 'utf8');
 
 test('presents photo frame packages in the approved purchase flow', async () => {
@@ -19,10 +20,15 @@ test('presents photo frame packages in the approved purchase flow', async () => 
   assert.match(page, /activePackage\.name/);
   assert.match(page, /activePricing\.original/);
   assert.match(page, /activePricing\.price/);
+  assert.match(page, /activeSku/);
+  assert.match(page, /packagePricing\[activePackage\.id\]\[activeSku\]/);
   assert.match(page, /formatPrice\(activePricing\.original\)/);
   assert.match(page, /value\.toFixed\(2\)/);
   for (const material of ['Frameless Rounded Corner', 'Solid Wood - Warm Walnut', 'Black Walnut']) assert.match(syncedPricing, new RegExp(material));
   for (const packageId of ['six', 'eight', 'ten']) assert.match(syncedPricing, new RegExp(`${packageId}`));
+  assert.match(syncedPricing, /"sku": "6-piece-package-frameless-rounded-corner"/);
+  assert.match(syncScript, /getRange\("A5:P31"\)/);
+  assert.match(syncScript, /packages\[packageId\]\[sku\]/);
   assert.match(page, /The package includes:/);
   assert.match(page, /pieces of \{size\} frame/);
   assert.match(page, /12&quot; or A4 prints/);

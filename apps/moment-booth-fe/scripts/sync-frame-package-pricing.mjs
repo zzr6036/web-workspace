@@ -7,7 +7,7 @@ const outputPath = new URL("app/page/frame-package-pricing.generated.ts", projec
 
 const workbook = await SpreadsheetFile.importXlsx(await FileBlob.load(decodeURIComponent(workbookPath.pathname)));
 const sheet = workbook.worksheets.getItem("Frame Pricing");
-const rows = sheet.getRange("A5:O31").values;
+const rows = sheet.getRange("A5:P31").values;
 const packages = { six: {}, eight: {}, ten: {} };
 const packageIds = {
   "6-piece package": "six",
@@ -17,10 +17,12 @@ const packageIds = {
 const roundToTwo = (value) => Math.round(Number(value) * 100) / 100;
 
 for (const row of rows) {
-  const [packageName, , , , , , , material, , , , , originalPrice, newPackagePrice, sizeNote] = row;
+  const [packageName, , , , , , , material, , , , , originalPrice, newPackagePrice, sizeNote, sku] = row;
   const packageId = packageIds[packageName];
-  if (!packageId || !material) continue;
-  packages[packageId][material] = {
+  if (!packageId || !material || !sku) continue;
+  packages[packageId][sku] = {
+    sku: String(sku),
+    material: String(material),
     original: roundToTwo(originalPrice),
     price: roundToTwo(newPackagePrice),
     sizeNote: String(sizeNote ?? ""),
