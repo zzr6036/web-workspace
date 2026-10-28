@@ -453,9 +453,11 @@ test('publishes the wedding essential package combinations', () => {
     assert.match(page, new RegExp(packageName.replaceAll('+', '\\+')));
   }
   assert.match(page, /id="package-options"/);
-  assert.match(page, /essential-comparison/);
-  assert.match(page, /essential-how/);
-  assert.match(page, /Original package price/);
-  assert.match(page, /Final pricing confirmed after enquiry/);
+  assert.doesNotMatch(page, /essential-comparison|essential-how|Compare at a glance|How to choose/);
+  assert.doesNotMatch(page, /Final pricing confirmed after enquiry/);
+  assert.match(page, /10 Photo Frame Package/);
+  assert.match(page, /Frameless Rounded Corner · \$154\.00/);
+  assert.match(page, /Black Walnut · \$220\.00/);
+  assert.match(page, /Package price · \$XXX/);
   assert.match(page, /home-products\/wedding-essential-packages\.png/);
 });

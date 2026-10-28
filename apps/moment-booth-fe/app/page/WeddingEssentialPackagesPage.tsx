@@ -6,10 +6,12 @@ import { whatsappHref } from "../lib/contact";
 const packages = [
   {
     name: "Photo Booth + Photo Frame",
+    titleLines: ["Photo Booth", "10 Photo Frame Package"],
     eyebrow: "Interactive keepsakes",
     image: "/home-products/photo-booth.png",
     description: "For celebrations that combine guest interaction with personalised tabletop memories.",
-    includes: ["Photo Booth experience", "Choice of 6, 8 or 10 photo frames", "Choice of 9 frame finishes", "HD printing and preview approval"],
+    includes: ["Photo Booth experience", "10 Photo Frame Package", "Choice of Frameless Rounded Corner or Black Walnut", "HD printing and preview approval"],
+    frameOriginalPrices: ["Frameless Rounded Corner · $154.00", "Black Walnut · $220.00"],
   },
   {
     name: "Photo Booth + Signature Photo Gallery",
@@ -23,25 +25,18 @@ const packages = [
     eyebrow: "Coordinated display",
     image: "/home-products/photo-frame.png",
     description: "For a cohesive photo display across tables, welcome areas and the main venue wall.",
-    includes: ["Choice of 6, 8 or 10 photo frames", "Choice of 9 frame finishes", "Three-panel Signature Photo Gallery", "Complimentary layout design and preview"],
+    includes: ["10 Photo Frame Package", "Choice of Frameless Rounded Corner or Black Walnut", "Three-panel Signature Photo Gallery", "Complimentary layout design and preview"],
+    frameOriginalPrices: ["Frameless Rounded Corner · $154.00", "Black Walnut · $220.00"],
   },
   {
     name: "Photo Booth + Photo Frame + Signature Photo Gallery",
     eyebrow: "Most complete",
     image: "/home-products/wedding-essential-packages.png",
     description: "The complete wedding photo experience, from guest interaction to final display.",
-    includes: ["Full Photo Booth experience", "Personalised Photo Frame package", "Signature Photo Gallery setup", "Coordinated printing, styling and delivery"],
+    includes: ["Full Photo Booth experience", "10 Photo Frame Package", "Choice of Frameless Rounded Corner or Black Walnut", "Signature Photo Gallery setup", "Coordinated printing, styling and delivery"],
+    frameOriginalPrices: ["Frameless Rounded Corner · $154.00", "Black Walnut · $220.00"],
     featured: true,
   },
-];
-
-const comparisonRows = [
-  ["Photo Booth", true, true, false, true],
-  ["Photo Frames", true, false, true, true],
-  ["Signature Photo Gallery", false, true, true, true],
-  ["Nine frame finishes", true, false, true, true],
-  ["Floral styling", false, true, true, true],
-  ["Delivery and setup", true, true, true, true],
 ];
 
 export default function WeddingEssentialPackagesPage() {
@@ -67,15 +62,11 @@ export default function WeddingEssentialPackagesPage() {
             <article className={`essential-package-card${item.featured ? " is-featured" : ""}`} key={item.name}>
               {item.featured && <span className="essential-package-card__badge">Most complete</span>}
               <Image src={item.image} alt="" width={800} height={560} />
-              <div className="essential-package-card__body"><p className="eyebrow">{item.eyebrow}</p><h3>{item.name}</h3><p>{item.description}</p><h4>Includes</h4><ul>{item.includes.map((entry) => <li key={entry}>{entry}</li>)}</ul><div className="essential-package-card__price"><s>Original package price · $XXX</s><strong>Package price · $XXX</strong><small>Final pricing confirmed after enquiry.</small></div><a className="hub-button hub-button--primary" href={enquiryHref} target="_blank" rel="noreferrer">Enquire ↗</a></div>
+              <div className="essential-package-card__body"><p className="eyebrow">{item.eyebrow}</p><h3>{item.titleLines ? item.titleLines.map((line) => <span key={line}>{line}</span>) : item.name}</h3><p>{item.description}</p><h4>Includes</h4><ul>{item.includes.map((entry) => <li key={entry}>{entry}</li>)}</ul><div className="essential-package-card__price">{item.frameOriginalPrices ? <><s>10 Photo Frame Package original price</s>{item.frameOriginalPrices.map((price) => <span key={price}>{price}</span>)}</> : <s>Original package price · $XXX</s>}<strong>Package price · $XXX</strong></div><a className="hub-button hub-button--primary" href={enquiryHref} target="_blank" rel="noreferrer">Enquire ↗</a></div>
             </article>
           ))}
         </div>
       </section>
-
-      <section className="essential-comparison" aria-labelledby="comparison-title"><div className="essential-section-heading"><p className="eyebrow">Compare at a glance</p><h2 id="comparison-title">One page, four ways to celebrate.</h2></div><div className="essential-comparison__table-wrap"><table><thead><tr><th>Included feature</th><th>Booth + Frames</th><th>Booth + Gallery</th><th>Frames + Gallery</th><th>Complete</th></tr></thead><tbody>{comparisonRows.map(([label, ...values]) => <tr key={String(label)}><th>{label}</th>{values.map((included, index) => <td key={`${label}-${index}`}>{included ? "✓" : "—"}</td>)}</tr>)}</tbody></table></div></section>
-
-      <section className="essential-how" aria-labelledby="choose-title"><div className="essential-section-heading"><p className="eyebrow">How to choose</p><h2 id="choose-title">Not sure which package fits?</h2></div><div className="essential-how__grid"><p><strong>Choose Photo Booth + Photo Frame</strong> for guest interaction and personalised keepsakes.</p><p><strong>Choose Photo Booth + Signature Photo Gallery</strong> for a lively experience with a large visual centrepiece.</p><p><strong>Choose Photo Frame + Signature Photo Gallery</strong> for a coordinated display-focused wedding.</p><p><strong>Choose the Complete Package</strong> when you want the full photo experience in one booking.</p></div></section>
 
       <section className="essential-cta" aria-labelledby="essential-cta-title"><p className="eyebrow">Ready to plan yours?</p><h2 id="essential-cta-title">Bring every part of your wedding photo experience together.</h2><p>We’ll help you confirm the package, styling, photo layout and final pricing.</p><a className="hub-button hub-button--primary" href={enquiryHref} target="_blank" rel="noreferrer">Enquire about a package ↗</a></section>
       <SiteFooter />
