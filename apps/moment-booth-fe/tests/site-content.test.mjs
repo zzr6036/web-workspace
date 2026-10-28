@@ -459,5 +459,9 @@ test('publishes the wedding essential package combinations', () => {
   assert.match(page, /Frameless Rounded Corner · \$154\.00/);
   assert.match(page, /Black Walnut · \$220\.00/);
   assert.match(page, /Package price · \$XXX/);
+  assert.match(page, /essential-package-card__title-list/);
+  assert.match(page, /essential-package-card__selector/);
+  assert.match(page, /value=\{frameTypes\[item\.name\]\}/);
+  assert.match(page, /essential-package-card__includes/);
   assert.match(page, /home-products\/wedding-essential-packages\.png/);
 });

@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import SiteFooter from "../layout/SiteFooter";
 import SiteHeader from "../layout/SiteHeader";
@@ -7,6 +10,7 @@ const packages = [
   {
     name: "Photo Booth + Photo Frame",
     titleLines: ["Photo Booth", "10 Photo Frame Package"],
+    hasFrames: true,
     eyebrow: "Interactive keepsakes",
     image: "/home-products/photo-booth.png",
     description: "For celebrations that combine guest interaction with personalised tabletop memories.",
@@ -24,6 +28,7 @@ const packages = [
     name: "Photo Frame + Signature Photo Gallery",
     eyebrow: "Coordinated display",
     image: "/home-products/photo-frame.png",
+    hasFrames: true,
     description: "For a cohesive photo display across tables, welcome areas and the main venue wall.",
     includes: ["10 Photo Frame Package", "Choice of Frameless Rounded Corner or Black Walnut", "Three-panel Signature Photo Gallery", "Complimentary layout design and preview"],
     frameOriginalPrices: ["Frameless Rounded Corner · $154.00", "Black Walnut · $220.00"],
@@ -36,10 +41,12 @@ const packages = [
     includes: ["Full Photo Booth experience", "10 Photo Frame Package", "Choice of Frameless Rounded Corner or Black Walnut", "Signature Photo Gallery setup", "Coordinated printing, styling and delivery"],
     frameOriginalPrices: ["Frameless Rounded Corner · $154.00", "Black Walnut · $220.00"],
     featured: true,
+    hasFrames: true,
   },
 ];
 
 export default function WeddingEssentialPackagesPage() {
+  const [frameTypes, setFrameTypes] = useState(() => Object.fromEntries(packages.map((item) => [item.name, "Frameless Rounded Corner"])));
   const enquiryHref = `${whatsappHref}%20I%27d%20like%20to%20compare%20your%20Wedding%20Essential%20Packages%20and%20learn%20what%20is%20included%20in%20each%20option.`;
 
   return (
@@ -62,7 +69,7 @@ export default function WeddingEssentialPackagesPage() {
             <article className={`essential-package-card${item.featured ? " is-featured" : ""}`} key={item.name}>
               {item.featured && <span className="essential-package-card__badge">Most complete</span>}
               <Image src={item.image} alt="" width={800} height={560} />
-              <div className="essential-package-card__body"><p className="eyebrow">{item.eyebrow}</p><h3>{item.titleLines ? item.titleLines.map((line) => <span key={line}>{line}</span>) : item.name}</h3><p>{item.description}</p><h4>Includes</h4><ul>{item.includes.map((entry) => <li key={entry}>{entry}</li>)}</ul><div className="essential-package-card__price">{item.frameOriginalPrices ? <><s>10 Photo Frame Package original price</s>{item.frameOriginalPrices.map((price) => <span key={price}>{price}</span>)}</> : <s>Original package price · $XXX</s>}<strong>Package price · $XXX</strong></div><a className="hub-button hub-button--primary" href={enquiryHref} target="_blank" rel="noreferrer">Enquire ↗</a></div>
+              <div className="essential-package-card__body"><p className="eyebrow">{item.eyebrow}</p><h3>{item.titleLines ? <ul className="essential-package-card__title-list">{item.titleLines.map((line) => <li key={line}>{line}</li>)}</ul> : item.name}</h3><p>{item.description}</p><h4>Includes</h4><ul className="essential-package-card__includes">{item.includes.map((entry) => entry === "Choice of Frameless Rounded Corner or Black Walnut" ? <li key={entry}>10 Photo Frame Package <em>(Frameless Rounded Corner or Black Walnut)</em></li> : <li key={entry}>{entry}</li>)}</ul><div className="essential-package-card__selector"><label htmlFor={`frame-type-${item.name}`}>Frame type</label><select id={`frame-type-${item.name}`} value={frameTypes[item.name]} onChange={(event) => setFrameTypes((current) => ({ ...current, [item.name]: event.target.value }))}><option>Frameless Rounded Corner</option><option>Black Walnut</option></select></div><div className="essential-package-card__price">{item.hasFrames ? <><s>Original price · ${frameTypes[item.name] === "Black Walnut" ? "220.00" : "154.00"}</s><small>10 Photo Frame Package · {frameTypes[item.name]}</small></> : <s>Original package price · $XXX</s>}<strong>Package price · $XXX</strong></div><a className="hub-button hub-button--primary" href={enquiryHref} target="_blank" rel="noreferrer">Enquire ↗</a></div>
             </article>
           ))}
         </div>
