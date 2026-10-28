@@ -477,4 +477,5 @@ test('publishes the wedding essential package combinations', () => {
   assert.match(styles, /\.essential-package-card__title-list \{ display: grid[\s\S]*color: var\(--purple\)[\s\S]*font-size: 25px/);
   assert.match(styles, /\.essential-package-card__title-list li::before[\s\S]*content: "-"/);
   assert.match(page, /home-products\/wedding-essential-packages\.png/);
+  assert.match(page, /wedding-essential-panel-booth\.png/);
 });

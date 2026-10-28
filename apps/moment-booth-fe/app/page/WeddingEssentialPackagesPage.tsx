@@ -24,11 +24,11 @@ const packages = [
       "HD printing and preview approval",
     ],
     framePrices: [
-      { key: "pvc", name: "Frameless Rounded Corner", price: 123.2 },
-      { key: "wooden", name: "Black Walnut", price: 220 },
+      { key: "pvc", name: "Frameless Rounded Corner", price: 138 },
+      { key: "wooden", name: "Black Walnut", price: 198 },
     ],
     boothPrice: 388,
-    packagePrices: { pvc: 460, wooden: 548 },
+    packagePrices: { pvc: 475, wooden: 526 },
   },
   {
     name: "Photo Booth + Signature Photo Gallery",
@@ -63,11 +63,11 @@ const packages = [
       "Complimentary layout design and preview",
     ],
     framePrices: [
-      { key: "pvc", name: "Frameless Rounded Corner", price: 123.2 },
-      { key: "wooden", name: "Black Walnut", price: 220 },
+      { key: "pvc", name: "Frameless Rounded Corner", price: 138 },
+      { key: "wooden", name: "Black Walnut", price: 198 },
     ],
     galleryPrice: 488,
-    packagePrices: { pvc: 550, wooden: 637 },
+    packagePrices: { pvc: 565, wooden: 618 },
   },
   {
     name: "Photo Booth + Photo Frame + Signature Photo Gallery",
@@ -87,12 +87,12 @@ const packages = [
       "Coordinated printing, styling and delivery",
     ],
     framePrices: [
-      { key: "pvc", name: "Frameless Rounded Corner", price: 123.2 },
-      { key: "wooden", name: "Black Walnut", price: 220 },
+      { key: "pvc", name: "Frameless Rounded Corner", price: 138 },
+      { key: "wooden", name: "Black Walnut", price: 198 },
     ],
     boothPrice: 388,
     galleryPrice: 488,
-    packagePrices: { pvc: 899, wooden: 986 },
+    packagePrices: { pvc: 912, wooden: 966 },
     featured: true,
     hasFrames: true,
   },
@@ -140,14 +140,11 @@ export default function WeddingEssentialPackagesPage() {
             </a>
           </div>
         </div>
-        <Image
-          className="essential-hero__image"
-          src="/home-products/wedding-essential-packages.png"
-          alt="Wedding Essential Packages combining Photo Booth, Photo Frames and Signature Photo Gallery"
-          width={1254}
-          height={1254}
-          priority
-        />
+        <div className="essential-hero__panels" aria-label="Wedding package highlights">
+          <Image src="/home-products/wedding-essential-panel-booth.png" alt="Photo Booth wedding package" width={416} height={882} priority />
+          <Image src="/home-products/wedding-essential-panel-frames.png" alt="Photo Frame wedding package" width={420} height={882} priority />
+          <Image src="/home-products/wedding-essential-panel-gallery.png" alt="Signature Photo Gallery wedding package" width={418} height={882} priority />
+        </div>
       </section>
 
       <section
@@ -210,7 +207,9 @@ export default function WeddingEssentialPackagesPage() {
                   <select
                     id={`frame-type-${item.name}`}
                     value={frameTypes[item.name]}
-                    disabled={item.name === "Photo Booth + Signature Photo Gallery"}
+                    disabled={
+                      item.name === "Photo Booth + Signature Photo Gallery"
+                    }
                     onChange={(event) =>
                       setFrameTypes((current) => ({
                         ...current,
@@ -232,8 +231,12 @@ export default function WeddingEssentialPackagesPage() {
                       (item.boothPrice ?? 0) +
                       (item.galleryPrice ?? 0);
                     const packageKey =
-                      frameTypes[item.name] === "Black Walnut" ? "wooden" : "pvc";
-                    const packagePrice = item.packagePrices?.[packageKey] ?? Math.round(originalPrice * 0.9 * 100) / 100;
+                      frameTypes[item.name] === "Black Walnut"
+                        ? "wooden"
+                        : "pvc";
+                    const packagePrice =
+                      item.packagePrices?.[packageKey] ??
+                      Math.round(originalPrice * 0.9 * 100) / 100;
                     return (
                       <>
                         <s>Original price · {formatPrice(originalPrice)}</s>
