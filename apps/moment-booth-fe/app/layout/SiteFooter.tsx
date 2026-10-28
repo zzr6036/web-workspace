@@ -6,7 +6,7 @@ import { TrackedWhatsAppLink } from '../component/TrackedWhatsApp';
 export default function SiteFooter() {
   return (
     <footer>
-      <Link className="wordmark wordmark--footer" href="/">
+      <Link className="wordmark wordmark--footer" href="/" prefetch={false}>
         <Image className="footer-logo" src="/moment-booth-logo.png" alt="Moment Booth logo" width={1536} height={1536} priority />
         <span>Moment Booth</span>
       </Link>

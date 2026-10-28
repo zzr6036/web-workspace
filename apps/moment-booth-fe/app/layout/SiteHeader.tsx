@@ -14,7 +14,7 @@ export default function SiteHeader() {
 
   return (
     <header className={`site-header${menuOpen ? " is-menu-open" : ""}`}>
-      <Link className="header-logo" href="/" aria-label="Moment Booth home">
+      <Link className="header-logo" href="/" prefetch={false} aria-label="Moment Booth home">
         <Image
           src="/moment-booth-logo.png"
           alt="Moment Booth logo"
@@ -24,12 +24,12 @@ export default function SiteHeader() {
         />
       </Link>
       <nav aria-label="Main navigation">
-        <Link href="/" onClick={closeMenu}>Home</Link>
-        <Link href="/photobooth" onClick={closeMenu}>Photo Booth</Link>
-        <Link href="/photo-frames" onClick={closeMenu}>Photo Frames</Link>
-        <Link href="/signature-photo-gallery" onClick={closeMenu}>Signature Photo Gallery</Link>
-        <Link href="/wedding-essential-packages" onClick={closeMenu}>Wedding Essential Packages</Link>
-        <Link href="/faq" onClick={closeMenu}>FAQ</Link>
+        <Link href="/" prefetch={false} onClick={closeMenu}>Home</Link>
+        <Link href="/photobooth" prefetch={false} onClick={closeMenu}>Photo Booth</Link>
+        <Link href="/photo-frames" prefetch={false} onClick={closeMenu}>Photo Frames</Link>
+        <Link href="/signature-photo-gallery" prefetch={false} onClick={closeMenu}>Signature Photo Gallery</Link>
+        <Link href="/wedding-essential-packages" prefetch={false} onClick={closeMenu}>Wedding Essential Packages</Link>
+        <Link href="/faq" prefetch={false} onClick={closeMenu}>FAQ</Link>
       </nav>
       <TrackedWhatsAppLink
         location="header"
@@ -52,12 +52,12 @@ export default function SiteHeader() {
         {menuOpen ? <X size={22} aria-hidden="true" /> : <Menu size={22} aria-hidden="true" />}
       </button>
       <div id="mobile-navigation" className="mobile-navigation" aria-hidden={!menuOpen}>
-        <Link href="/" onClick={closeMenu}>Home</Link>
-        <Link href="/photobooth" onClick={closeMenu}>Photo Booth</Link>
-        <Link href="/photo-frames" onClick={closeMenu}>Photo Frames</Link>
-        <Link href="/signature-photo-gallery" onClick={closeMenu}>Signature Photo Gallery</Link>
-        <Link href="/wedding-essential-packages" onClick={closeMenu}>Wedding Essential Packages</Link>
-        <Link href="/faq" onClick={closeMenu}>FAQ</Link>
+        <Link href="/" prefetch={false} onClick={closeMenu}>Home</Link>
+        <Link href="/photobooth" prefetch={false} onClick={closeMenu}>Photo Booth</Link>
+        <Link href="/photo-frames" prefetch={false} onClick={closeMenu}>Photo Frames</Link>
+        <Link href="/signature-photo-gallery" prefetch={false} onClick={closeMenu}>Signature Photo Gallery</Link>
+        <Link href="/wedding-essential-packages" prefetch={false} onClick={closeMenu}>Wedding Essential Packages</Link>
+        <Link href="/faq" prefetch={false} onClick={closeMenu}>FAQ</Link>
         <TrackedWhatsAppLink
           location="header"
           className="mobile-navigation__cta"

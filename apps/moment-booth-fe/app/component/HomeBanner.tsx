@@ -18,7 +18,7 @@ export default function HomeBanner() {
       </div>
       <div className="hub-hero__cards" aria-label="Our memory products">
         {cards.map(([src, title, description, href]) => (
-          <Link className="hub-service-card" href={href} key={href}>
+          <Link className="hub-service-card" href={href} prefetch={false} key={href}>
             <Image className="hub-service-card__image" src={src} alt={title} width={1254} height={1254} />
             <strong>{title}</strong>
             <small>{description}</small>

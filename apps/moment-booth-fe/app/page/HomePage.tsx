@@ -32,7 +32,7 @@ export default function HomePage() {
             guest involved from the first pose to the final print.
           </p>
           <div className="hub-section__actions">
-            <Link className="hub-text-link" href="/photobooth">
+            <Link className="hub-text-link" href="/photobooth" prefetch={false}>
               View photobooth gallery and packages ↗
             </Link>
           </div>
@@ -102,7 +102,7 @@ export default function HomePage() {
             cohesive display. Our high-definition prints deliver rich colour
             and detail—loved by couples and families alike.
           </p>
-          <Link className="hub-text-link" href="/photo-frames">
+          <Link className="hub-text-link" href="/photo-frames" prefetch={false}>
             View photo frame packages ↗
           </Link>
         </div>
@@ -138,7 +138,7 @@ export default function HomePage() {
             Delivery, setup and teardown are included, with complimentary
             layout design and photo sizing to match each panel.
           </p>
-          <Link className="hub-text-link" href="/signature-photo-gallery">
+          <Link className="hub-text-link" href="/signature-photo-gallery" prefetch={false}>
             Explore Signature Photo Gallery ↗
           </Link>
         </div>
@@ -156,7 +156,7 @@ export default function HomePage() {
           </h2>
           <p>Bring Photo Booth, Photo Frames and Signature Photo Gallery together in one coordinated wedding experience.</p>
           <p className="hub-section__supporting-copy">Choose the combination that fits your celebration, guest count, venue and preferred styling.</p>
-          <Link className="hub-text-link" href="/wedding-essential-packages">
+          <Link className="hub-text-link" href="/wedding-essential-packages" prefetch={false}>
             Explore Wedding Essential Packages ↗
           </Link>
         </div>

@@ -45,6 +45,18 @@ const componentSource = (await Promise.all([
 const layoutSource = (await Promise.all(layoutFiles.map((file) => readAppFile(`layout/${file}`)))).join('\n');
 const siteSource = [homePage, componentSource, layoutSource].join('\n');
 
+test('disables Vinext RSC prefetching for site navigation links', () => {
+  for (const source of [layoutSource, homePage, componentSource]) {
+    assert.doesNotMatch(source, /<a[^>]+href=/);
+  }
+  for (const route of ['/', '/photobooth', '/photo-frames', '/signature-photo-gallery', '/wedding-essential-packages', '/faq']) {
+    assert.match(layoutSource, new RegExp(`href="${route.replaceAll('/', '\\/')}"`));
+  }
+  assert.ok((layoutSource.match(/prefetch=\{false\}/g) ?? []).length >= 13);
+  assert.match(homePage, /prefetch=\{false\}/);
+  assert.match(componentSource, /prefetch=\{false\}/);
+});
+
 test('keeps the framework route entries small', () => {
   assert.match(pageEntry, /HomePage/);
   assert.ok(pageEntry.length < 200);
