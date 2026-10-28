@@ -456,9 +456,13 @@ test('publishes the wedding essential package combinations', () => {
   assert.doesNotMatch(page, /essential-comparison|essential-how|Compare at a glance|How to choose/);
   assert.doesNotMatch(page, /Final pricing confirmed after enquiry/);
   assert.match(page, /10 Photo Frame Package/);
-  assert.match(page, /Frameless Rounded Corner · \$154\.00/);
-  assert.match(page, /Black Walnut · \$220\.00/);
-  assert.match(page, /Package price · \$XXX/);
+  assert.match(page, /framePrices:/);
+  assert.match(page, /price: 123\.2/);
+  assert.match(page, /price: 220/);
+  assert.match(page, /boothPrice: 388/);
+  assert.match(page, /galleryPrice: 488/);
+  assert.match(page, /Math\.round\(originalPrice \* 0\.9 \* 100\)/);
+  assert.match(page, /formatPrice\(packagePrice\)/);
   assert.match(page, /essential-package-card__title-list/);
   assert.match(page, /essential-package-card__selector/);
   assert.match(page, /value=\{frameTypes\[item\.name\]\}/);
