@@ -200,8 +200,9 @@ a {
 .hub-signature h2 { max-width: 720px; white-space: normal; }
 .hub-feature-image { display: block; width: min(100%, 520px); aspect-ratio: 4 / 3; margin: auto; border-radius: 24px; object-fit: cover; box-shadow: var(--shadow); }
 .hub-signature .hub-section__supporting-copy, .hub-packages .hub-section__supporting-copy { margin-top: 10px; font-size: 15px; }
-.hub-packages { display: flex; align-items: end; justify-content: space-between; gap: 40px; }
-.hub-packages .hub-feature-image { width: min(260px, 100%); aspect-ratio: 1; }
+.hub-packages { display: grid; grid-template-columns: minmax(320px, 520px) minmax(0, 1fr); align-items: center; gap: clamp(28px, 5vw, 72px); }
+.hub-packages .hub-feature-image { width: min(100%, 520px); aspect-ratio: 3 / 2; box-shadow: 0 20px 55px rgba(20,32,51,.12); -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 7%, #000 93%, transparent 100%); mask-image: linear-gradient(90deg, transparent 0%, #000 7%, #000 93%, transparent 100%); }
+.hub-packages .hub-section__heading { width: min(680px, 100%); }
 .frames-hero { padding: 110px max(4vw, 24px) 96px; background: linear-gradient(135deg, #eaf8fb, #f7f0ff); }
 .frames-hero > div { width: min(760px, 100%); margin: 0 auto; text-align: center; }
 .frames-hero h1 { margin: 14px 0 20px; font-size: clamp(44px, 6vw, 78px); line-height: .98; letter-spacing: -.06em; }
@@ -2099,7 +2100,7 @@ footer small {
   .hub-hero { min-height: auto; padding-top: 64px; padding-bottom: 48px; }
   .hub-hero h1 { font-size: 52px; }
   .hub-hero__copy > p:not(.eyebrow) { font-size: 16px; }
-  .hub-hero__actions, .hub-photobooth-preview, .hub-packages { flex-direction: column; align-items: stretch; }
+  .hub-hero__actions, .hub-photobooth-preview { flex-direction: column; align-items: stretch; }
   .hub-hero__actions .hub-button, .hub-packages .hub-button { width: 100%; }
   .hub-hero__cards { grid-template-columns: 1fr; }
   .hub-service-card { min-height: 150px; }
@@ -2115,6 +2116,9 @@ footer small {
   .hub-signature { width: 100%; display: block; padding-left: 16px; padding-right: 16px; }
   .hub-signature > div { width: min(100%, 520px); }
   .hub-signature .hub-feature-image, .hub-packages .hub-feature-image { width: min(100%, 520px); margin-top: 28px; }
+  .hub-packages { display: flex; flex-direction: column; align-items: stretch; gap: 24px; }
+  .hub-packages .hub-feature-image { order: 0; margin-top: 0; }
+  .hub-packages .hub-section__heading { order: 1; }
   .signature-hero { padding: 64px 16px 48px; }
   .signature-hero h1, .signature-hero > p:not(.eyebrow) { white-space: normal; }
   .signature-hero h1 { font-size: 52px; }

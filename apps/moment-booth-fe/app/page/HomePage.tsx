@@ -148,6 +148,7 @@ export default function HomePage() {
         className="hub-section hub-packages"
         aria-labelledby="hub-packages-title"
       >
+        <Image className="hub-feature-image" src="/home-products/wedding-essential-packages-display.png" alt="Wedding Essential Packages wedding display" width={1536} height={1024} />
         <div className="hub-section__heading">
           <p className="eyebrow">Wedding Essential Packages</p>
           <h2 id="hub-packages-title">
@@ -155,11 +156,10 @@ export default function HomePage() {
           </h2>
           <p>Bring Photo Booth, Photo Frames and Signature Photo Gallery together in one coordinated wedding experience.</p>
           <p className="hub-section__supporting-copy">Choose the combination that fits your celebration, guest count, venue and preferred styling.</p>
+          <Link className="hub-text-link" href="/wedding-essential-packages">
+            Explore Wedding Essential Packages ↗
+          </Link>
         </div>
-        <Image className="hub-feature-image" src="/home-products/wedding-essential-packages.png" alt="Wedding Essential Packages display" width={1254} height={1254} />
-        <Link className="hub-text-link" href="/wedding-essential-packages">
-          Explore Wedding Essential Packages ↗
-        </Link>
       </section>
       <SiteFooter />
     </main>
