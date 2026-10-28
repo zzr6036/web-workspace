@@ -18,6 +18,8 @@ const robotsEntry = await readAppFile('robots.ts');
 const sitemapEntry = await readAppFile('sitemap.ts');
 const styles = await readAppFile('globals.css');
 const packagesSection = await readAppFile('component/PackagesSection.tsx');
+const bookingTermsSection = await readAppFile('component/BookingTermsSection.tsx');
+const photoboothPage = await readAppFile('page/PhotoboothPage.tsx');
 const optionalAddOnsSection = await readAppFile('component/OptionalAddOnsSection.tsx');
 const addOnProductsSection = await readAppFile('component/AddOnProductsSection.tsx');
 const heroSection = await readAppFile('component/HeroSection.tsx');
@@ -56,6 +58,10 @@ test('organises the home page into page, layout, and component folders', () => {
     assert.ok(componentFiles.includes(file), `missing ${file}`);
   }
   assert.match(homePage, /<PackagesPreviewSection \/>/);
+  assert.match(packagesSection, /Additional hours: <strong>\$200\/hour<\/strong>/);
+  assert.match(bookingTermsSection, /Weather and outdoor events/);
+  assert.match(bookingTermsSection, /No refund will be provided/);
+  assert.match(photoboothPage, /<BookingTermsSection \/>/);
   assert.doesNotMatch(homePage, /<PackagesSection \/>|<OptionalAddOnsSection \/>|<AddOnProductsSection \/>/);
   assert.doesNotMatch(homePage, /<FAQSection \/>/);
   assert.match(homePage, /gallery-collection-group/);
@@ -442,7 +448,7 @@ test('tracks production WhatsApp conversion locations', () => {
   }
 });
 
-test('publishes the wedding essential package combinations', () => {
+test('publishes the wedding essential package combinations', async () => {
   const page = await readAppFile('page/WeddingEssentialPackagesPage.tsx');
   for (const packageName of [
     'Photo Booth + Photo Frame',

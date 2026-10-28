@@ -10,6 +10,10 @@ import { SectionHeading } from "elij-ui-library";
 
 const includedFeatures = [
   {
+    title: "Photo Print Bags",
+    description: "One printed bag is included with each package so guests can carry their photos home.",
+  },
+  {
     title: "Unlimited Instant Prints",
     description: "Keep the photos coming throughout your booked booth time.",
   },
@@ -54,7 +58,7 @@ const rentalFeatures = includedFeatures.filter(
 const packages = [
   {
     name: "2 Hours",
-    price: "$368",
+    price: "$388",
     note: "Promotional package",
     description:
       "A complete photo booth experience for intimate celebrations and focused event programmes.",
@@ -62,7 +66,7 @@ const packages = [
   },
   {
     name: "3 Hours",
-    price: "$538",
+    price: "$568",
     note: "Promotional package",
     description:
       "More time for larger guest lists, weddings, corporate events, and full celebrations.",
@@ -71,7 +75,7 @@ const packages = [
   },
   {
     name: "4 Hours",
-    price: "$698",
+    price: "$738",
     note: "Extended package",
     description:
       "Extended coverage for large celebrations, full-day programmes, and events with a steady guest flow.",
@@ -97,6 +101,9 @@ export default function PackagesSection() {
         title="Simple, transparent pricing."
         description="No minimum booking hours, no hidden charges, and free setup and teardown."
       />
+      <p className="packages-overtime-note">
+        Additional hours: <strong>$200/hour</strong>, subject to crew and equipment availability.
+      </p>
       <div className="packages-grid">
         {packages.map((item) => (
           <Card
