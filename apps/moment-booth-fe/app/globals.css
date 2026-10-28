@@ -235,12 +235,12 @@ a {
 .essential-package-card__body > p:not(.eyebrow) { min-height: 72px; margin: 0; color: var(--muted); font-size: 14px; line-height: 1.5; }
 .essential-package-card__body h4 { margin: 22px 0 10px; font-size: 13px; text-transform: uppercase; letter-spacing: .08em; }
 .essential-package-card__body ul { display: grid; gap: 8px; margin: 0; padding-left: 18px; color: var(--muted); font-size: 13px; line-height: 1.4; }
-.essential-package-card__includes { min-height: 112px; }
+.essential-package-card__includes { height: 148px; align-content: start; }
 .essential-package-card__includes em { color: #9b8bf4; font-style: italic; }
-.essential-package-card__selector { display: grid; gap: 6px; min-height: 66px; margin-top: 20px; }
+.essential-package-card__selector { display: grid; gap: 6px; height: 66px; margin-top: 20px; }
 .essential-package-card__selector label { color: var(--navy); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; }
 .essential-package-card__selector select { width: 100%; padding: 11px 12px; border: 1px solid var(--line); border-radius: 10px; background: #fff; color: var(--navy); font: inherit; font-size: 13px; }
-.essential-package-card__price { display: grid; gap: 6px; margin-top: auto; padding-top: 22px; }
+.essential-package-card__price { display: grid; gap: 6px; height: 86px; margin-top: 22px; padding-top: 0; }
 .essential-package-card__price s, .essential-package-card__price small { color: var(--muted); font-size: 12px; }
 .essential-package-card__price span { color: var(--muted); font-size: 12px; }
 .essential-package-card__price strong { color: var(--purple); font-size: 20px; }

@@ -14,7 +14,7 @@ const packages = [
     eyebrow: "Interactive keepsakes",
     image: "/home-products/photo-booth.png",
     description: "For celebrations that combine guest interaction with personalised tabletop memories.",
-    includes: ["Photo Booth experience", "10 Photo Frame Package", "Choice of Frameless Rounded Corner or Black Walnut", "HD printing and preview approval"],
+    includes: ["Photo Booth experience", "Choice of Frameless Rounded Corner or Black Walnut", "HD printing and preview approval"],
     frameOriginalPrices: ["Frameless Rounded Corner · $154.00", "Black Walnut · $220.00"],
   },
   {
@@ -38,7 +38,7 @@ const packages = [
     eyebrow: "Most complete",
     image: "/home-products/wedding-essential-packages.png",
     description: "The complete wedding photo experience, from guest interaction to final display.",
-    includes: ["Full Photo Booth experience", "10 Photo Frame Package", "Choice of Frameless Rounded Corner or Black Walnut", "Signature Photo Gallery setup", "Coordinated printing, styling and delivery"],
+    includes: ["Full Photo Booth experience", "Choice of Frameless Rounded Corner or Black Walnut", "Signature Photo Gallery setup", "Coordinated printing, styling and delivery"],
     frameOriginalPrices: ["Frameless Rounded Corner · $154.00", "Black Walnut · $220.00"],
     featured: true,
     hasFrames: true,

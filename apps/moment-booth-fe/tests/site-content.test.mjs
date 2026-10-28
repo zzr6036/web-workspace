@@ -463,5 +463,8 @@ test('publishes the wedding essential package combinations', () => {
   assert.match(page, /essential-package-card__selector/);
   assert.match(page, /value=\{frameTypes\[item\.name\]\}/);
   assert.match(page, /essential-package-card__includes/);
+  assert.match(styles, /\.essential-package-card__includes \{ height: 148px/);
+  assert.match(styles, /\.essential-package-card__selector \{ display: grid/);
+  assert.match(styles, /\.essential-package-card__price \{ display: grid/);
   assert.match(page, /home-products\/wedding-essential-packages\.png/);
 });
