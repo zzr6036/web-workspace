@@ -466,5 +466,7 @@ test('publishes the wedding essential package combinations', () => {
   assert.match(styles, /\.essential-package-card__includes \{ height: 148px/);
   assert.match(styles, /\.essential-package-card__selector \{ display: grid/);
   assert.match(styles, /\.essential-package-card__price \{ display: grid/);
+  assert.match(styles, /\.essential-package-card__title-list \{ display: grid[\s\S]*color: var\(--purple\)[\s\S]*font-size: 25px/);
+  assert.match(styles, /\.essential-package-card__title-list li::before[\s\S]*content: "-"/);
   assert.match(page, /home-products\/wedding-essential-packages\.png/);
 });

@@ -230,8 +230,9 @@ a {
 .essential-package-card__body { display: flex; flex-direction: column; height: 100%; min-height: 470px; padding: 22px; }
 .essential-package-card__body h3 { min-height: 76px; margin: 10px 0 12px; font-size: 22px; line-height: 1.1; }
 .essential-package-card__body h3 span { display: block; }
-.essential-package-card__title-list { display: grid; gap: 4px; margin: 0; padding-left: 24px; }
-.essential-package-card__title-list li { padding-left: 2px; }
+.essential-package-card__title-list { display: grid; gap: 6px; margin: 0; padding: 0; list-style: none; color: var(--purple); font-size: 25px; }
+.essential-package-card__title-list li { position: relative; padding-left: 20px; }
+.essential-package-card__title-list li::before { position: absolute; left: 0; content: "-"; }
 .essential-package-card__body > p:not(.eyebrow) { min-height: 72px; margin: 0; color: var(--muted); font-size: 14px; line-height: 1.5; }
 .essential-package-card__body h4 { margin: 22px 0 10px; font-size: 13px; text-transform: uppercase; letter-spacing: .08em; }
 .essential-package-card__body ul { display: grid; gap: 8px; margin: 0; padding-left: 18px; color: var(--muted); font-size: 13px; line-height: 1.4; }
