@@ -5,63 +5,63 @@ export const packagePricing = {
       "sku": "6-piece-package-frameless-rounded-corner",
       "material": "Frameless Rounded Corner",
       "original": 102,
-      "price": 81.6,
+      "price": 91.8,
       "sizeNote": "12\" option applies to this frame type."
     },
     "6-piece-package-white-rounded-border": {
       "sku": "6-piece-package-white-rounded-border",
       "material": "White Rounded Border",
       "original": 94,
-      "price": 75.2,
+      "price": 84.6,
       "sizeNote": "12\" option applies to this frame type."
     },
     "6-piece-package-silver-rounded-border": {
       "sku": "6-piece-package-silver-rounded-border",
       "material": "Silver Rounded Border",
       "original": 94,
-      "price": 75.2,
+      "price": 84.6,
       "sizeNote": "12\" option applies to this frame type."
     },
     "6-piece-package-black-rounded-border": {
       "sku": "6-piece-package-black-rounded-border",
       "material": "Black Rounded Border",
       "original": 94,
-      "price": 75.2,
+      "price": 84.6,
       "sizeNote": "12\" option applies to this frame type."
     },
     "6-piece-package-gold-square-corner": {
       "sku": "6-piece-package-gold-square-corner",
       "material": "Gold Square Corner",
       "original": 172,
-      "price": 137.6,
+      "price": 154.8,
       "sizeNote": "12\" option applies to this frame type."
     },
     "6-piece-package-solid-wood-warm-walnut": {
       "sku": "6-piece-package-solid-wood-warm-walnut",
       "material": "Solid Wood - Warm Walnut",
       "original": 160,
-      "price": 73.6,
+      "price": 144,
       "sizeNote": "A4 replaces the 12\" option for this frame type."
     },
     "6-piece-package-fresh-light-wheat": {
       "sku": "6-piece-package-fresh-light-wheat",
       "material": "Fresh Light Wheat",
       "original": 148,
-      "price": 70.4,
+      "price": 133.2,
       "sizeNote": "A4 replaces the 12\" option for this frame type."
     },
     "6-piece-package-roasted-tea": {
       "sku": "6-piece-package-roasted-tea",
       "material": "Roasted Tea",
       "original": 148,
-      "price": 70.4,
+      "price": 133.2,
       "sizeNote": "A4 replaces the 12\" option for this frame type."
     },
     "6-piece-package-black-walnut": {
       "sku": "6-piece-package-black-walnut",
       "material": "Black Walnut",
       "original": 148,
-      "price": 70.4,
+      "price": 133.2,
       "sizeNote": "A4 replaces the 12\" option for this frame type."
     }
   },
@@ -70,63 +70,63 @@ export const packagePricing = {
       "sku": "8-piece-package-frameless-rounded-corner",
       "material": "Frameless Rounded Corner",
       "original": 128,
-      "price": 102.4,
+      "price": 115.2,
       "sizeNote": "12\" option applies to this frame type."
     },
     "8-piece-package-white-rounded-border": {
       "sku": "8-piece-package-white-rounded-border",
       "material": "White Rounded Border",
       "original": 120,
-      "price": 96,
+      "price": 108,
       "sizeNote": "12\" option applies to this frame type."
     },
     "8-piece-package-silver-rounded-border": {
       "sku": "8-piece-package-silver-rounded-border",
       "material": "Silver Rounded Border",
       "original": 120,
-      "price": 96,
+      "price": 108,
       "sizeNote": "12\" option applies to this frame type."
     },
     "8-piece-package-black-rounded-border": {
       "sku": "8-piece-package-black-rounded-border",
       "material": "Black Rounded Border",
       "original": 120,
-      "price": 96,
+      "price": 108,
       "sizeNote": "12\" option applies to this frame type."
     },
     "8-piece-package-gold-square-corner": {
       "sku": "8-piece-package-gold-square-corner",
       "material": "Gold Square Corner",
       "original": 220,
-      "price": 176,
+      "price": 198,
       "sizeNote": "12\" option applies to this frame type."
     },
     "8-piece-package-solid-wood-warm-walnut": {
       "sku": "8-piece-package-solid-wood-warm-walnut",
       "material": "Solid Wood - Warm Walnut",
       "original": 200,
-      "price": 105.6,
+      "price": 180,
       "sizeNote": "A4 replaces the 12\" option for this frame type."
     },
     "8-piece-package-fresh-light-wheat": {
       "sku": "8-piece-package-fresh-light-wheat",
       "material": "Fresh Light Wheat",
       "original": 184,
-      "price": 99.2,
+      "price": 165.6,
       "sizeNote": "A4 replaces the 12\" option for this frame type."
     },
     "8-piece-package-roasted-tea": {
       "sku": "8-piece-package-roasted-tea",
       "material": "Roasted Tea",
       "original": 184,
-      "price": 99.2,
+      "price": 165.6,
       "sizeNote": "A4 replaces the 12\" option for this frame type."
     },
     "8-piece-package-black-walnut": {
       "sku": "8-piece-package-black-walnut",
       "material": "Black Walnut",
       "original": 184,
-      "price": 99.2,
+      "price": 165.6,
       "sizeNote": "A4 replaces the 12\" option for this frame type."
     }
   },
@@ -135,63 +135,63 @@ export const packagePricing = {
       "sku": "10-piece-package-frameless-rounded-corner",
       "material": "Frameless Rounded Corner",
       "original": 154,
-      "price": 123.2,
+      "price": 138.6,
       "sizeNote": "12\" option applies to this frame type."
     },
     "10-piece-package-white-rounded-border": {
       "sku": "10-piece-package-white-rounded-border",
       "material": "White Rounded Border",
       "original": 146,
-      "price": 116.8,
+      "price": 131.4,
       "sizeNote": "12\" option applies to this frame type."
     },
     "10-piece-package-silver-rounded-border": {
       "sku": "10-piece-package-silver-rounded-border",
       "material": "Silver Rounded Border",
       "original": 146,
-      "price": 116.8,
+      "price": 131.4,
       "sizeNote": "12\" option applies to this frame type."
     },
     "10-piece-package-black-rounded-border": {
       "sku": "10-piece-package-black-rounded-border",
       "material": "Black Rounded Border",
       "original": 146,
-      "price": 116.8,
+      "price": 131.4,
       "sizeNote": "12\" option applies to this frame type."
     },
     "10-piece-package-gold-square-corner": {
       "sku": "10-piece-package-gold-square-corner",
       "material": "Gold Square Corner",
       "original": 268,
-      "price": 214.4,
+      "price": 241.2,
       "sizeNote": "12\" option applies to this frame type."
     },
     "10-piece-package-solid-wood-warm-walnut": {
       "sku": "10-piece-package-solid-wood-warm-walnut",
       "material": "Solid Wood - Warm Walnut",
       "original": 240,
-      "price": 137.6,
+      "price": 216,
       "sizeNote": "A4 replaces the 12\" option for this frame type."
     },
     "10-piece-package-fresh-light-wheat": {
       "sku": "10-piece-package-fresh-light-wheat",
       "material": "Fresh Light Wheat",
       "original": 220,
-      "price": 128,
+      "price": 198,
       "sizeNote": "A4 replaces the 12\" option for this frame type."
     },
     "10-piece-package-roasted-tea": {
       "sku": "10-piece-package-roasted-tea",
       "material": "Roasted Tea",
       "original": 220,
-      "price": 128,
+      "price": 198,
       "sizeNote": "A4 replaces the 12\" option for this frame type."
     },
     "10-piece-package-black-walnut": {
       "sku": "10-piece-package-black-walnut",
       "material": "Black Walnut",
       "original": 220,
-      "price": 128,
+      "price": 198,
       "sizeNote": "A4 replaces the 12\" option for this frame type."
     }
   }
