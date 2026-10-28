@@ -447,6 +447,12 @@ test('routes enquiries to WhatsApp with consistent icons', () => {
   assert.match(styles, /\.contact-section \.ui-button--primary:hover:not\(:disabled\)[\s\S]*background:\s*#d9dee7/);
 });
 
+test('allows key mobile headings and subtitles to wrap', () => {
+  assert.match(styles, /\.mobile-navigation a[\s\S]*white-space: normal/);
+  assert.match(styles, /\.hub-section__heading h2[\s\S]*white-space: normal/);
+  assert.match(styles, /\.signature-hero > p:not\(.eyebrow\)[\s\S]*white-space: normal/);
+});
+
 test('tracks production WhatsApp conversion locations', () => {
   const trackingSource = [componentSource, layoutSource].join('\n');
   assert.match(layoutEntry, /Analytics.*from ['"]@vercel\/analytics\/next['"]/);

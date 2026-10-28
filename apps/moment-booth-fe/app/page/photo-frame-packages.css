@@ -86,7 +86,7 @@
 @media (max-width: 560px) {
   .frame-packages, .frame-materials, .frame-package-summary, .frame-product-details, .frame-how-to-order, .frame-enquire, .frame-product-details-collapsed { width: min(100% - 32px, 520px); }
   .frame-packages, .frame-materials { padding: 58px 0; }
-  .frame-packages h2, .frame-packages__intro > p:not(.eyebrow) { font-size: 16px; }
+  .frame-packages h2, .frame-packages__intro > p:not(.eyebrow) { font-size: 16px; white-space: normal; overflow-wrap: anywhere; }
   .frame-package-tabs { display: flex; overflow-x: auto; padding-bottom: 6px; }
   .frame-package-tab { min-width: 270px; }
   .frame-material-showcase { grid-template-columns: 1fr; }
@@ -95,7 +95,9 @@
   .frame-material-main { min-height: auto; }
   .frame-material-selection { padding: 24px; }
   .frame-product-details-collapsed { padding: 42px 0 18px; }
-  .frame-product-details-collapsed h2 { font-size: 16px; }
+  .frame-product-details-collapsed h2 { font-size: 30px; white-space: normal; overflow-wrap: anywhere; }
+  .frame-materials h2, .frame-product-details h2, .frame-how-to-order h2, .frame-enquire h2 { white-space: normal; overflow-wrap: anywhere; }
+  .frame-materials__heading > p:not(.eyebrow), .frame-product-details p:not(.eyebrow) { white-space: normal; }
   .frame-product-details__size-grid, .frame-product-details__image-grid { grid-template-columns: 1fr; }
   .frame-product-details__size-tables { grid-template-columns: 1fr; }
   .frame-package-summary { grid-template-columns: 1fr; padding: 20px; }

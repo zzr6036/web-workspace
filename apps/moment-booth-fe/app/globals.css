@@ -1990,6 +1990,8 @@ footer small {
     color: #f7f8fb;
     font-size: 14px;
     font-weight: 700;
+    white-space: normal;
+    line-height: 1.35;
   }
   .mobile-navigation a:hover,
   .mobile-navigation a:focus-visible {
@@ -2102,7 +2104,7 @@ footer small {
   .hub-hero__cards { grid-template-columns: 1fr; }
   .hub-service-card { min-height: 150px; }
   .hub-section { width: min(100% - 32px, 520px); padding: 60px 0; }
-  .hub-section__heading h2, .frames-details h2, .section-heading .ui-title--2, .hero-benefits-heading h2 { font-size: clamp(16px, 4.2vw, 38px); white-space: nowrap; }
+  .hub-section__heading h2, .frames-details h2, .section-heading .ui-title--2, .hero-benefits-heading h2 { font-size: clamp(30px, 8vw, 42px); white-space: normal; overflow-wrap: anywhere; }
   .hub-signature h2 { font-size: clamp(34px, 8vw, 48px); white-space: normal; }
   .hub-media-grid { gap: 10px; margin-top: 26px; }
   .hub-media-carousel { width: 100vw; margin-left: calc(50% - 50vw); margin-right: 0; padding-right: 0; }
@@ -2133,6 +2135,7 @@ footer small {
   .essential-cta { width: min(100% - 32px, 520px); margin-bottom: 70px; padding: 48px 22px; }
   .signature-product { width: min(100% - 32px, 520px); grid-template-columns: 1fr; gap: 28px; padding: 58px 0 70px; }
   .signature-product__section-title { font-size: 38px; white-space: normal; }
+  .signature-hero > p:not(.eyebrow), .frames-gallery .hub-section__heading > p:not(.eyebrow) { white-space: normal; }
   .signature-product__gallery { grid-template-columns: 1fr; }
   .signature-product__gallery .signature-product__main { grid-column: 1; grid-row: 1; }
   .signature-product__main { height: auto; }
