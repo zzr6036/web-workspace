@@ -2,7 +2,6 @@
 
 import ContactSection from "../component/ContactSection";
 import BookingStepsSection from "../component/BookingStepsSection";
-import BookingTermsSection from "../component/BookingTermsSection";
 import EventTypesSection from "../component/EventTypesSection";
 import FloatingContact from "../component/FloatingContact";
 import HeroSection from "../component/HeroSection";
@@ -16,7 +15,9 @@ export default function PhotoboothPage() {
     <main>
       <SiteHeader /><FloatingContact /><HeroSection />
       <PhotoboothShowcaseTabs />
-      <PackagesPreviewSection /><BookingTermsSection /><BookingStepsSection /><EventTypesSection /><ContactSection /><SiteFooter />
+      <PackagesPreviewSection />
+      <p className="photobooth-faq-link"><a href="/faq">View booking FAQs <span>↗</span></a></p>
+      <BookingStepsSection /><EventTypesSection /><ContactSection /><SiteFooter />
     </main>
   );
 }

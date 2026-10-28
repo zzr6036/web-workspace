@@ -18,8 +18,8 @@ const robotsEntry = await readAppFile('robots.ts');
 const sitemapEntry = await readAppFile('sitemap.ts');
 const styles = await readAppFile('globals.css');
 const packagesSection = await readAppFile('component/PackagesSection.tsx');
-const bookingTermsSection = await readAppFile('component/BookingTermsSection.tsx');
 const photoboothPage = await readAppFile('page/PhotoboothPage.tsx');
+const faqSection = await readAppFile('component/FAQSection.tsx');
 const optionalAddOnsSection = await readAppFile('component/OptionalAddOnsSection.tsx');
 const addOnProductsSection = await readAppFile('component/AddOnProductsSection.tsx');
 const heroSection = await readAppFile('component/HeroSection.tsx');
@@ -59,9 +59,9 @@ test('organises the home page into page, layout, and component folders', () => {
   }
   assert.match(homePage, /<PackagesPreviewSection \/>/);
   assert.match(packagesSection, /Additional hours: <strong>\$200\/hour<\/strong>/);
-  assert.match(bookingTermsSection, /Weather and outdoor events/);
-  assert.match(bookingTermsSection, /No refund will be provided/);
-  assert.match(photoboothPage, /<BookingTermsSection \/>/);
+  assert.match(faqSection, /Weather and outdoor events/);
+  assert.match(faqSection, /No refund will be provided/);
+  assert.match(photoboothPage, /View booking FAQs/);
   assert.doesNotMatch(homePage, /<PackagesSection \/>|<OptionalAddOnsSection \/>|<AddOnProductsSection \/>/);
   assert.doesNotMatch(homePage, /<FAQSection \/>/);
   assert.match(homePage, /gallery-collection-group/);
