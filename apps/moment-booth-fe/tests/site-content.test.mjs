@@ -27,6 +27,7 @@ const badgeSection = await readAppFile('component/BadgeSection.tsx');
 const heroBenefitsSection = await readAppFile('component/HeroBenefitsSection.tsx');
 const gallerySection = await readAppFile('component/GallerySection.tsx');
 const photoFramesPage = await readAppFile('page/PhotoFramesPage.tsx');
+const photoFramePackages = await readAppFile('page/PhotoFramePackages.tsx');
 const contactSection = await readAppFile('component/ContactSection.tsx');
 const librarySection = await readAppFile('component/LibrarySection.tsx');
 const contactSource = await readAppFile('lib/contact.ts');
@@ -171,6 +172,9 @@ test('uses the original four curated photo frame set assets', async () => {
     await access(new URL(`../public/frames/home/wall-gallery-sets/${set}.png`, import.meta.url));
   }
   assert.doesNotMatch(photoFramesPage, /size-guide/);
+  assert.match(photoFramePackages, /A4 replaces the 12.*option for/);
+  assert.match(photoFramePackages, /Warm Walnut/);
+  assert.match(photoFramePackages, /https:\/\/www\.momentframesg\.com\/shop/);
 });
 
 

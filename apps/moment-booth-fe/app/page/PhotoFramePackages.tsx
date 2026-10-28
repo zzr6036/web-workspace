@@ -182,13 +182,19 @@ export default function PhotoFramePackages() {
                   </span>
                 ))}
                 <span className="frame-package-tab__note">
-                  For Solid Wood - Warm Walnut, Fresh Light Wheat, Roasted Tea
-                  and Black Walnut, A4 replaces the 12&quot; option.
+                  A4 replaces the 12&quot; option for:
+                  <span>- Warm Walnut</span>
+                  <span>- Fresh Light Wheat</span>
+                  <span>- Roasted Tea</span>
+                  <span>- Black Walnut</span>
                 </span>
               </small>
             </button>
           ))}
         </div>
+        <a className="frame-package-shop-note" href="https://www.momentframesg.com/shop" target="_blank" rel="noreferrer">
+          Need more frames or different sizes? Visit our MomentFrame website to explore more styles and options ↗
+        </a>
       </section>
 
       <section
