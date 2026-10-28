@@ -13,7 +13,7 @@
 .frame-package-tab__note { display: flex; flex-direction: column; gap: 2px; margin-top: 6px; color: #8d78e8; font-size: 11px; font-style: italic; font-weight: 500; line-height: 1.35; }
 .frame-package-tab__note > span { display: block; }
 .frame-package-shop-note { display: block; width: fit-content; max-width: 100%; margin: 26px auto 0; color: var(--navy); font-size: 14px; font-weight: 700; line-height: 1.5; text-align: center; }
-.frame-package-shop-note a { color: var(--purple); text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+.frame-package-shop-note a { color: var(--purple); text-decoration: none; }
 .frame-package-shop-note a:hover { color: #5b42d6; }
 .frame-material-selection__size-note { margin: -12px 0 18px; color: var(--purple); font-size: 13px; font-weight: 800; line-height: 1.4; }
 .frame-materials { padding: 56px 0 82px; }
