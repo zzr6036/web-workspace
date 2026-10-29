@@ -44,7 +44,7 @@ test('presents photo frame packages in the approved purchase flow', async () => 
   assert.match(page, /frames-gallery-title/);
   assert.match(page, /https:\/\/www\.momentframesg\.com\/shop/);
   assert.match(page, /Explore more custom frames on MomentFrame/);
-  assert.match(page, /Orders below \$160 are subject to a \$20 delivery fee/);
+  assert.match(page, /For photo frame orders only: orders below \$160 are subject to a \$20 delivery fee/);
   assert.match(styles, /frame-material-selection__delivery-note[\s\S]*font-style: italic/);
   assert.match(styles, /frame-material-selection__delivery-note[\s\S]*color: #8d78e8/);
   assert.match(framesPage, /icons\/whatsapp\.png/);
