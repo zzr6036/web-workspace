@@ -38,6 +38,7 @@
 .frame-material-selection__price strong { grid-row: span 2; color: var(--purple); font-size: 42px; letter-spacing: -.05em; }
 .frame-material-selection__price small { grid-column: 1; }
 .frame-material-selection .hub-button { width: 100%; text-align: center; }
+.frame-material-selection__delivery-note { margin: 14px 0 0; color: #8d78e8; font-size: 12px; font-style: italic; line-height: 1.4; text-align: center; }
 .frame-product-details-collapsed { width: min(1180px, calc(100% - 48px)); margin: 0 auto; padding: 62px 0 26px; }
 .frame-product-details-collapsed__intro { max-width: 760px; }
 .frame-product-details-collapsed h2 { margin: 12px 0 28px; font-size: clamp(32px, 4vw, 56px); line-height: 1.04; letter-spacing: -.045em; white-space: nowrap; }

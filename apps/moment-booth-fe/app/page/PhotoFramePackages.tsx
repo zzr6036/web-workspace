@@ -284,6 +284,9 @@ export default function PhotoFramePackages() {
             >
               Enquire about this selection ↗
             </a>
+            <p className="frame-material-selection__delivery-note">
+              Orders below $160 are subject to a $20 delivery fee.
+            </p>
           </aside>
         </div>
       </section>
