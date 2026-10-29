@@ -17,6 +17,7 @@ export default function SiteFooter() {
         <a href="/photo-frames">Photo Frames</a>
         <a href="/signature-photo-gallery">Signature Gallery</a>
         <a href="/wedding-essential-packages">Wedding Packages</a>
+        <a href="/gifts">Gift</a>
         <a href="/faq">FAQ</a>
         <TrackedWhatsAppLink location="footer" href={whatsappHref} target="_blank" rel="noreferrer"><Image className="whatsapp-icon" src="/icons/whatsapp.png" alt="" width={16} height={16} aria-hidden="true" /> WhatsApp</TrackedWhatsAppLink>
       </div>

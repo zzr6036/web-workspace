@@ -49,7 +49,7 @@ test('uses native anchors for navigation in the deployed Vinext runtime', () => 
   for (const source of [layoutSource, homePage, componentSource]) {
     assert.doesNotMatch(source, /from ["']next\/link["']/);
   }
-  for (const route of ['/', '/photobooth', '/photo-frames', '/signature-photo-gallery', '/wedding-essential-packages', '/faq']) {
+  for (const route of ['/', '/photobooth', '/photo-frames', '/signature-photo-gallery', '/wedding-essential-packages', '/gifts', '/faq']) {
     assert.match(layoutSource, new RegExp(`href="${route.replaceAll('/', '\\/')}"`));
   }
   assert.ok((layoutSource.match(/<a\s+href=/g) ?? []).length >= 13);

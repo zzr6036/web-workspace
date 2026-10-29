@@ -30,6 +30,7 @@ export default function SiteHeader() {
         <a href="/photo-frames" onClick={closeMenu}>Photo Frames</a>
         <a href="/signature-photo-gallery" onClick={closeMenu}>Signature Photo Gallery</a>
         <a href="/wedding-essential-packages" onClick={closeMenu}>Wedding Essential Packages</a>
+        <a href="/gifts" onClick={closeMenu}>Gift</a>
         <a href="/faq" onClick={closeMenu}>FAQ</a>
       </nav>
       <TrackedWhatsAppLink
@@ -58,6 +59,7 @@ export default function SiteHeader() {
         <a href="/photo-frames" onClick={closeMenu}>Photo Frames</a>
         <a href="/signature-photo-gallery" onClick={closeMenu}>Signature Photo Gallery</a>
         <a href="/wedding-essential-packages" onClick={closeMenu}>Wedding Essential Packages</a>
+        <a href="/gifts" onClick={closeMenu}>Gift</a>
         <a href="/faq" onClick={closeMenu}>FAQ</a>
         <TrackedWhatsAppLink
           location="header"
