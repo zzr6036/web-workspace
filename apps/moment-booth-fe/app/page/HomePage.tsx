@@ -39,18 +39,16 @@ export default function HomePage() {
         <div className="hub-media-carousel" aria-label="Photo Booth highlights">
           <video
             src="/home-media/video2.mp4"
-            autoPlay
             muted
-            loop
             playsInline
+            controls
             preload="metadata"
           />
           <video
             src="/home-media/video3.mp4"
-            autoPlay
             muted
-            loop
             playsInline
+            controls
             preload="metadata"
           />
           <HomePhotoCarousel

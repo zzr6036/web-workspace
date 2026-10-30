@@ -512,3 +512,13 @@ test('publishes the wedding essential package combinations', async () => {
   assert.match(page, /home-products\/wedding-essential-packages\.png/);
   assert.match(page, /wedding-essential-panel-booth\.png/);
 });
+
+test('keeps homepage videos paused until the visitor presses play', () => {
+  const homepageVideos = homePage.match(/<video[\s\S]*?<\/video>/g) ?? [];
+  assert.equal(homepageVideos.length, 2);
+  for (const video of homepageVideos) {
+    assert.doesNotMatch(video, /autoPlay/);
+    assert.match(video, /controls/);
+    assert.match(video, /playsInline/);
+  }
+});
