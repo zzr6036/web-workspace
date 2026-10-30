@@ -64,18 +64,6 @@ const galleryCases: GalleryCase[] = [
       "Personalised guestbook",
     ),
   },
-  {
-    title: "Family Day Celebration",
-    description:
-      "A quick look at the booth in action, from setup to shared smiles.",
-    media: [
-      {
-        src: "/gallery/day11/video3.mp4",
-        type: "video",
-        alt: "Family Day Celebration video",
-      },
-    ],
-  },
 ];
 
 export default function GallerySection() {

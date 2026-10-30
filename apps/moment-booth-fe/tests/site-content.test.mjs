@@ -163,15 +163,17 @@ test('showcases the real props and template library', () => {
 test('shows real Moment Booth event cases in the gallery', () => {
   assert.match(gallerySection, /EventCarousel/);
   assert.match(gallerySection, /media:/);
-  assert.match(gallerySection, /type: "video"/);
+  assert.doesNotMatch(gallerySection, /type: "video"/);
   assert.doesNotMatch(gallerySection, /event\.day|padStart/);
-  for (const day of ['day5', 'day6', 'day7', 'day8', 'day9', 'day11']) assert.match(gallerySection, new RegExp(day));
-  assert.match(gallerySection, /video3\.mp4/);
-  for (const title of ['Wedding keepsakes', 'Celebration details', 'Instant memories', 'Wedding day moments', 'Personalised guestbook', 'Family Day Celebration']) assert.match(gallerySection, new RegExp(title));
+  for (const day of ['day5', 'day6', 'day7', 'day8', 'day9']) assert.match(gallerySection, new RegExp(day));
+  assert.doesNotMatch(gallerySection, /day11|video3\.mp4/);
+  for (const title of ['Wedding keepsakes', 'Celebration details', 'Instant memories', 'Wedding day moments', 'Personalised guestbook']) assert.match(gallerySection, new RegExp(title));
   assert.doesNotMatch(gallerySection, /cover|modern-scene|scene-one|scene-two|scene-three/);
-  assert.equal((gallerySection.match(/day\d+/g) ?? []).filter((day, index, all) => all.indexOf(day) === index).length, 6);
+  assert.equal((gallerySection.match(/day\d+/g) ?? []).filter((day, index, all) => all.indexOf(day) === index).length, 5);
   assert.match(styles, /\.gallery-section[\s\S]*width:\s*100%/);
-  assert.match(styles, /\.gallery-cases[\s\S]*grid-template-columns:\s*repeat\(3/);
+  assert.match(styles, /\.gallery-cases[\s\S]*grid-template-columns:\s*repeat\(5/);
+  assert.match(styles, /@media \(max-width: 900px\)[\s\S]*\.gallery-cases[\s\S]*grid-template-columns:\s*repeat\(2/);
+  assert.match(styles, /@media \(max-width: 560px\)[\s\S]*\.gallery-cases[\s\S]*grid-template-columns:\s*1fr/);
   assert.match(styles, /\.event-carousel-track[\s\S]*transition:\s*transform/);
   assert.match(styles, /\.event-carousel-slide img[\s\S]*\.event-carousel-slide video/);
   assert.match(styles, /\.event-carousel-slide[\s\S]*aspect-ratio:\s*3\/4/);
