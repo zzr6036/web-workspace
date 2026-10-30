@@ -517,7 +517,11 @@ test('publishes the wedding essential package combinations', async () => {
 
 test('keeps homepage videos paused until the visitor presses play', () => {
   const homepageVideos = homePage.match(/<video[\s\S]*?<\/video>/g) ?? [];
-  assert.equal(homepageVideos.length, 2);
+  assert.equal(homepageVideos.length, 5);
+  for (const number of ['1', '2', '3', '4', '5']) {
+    assert.match(homePage, new RegExp(`/home-media/video${number}\\.mp4`));
+  }
+  assert.doesNotMatch(homePage, /HomePhotoCarousel|day6|day8|day9/);
   for (const video of homepageVideos) {
     assert.doesNotMatch(video, /autoPlay/);
     assert.match(video, /controls/);

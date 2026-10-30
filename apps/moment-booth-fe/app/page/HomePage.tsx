@@ -1,7 +1,6 @@
 import Image from "next/image";
 import SiteFooter from "../layout/SiteFooter";
 import SiteHeader from "../layout/SiteHeader";
-import HomePhotoCarousel from "../component/HomePhotoCarousel";
 import HomeBanner from "../component/HomeBanner";
 
 const wallGallerySets = [
@@ -38,47 +37,22 @@ export default function HomePage() {
         </div>
         <div className="hub-media-carousel" aria-label="Photo Booth highlights">
           <video
-            src="/home-media/video2.mp4"
+            src="/home-media/video1.mp4"
             muted
             playsInline
             controls
             preload="metadata"
           />
           <video
-            src="/home-media/video3.mp4"
+            src="/home-media/video2.mp4"
             muted
             playsInline
             controls
             preload="metadata"
           />
-          <HomePhotoCarousel
-            label="Celebration details"
-            day="day6"
-            images={["2", "3", "4", "5", "6", "7", "8", "9"]}
-          />
-          <HomePhotoCarousel
-            label="Wedding day moments"
-            day="day8"
-            images={["2", "3", "4", "5", "6", "7", "8"]}
-          />
-          <HomePhotoCarousel
-            label="Personalised guestbook"
-            day="day9"
-            images={[
-              "1",
-              "2",
-              "3",
-              "4",
-              "5",
-              "6",
-              "7",
-              "8",
-              "9",
-              "10",
-              "11",
-              "12",
-            ]}
-          />
+          <video src="/home-media/video3.mp4" muted playsInline controls preload="metadata" />
+          <video src="/home-media/video4.mp4" muted playsInline controls preload="metadata" />
+          <video src="/home-media/video5.mp4" muted playsInline controls preload="metadata" />
         </div>
       </section>
       <section
