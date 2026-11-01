@@ -3,6 +3,7 @@ export enum FrameCategoryKey {
   Bordered = "bordered",
   Signature = "signature",
   Gallery = "gallery",
+  Collage = "collage",
 }
 
 export type FrameCategory = {
@@ -41,6 +42,13 @@ export const frameCategories: FrameCategory[] = [
     detail: "A statement finish for the moments made to be seen.",
     image: "/frames/categories/gallery-wooden-frame.png",
     alt: "An ornate gallery wooden frame above a bed",
+  },
+  {
+    key: FrameCategoryKey.Collage,
+    name: "Collage Wooden Frame",
+    detail: "Multiple favourite photographs arranged together in one considered wooden frame.",
+    image: "/frames/categories/collage-wooden-frame.jpeg",
+    alt: "A wooden collage frame displaying multiple photographs",
   },
 ];
 

@@ -163,6 +163,24 @@ test('shop category cards use a compact centered name and full-width size action
   assert.match(globalStyles, /\.shop-subcategory-copy \{[^}]*flex: 0 0 112px/);
 });
 
+test('collage wooden frame catalog is wired to the S5 workbook products and assets', async () => {
+  const categories = await readFile(new URL('../app/lib/frameCategories.ts', import.meta.url), 'utf8');
+  const catalog = await readFile(new URL('../app/lib/shopCatalog.ts', import.meta.url), 'utf8');
+  const products = await readFile(new URL('../app/lib/shopProductData.ts', import.meta.url), 'utf8');
+  const slides = await readFile(new URL('../app/lib/productSlideLists.ts', import.meta.url), 'utf8');
+  assert.match(categories, /Collage = "collage"/);
+  assert.match(categories, /collage-wooden-frame\.jpeg/);
+  assert.match(catalog, /FrameCategoryKey\.Collage/);
+  assert.match(catalog, /key: "s5-t1"/);
+  assert.match(catalog, /key: "s5-t2"/);
+  assert.match(catalog, /key: "s5-t3"/);
+  assert.match(catalog, /key\.startsWith\("s5-"\).*24-WALL/);
+  assert.match(products, /MFR-S5-T1-24-WALL/);
+  assert.match(products, /MFR-S5-T3-48-WALL/);
+  assert.match(slides, /"s5-t1"/);
+  assert.match(slides, /"s5-t3"/);
+});
+
 test('quote PDF presents original and print-preview photos above the frame summary', () => {
   assert.match(quotePdf, /const nameLines = document\.splitTextToSize/);
   assert.match(quotePdf, /const detailLines = document\.splitTextToSize/);

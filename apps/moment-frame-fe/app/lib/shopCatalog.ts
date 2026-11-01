@@ -21,7 +21,7 @@ const galleryFrameSizes = ["24 in Wall Mount", "30 in Wall Mount", "36 in Wall M
 type SubcategoryInput = Omit<ShopSubcategory, "categoryKey" | "imageSku" | "sizes">;
 
 function getLeadImageSku(key: string) {
-  if (key.startsWith("s4-")) return `IMG-${key.toUpperCase()}-24-WALL`;
+  if (key.startsWith("s4-") || key.startsWith("s5-")) return `IMG-${key.toUpperCase()}-24-WALL`;
   if (key.startsWith("s3-")) return `IMG-${key.toUpperCase()}-06-STAND`;
   return `IMG-${key.toUpperCase()}-07-STAND`;
 }
@@ -69,6 +69,14 @@ const subcategoriesByCategory: Record<FrameCategoryKey, { items: SubcategoryInpu
       { key: "s4-t12", chineseName: "鎏金雅框", englishName: "Gilded Elegance" },
       { key: "s4-t13", chineseName: "韶华映框", englishName: "Golden Years Frame" },
       { key: "s4-t14", chineseName: "墨影时光", englishName: "Ink Shadow Time" },
+    ],
+  },
+  [FrameCategoryKey.Collage]: {
+    sizes: galleryFrameSizes,
+    items: [
+      { key: "s5-t1", chineseName: "黑胡桃色", englishName: "Black Walnut" },
+      { key: "s5-t2", chineseName: "银色", englishName: "Silver" },
+      { key: "s5-t3", chineseName: "浅色", englishName: "Light" },
     ],
   },
 };

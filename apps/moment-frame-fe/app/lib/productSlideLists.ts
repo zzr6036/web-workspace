@@ -545,6 +545,24 @@ export const productSlidesBySubcategory: Record<string, ProductSlide[]> = {
       "src": "/frames/product-slides/s4-t9/slide-03.png",
       "mediaType": "image"
     }
+  ],
+  "s5-t1": [
+    {
+      "src": "/frames/product-slides/s5-t1/slide-01.jpeg",
+      "mediaType": "image"
+    }
+  ],
+  "s5-t2": [
+    {
+      "src": "/frames/product-slides/s5-t2/slide-01.jpeg",
+      "mediaType": "image"
+    }
+  ],
+  "s5-t3": [
+    {
+      "src": "/frames/product-slides/s5-t3/slide-01.jpeg",
+      "mediaType": "image"
+    }
   ]
 };
 
