@@ -434,6 +434,14 @@ test('targets wedding search intent with route metadata and structured data', ()
   assert.match(faqRoute, /wedding photo booth rental in Singapore/i);
 });
 
+test('adds breadcrumb structured data and descriptive wedding photo alt text', () => {
+  for (const route of [photoboothRoute, photoFramesRoute, signatureRoute, weddingPackagesRoute, faqRoute]) {
+    assert.match(route, /BreadcrumbList/);
+    assert.match(route, /ListItem/);
+  }
+  assert.match(homePage, /Wedding photo frame set \$\{index \+ 1\}/);
+});
+
 test('includes photobooth search context in gift metadata', () => {
   assert.match(giftsRoute, /Event Gifts & Photobooth Keepsakes/);
   assert.match(giftsRoute, /personalised photobooth keepsakes/i);

@@ -20,6 +20,14 @@ export default function PhotoboothRoute() {
       description: 'Interactive wedding and event photobooth rental with instant photo prints and digital galleries.',
       url: 'https://momentboothsg.com/photobooth',
     }} />
+    <StructuredData data={{
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://momentboothsg.com/' },
+        { '@type': 'ListItem', position: 2, name: 'Wedding Photo Booth Rental', item: 'https://momentboothsg.com/photobooth' },
+      ],
+    }} />
     <PhotoboothPage />
   </>;
 }

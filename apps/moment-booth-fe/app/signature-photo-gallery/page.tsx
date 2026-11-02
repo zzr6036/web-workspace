@@ -20,6 +20,14 @@ export default function SignaturePhotoGalleryRoute() {
       description: 'A styled multi-panel wedding photo display with high-definition prints, floral hedges and space for guest messages.',
       url: 'https://momentboothsg.com/signature-photo-gallery',
     }} />
+    <StructuredData data={{
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://momentboothsg.com/' },
+        { '@type': 'ListItem', position: 2, name: 'Wedding Signature Photo Gallery', item: 'https://momentboothsg.com/signature-photo-gallery' },
+      ],
+    }} />
     <SignaturePhotoGalleryPage />
   </>;
 }

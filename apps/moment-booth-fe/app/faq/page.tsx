@@ -29,6 +29,14 @@ export default function FAQRoute() {
         ['Do you provide wedding decoration packages?', 'Our Wedding Essential Packages combine photobooth entertainment, photo prints, frames and signature gallery styling into one coordinated wedding experience.'],
       ].map(([name, text]) => ({ '@type': 'Question', name, acceptedAnswer: { '@type': 'Answer', text } })),
     }} />
+    <StructuredData data={{
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://momentboothsg.com/' },
+        { '@type': 'ListItem', position: 2, name: 'FAQ', item: 'https://momentboothsg.com/faq' },
+      ],
+    }} />
     <FAQPage />
   </>;
 }

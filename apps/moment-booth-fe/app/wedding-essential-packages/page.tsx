@@ -20,6 +20,14 @@ export default function WeddingEssentialPackagesRoute() {
       description: 'Coordinated wedding decoration packages combining photobooth entertainment, wedding photo prints, photo frames and signature photo gallery styling.',
       url: 'https://momentboothsg.com/wedding-essential-packages',
     }} />
+    <StructuredData data={{
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://momentboothsg.com/' },
+        { '@type': 'ListItem', position: 2, name: 'Wedding Essential Packages', item: 'https://momentboothsg.com/wedding-essential-packages' },
+      ],
+    }} />
     <WeddingEssentialPackagesPage />
   </>;
 }

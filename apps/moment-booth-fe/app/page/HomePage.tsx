@@ -78,11 +78,11 @@ export default function HomePage() {
           </a>
         </div>
         <div className="hub-wall-gallery__track">
-          {wallGallerySets.map((src) => (
+          {wallGallerySets.map((src, index) => (
             <article className="hub-wall-card" key={src}>
               <Image
                 src={src}
-                alt="Curated wedding photo frame gallery"
+                alt={`Wedding photo frame set ${index + 1} for a coordinated tabletop display`}
                 width={1254}
                 height={1254}
               />
