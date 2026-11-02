@@ -16,7 +16,11 @@ export default function PhotoboothPage() {
       <SiteHeader /><FloatingContact /><HeroSection />
       <PhotoboothShowcaseTabs />
       <PackagesPreviewSection />
-      <p className="photobooth-faq-link"><a href="/faq">View booking FAQs <span>↗</span></a></p>
+      <p className="photobooth-faq-link">
+        <a href="/faq">View booking FAQs <span>↗</span></a>
+        <span aria-hidden="true"> · </span>
+        <a href="/wedding-essential-packages">Explore wedding photo booth packages <span>↗</span></a>
+      </p>
       <BookingStepsSection /><EventTypesSection /><ContactSection /><SiteFooter />
     </main>
   );
