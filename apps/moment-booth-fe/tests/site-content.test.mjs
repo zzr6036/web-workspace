@@ -4,6 +4,10 @@ import test from 'node:test';
 
 const readAppFile = (path) => readFile(new URL(`../app/${path}`, import.meta.url), 'utf8');
 const pageEntry = await readAppFile('page.tsx');
+const photoboothRoute = await readAppFile('photobooth/page.tsx');
+const photoFramesRoute = await readAppFile('photo-frames/page.tsx');
+const signatureRoute = await readAppFile('signature-photo-gallery/page.tsx');
+const weddingPackagesRoute = await readAppFile('wedding-essential-packages/page.tsx');
 const homePage = await readAppFile('page/HomePage.tsx');
 const packagesPage = await readAppFile('page/PackagesPage.tsx');
 const packagesRoute = await readAppFile('packages/page.tsx');
@@ -411,6 +415,23 @@ test('provides site-specific metadata', () => {
   assert.match(layoutEntry, /metadataBase: new URL\('https:\/\/momentboothsg\.com'\)/);
   assert.match(layoutEntry, /icons:[\s\S]*\/moment-booth-logo\.png/);
   assert.match(layoutEntry, /\/og\.png/);
+  assert.match(layoutEntry, /wedding photo print Singapore/);
+  assert.match(layoutEntry, /wedding signature photo Singapore/);
+  assert.match(layoutEntry, /wedding decoration Singapore/);
+});
+
+test('targets wedding search intent with route metadata and structured data', () => {
+  assert.match(pageEntry, /Photobooth, Wedding Photo Prints & Decoration Singapore/);
+  assert.match(photoboothRoute, /Wedding Photo Booth Rental Singapore/);
+  assert.match(photoboothRoute, /application\/ld\+json/);
+  assert.match(photoFramesRoute, /Wedding Photo Prints & Custom Photo Frames Singapore/);
+  assert.match(photoFramesRoute, /Wedding Photo Prints and Custom Photo Frames/);
+  assert.match(signatureRoute, /Wedding Signature Photo Gallery Singapore/);
+  assert.match(signatureRoute, /Wedding Signature Photo Gallery/);
+  assert.match(weddingPackagesRoute, /Wedding Decoration & Photo Booth Packages Singapore/);
+  assert.match(weddingPackagesRoute, /Wedding Essential Packages/);
+  assert.match(faqRoute, /FAQPage/);
+  assert.match(faqRoute, /wedding photo booth rental in Singapore/i);
 });
 
 test('includes photobooth search context in gift metadata', () => {

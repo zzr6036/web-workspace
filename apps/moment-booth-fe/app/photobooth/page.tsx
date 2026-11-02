@@ -1,5 +1,25 @@
 import PhotoboothPage from "../page/PhotoboothPage";
+import type { Metadata } from "next";
+import StructuredData from "../component/StructuredData";
 
-export const metadata = { title: "Photobooth Rental Singapore | Moment Booth", description: "Interactive photobooth rental in Singapore with instant prints, props, on-site help and digital galleries." };
+export const metadata: Metadata = {
+  title: "Wedding Photo Booth Rental Singapore | Moment Booth",
+  description: "Book a photobooth in Singapore for weddings and events, with instant wedding photo prints, fun props, live previews, on-site help and digital galleries.",
+  alternates: { canonical: "/photobooth" },
+};
 
-export default function PhotoboothRoute() { return <PhotoboothPage />; }
+export default function PhotoboothRoute() {
+  return <>
+    <StructuredData data={{
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: 'Wedding Photo Booth Rental',
+      serviceType: 'Photobooth rental',
+      provider: { '@id': 'https://momentboothsg.com/#business' },
+      areaServed: { '@type': 'City', name: 'Singapore' },
+      description: 'Interactive wedding and event photobooth rental with instant photo prints and digital galleries.',
+      url: 'https://momentboothsg.com/photobooth',
+    }} />
+    <PhotoboothPage />
+  </>;
+}

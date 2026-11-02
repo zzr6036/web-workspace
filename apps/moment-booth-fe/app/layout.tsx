@@ -13,6 +13,10 @@ export const metadata: Metadata = {
     'wedding photobooth Singapore',
     'event photobooth Singapore',
     'instant print photobooth',
+    'wedding photo print Singapore',
+    'wedding signature photo Singapore',
+    'wedding decoration Singapore',
+    'wedding photo display Singapore',
     'Moment Booth',
   ],
   icons: {
